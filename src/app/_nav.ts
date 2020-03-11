@@ -276,7 +276,7 @@ export const navItems: INavData[] = [
 export const ShipperNavItems: INavData[] = [
     {
         name: 'Shipper Dashboard',
-        url: '/dashboard',
+        url: '/shipper/Dashboard',
         icon: 'icon-speedometer',
     },
     {

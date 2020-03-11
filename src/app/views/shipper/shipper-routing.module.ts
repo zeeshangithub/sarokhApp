@@ -7,12 +7,19 @@ import { AddshipperwearhouseComponent } from './shipperWearhouse/addshipperwearh
 import { ShipperwearhouselistComponent } from './shipperWearhouse/shipperwearhouselist/shipperwearhouselist.component';
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
 
 const routes: Routes = [
   {
 		path: '',
 		component: ShippersComponent,
   },
+  {
+		path: 'Dashboard',
+		component: ShipperDashboardComponent,
+  },
+  
   {
 		path: 'add',
 		component: AddShipperComponent,

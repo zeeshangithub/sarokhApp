@@ -12,9 +12,11 @@ import { ShipperwearhouselistComponent } from './shipperWearhouse/shipperwearhou
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 
+import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
+
 
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
