@@ -1,0 +1,67 @@
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="card card-accent-primary">
+      <div class="card-header">
+        All Orders
+      </div>
+      <div class="card-body">
+        <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
+          <thead>
+            <!-- <tr>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+                Details
+              </button>
+            </tr> -->
+            <tr>
+              <th scope="col">Order ID</th>
+              <th scope="col">Date/Time</th>
+              <th scope="col">Order Type</th>
+              <th scope="col">Classification</th>
+              <th scope="col">Shipper</th>
+           
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <!-- <td>
+                <a class="float-left" href="javascript:void(0)" data-toggle="modal" data-target="#detailsModal">
+                  <i class="far fa-file-alt" style="font-size: 18px; vertical-align: text-bottom; margin-right: 3px"></i>
+                </a>
+                <a class="float-left" href="javascript:void(0)">
+                  <i class="fas fa-angle-right" style="font-size: 28px; vertical-align: sub; margin-top: -4px;margin-right: 3px"></i>
+                </a>{{order.id}}</td> -->
+                <td>{{order.orderId}}</td>
+              <td>{{order.createdDatetime | date}}</td>
+              <td>{{order.updatedDatetime | date}}</td>
+              <td>{{order.shipmentType}}</td>
+              <td>{{order.deliveryPersonName}}</td>
+              <td>{{order.deliveryPersonContact}}</td>
+           
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

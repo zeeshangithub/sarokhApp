@@ -1,0 +1,167 @@
+<div class="card margintop50">
+    <div class="card-header">
+      Add Sarokh Warehouse
+    </div>
+    <div class="card-body">
+      <div class="wizard-container">
+        <aw-wizard>
+          <aw-wizard-step stepTitle="Warehouse Address" [canExit]="warehouseadress.valid">
+            <form class="margintop30" [formGroup]="warehouseadress">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="address">Adress</label>
+                  <input type="text" class="form-control" id="address" placeholder="Adress" formControlName="address">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="City" formControlName="city">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="country">Country</label>
+                  <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="postcode">Post Code</label>
+                  <input type="text" class="form-control" id="postcode" placeholder="Postcode" formControlName="postcode">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="longitude">Longitude</label>
+                  <input type="text" class="form-control" id="longitude" placeholder="Longitude"
+                    formControlName="longitude">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="latitude">Latitude</label>
+                  <input type="text" class="form-control" id="latitude" placeholder="Latitude" formControlName="latitude">
+                </div>
+  
+              </div>
+              <div class="btn-container float-right">
+                <button class="btn btn-success" type="button" awNextStep>Next Step</button>
+              </div>
+            </form>
+  
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="Warehouse Manager" [canExit]="warehousemanager.valid">
+            <form class="margintop30" [formGroup]="warehousemanager">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="managerName">Concern Person
+                  </label>
+                  <input type="text" class="form-control" id="managerName" placeholder="Concern Person"
+                    formControlName="managerName">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="mangerContact">Contact No</label>
+                  <input type="text" class="form-control" id="mangerContact" placeholder="Contact No"
+                    formControlName="mangerContact">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="mangerEmail">Email</label>
+                  <input type="text" class="form-control" id="mangerEmail" placeholder="Email"
+                    formControlName="mangerEmail">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="operationalTime">Operational Timing</label>
+                  <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
+                    formControlName="operationalTime">
+                </div>
+              </div>
+              <div class="btn-container float-right">
+                <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+                <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+              </div>
+            </form>
+  
+          </aw-wizard-step>
+  
+          <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid" >
+            <form  [formGroup]="amenities"  >
+              <div class="form-row">
+                <div class="form-group col-md-6" >
+                  <label>Fork Lifter</label>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="forkliftertrue"  name="forkLifter" class="custom-control-input" formControlName="forkLifter"  value="True">
+                    <label class="custom-control-label green" for="forkliftertrue">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter"  value="False">
+                    <label class="custom-control-label red" for="forklifterflase">No</label>
+                  </div>
+                </div>
+                <div class="form-group col-md-6" >
+                  <label>QR Scanner</label>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="True">
+                    <label class="custom-control-label green" for="qrscannertrue" >Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="qrscannerfalse"  name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
+                    <label class="custom-control-label red" id="qrscannerfalse" >No</label>
+                  </div>
+                </div>
+                <div class="form-group col-md-6" >
+                  <label>Thermal Printer</label>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="thermalPrintertrue"  name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="True">
+                    <label class="custom-control-label green" for="thermalPrintertrue" >Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="thermalPrinterfasle"  name="thermalPrinter" class="custom-control-input"  formControlName="thermalPrinter" value="False">
+                    <label class="custom-control-label red" for="thermalPrinterfasle" >No</label>
+                  </div>
+                </div>
+              </div>
+  
+            </form>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+              
+            </div>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="Storage Capacity" [canExit]="storagecapacity.valid">
+            <form class="margintop30" [formGroup]="storagecapacity">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="racksPerRow">Racks Per Row
+                  </label>
+                  <input type="text" class="form-control" id="racksPerRow" placeholder="Racks Per Row"
+                    formControlName="racksPerRow">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="rows">Rows</label>
+                  <input type="text" class="form-control" id="rows" placeholder="Rows"
+                    formControlName="rows">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="columnsPerRow">Email</label>
+                  <input type="text" class="form-control" id="columnsPerRow" placeholder="Columns Per Row"
+                    formControlName="columnsPerRow">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="operationalTime">Operational Timing</label>
+                  <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
+                    formControlName="operationalTime">
+                </div>
+              </div>
+              <div class="btn-container float-right">
+                <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+                <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+              </div>
+            </form>
+  
+          </aw-wizard-step>
+        </aw-wizard>
+      </div>
+    </div>
+  </div>

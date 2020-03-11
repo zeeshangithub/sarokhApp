@@ -1,0 +1,206 @@
+<div class="card margintop50">
+  <div class="card-header">
+    Dealer Signup
+  </div>
+  <div class="card-body">
+    <div class="wizard-container">
+      <aw-wizard>
+        <aw-wizard-step stepTitle="Basic Information" [canExit]="basicInfoForm.valid">
+          <form class="margintop30" [formGroup]="basicInfoForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName" required>
+                <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
+                  <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
+              </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="contact">Contact No</label>
+                <input type="text" class="form-control" id="contact" placeholder="Contact No" formControlName="contact" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Profile Picture</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="dateOfBirth">Dat of Birth</label>
+                <input type="text" class="form-control" id="dateOfBirth" placeholder="Dat of Birth" formControlName="dateOfBirth" required [owlDateTime]="dob" [owlDateTimeTrigger]="dob">
+                <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
+              </div>
+            </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-success" type="button" awNextStep>Next Step</button>
+            </div>
+          </form>
+
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="Dealer Detail" [canExit]="dealerDetailsForm.valid">
+          <form class="margintop30" [formGroup]="dealerDetailsForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="City" formControlName="city" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="postCode">Post Code</label>
+                <input type="number" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nicNumber">Iqama/NIC/Passport No</label>
+                <input type="text" class="form-control" id="nicNumber" placeholder="Iqama/NIC/Passport No" formControlName="nicNumber" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Iqama/NIC/Passport Copy Upload</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="crNumber">CR No</label>
+                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">CR Copy</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+            </div>
+          </form>
+
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="Contract Details" [canExit]="contractDetailsForm.valid">
+          <form class="margintop30" [formGroup]="contractDetailsForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="compensationClearanceDuration">Compensation Clearence Duration</label>
+                <input type="number" class="form-control" id="compensationClearanceDuration" placeholder="Compensation Clearence Duration" formControlName="compensationClearanceDuration" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="preShipmentCompensation">Pre Shipments Compensation</label>
+                <input type="number" class="form-control" id="preShipmentCompensation" placeholder="Pre Shipment Compensation" formControlName="preShipmentCompensation" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="contractStartDate">Contract Starting</label>
+                <input type="text" class="form-control" id="contractStartDate" placeholder="Contract Starting" formControlName="contractStartDate" required [owlDateTime]="contractStartDate" [owlDateTimeTrigger]="contractStartDate">
+                <owl-date-time [pickerType]="'calendar'" #contractStartDate></owl-date-time>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="contractValidToDate">Contract Valid Till</label>
+                <input type="text" class="form-control" id="contractValidToDate" placeholder="Contract Valid Till" formControlName="contractValidToDate" required [owlDateTime]="contractValidToDate" [owlDateTimeTrigger]="contractValidToDate">
+                <owl-date-time [pickerType]="'calendar'" #contractValidToDate></owl-date-time>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Upload Contract</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="bankName">Bank</label>
+                <input type="text" class="form-control" id="bankName" placeholder="Bank" formControlName="bankName" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="iban">IBAN</label>
+                <input type="text" class="form-control" id="iban" placeholder="IBAN" formControlName="iban" required>
+              </div>
+            </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+            </div>
+          </form>
+
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="Credentials" [canExit]="securityForm.valid">
+          <form class="margintop30" [formGroup]="securityForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">User ID</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="User ID">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="password">Passsword</label>
+                <input type="password" class="form-control" id="password" placeholder="Passsword" formControlName="password" required>
+              </div>
+            </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Previous Step</button>
+              <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            </div>
+          </form>
+
+        </aw-wizard-step>
+      </aw-wizard>
+    </div>
+  </div>
+</div>

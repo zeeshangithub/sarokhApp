@@ -1,0 +1,44 @@
+<div class="card card-accent-primary mt-4 users-listing">
+<div class="card-header">
+    Users
+  </div>
+  <div class="card-body">
+<table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+    <thead>
+      <!-- <tr>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+          Details
+        </button>
+      </tr> -->
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">User Type</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact</th>
+        <th scope="col">Gendar</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.roleId}}</td>
+        <td>{{user.fullName}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.contact}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.dob}}</td>
+        <td>{{user.designation}}</td>
+        <td><button class="btn btn-info">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

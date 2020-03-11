@@ -1,0 +1,63 @@
+<div class="row mt-4">
+    <div class="col-12">
+      <div class="card card-accent-primary">
+        <div class="card-header">
+          All Sarokh Wearhouse
+        </div>
+        <div class="card-body">
+          <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
+            <thead>
+              <!-- <tr>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+                  Details
+                </button>
+              </tr> -->
+              <tr>
+                <th scope="col">Wearhouse ID</th>
+                <th scope="col">Name</th>
+                <!-- <th scope="col">Shipper User</th> -->
+                <!-- <th scope="col">Classification</th>
+                <th scope="col">Shipper</th>
+                <th scope="col">Status</th>-->
+                <th scope="col">Actions</th> 
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sarokhwhlist of sarokhwearhouselist">
+            
+                <td>{{sarokhwhlist.id}}</td>
+                <td>{{sarokhwhlist.name}}</td>
+                <!-- <td *ngFor="let users of shipperlist.users">{{users.fullName}} , {{users.designation}} </td> -->
+               <!--  <td>{{order.shipperId}}</td>
+                <td>{{order.status}}</td>-->
+                <td><button (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button></td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

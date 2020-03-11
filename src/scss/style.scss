@@ -1,0 +1,53 @@
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles
+@import "~@coreui/coreui/scss/coreui";
+
+// If you want to add something do it here
+@import "custom";
+
+//importing icons 5
+@import "~font-awesome/css/font-awesome.css";
+
+//importing date time picker styles
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+.table-header{
+  background-color: #f79f38;
+  color: #000;
+  border: #ec1c24 solid 1px;
+}
+.login-testimonial-container{background-image: url(../assets/img/1.jpeg); background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;}
+  table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd > .sorting_1{background-color:#FFF;}
+  table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd{background-color:#FFF; }
+  table.dataTable.display tbody tr.even > .sorting_1, table.dataTable.order-column.stripe tbody tr.even > .sorting_1{background-color:#FFF; }
+  table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover{background-color: #FFF;}
+  table.dataTable thead th, table.dataTable thead td{border-bottom: 1px solid #f0f3ff;}
+  table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td{border-top: 1px solid #f0f3ff; color: #595d6e;}
+  table.dataTable.no-footer{border-bottom: 1px solid #f0f3ff;}
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{background: #FFF; border: none;}
+  table.dataTable tbody th, table.dataTable tbody td{padding: 15px 10px;}
+  .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{background: #5d78ff; color: #FFF !important;}
+  .dataTables_wrapper .dataTables_paginate .paginate_button{min-width: 30px;padding: 5px 5px;}
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover{background: #5d78ff; color: #FFF !important;border: none;}
+  .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate{color: #595d6e;}
+  .dataTables_wrapper .dataTables_paginate{padding-top: 25px;}
+  .dataTables_wrapper .dataTables_info{padding-top: 25px;}
+  table.dataTable.nowrap th, table.dataTable.nowrap td{color: #595d6e;}
+  .dataTables_wrapper .dataTables_filter input {border: 1px solid  #e2e5ec;border-radius: 4px;padding: 0.35rem 1rem;margin-bottom: 25px;}
+  a:hover{text-decoration: none;}
+  /* wizzard css */
+  aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li:not(:last-child):before {
+    background-color: #e4e7ea !important; height: 4px; top:-9px;}
+    aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li .step-indicator{width: 25px; height: 25px;top:-20px; background: e2e5ec;}
+    .wizard-container{ margin-top: 10px;}
+    .margintop50{margin-top: 50px;}
+    .margintop30{margin-top:30px;}
+    aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.navigable.done a:hover .step-indicator{width:24px;height: 24px;}
+.dark-grey{background-color: #6c757d;}
+.wizard-container button{color: #FFF;}
+.wizard-container .form-row > .col, .form-row > [class*="col-"]{padding-left: 15px; padding-right:15px;}
+.wizard-container table th,td{white-space: nowrap; text-align: center;}
