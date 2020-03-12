@@ -23,4 +23,7 @@ export class UserService {
   fetchUserRoles(){
     return this.http.get<any>(`${environment.apiURL}Role-role/get-list`);
   }
+  DeleteUser(id: string){
+    return this.http.delete<any>(`${environment.apiURL}user/delete/${id}`);
+  }
 }

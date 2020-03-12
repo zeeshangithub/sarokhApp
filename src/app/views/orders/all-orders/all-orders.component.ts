@@ -44,12 +44,12 @@ export class AllOrdersComponent implements OnInit, AfterViewInit {
 
       console.log("res" , res.data)
 
-
-     res.data.forEach(element => {
-       this.orders.push(element.shipmentOrder)
-      // console.log("order" , element.shipmentOrder)
-      // this.orders = element.shipmentOrder;
-     }); 
+      this.orders = res.data;
+    //  res.data.forEach(element => {
+    //    this.orders.push(element.shipmentOrder)
+    //   // console.log("order" , element.shipmentOrder)
+    //   // this.orders = element.shipmentOrder;
+    //  }); 
       console.log("this.orders" , this.orders)
     })
   }

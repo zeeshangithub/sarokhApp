@@ -51,6 +51,10 @@ export class ShipperwearhouselistComponent implements OnInit {
     this.shipperwearhouse.DeleteShipperWearhouse(id).subscribe( res => {
       
       console.log("res" , res)
+      if(res.status === 200){
+        this.fetchWearhouse();
+      }
+      
       
 
     })

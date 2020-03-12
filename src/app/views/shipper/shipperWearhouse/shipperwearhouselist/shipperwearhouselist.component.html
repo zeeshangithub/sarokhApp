@@ -15,10 +15,10 @@
               <tr>
                 <th scope="col">Wearhouse ID</th>
                 <th scope="col">Name</th>
-                <!-- <th scope="col">Shipper User</th> -->
-                <!-- <th scope="col">Classification</th>
-                <th scope="col">Shipper</th>
-                <th scope="col">Status</th>-->
+                <th scope="col">Manager Name</th>
+                <th scope="col">Manager Contact</th>
+                <th scope="col">Adress</th>
+                <th scope="col">City</th>
                 <th scope="col">Actions</th> 
                 
               </tr>
@@ -28,10 +28,14 @@
             
                 <td>{{shipperlist.id}}</td>
                 <td>{{shipperlist.name}}</td>
+                <td>{{shipperlist.managerName}}</td>
+                <td>{{shipperlist.mangerContact}}</td>
+                <td>{{shipperlist.address}}</td>
+                <td>{{shipperlist.city}}</td>
                 <!-- <td *ngFor="let users of shipperlist.users">{{users.fullName}} , {{users.designation}} </td> -->
                <!--  <td>{{order.shipperId}}</td>
                 <td>{{order.status}}</td>-->
-                <td><button (click)="DeleteWearhouse(shipperlist.id)">Delete</button></td> 
+                <td><button class="btn btn-primary" (click)="DeleteWearhouse(shipperlist.id)">Delete</button></td> 
               </tr>
             </tbody>
           </table>

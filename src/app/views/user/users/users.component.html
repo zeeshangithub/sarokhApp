@@ -34,8 +34,9 @@
         <td>{{user.gender}}</td>
         <td>{{user.dob}}</td>
         <td>{{user.designation}}</td>
-        <td><button class="btn btn-info">Edit</button>
-          <button class="btn btn-danger">Delete</button>
+         <td>
+          <!-- <button class="btn btn-info">Edit</button> -->
+          <button class="btn btn-danger" (click)="deleteUSer(user.id)">Delete</button>
         </td>
       </tr>
     </tbody>

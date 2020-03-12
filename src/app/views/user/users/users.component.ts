@@ -8,7 +8,7 @@ declare var $;
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-export class UsersComponent implements OnInit, AfterViewInit  {
+export class UsersComponent implements OnInit  {
   @ViewChild('dataTable') table;
   dataTable: any;
   dtOption: any = {};
@@ -36,6 +36,18 @@ export class UsersComponent implements OnInit, AfterViewInit  {
       this.users = res;
       console.log("this.users" , res)
     })
+  }
+  deleteUSer(id){
+    this.userService.DeleteUser(id).subscribe( res => {
+      
+      console.log("res" , res)
+      if(res.status === 200){
+        this.fetchUsers();
+      }
+      
+      
+
+    }) 
   }
 
 }
