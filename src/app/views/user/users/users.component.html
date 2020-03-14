@@ -12,7 +12,7 @@
       </tr> -->
       <tr>
         <th scope="col">User ID</th>
-        <th scope="col">User Type</th>
+        <!-- <th scope="col">User Type</th> -->
         <th scope="col">Full Name</th>
         <th scope="col">User Name</th>
         <th scope="col">Email</th>
@@ -25,8 +25,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>{{user.id}}</td>
-        <td>{{user.roleId}}</td>
+        <td>{{user.userId}}</td>
+        <!-- <td>{{user.roleId}}</td> -->
         <td>{{user.fullName}}</td>
         <td>{{user.userName}}</td>
         <td>{{user.email}}</td>
@@ -36,7 +36,7 @@
         <td>{{user.designation}}</td>
          <td>
           <!-- <button class="btn btn-info">Edit</button> -->
-          <button class="btn btn-danger" (click)="deleteUSer(user.id)">Delete</button>
+          <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
         </td>
       </tr>
     </tbody>

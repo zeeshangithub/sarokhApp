@@ -362,23 +362,23 @@ export const ShipperNavItems: INavData[] = [
         icon: 'icon-pie-chart'
     },
   
-    {
-        name: 'Drivers',
-        url: '/widgets',
-        icon: 'icon-calculator',
-        children: [
-            {
-                name: 'Add Drivers',
-                url: '/driver/add',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Drivers Issues',
-                url: '/base/carousels',
-                icon: 'icon-map'
-            }
-        ]
-    },
+    // {
+    //     name: 'Drivers',
+    //     url: '/widgets',
+    //     icon: 'icon-calculator',
+    //     children: [
+    //         {
+    //             name: 'Add Drivers',
+    //             url: '/driver/add',
+    //             icon: 'icon-map'
+    //         },
+    //         {
+    //             name: 'Drivers Issues',
+    //             url: '/base/carousels',
+    //             icon: 'icon-map'
+    //         }
+    //     ]
+    // },
     {
         name: 'User',
         url: '/dashboard',

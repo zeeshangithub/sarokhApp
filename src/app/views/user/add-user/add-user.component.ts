@@ -53,7 +53,7 @@ export class AddUserComponent implements OnInit {
 
   addUser(): void{
     this.userService.addUser(this.userForm.value).subscribe(res => {
-      alert('Order created successfully')
+      // alert('Order created successfully')
       this.router.navigate(['user']);
     })
   }

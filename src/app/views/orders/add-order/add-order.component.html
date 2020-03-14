@@ -31,11 +31,11 @@
                 <label for="shipmentType">Shipment Type</label>
                 <select class="form-control" id="shipmentType" formControlName="shipmentType">
                   <option value="">--- Select Shipment Type ---</option>
-                  <option value="singleReceiver">Single Receiver</option>
-                  <option value="multipleReceiver">Multiple Receiver</option>
-                  <option value="bulkOrder">Bulk Order</option>
-                  <option value="interCity">Inter City</option>
-                  <option value="bulkOrder">Bulk Pickup Last Mile</option>
+                  <option value="SingleReceiver">Single Receiver</option>
+                  <option value="MultipleReceiver">Multiple Receiver</option>
+                  <option value="BulkOrder">Bulk Order</option>
+                  <option value="InterCity">Inter City</option>
+                  <option value="BulkPickupLastMile">Bulk Pickup Last Mile</option>
                 </select>
               </div>
             </div>
@@ -48,6 +48,24 @@
         <aw-wizard-step stepTitle="Pick Up/Drop off Type Details" (stepEnter)="fetchTemplateData()">
           <form class="margintop30" [formGroup]="dropoffDetailsForm">
             <div class="form-row">
+              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses || template.dealers ">
+                <label for="city">City</label>
+                <select class="form-control" id="city" formControlName="city">
+                  <option value="">City</option>
+                  <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
+                  <option value="Rwp">Rwp</option>
+                  <option value="Isl">Isl</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses  || template.dealers">
+                <label for="zone">Zone</label>
+                <select class="form-control" id="zone" formControlName="zone">
+                  <option value="">Zone</option>
+                  <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
+                  <option value="Zone 1">Zone 1</option>
+                  <option value="Zone 2">Zone 2</option>
+                </select>
+              </div>
               <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses">
                 <label for="sarokhWarehouseId">Warehouse</label>
                 <select class="form-control" id="sarokhWarehouseId" formControlName="warehouseId" (change)="sarokhWarehouseSelected($event.target.value)">
@@ -63,7 +81,7 @@
                 </select>
               </div>
               <div class="form-group col-md-6" *ngIf="template && template.dealers">
-                <label for="shipperWarehouseId">Dealer</label>
+                <label for="shipperWarehouseId">Dealer Point</label>
                 <select class="form-control" id="shipperWarehouseId" formControlName="concernPersonId">
                   <option value="">--- Select Dealer ---</option>
                   <option [value]="dealer.id" *ngFor="let dealer of template.dealers">{{dealer.companyName}}</option>
@@ -74,15 +92,26 @@
                 <input type="text" class="form-control" autocomplete="off" id="dateTime" placeholder="Date & Time" formControlName="dateTime" [owlDateTime]="dateTime" [owlDateTimeTrigger]="dateTime">
                 <owl-date-time #dateTime></owl-date-time>
               </div>
-              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses">
+              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses || template.shipperWarehouses || template.dealers ">
                 <label for="concernPerson">Concern Person</label>
                 <select class="form-control" id="concernPersonId" formControlName="concernPersonId">
                   <option value="">--- Select Concern Person ---</option>
-                  <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option>
+                  <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
+                  <option value="Manager">Manager</option>
+                  <option value="Supervisor">Supervisor</option>
                 </select>
               </div>
-              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses">
+             
+              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses || template.dealers">
                 <label for="contactNo">Contact No</label>
+                <input type="text" class="form-control" id="contactNo" placeholder="Contact No" formControlName="contact">
+              </div>
+              <div class="form-group col-md-6" *ngIf="template && template.shipperWarehouses">
+                <label for="concernpersonname">Concern Person Name</label>
+                <input type="text" class="form-control" id="concernpersonname" placeholder="Contact No" formControlName="contact">
+              </div>
+              <div class="form-group col-md-6" *ngIf="template && template.shipperWarehouses">
+                <label for="contactNo">Address</label>
                 <input type="text" class="form-control" id="contactNo" placeholder="Contact No" formControlName="contact">
               </div>
             </div>
@@ -160,24 +189,23 @@
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Payment Mode</label>
                 <select class="form-control" id="sel1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+                  <option value="Prepaid">Prepaid</option>
+                  <option value="Full Prepaid">Full Prepaid</option>
+                  <option value="COD">COD</option>
                 </select>
               </div>
-              <div class="form-group col-md-6">
+              <!-- <div class="form-group col-md-6">
                 <label for="shipmentID">Shipment ID</label>
                 <input type="text" class="form-control" id="shipmentID" placeholder="Shipment ID">
-              </div>
+              </div> -->
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="shipmentName">Shipment Name</label>
+                <label for="shipmentName">Shipment Title</label>
                 <input type="text" class="form-control" id="shipmentName" placeholder="Shipment Name">
               </div>
               <div class="form-group col-md-6">
-                <label for="content">Content</label>
+                <label for="content">Shipment Content</label>
                 <input type="text" class="form-control" id="content" placeholder="Content">
               </div>
             </div>
@@ -191,7 +219,7 @@
                 <input type="text" class="form-control" id="deliveryCharges" placeholder="Delivery Charges">
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" *ngIf="pamentMode==COD">
               <div class="form-group col-md-6">
                 <label for="shipmentName">Receiver Billed Amount: (If COD)</label>
                 <input type="text" class="form-control" id="shipmentName" placeholder="Shipment Name">
@@ -208,7 +236,7 @@
             <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
               <thead>
                 <tr>
-                  <th scope="col">Shipment ID</th>
+                
                   <th scope="col">Shipment Title</th>
                   <th scope="col">Shipment Content</th>
                   <th scope="col">Shipment Value</th>
@@ -232,11 +260,20 @@
               </thead>
               <tbody>
                 <tr *ngFor="let shipment of shipmentDetails">
-                  <td>  <input type="text" class="form-control" placeholder="Shipment Id" [(ngModel)]="shipment.id"> </td>
+                  <!-- <td>  <input type="text" class="form-control" placeholder="Shipment Id" [(ngModel)]="shipment.id"> </td> -->
                   <td>  <input type="text" class="form-control" placeholder="Shipment Title" [(ngModel)]="shipment.shipmentTitle"> </td>
                   <td>  <input type="text" class="form-control" placeholder="Shipment Content" [(ngModel)]="shipment.shipmentContent"> </td>
                   <td>  <input type="text" class="form-control" placeholder="Shipment Value" [(ngModel)]="shipment.shipmentValue"> </td>
-                  <td>  <input type="text" class="form-control" placeholder="Payment Type" [(ngModel)]="shipment.paymentType"> </td>
+                  <td> 
+                    <select class="form-control" id="shipmentType" [(ngModel)]="shipment.paymentType" >
+                      <option value="">--- Select Shipment Type ---</option>
+                      <option value="SingleReceiver">Single Receiver</option>
+                      <option value="MultipleReceiver">Multiple Receiver</option>
+                      <option value="BulkOrder">Bulk Order</option>
+                      <option value="InterCity">Inter City</option>
+                      <option value="BulkPickupLastMile">Bulk Pickup Last Mile</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" placeholder="Payment Type" [(ngModel)]="shipment.paymentType"> </td> -->
                   <td>  <input type="text" class="form-control" placeholder="Shipment Type" [(ngModel)]="shipment.shipmentType"> </td>
                   <td>  <input type="text" class="form-control" placeholder="Shipment Bill Amount" [(ngModel)]="shipment.billedAmount"> </td>
                   <td>  <input type="text" class="form-control" placeholder="Shipment Delivery Charges" [(ngModel)]="shipment.deliveryCharges"> </td>

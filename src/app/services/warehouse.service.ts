@@ -16,6 +16,6 @@ export class WarehouseService {
   }
 
   fetchShipperWarehouses(shipperId){
-    return this.http.get<any>(`${environment.apiURL}shipper-warehouse/get-list/${shipperId}`);
+    return this.http.get<any>(`${environment.apiURL}shipper-warehouse/get-list-by-shipperId/${shipperId}`);
   }
 }
