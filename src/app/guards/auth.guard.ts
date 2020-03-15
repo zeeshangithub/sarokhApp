@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(localStorage.getItem('_id')){
+      if(localStorage.getItem('_id') || localStorage.getItem('id')){
         return true;
       }
       alert('Session expired. Please Login again!');

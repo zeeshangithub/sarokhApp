@@ -93,9 +93,21 @@
                   formControlName="mangerEmail">
               </div>
               <div class="form-group col-md-6">
-                <label for="operationalTime">Operational Timing</label>
+                <label for="operationalTimeto">Operationl Time</label>
+                <div class="col">
+                  <span>To</span>
+                            <input type="text" class="form-control" placeholder="Operational Time To" formControlName="operationalTimeto" [owlDateTime]="operationalTimeto" [owlDateTimeTrigger]="operationalTimeto" [ngClass]="{ 'is-invalid': submitted && f.operationalTimeto.errors }" required>
+                            <owl-date-time [pickerType]="'timer'" #operationalTimeto></owl-date-time>
+                          
+                        </div>
+                        <div class="col">
+                          <span>From</span>
+                          <input type="text" class="form-control" placeholder="Operational Time From" formControlName="operationalTimefrom" [owlDateTime]="operationalTimefrom" [owlDateTimeTrigger]="operationalTimefrom" [ngClass]="{ 'is-invalid': submitted && f.operationalTimefrom.errors }" required>
+                          <owl-date-time [pickerType]="'timer'" #operationalTimefrom></owl-date-time>
+                        </div>
+                <!-- <label for="operationalTime">Operational Timing</label>
                 <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
-                  formControlName="operationalTime">
+                  formControlName="operationalTime"> -->
               </div>
             </div>
             <div class="btn-container float-right">

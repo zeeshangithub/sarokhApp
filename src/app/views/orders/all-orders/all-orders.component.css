@@ -1,48 +1,65 @@
 table {
-    width: 100%;
-  }
-  
-  tr.example-detail-row {
-    height: 0;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):hover {
-    background: whitesmoke;
-  }
-  
-  tr.example-element-row:not(.example-expanded-row):active {
-    background: #efefef;
-  }
-  
-  .example-element-row td {
-    border-bottom-width: 0;
-  }
-  
-  .example-element-detail {
-    overflow: hidden;
-    display: flex;
-  }
-  
-  .example-element-diagram {
-    min-width: 80px;
-    border: 2px solid black;
-    padding: 8px;
-    font-weight: lighter;
-    margin: 8px 0;
-    height: 104px;
-  }
-  
-  .example-element-symbol {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: normal;
-  }
-  
-  .example-element-description {
-    padding: 16px;
-  }
-  
-  .example-element-description-attribution {
-    opacity: 0.5;
-  }
-  
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+.mat-table{background: #FFF;}
+.mat-table thead{ margin-bottom: 15px;}
+.mat-header-cell{color:#595d6e;font-size: 14px;}
+.mat-elevation-z8{box-shadow: none;}
+.mat-cell, .mat-footer-cell{color:#595d6e}
+.mat-table th, td{text-align: left;}
+.mat-table td{ padding-bottom: 15px;}
+.mat-table th{border-bottom: 1px solid #f0f3ff; font-weight: bold;}
+.mat-table tr{border-bottom: 1px solid #f0f3ff;}
+.mat-table .mat-row:hover{background: none !important;}
+table.mat-table tbody tr:first-child{padding-top: 15px !important;}
+.example-element-detail{display: grid; margin-left: 20px; margin-top: 15px;}
+.mat-table td.mat-column-expandedDetail{padding-bottom: 0;}
+.shipment-order{margin-bottom: 25px;}
+.shipment-order label{width: 120px; float: left;}
+.shipment-order-detail{float: left; width: 260px;}
+.paddingbottom10{padding-bottom: 10px;}
+.paddingtop15{padding-top: 15px; margin-bottom: 15px;}

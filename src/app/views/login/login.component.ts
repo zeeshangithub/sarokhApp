@@ -38,16 +38,22 @@ export class LoginComponent implements OnInit{
 
   login(){
     this.auth.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).subscribe(res => {
+     
+      console.log("res" , res)
       let role = '';
-      if(res && res.data){
+      if(res && res.data.role){
+
         role = res.data.role.name;
         localStorage.setItem('_id', res.data.id);
         if(role === 'Admin'){
           localStorage.setItem('role', 'admin');
-        }else if(role === 'Shipper'){
-          localStorage.setItem('role', 'shipper');
         }
         this.router.navigate(['dashboard']);
+      }
+      else if(res && res.data.user.role.name === 'Shipper') {
+        localStorage.setItem('id', res.data.id);
+        localStorage.setItem('role', 'shipper');
+        this.router.navigate(['/shipper/Dashboard']);
       }
     }, err => {
 

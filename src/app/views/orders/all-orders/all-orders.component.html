@@ -30,7 +30,7 @@
                 <a class="float-left" href="javascript:void(0)">
                   <i class="fas fa-angle-right" style="font-size: 28px; vertical-align: sub; margin-top: -4px;margin-right: 3px"></i>
                 </a>{{order.id}}</td> -->
-                <!-- <td>{{order.orderId}}
+<!-- <td>{{order.orderId}}
                 
                 </td>
 
@@ -79,57 +79,102 @@
   </div>
 </div>  -->
 
+<div class="card mt-4">
+  <div class="card-accent-primary">
+    <div class="card-header">
+      All Orders
+    </div>
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+      </ng-container>
 
-<table mat-table
-       [dataSource]="dataSource" multiTemplateDataRows
-       class="mat-elevation-z8">
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-  </ng-container>
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+          <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="">
 
-  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
-      <div class="example-element-detail"
-           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="">
-
-          <!-- <ng-container *ngFor="let rule of element.shipmentOrderItems">
+              <!-- <ng-container *ngFor="let rule of element.shipmentOrderItems">
              {{rule.shipmentTitle}} |
              {{rule.receiverName}}
         </ng-container> -->
-        <ng-container>
-        <table  class="mat-elevation-z8" >
-          <tr *ngFor="let rule of element.shipmentOrderItems">
-          <td>  {{rule.shipmentTitle}} 
-            </td>
-            <td>{{rule.receiverName}}</td>
-            <td>{{rule.shipmentOrderId}}</td>
+              <ng-container>
+                <!-- <div class="shipment-order">
+                  <h2>Shipment Orders</h2>
+                  <div class="shipment-order-detail">
+                    <strong>
+                      <label>Oder Id</label>
+                    </strong>
+                    <p>12</p>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="shipment-order-detail">
+                    <strong>
+                      <label>Oder Pickup Type</label>
+                    </strong>
+                    <p>Sarokh</p>
+                  </div>
+                </div> -->
+                <!-- <div class="clearfix"></div> -->
+                <!-- <div class="shipment-order">
+                  <div class="shipment-order-detail">
+                    <strong>
+                      <label>Shipment Type</label>
+                    </strong>
+                    <p>By mail</p>
+                  </div>
+                  <div class="shipment-order-detail">
+                    <strong>
+                      <label>Warehouse</label>
+                    </strong>
+                    <p>Sarokh Warehouse</p>
+                  </div>
+                </div> -->
+                <table class="mat-elevation-z8">
+                  <button class="btn btn-primary float-left mr-2 mb-3">Shipper Warehouse</button>
+                  <button class="btn btn-secondary float-left mr-2 mb-3">Dealer Point</button>
+                  <button class="btn btn-success float-left mr-2 mb-3">Sarokh Warehouse</button>
+                  <button class="btn btn-danger float-left mr-2 mb-3">Dealer</button>
+                  <button class="btn btn-warning float-left mr-2 mb-3">Driver Pickup</button>
+                  <button class="btn btn-info float-left mr-2 mb-3">Receiver</button>
+                  <button class="btn btn-dark float-left mr-2 mb-3">Driver Delivery</button>
+                  <!-- <tr *ngFor="let rule of element.shipmentOrderItems">
+                    <th class="paddingbottom10"> {{rule.shipmentTitle}}
+                    </th>
+                    <th class="paddingbottom10">{{rule.receiverName}}</th>
+                    <th class="paddingbottom10">{{rule.shipmentOrderId}}</th>
 
-          </tr>
-        </table>
-      </ng-container>
+                  </tr>
+                  <tr *ngFor="let rule of element.shipmentOrderItems">
+                    <td class="paddingtop15"> {{rule.shipmentTitle}}
+                    </td>
+                    <td class="paddingtop15">{{rule.receiverName}}</td>
+                    <td class="paddingtop15">{{rule.shipmentOrderId}}</td>
 
-<!-- 
+                  </tr> -->
+                </table>
+              </ng-container>
+
+              <!-- 
           <div class=""> {{element.shipmentOrderItems.trackingNumber}} </div>
            <div class="example-element-symbol"> {{element.shipmentOrderItems.shipmentTitle}} </div>
           <div class="example-element-name"> {{element.shipmentType}} </div> -->
-          <!--<div class="example-element-weight"> {{element.deliveryPersonName}} </div>
+              <!--<div class="example-element-weight"> {{element.deliveryPersonName}} </div>
           <div class="example-element-weight"> {{element.deliveryPersonName}} </div>
           <div class="example-element-weight"> {{element.deliveryPersonName}} </div> -->
-        </div>
-    
-      </div>
-    </td>
-  </ng-container>
+            </div>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
-      class="example-element-row"
-      [class.example-expanded-row]="expandedElement === element"
-      (click)="expandedElement = expandedElement === element ? null : element">
-  </tr>
-  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-</table>
+          </div>
+        </td>
+      </ng-container>
 
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row" [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+  </div>
+</div>

@@ -14,6 +14,10 @@ export class UserService {
   addUser(formData:any){
     return this.http.post<any>(`${environment.apiURL}user/add`, formData);
   }
+  
+  addShipperUser(formData:any){
+    return this.http.post<any>(`${environment.apiURL}user/add-shipper-user/`, formData);
+  }
 
   fetchUsers(){
     console.log()

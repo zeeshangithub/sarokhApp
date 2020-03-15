@@ -71,9 +71,14 @@
                     formControlName="mangerEmail">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="operationalTime">Operational Timing</label>
+  <!-- <div class="col">
+                            <input type="text" class="form-control" placeholder="DOB" formControlName="operationalTime" [owlDateTime]="dob" [owlDateTimeTrigger]="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
+                        </div> -->
+
+                  <!-- <label for="operationalTime">Operational Timing</label>
                   <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
-                    formControlName="operationalTime">
+                    formControlName="operationalTime"> -->
                 </div>
               </div>
               <div class="btn-container float-right">
@@ -148,11 +153,11 @@
                   <input type="text" class="form-control" id="columnsPerRow" placeholder="Columns Per Row"
                     formControlName="columnsPerRow">
                 </div>
-                <div class="form-group col-md-6">
+                <!-- <div class="form-group col-md-6">
                   <label for="operationalTime">Operational Timing</label>
                   <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
                     formControlName="operationalTime">
-                </div>
+                </div> -->
               </div>
               <div class="btn-container float-right">
                 <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>

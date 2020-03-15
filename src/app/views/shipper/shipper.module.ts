@@ -22,6 +22,7 @@ import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard
     ReactiveFormsModule,
     ShipperRoutingModule,
     ArchwizardModule,
+    OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     ReactiveFormsModule
   ]

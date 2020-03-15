@@ -68,15 +68,20 @@ export class AddshipperwearhouseComponent implements OnInit {
     })
   }
   initializeWarehouseManager(){
+    let operationalTime
     let shipperId =  localStorage.getItem('_id')
     this.warehousemanager = this.formbuilder.group({
       managerName: ['', [Validators.required]],
       mangerContact: [''],
       mangerEmail: [''],
-      operationalTime: ['', [Validators.required]],
-      shipperId: shipperId  
+      operationalTimeto: ['', [Validators.required]],
+      operationalTimefrom: ['' , Validators.required],
+      shipperId: shipperId  ,
+      // operationalTime : 'operationalTimefrom' + 'operationalTimefrom'      
     })
+    //  console.log("this.warehousemanager.get(['operationalTimeto','operationalTimefrom']).value" , this.warehousemanager.get(['operationalTimeto','operationalTimefrom']).value);
   }
+
   shipperWarehouseSelected(warehouse): void {
     this.template.users = [];
     this.template.shipperWarehouses.forEach(element => {
@@ -92,9 +97,7 @@ export class AddshipperwearhouseComponent implements OnInit {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
       amminitie : this.amenities.value,
-        
-
-    
+      
     }
     console.log("fullFormData" , fullFormData)
     const fullRequest = {
@@ -104,11 +107,11 @@ export class AddshipperwearhouseComponent implements OnInit {
     };
     
     console.log("fullFormData" , fullRequest)
-    this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
-      console.log("res" , res)
-      alert('Order created successfully')
-      this.router.navigate(['shipper/shipperwearhouselist']);
-    })
+    // this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
+    //   console.log("res" , res)
+    //   alert('Order created successfully')
+    //   this.router.navigate(['shipper/shipperwearhouselist']);
+    // })
 
   }
 

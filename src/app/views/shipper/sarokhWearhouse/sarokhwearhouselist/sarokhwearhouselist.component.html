@@ -15,10 +15,10 @@
               <tr>
                 <th scope="col">Wearhouse ID</th>
                 <th scope="col">Name</th>
-                <!-- <th scope="col">Shipper User</th> -->
-                <!-- <th scope="col">Classification</th>
-                <th scope="col">Shipper</th>
-                <th scope="col">Status</th>-->
+                <th scope="col">Manager Name</th>
+                <th scope="col">Manager Contact</th>
+                <th scope="col">Adress</th>
+                <th scope="col">City</th>
                 <th scope="col">Actions</th> 
                 
               </tr>
@@ -32,7 +32,7 @@
                 <td>{{sarokhwhlist.mangerContact}}</td>
                 <td>{{sarokhwhlist.address}}</td>
                 <td>{{sarokhwhlist.city}}</td>
-                <td><button (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button></td> 
+                <td><button class="btn btn-danger" (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button></td> 
               </tr>
             </tbody>
           </table>
