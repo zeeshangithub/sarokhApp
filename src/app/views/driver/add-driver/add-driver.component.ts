@@ -18,15 +18,15 @@ export class AddDriverComponent implements OnInit {
   securityForm: FormGroup;
 
   fullFormsInfo = {
-    basicInfo:{},
-    credentials:{},
-    driverDetails:{},
-    employeeDriverDetails:{},
-    freelanceDriverVehicle:{},
-    driverType:''
+    basicInfo: {},
+    credentials: {},
+    driverDetails: {},
+    employeeDriverDetails: {},
+    freelanceDriverVehicle: {},
+    driverType: ''
   }
 
-  constructor(private formbuilder: FormBuilder, private driverService: DriverService, private router: Router,) { }
+  constructor(private formbuilder: FormBuilder, private driverService: DriverService, private router: Router, ) { }
 
   ngOnInit(): void {
     this.initializeBasicInformationForm();
@@ -36,7 +36,7 @@ export class AddDriverComponent implements OnInit {
     this.initializeSecurityForm();
   }
 
-  initializeBasicInformationForm(){
+  initializeBasicInformationForm() {
     this.basicInfoForm = this.formbuilder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -47,7 +47,7 @@ export class AddDriverComponent implements OnInit {
     })
   }
 
-  initializeDriverDetailsForm(){
+  initializeDriverDetailsForm() {
     this.driverDetailsForm = this.formbuilder.group({
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
@@ -62,7 +62,7 @@ export class AddDriverComponent implements OnInit {
     })
   }
 
-  initializeVehicleDetailsForm(){
+  initializeVehicleDetailsForm() {
     this.vehicleDetailsForm = this.formbuilder.group({
       cargoCapacity: ['', [Validators.required]],
       make: ['', [Validators.required]],
@@ -76,7 +76,7 @@ export class AddDriverComponent implements OnInit {
     })
   }
 
-  initializeEmployeeFreelancerDetailsForm(){
+  initializeEmployeeFreelancerDetailsForm() {
     this.employeeFreelancerDetailsForm = this.formbuilder.group({
       bank: ['', [Validators.required]],
       compensation: [0, [Validators.required]],
@@ -88,14 +88,14 @@ export class AddDriverComponent implements OnInit {
     })
   }
 
-  initializeSecurityForm(){
+  initializeSecurityForm() {
     this.securityForm = this.formbuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
   }
 
-  finishFunction(){
+  finishFunction() {
     this.fullFormsInfo.basicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.credentials = this.securityForm.value;
     this.fullFormsInfo.driverDetails = this.driverDetailsForm.value;
@@ -104,10 +104,9 @@ export class AddDriverComponent implements OnInit {
     this.submit();
   }
   submit() {
-    this.driverService.addDriver(this.fullFormsInfo).subscribe( res => {
+    this.driverService.addDriver(this.fullFormsInfo).subscribe(res => {
       this.router.navigate(['driver']);
     }, err => {
-
     })
   }
 

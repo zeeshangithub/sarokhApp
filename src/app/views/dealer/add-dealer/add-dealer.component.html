@@ -13,7 +13,7 @@
                 <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName" required>
                 <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
                   <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
-              </div>
+                </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
@@ -45,7 +45,8 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="dateOfBirth">Dat of Birth</label>
-                <input type="text" class="form-control" id="dateOfBirth" placeholder="Dat of Birth" formControlName="dateOfBirth" required [owlDateTime]="dob" [owlDateTimeTrigger]="dob">
+                <input type="text" class="form-control" id="dateOfBirth" placeholder="Dat of Birth" formControlName="dateOfBirth" required
+                  [owlDateTime]="dob" [owlDateTimeTrigger]="dob">
                 <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
               </div>
             </div>
@@ -125,22 +126,26 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="compensationClearanceDuration">Compensation Clearence Duration</label>
-                <input type="number" class="form-control" id="compensationClearanceDuration" placeholder="Compensation Clearence Duration" formControlName="compensationClearanceDuration" required>
+                <input type="number" class="form-control" id="compensationClearanceDuration" placeholder="Compensation Clearence Duration"
+                  formControlName="compensationClearanceDuration" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="preShipmentCompensation">Pre Shipments Compensation</label>
-                <input type="number" class="form-control" id="preShipmentCompensation" placeholder="Pre Shipment Compensation" formControlName="preShipmentCompensation" required>
+                <input type="number" class="form-control" id="preShipmentCompensation" placeholder="Pre Shipment Compensation" formControlName="preShipmentCompensation"
+                  required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="contractStartDate">Contract Starting</label>
-                <input type="text" class="form-control" id="contractStartDate" placeholder="Contract Starting" formControlName="contractStartDate" required [owlDateTime]="contractStartDate" [owlDateTimeTrigger]="contractStartDate">
+                <input type="text" class="form-control" id="contractStartDate" placeholder="Contract Starting" formControlName="contractStartDate"
+                  required [owlDateTime]="contractStartDate" [owlDateTimeTrigger]="contractStartDate">
                 <owl-date-time [pickerType]="'calendar'" #contractStartDate></owl-date-time>
               </div>
               <div class="form-group col-md-6">
                 <label for="contractValidToDate">Contract Valid Till</label>
-                <input type="text" class="form-control" id="contractValidToDate" placeholder="Contract Valid Till" formControlName="contractValidToDate" required [owlDateTime]="contractValidToDate" [owlDateTimeTrigger]="contractValidToDate">
+                <input type="text" class="form-control" id="contractValidToDate" placeholder="Contract Valid Till" formControlName="contractValidToDate"
+                  required [owlDateTime]="contractValidToDate" [owlDateTimeTrigger]="contractValidToDate">
                 <owl-date-time [pickerType]="'calendar'" #contractValidToDate></owl-date-time>
               </div>
             </div>
@@ -178,10 +183,10 @@
         <aw-wizard-step stepTitle="Credentials" [canExit]="securityForm.valid">
           <form class="margintop30" [formGroup]="securityForm">
             <div class="form-row">
-              <div class="form-group col-md-6">
+              <!-- <div class="form-group col-md-6">
                 <label for="inputEmail4">User ID</label>
                 <input type="email" class="form-control" id="inputEmail4" placeholder="User ID">
-              </div>
+              </div> -->
               <div class="form-group col-md-6">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username" required>

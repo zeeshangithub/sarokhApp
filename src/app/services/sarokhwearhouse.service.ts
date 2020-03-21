@@ -21,4 +21,11 @@ export class SarokhwearhouseService {
   DeleteSarokhWearhouse(id: string){
     return this.http.delete<any>(`${environment.apiURL}/sarokh-warehouse/delete/${id}`, {});
   }
+  fetchSingleWarehouse(id: string) {
+    return this.http.get<any>(`${environment.apiURL}sarokh-warehouse/get-details/${id}`);
+  }
+  updateSarokhWearhouse(sarokhwarehouse){
+ 
+    return this.http.put<any>(`${environment.apiURL}shipper-warehouse/update` , sarokhwarehouse);
+  } 
 }

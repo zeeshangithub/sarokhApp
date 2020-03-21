@@ -11,16 +11,31 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  addUser(formData:any){
+  addUser(formData: any) {
     return this.http.post<any>(`${environment.apiURL}user/add`, formData);
   }
 
-  fetchUsers(){
+  addShipperUser(formData: any) {
+    return this.http.post<any>(`${environment.apiURL}user/add-shipper-user/`, formData);
+  }
+
+  fetchUsers() {
     console.log()
     return this.http.get<any>(`${environment.apiURL}user/get-list`);
-  } 
+  }
 
-  fetchUserRoles(){
+  fetchUserRoles() {
     return this.http.get<any>(`${environment.apiURL}Role-role/get-list`);
   }
+  DeleteUser(id: string) {
+    return this.http.delete<any>(`${environment.apiURL}user/delete/${id}`);
+  }
+
+  fetchSingleUser(id: string) {
+    return this.http.get<any>(`${environment.apiURL}user/get-details/${id}`);
+  }
+  updateShipperUser(formData: any) {
+    return this.http.patch<any>(`${environment.apiURL}user/update/`, formData);
+  }
+
 }

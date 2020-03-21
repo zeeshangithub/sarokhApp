@@ -1,9 +1,15 @@
-<div class="row mt-4">
+<div class="row mt-4" *ngIf="showlisting">
     <div class="col-12">
       <div class="card card-accent-primary">
-        <div class="card-header">
+        <div class="card-header" *ngIf="showlisting">
           All Sarokh Wearhouse
+        
         </div>
+        <div class="card-header" *ngIf="!showlisting">
+          Add Sarokh Wearhouse
+        
+        </div>
+        <button class="btn btn-success float-right" (click)="addNew(false)" >Add New</button>
         <div class="card-body">
           <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
             <thead>
@@ -15,10 +21,10 @@
               <tr>
                 <th scope="col">Wearhouse ID</th>
                 <th scope="col">Name</th>
-                <!-- <th scope="col">Shipper User</th> -->
-                <!-- <th scope="col">Classification</th>
-                <th scope="col">Shipper</th>
-                <th scope="col">Status</th>-->
+                <th scope="col">Manager Name</th>
+                <th scope="col">Manager Contact</th>
+                <th scope="col">Adress</th>
+                <th scope="col">City</th>
                 <th scope="col">Actions</th> 
                 
               </tr>
@@ -28,10 +34,13 @@
             
                 <td>{{sarokhwhlist.id}}</td>
                 <td>{{sarokhwhlist.name}}</td>
-                <!-- <td *ngFor="let users of shipperlist.users">{{users.fullName}} , {{users.designation}} </td> -->
-               <!--  <td>{{order.shipperId}}</td>
-                <td>{{order.status}}</td>-->
-                <td><button (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button></td> 
+                <td>{{sarokhwhlist.managerName}}</td>
+                <td>{{sarokhwhlist.mangerContact}}</td>
+                <td>{{sarokhwhlist.address}}</td>
+                <td>{{sarokhwhlist.city}}</td>
+                <td><button class="btn btn-danger" (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button>
+                  <button class="btn btn-danger" (click)="EditWarehouse(sarokhwhlist.id)">Edit</button>
+                </td> 
               </tr>
             </tbody>
           </table>
@@ -61,3 +70,4 @@
     </div>
   </div>
   
+  <app-addsarokhwearhouse *ngIf="!showlisting" (showlisting)="addNew($event)" ></app-addsarokhwearhouse>

@@ -1,2 +1,40 @@
-<button class="btn btn-success" (click)="redirectTo('dealer/add')">Add Driver</button>
-
+<div class="row mt-4">
+    <div class="col-12">
+      <div class="card card-accent-primary">
+        <div class="card-header">
+          All Dealer
+        </div>
+        <div class="card-body">
+          <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
+            <thead>
+              <!-- <tr>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+                  Details
+                </button>
+              </tr> -->
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Date Of Birth</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact</th> 
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dealers of dealerlist">
+            
+                <td>{{drivers.firstName}}</td>
+                <td>{{drivers.lastName}}</td>
+                <td>{{drivers.dateOfBirth}}</td>
+                <td>{{drivers.email}}</td>
+                <td>{{drivers.contact}}</td>
+                <td><button (click)="DeleteDriver(drivers.id)">Delete</button></td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -59,7 +59,10 @@ export class AddOrderComponent implements OnInit {
       dateTime: ['', [Validators.required]],
       warehouseId: [''],
       contact: [''],
-      concernPersonId: ['', [Validators.required]]
+      concernPersonId: ['', [Validators.required]],
+      zone: ['', [Validators.required]],
+      city: ['', [Validators.required]]
+
     })
   }
 
@@ -73,6 +76,7 @@ export class AddOrderComponent implements OnInit {
       this.dropoffDetailsForm.controls['contact'].setValidators([Validators.required]);
       this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
         if(res && res.data){
+          console.log(res)
           this.template.sarokhWarehouses = res.data;
         }
       })
@@ -80,6 +84,7 @@ export class AddOrderComponent implements OnInit {
       this.dropoffDetailsForm.controls['warehouseId'].setValidators([Validators.required]);
       this.warehouseService.fetchShipperWarehouses(localStorage.getItem('_id')).subscribe(res => {
         if(res && res.data){
+          console.log(res);
           this.template.shipperWarehouses = res.data;
         }
       })
@@ -101,6 +106,7 @@ export class AddOrderComponent implements OnInit {
     this.template.shipperWarehouses.forEach(element => {
       if(element.id == warehouse){
         this.template.users = element.users;
+        console.log("this.template.users" , this.template.users)
       }
     });
   }
@@ -132,12 +138,14 @@ export class AddOrderComponent implements OnInit {
     var fullFormData = {
       orderBasicInfo: this.orderBasicInfoForm.value,
       shipmentItems: this.shipmentDetails,
-      shipperWarehouse: pickType === 'SarokhWarehouse'? this.dropoffDetailsForm.value : null,
-      sarokhWarehouse: pickType === 'ShipperWarehouse'? this.dropoffDetailsForm.value : null,
+      shipperWarehouse: pickType === 'ShipperWarehouse'? this.dropoffDetailsForm.value : null,
+      sarokhWarehouse: pickType === 'SarokhWarehouse'? this.dropoffDetailsForm.value : null,
       dealerDropOff: pickType === 'DealerPoint'? this.dropoffDetailsForm.value : null,
     }
+    console.log("full form data" , fullFormData)
     this.orderService.addOrder(fullFormData).subscribe(res => {
-      alert('Order created successfully')
+      // alert('Order created successfully')
+      console.log("res" , res)
       this.router.navigate(['orders/allorders']);
     })
 

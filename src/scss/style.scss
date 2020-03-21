@@ -36,7 +36,7 @@
   .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate{color: #595d6e;}
   .dataTables_wrapper .dataTables_paginate{padding-top: 25px;}
   .dataTables_wrapper .dataTables_info{padding-top: 25px;}
-  table.dataTable.nowrap th, table.dataTable.nowrap td{color: #595d6e;}
+  table.dataTable.nowrap th, table.dataTable.nowrap td{color: #595d6e; text-align: center;}
   .dataTables_wrapper .dataTables_filter input {border: 1px solid  #e2e5ec;border-radius: 4px;padding: 0.35rem 1rem;margin-bottom: 25px;}
   a:hover{text-decoration: none;}
   /* wizzard css */
@@ -51,3 +51,6 @@
 .wizard-container button{color: #FFF;}
 .wizard-container .form-row > .col, .form-row > [class*="col-"]{padding-left: 15px; padding-right:15px;}
 .wizard-container table th,td{white-space: nowrap; text-align: center;}
+.dataTables_empty{
+  display: none;
+}

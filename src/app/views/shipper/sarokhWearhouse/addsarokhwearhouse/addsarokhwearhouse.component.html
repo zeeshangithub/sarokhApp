@@ -45,6 +45,9 @@
                 </div>
   
               </div>
+              <div class="btn-container float-left">
+                <button class="btn btn-success" type="button" (click)="closeAdd()">Cancle</button>
+              </div>
               <div class="btn-container float-right">
                 <button class="btn btn-success" type="button" awNextStep>Next Step</button>
               </div>
@@ -71,11 +74,17 @@
                     formControlName="mangerEmail">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="operationalTime">Operational Timing</label>
+  <!-- <div class="col">
+                            <input type="text" class="form-control" placeholder="DOB" formControlName="operationalTime" [owlDateTime]="dob" [owlDateTimeTrigger]="dob" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
+                        </div> -->
+
+                  <!-- <label for="operationalTime">Operational Timing</label>
                   <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
-                    formControlName="operationalTime">
+                    formControlName="operationalTime"> -->
                 </div>
               </div>
+              <div class="btn-container float-left"><button class="btn btn-success" type="button" (click)="closeAdd()">Cancle</button></div>
               <div class="btn-container float-right">
                 <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
                 <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
@@ -123,6 +132,7 @@
               </div>
   
             </form>
+            <div class="btn-container float-left"><button class="btn btn-success" type="button" (click)="closeAdd()">Cancle</button></div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
               <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
@@ -148,13 +158,15 @@
                   <input type="text" class="form-control" id="columnsPerRow" placeholder="Columns Per Row"
                     formControlName="columnsPerRow">
                 </div>
-                <div class="form-group col-md-6">
+                <!-- <div class="form-group col-md-6">
                   <label for="operationalTime">Operational Timing</label>
                   <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
                     formControlName="operationalTime">
-                </div>
+                </div> -->
               </div>
+              <div class="btn-container float-left"><button class="btn btn-success" type="button" (click)="updateWarehouse()">Update</button></div>
               <div class="btn-container float-right">
+
                 <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
                 <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
               </div>

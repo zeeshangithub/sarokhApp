@@ -1,8 +1,11 @@
-<div class="row mt-4">
+<div class="row mt-4"  >
     <div class="col-12">
         <div class="card card-accent-primary">
-            <div class="card-header">
+            <div *ngIf="!editUser" class="card-header">
                 Add User
+            </div>
+            <div *ngIf="editUser" class="card-header">
+                Edit User
             </div>
             <div class="card-body">
                 <form [formGroup]="userForm" (ngSubmit)="submit()">
@@ -32,7 +35,6 @@
                         </div>
                     </div>
                     <div class="form-row mb-3">
-
                         <div class="col">
                             <input type="text" class="form-control" placeholder="User Name" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" required>
                         </div>
@@ -48,12 +50,12 @@
                                 <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
                             </select>
                         </div>
-
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
+                    <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+                    <button *ngIf="editUser" type="button" class="btn btn-warning" (click)="updateUser()">Update</button>
                 </form>
             </div>
-           
         </div>
     </div>
 </div>

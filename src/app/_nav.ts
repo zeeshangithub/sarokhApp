@@ -41,31 +41,31 @@ export const navItems: INavData[] = [
                 url: '/orders/allorders',
                 icon: 'fas fa-dolly-flatbed'
             },
-            {
-                name: 'Pick up Orders',
-                url: '/orders/pickuporders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Delivery Orders',
-                url: '/orders/deliveryorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'No Response Orders',
-                url: '/orders/noresponseorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Bulk Order Update',
-                url: '/orders/bulkordersupdate',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'COD Reports',
-                url: '/orders/codreports',
-                icon: 'icon-map'
-            }
+            // {
+            //     name: 'Pick up Orders',
+            //     url: '/orders/pickuporders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Delivery Orders',
+            //     url: '/orders/deliveryorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'No Response Orders',
+            //     url: '/orders/noresponseorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Bulk Order Update',
+            //     url: '/orders/bulkordersupdate',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'COD Reports',
+            //     url: '/orders/codreports',
+            //     icon: 'icon-map'
+            // }
         ]
     },
     {
@@ -175,13 +175,30 @@ export const navItems: INavData[] = [
         icon: 'icon-calculator',
         children: [
             {
-                name: 'Drivers',
-                url: '/driver',
+                name: 'Add Driver',
+                url: '/driver/add',
                 icon: 'icon-map'
             },
             {
-                name: 'Drivers Issues',
+                name: 'All Drivers',
                 url: '/driver',
+                icon: 'icon-map'
+            }
+        ]
+    },
+    {
+        name: 'Dealer',
+        url: '/dealer',
+        icon: 'icon-calculator',
+        children: [
+            {
+                name: 'All Dealers',
+                url: '/dealer',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Add Dealers',
+                url: '/dealer/add',
                 icon: 'icon-map'
             }
         ]
@@ -240,21 +257,21 @@ export const navItems: INavData[] = [
                 url: '/base/cards',
                 icon: 'icon-map'
             },
-            {
-                name: 'Audit Trail',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Audit Trail',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Audit Trail',
-                url: '/base/cards',
-                icon: 'icon-map'
-            }
+            // {
+            //     name: 'Audit Trail',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // },
+            // {
+            //     name: 'Audit Trail',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // },
+            // {
+            //     name: 'Audit Trail',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // }
         ]
     },
     // {
@@ -276,7 +293,7 @@ export const navItems: INavData[] = [
 export const ShipperNavItems: INavData[] = [
     {
         name: 'Shipper Dashboard',
-        url: '/dashboard',
+        url: '/shipper/Dashboard',
         icon: 'icon-speedometer',
     },
     {
@@ -312,31 +329,31 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/allorders',
                 icon: 'fas fa-dolly-flatbed'
             },
-            {
-                name: 'Pick up Orders',
-                url: '/orders/pickuporders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Delivery Orders',
-                url: '/orders/deliveryorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'No Response Orders',
-                url: '/orders/noresponseorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Bulk Order Update',
-                url: '/orders/bulkordersupdate',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'COD Reports',
-                url: '/orders/codreports',
-                icon: 'fas fa-dolly-flatbed'
-            }
+            // {
+            //     name: 'Pick up Orders',
+            //     url: '/orders/pickuporders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Delivery Orders',
+            //     url: '/orders/deliveryorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'No Response Orders',
+            //     url: '/orders/noresponseorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Bulk Order Update',
+            //     url: '/orders/bulkordersupdate',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'COD Reports',
+            //     url: '/orders/codreports',
+            //     icon: 'fas fa-dolly-flatbed'
+            // }
         ]
     },
     {
@@ -345,23 +362,23 @@ export const ShipperNavItems: INavData[] = [
         icon: 'icon-pie-chart'
     },
   
-    {
-        name: 'Ledgers',
-        url: '/widgets',
-        icon: 'icon-calculator',
-        children: [
-            {
-                name: 'Drivers',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Drivers Issues',
-                url: '/base/carousels',
-                icon: 'icon-map'
-            }
-        ]
-    },
+    // {
+    //     name: 'Drivers',
+    //     url: '/widgets',
+    //     icon: 'icon-calculator',
+    //     children: [
+    //         {
+    //             name: 'Add Drivers',
+    //             url: '/driver/add',
+    //             icon: 'icon-map'
+    //         },
+    //         {
+    //             name: 'Drivers Issues',
+    //             url: '/base/carousels',
+    //             icon: 'icon-map'
+    //         }
+    //     ]
+    // },
     {
         name: 'User',
         url: '/dashboard',
