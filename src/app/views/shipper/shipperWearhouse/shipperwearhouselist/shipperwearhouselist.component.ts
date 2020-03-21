@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.service';
+import { DataService } from '../../../../services/data.service';
 
 
 declare var $;
@@ -15,9 +16,10 @@ export class ShipperwearhouselistComponent implements OnInit {
   dataTable: any;
   dtOption: any = {};
   shipperwearhouselist: any;
-
-  constructor(private router: Router, private shipperwearhouse: ShipperWearhouseService) { }
-
+  showlisting  : boolean = true;
+  constructor(private router: Router, private shipperwearhouse: ShipperWearhouseService,
+    private shareData : DataService
+    ) { }
   ngOnInit(): void {
     this.dtOption = {
       "paging": true,
@@ -31,32 +33,31 @@ export class ShipperwearhouselistComponent implements OnInit {
     this.dataTable = $(this.table.nativeElement);
     this.dataTable.DataTable(this.dtOption);
   }
-
   viewOrder() {
     this.router.navigate(['orders/vieworder', '216513']);
   }
-
   addOrder(){
     this.router.navigate(['orders/add']);
   }
-
   fetchWearhouse () {
     this.shipperwearhouse.GetShipperWerahouseList().subscribe( res => {
       this.shipperwearhouselist = res.data;
       console.log("res" , res.data)
-
     })
   }
   DeleteWearhouse(id){
     this.shipperwearhouse.DeleteShipperWearhouse(id).subscribe( res => {
-      
       console.log("res" , res)
       if(res.status === 200){
         this.fetchWearhouse();
       }
-      
-      
-
     })
+  }
+  addNew(e){
+    this.showlisting = e
+  }
+  editShipper(id , e : boolean){
+    this.showlisting = e;
+    this.shareData.setID(id);
   }
 }

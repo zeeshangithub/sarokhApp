@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.service';
+import { DataService } from '../../../../services/data.service';
 
 
 declare var $;
@@ -15,8 +16,9 @@ export class SarokhwearhouselistComponent implements OnInit {
   dataTable: any;
   dtOption: any = {};
   sarokhwearhouselist: any;
-
-  constructor(private router: Router, private sarokhwearhouse: SarokhwearhouseService) { }
+  showlisting  : boolean = true;
+  constructor(private router: Router, private sarokhwearhouse: SarokhwearhouseService,
+    private shareData : DataService) { }
   ngOnInit(): void {
     this.dtOption = {
       "paging": true,
@@ -48,13 +50,17 @@ export class SarokhwearhouselistComponent implements OnInit {
   }
   DeleteWearhouse(id){
     this.sarokhwearhouse.DeleteSarokhWearhouse(id).subscribe( res => {
-      
       console.log("res" , res)
       if(res.status === 200){
         this.fetchWearhouse();
       }
-      
-
     })
+  }
+  addNew(e){
+    this.showlisting = e
+  }
+  EditWarehouse(id , e : boolean){
+    this.showlisting = e;
+    this.shareData.setID(id);
   }
 }

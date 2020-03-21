@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 // import { OrderService } from '../../../services/order.service';
 import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.service';
 // import { DealerService } from '../../../services/dealer.service';
 // import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
+import { DataService } from '../../../../services/data.service';
+import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.service';
 @Component({
   selector: 'app-addsarokhwearhouse',
   templateUrl: './addsarokhwearhouse.component.html',
@@ -18,13 +20,16 @@ export class AddsarokhwearhouseComponent implements OnInit {
   storagecapacity : FormGroup
   template = {} as any;
   multiple = false;
+  editwarehouse = false;
+  @Output()
+  showlisting = new EventEmitter<boolean>();
   // shipmentDetails: Shipment[] = [];
 
   constructor(
     private formbuilder: FormBuilder,
-    private shipperwarehouse: ShipperWearhouseService,
+    private sarokhwarehouse: SarokhwearhouseService,
     // private warehouseService: WarehouseService,
-    // private dealerService: DealerService,
+    private shareData : DataService,
     private router: Router
     ) { }
 
@@ -36,6 +41,43 @@ export class AddsarokhwearhouseComponent implements OnInit {
     this.initializeamenities();
     this.initializestorageCapacity();
     // this.generateOrderID();
+
+    const sharedId = this.shareData.getID();
+    if (sharedId) {
+      this.editwarehouse= true;
+      this.sarokhwarehouse.fetchSingleWarehouse(sharedId).subscribe(res =>{
+console.log("single", res)
+this.warehouseadress = this.formbuilder.group({
+  name: [res.name],
+  address: [res.address],
+  city: [res.city],
+  country: [res.country],
+  postcode: [res.postcode],
+  longitude: [res.longitude],
+  latitude: [res.latitude],
+})
+this.amenities = this.formbuilder.group({
+  forkLifter : [res.forkLifter],
+  thermalPrinter : [res.thermalPrinter],
+  qrscanner : [res.qrscanner],
+
+})
+this.warehousemanager = this.formbuilder.group({
+  managerName: [res.managerName],
+  mangerContact: [res.mangerContact],
+  mangerEmail: [res.mangerEmail],
+  operationalTime: [res.operationalTime],
+  // shipperId: shipperId  
+})
+this.storagecapacity = this.formbuilder.group({
+  racksPerRow:[res.racksPerRow],
+  rows : [res.rows],
+  dimensions: [res.dimensions],
+  columnsPerRow : [res.columnsPerRow]
+})
+      })
+    }
+
   }
 
   // generateOrderID(){
@@ -86,15 +128,22 @@ export class AddsarokhwearhouseComponent implements OnInit {
       columnsPerRow : ['', [Validators.required]]
     })
   }
-  shipperWarehouseSelected(warehouse): void {
+  sarokhwarehouseSelected(warehouse): void {
     this.template.users = [];
-    this.template.shipperWarehouses.forEach(element => {
+    this.template.sarokhwarehouses.forEach(element => {
       if(element.id == warehouse){
         this.template.users = element.users;
       }
     });
   }
-
+  closeAdd() {
+    this.showlisting.emit(true);
+    this.storagecapacity.reset();
+    this.warehousemanager.reset();
+    this.warehouseadress.reset();
+    this.amenities.reset();
+    this.shareData.setID('')
+  }
   finishFunction(){
     
     var fullFormData = {
@@ -115,10 +164,10 @@ export class AddsarokhwearhouseComponent implements OnInit {
     };
     
     console.log("fullFormData" , fullRequest)
-    this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
+    this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
       console.log("res" , res)
       alert('Order created successfully')
-      this.router.navigate(['shipper/shipperwearhouselist']);
+      this.router.navigate(['/sarokhwearhouselist']);
     })
 
   }

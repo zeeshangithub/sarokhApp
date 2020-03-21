@@ -13,6 +13,7 @@ import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhous
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 
 import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
+import { DataService } from '../../services/data.service';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers : [DataService]
 })
 export class ShipperModule { }

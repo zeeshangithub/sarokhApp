@@ -1,6 +1,9 @@
 <div class="card margintop50">
-  <div class="card-header">
+  <div *ngIf="!editwarehouse" class="card-header">
     Add Shipper Warehouse
+  </div>
+  <div *ngIf="editwarehouse"  class="card-header">
+    Edit Shipper Warehouse
   </div>
   <div class="card-body">
     <div class="wizard-container">
@@ -34,8 +37,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="longitude">Longitude</label>
-                <input type="text" class="form-control" id="longitude" placeholder="Longitude"
-                  formControlName="longitude">
+                <input type="text" class="form-control" id="longitude" placeholder="Longitude" formControlName="longitude">
               </div>
             </div>
             <div class="form-row">
@@ -67,6 +69,9 @@
                   </select>
                 </div>
               </div> -->
+              <div class="btn-container float-left">
+                <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+              </div>
             <div class="btn-container float-right">
               <button class="btn btn-success" type="button" awNextStep>Next Step</button>
             </div>
@@ -77,38 +82,47 @@
           <form class="margintop30" [formGroup]="warehousemanager">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="managerName">Concern Person
+                <label for="pickupType">Concern Person</label>
+                <select class="form-control">
+                  <option value="">--- Select Concern Person ---</option>
+                  <option value="SarokhWarehouse">Manager</option>
+                  <option value="DealerPoint">Supervisor</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="managerName">Concern Person Name
                 </label>
-                <input type="text" class="form-control" id="managerName" placeholder="Concern Person"
-                  formControlName="managerName">
+                <input type="text" class="form-control" id="managerName" placeholder="Concern Person Name" formControlName="managerName">
               </div>
               <div class="form-group col-md-6">
                 <label for="mangerContact">Contact No</label>
-                <input type="text" class="form-control" id="mangerContact" placeholder="Contact No"
-                  formControlName="mangerContact">
+                <input type="text" class="form-control" id="mangerContact" placeholder="Contact No" formControlName="mangerContact">
               </div>
               <div class="form-group col-md-6">
                 <label for="mangerEmail">Email</label>
-                <input type="text" class="form-control" id="mangerEmail" placeholder="Email"
-                  formControlName="mangerEmail">
+                <input type="text" class="form-control" id="mangerEmail" placeholder="Email" formControlName="mangerEmail">
               </div>
               <div class="form-group col-md-6">
-                <label for="operationalTimeto">Operationl Time</label>
-                <div class="col">
-                  <span>To</span>
-                            <input type="text" class="form-control" placeholder="Operational Time To" formControlName="operationalTimeto" [owlDateTime]="operationalTimeto" [owlDateTimeTrigger]="operationalTimeto" [ngClass]="{ 'is-invalid': submitted && f.operationalTimeto.errors }" required>
-                            <owl-date-time [pickerType]="'timer'" #operationalTimeto></owl-date-time>
-                          
-                        </div>
-                        <div class="col">
-                          <span>From</span>
-                          <input type="text" class="form-control" placeholder="Operational Time From" formControlName="operationalTimefrom" [owlDateTime]="operationalTimefrom" [owlDateTimeTrigger]="operationalTimefrom" [ngClass]="{ 'is-invalid': submitted && f.operationalTimefrom.errors }" required>
-                          <owl-date-time [pickerType]="'timer'" #operationalTimefrom></owl-date-time>
-                        </div>
-                <!-- <label for="operationalTime">Operational Timing</label>
+                <label for="operationalTimeto">Operationl Time From</label>
+                <input type="text" class="form-control" placeholder="Operational Time To" formControlName="operationalTimeto" [owlDateTime]="operationalTimeto"
+                  [owlDateTimeTrigger]="operationalTimeto" [ngClass]="{ 'is-invalid': submitted && f.operationalTimeto.errors }"
+                  required>
+                <owl-date-time [pickerType]="'timer'" #operationalTimeto></owl-date-time>
+              </div>
+              <div class="col-md-6">
+                <label for="operationalTimeto">Operationl Time To</label>
+                <input type="text" class="form-control" placeholder="Operational Time From" formControlName="operationalTimefrom" [owlDateTime]="operationalTimefrom"
+                  [owlDateTimeTrigger]="operationalTimefrom" [ngClass]="{ 'is-invalid': submitted && f.operationalTimefrom.errors }"
+                  required>
+                <owl-date-time [pickerType]="'timer'" #operationalTimefrom></owl-date-time>
+              </div>
+              <!-- <label for="operationalTime">Operational Timing</label>
                 <input type="text" class="form-control" id="operationalTime" placeholder="Operational Timing"
                   formControlName="operationalTime"> -->
-              </div>
+
+            </div>
+            <div class="btn-container float-left">
+              <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
@@ -118,48 +132,59 @@
 
         </aw-wizard-step>
 
-        <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid" >
-          <form  [formGroup]="amenities"  >
-            <div class="form-row">
-              <div class="form-group col-md-6" >
-                <label>Fork Lifter</label>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="forkliftertrue"  name="forkLifter" class="custom-control-input" formControlName="forkLifter"  value="True">
-                  <label class="custom-control-label green" for="forkliftertrue">Yes</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter"  value="False">
-                  <label class="custom-control-label red" for="forklifterflase">No</label>
+        <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid">
+          <form [formGroup]="amenities">
+            <div class="form-row margintop30">
+              <div class="form-group col-md-4">
+                <div class="float-right">
+                  <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="True">
+                    <label class="custom-control-label green" for="forkliftertrue">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="False">
+                    <label class="custom-control-label red" for="forklifterflase">No</label>
+                  </div>
                 </div>
               </div>
-              <div class="form-group col-md-6" >
-                <label>QR Scanner</label>
+              <div class="form-group col-md-6 padddingleft110">
+                <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
                 <div class="custom-control custom-radio custom-control-inline">
                   <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="True">
-                  <label class="custom-control-label green" for="qrscannertrue" >Yes</label>
+                  <label class="custom-control-label green" for="qrscannertrue">Yes</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannerfalse"  name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
-                  <label class="custom-control-label red" id="qrscannerfalse" >No</label>
+                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
+                  <label class="custom-control-label red" id="qrscannerfalse">No</label>
                 </div>
               </div>
-              <div class="form-group col-md-6" >
-                <label>Thermal Printer</label>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="thermalPrintertrue"  name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="True">
-                  <label class="custom-control-label green" for="thermalPrintertrue" >Yes</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="thermalPrinterfasle"  name="thermalPrinter" class="custom-control-input"  formControlName="thermalPrinter" value="False">
-                  <label class="custom-control-label red" for="thermalPrinterfasle" >No</label>
+              <div class="form-group col-md-4">
+                <div class="float-right">
+                  <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
+                      value="True">
+                    <label class="custom-control-label green" for="thermalPrintertrue">Yes</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
+                      value="False">
+                    <label class="custom-control-label red" for="thermalPrinterfasle">No</label>
+                  </div>
                 </div>
               </div>
             </div>
 
           </form>
+          <div class="btn-container float-left">
+            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+          </div>
           <div class="btn-container float-right">
+            
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-            <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            <button *ngIf="!editwarehouse" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()" type="button">Update</button> 
           </div>
         </aw-wizard-step>
       </aw-wizard>

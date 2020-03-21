@@ -22,4 +22,11 @@ export class ShipperWearhouseService {
   DeleteShipperWearhouse(id: string){
     return this.http.delete<any>(`${environment.apiURL}shipper-warehouse/delete/${id}`);
   }
+  fetchSingleWarehouse(id: string) {
+    return this.http.get<any>(`${environment.apiURL}shipper-warehouse/get-details/${id}`);
+  }
+  updateShipperWearhouse(shipperwarehouse){
+ 
+    return this.http.put<any>(`${environment.apiURL}shipper-warehouse/update` , shipperwarehouse);
+  }
 }
