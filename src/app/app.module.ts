@@ -25,6 +25,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { ArchwizardModule } from 'angular-archwizard';
+import { HighchartsChartComponent } from 'highcharts-angular';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -64,7 +65,8 @@ import { ChartsModule } from 'ng2-charts';
     HttpClientModule,
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
-    ArchwizardModule
+    ArchwizardModule,
+    // HighchartsChartComponent
   ],
   declarations: [
     AppComponent,
@@ -73,8 +75,7 @@ import { ChartsModule } from 'ng2-charts';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    // ShipperwearhouseComponent,
-    // AddShipperUserComponent
+    // HighchartsChartComponent
   ],
   providers: [{
     provide: LocationStrategy,

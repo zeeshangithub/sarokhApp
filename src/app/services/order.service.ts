@@ -18,4 +18,9 @@ export class OrderService {
   getOrderId(shipperId){
     return this.http.post<any>(`${environment.apiURL}order/create-order-id/${shipperId}`, {});
   }
+
+  getOrderDetails(Id){
+    return this.http.get<any>(`${environment.apiURL}order/get-details/${Id}`);
+  // return this.http.post<any>(`${environment.apiURL}order/get-details/${Id}`);
+}
 }

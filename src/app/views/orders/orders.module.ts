@@ -59,6 +59,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { DataService } from '../../services/data.service';
 
 
 @NgModule({
@@ -126,6 +127,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
-  ]
+  ],
+  providers : [DataService]
 })
 export class OrdersModule { }

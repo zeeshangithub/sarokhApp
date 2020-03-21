@@ -15,9 +15,9 @@ import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhousel
 import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
 import { DataService } from '../../services/data.service';
 
-
+import { HighchartsChartComponent } from 'highcharts-angular';
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent , HighchartsChartComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -25,7 +25,8 @@ import { DataService } from '../../services/data.service';
     ArchwizardModule,
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // HighchartsChartComponent
   ],
   providers : [DataService]
 })

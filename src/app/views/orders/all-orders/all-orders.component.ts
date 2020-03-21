@@ -7,6 +7,7 @@ import { AdminService } from '../../../services/admin.service';
 
 import { DataSource } from '@angular/cdk/collections';
 import { Order } from '../../../interfaces/order'
+import { DataService } from '../../../services/data.service';
 declare var $;
 
 @Component({
@@ -28,7 +29,7 @@ export class AllOrdersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<AdminService>(this.orders);
-  columnsToDisplay = ['orderId', 'orderPickupType', 'shipmentType', 'deliveryPersonName', 'deliveryPersonContact','actions'];
+  columnsToDisplay = ['orderId', 'orderPickupType', 'shipmentType', 'deliveryPersonName', 'deliveryPersonContact'];
   expandedElement: Order | null;
   ngOnInit(): void {
     this.fetchOrders();
@@ -45,42 +46,23 @@ export class AllOrdersComponent implements OnInit {
 
   }
 
-  constructor(private router: Router, private adminService: AdminService) { }
+  constructor(private router: Router, private adminService: AdminService,
+    private shareData : DataService) { }
 
 
   fetchOrders() {
 
   }
 
-
-
-
-  // @ViewChild('dataTable') table;
-  // dataTable: any;
-  // dtOption: any = {};
-  // orders:any= [];
-  // constructor(private router: Router, private adminService: AdminService) { }
-
-  // ngOnInit(): void {
-  // this.dtOption = {
-  //   "paging": true,
-  //   "ordering": true,
-  //   "info": true
-  // }; 
-  // }
-
-  //   this.fetchOrders();
-  // }
-  // ngAfterViewInit() {
-  //   this.dataTable = $(this.table.nativeElement);
-  //   this.dataTable.DataTable(this.dtOption);
-  // }
-
   viewOrder() {
     this.router.navigate(['orders/vieworder', '216513']);
   }
   addNew(e){
     this.showlisting = e
+  }
+  editOrder(id , e : boolean){
+    this.showlisting = e;
+    this.shareData.setID(id);
   }
   // addOrder(){
   //   this.router.navigate(['orders/add']);

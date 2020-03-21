@@ -15,7 +15,7 @@
         <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
         <td></td>
        <td>
-         <button class="btn btn-warning" (click)="editShipper(shipperlist.id , false)">Edit</button>
+        
        </td>
         <!-- <button class="btn btn-warning" (click)="editShipper(shipperlist.id , false)">Edit</button> -->
       </ng-container>
@@ -36,6 +36,7 @@
 
                   <button class="btn btn-danger float-right mr-2 mb-3">Delete</button>
                   <button class="btn btn-primary float-right mr-2 mb-3" (click)=viewOrder()>Detail</button>
+                  <button class="btn btn-warning" (click)="editOrder(element.id , false)">Edit</button>
                 </table>
               </ng-container>
             </div>

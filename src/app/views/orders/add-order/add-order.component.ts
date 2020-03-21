@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { OrderService } from '../../../services/order.service';
 import { WarehouseService } from '../../../services/warehouse.service';
 import { DealerService } from '../../../services/dealer.service';
 import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
+import { DataService } from '../../../services/data.service';
 
 @Component({
   selector: 'app-add-order',
@@ -18,13 +19,17 @@ export class AddOrderComponent implements OnInit {
   template = {} as any;
   multiple = false;
   shipmentDetails: Shipment[] = [];
+  editOrder = false;
+  @Output()
+  showlisting = new EventEmitter<boolean>();
 
   constructor(
     private formbuilder: FormBuilder,
     private orderService: OrderService,
     private warehouseService: WarehouseService,
     private dealerService: DealerService,
-    private router: Router
+    private router: Router,
+    private shareData : DataService
     ) { }
 
   ngOnInit(): void {
@@ -33,13 +38,46 @@ export class AddOrderComponent implements OnInit {
     this.initializeBasicInformationForm();
     this.initializeDropoffDetailsForm();
     this.generateOrderID();
+    const sharedId = this.shareData.getID();  
+    console.log(sharedId)
+    if (sharedId) {
+      this.editOrder= true;
+   
+      this.orderService.getOrderDetails(sharedId).subscribe(res => {
+        console.log("res", res.data)
+        const oderDetail= res.data;
+        // debugger
+        console.log("oderDetail", oderDetail)
+        this.orderBasicInfoForm = this.formbuilder.group({
+          // orderId: [oderDetail.oderId],
+          pickupType: [oderDetail.pickupType],
+          shipmentType: [oderDetail.shipmentType],
+          // shipperId: [oderDetail.shipperId]
+        })
+        this.dropoffDetailsForm = this.formbuilder.group({
+          dateTime: [oderDetail.dateTime],
+          warehouseId: [oderDetail.warehouseId],
+          contact: [oderDetail.contact],
+          concernPersonId: [oderDetail.concernPersonId],
+          zone: [oderDetail.zone],
+          city: [oderDetail.city]
+    
+        })
+      
+this.shipmentDetails = oderDetail.shipmentOrderItems;
+console.log("this.shipmentDetails" , this.shipmentDetails)
+      })
+    }
   }
 
   generateOrderID(){
-    var shipperId = localStorage.getItem('_id');
+    var shipperId = localStorage.getItem('id');
+    console.log(shipperId)
     var orderId = '';
     this.orderService.getOrderId(shipperId).subscribe(res=>{
       orderId = res.data;
+
+      console.log("res" , res.data)
       this.orderBasicInfoForm.controls['orderId'].setValue(orderId);
       this.orderBasicInfoForm.controls['shipperId'].setValue(shipperId);
     })
@@ -150,5 +188,11 @@ export class AddOrderComponent implements OnInit {
     })
 
   }
-
+  closeAdd() {
+    this.showlisting.emit(true);
+    this.orderBasicInfoForm.reset();
+    this.orderBasicInfoForm.reset();
+    this.dropoffDetailsForm.reset();
+    this.shareData.setID('')
+  }
 }
