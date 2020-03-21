@@ -10,13 +10,11 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="orderId">Order Id</label>
-                <input type="text" readonly class="form-control" id="orderId" placeholder="Order Id"
-                  formControlName="orderId">
+                <input type="text" readonly class="form-control" id="orderId" placeholder="Order Id" formControlName="orderId">
               </div>
               <div class="form-group col-md-6">
                 <label for="shipperId">Shipper Id</label>
-                <input type="text" readonly class="form-control" id="shipperId" placeholder="Shipper Id"
-                  formControlName="shipperId">
+                <input type="text" readonly class="form-control" id="shipperId" placeholder="Shipper Id" formControlName="shipperId">
               </div>
             </div>
             <div class="form-row">
@@ -70,8 +68,7 @@
               </div>
               <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses">
                 <label for="sarokhWarehouseId">Warehouse</label>
-                <select class="form-control" id="sarokhWarehouseId" formControlName="warehouseId"
-                  (change)="sarokhWarehouseSelected($event.target.value)">
+                <select class="form-control" id="sarokhWarehouseId" formControlName="warehouseId" (change)="sarokhWarehouseSelected($event.target.value)">
                   <option value="">--- Select Sarokh Warehouse ---</option>
                   <option [value]="warehouse.id" *ngFor="let warehouse of template.sarokhWarehouses">{{warehouse.name}}
                   </option>
@@ -79,8 +76,7 @@
               </div>
               <div class="form-group col-md-6" *ngIf="template && template.shipperWarehouses">
                 <label for="shipperWarehouseId">Warehouse</label>
-                <select class="form-control" id="shipperWarehouseId" formControlName="warehouseId"
-                  (change)="shipperWarehouseSelected($event.target.value)">
+                <select class="form-control" id="shipperWarehouseId" formControlName="warehouseId" (change)="shipperWarehouseSelected($event.target.value)">
                   <option value="">--- Select Shipper Warehouse ---</option>
                   <option [value]="warehouse.id" *ngFor="let warehouse of template.shipperWarehouses">{{warehouse.name}}
                   </option>
@@ -95,12 +91,11 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="dateTime">Date & Time</label>
-                <input type="text" class="form-control" autocomplete="off" id="dateTime" placeholder="Date & Time"
-                  formControlName="dateTime" [owlDateTime]="dateTime" [owlDateTimeTrigger]="dateTime">
+                <input type="text" class="form-control" autocomplete="off" id="dateTime" placeholder="Date & Time" formControlName="dateTime"
+                  [owlDateTime]="dateTime" [owlDateTimeTrigger]="dateTime">
                 <owl-date-time #dateTime></owl-date-time>
               </div>
-              <div class="form-group col-md-6"
-                *ngIf="template && template.sarokhWarehouses || template.shipperWarehouses || template.dealers ">
+              <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses || template.shipperWarehouses || template.dealers ">
                 <label for="concernPerson">Concern Person</label>
                 <select class="form-control" id="concernPersonId" formControlName="concernPersonId">
                   <option value="">--- Select Concern Person ---</option>
@@ -112,18 +107,15 @@
 
               <div class="form-group col-md-6" *ngIf="template && template.sarokhWarehouses || template.dealers">
                 <label for="contactNo">Contact No</label>
-                <input type="text" class="form-control" id="contactNo" placeholder="Contact No"
-                  formControlName="contact">
+                <input type="text" class="form-control" id="contactNo" placeholder="Contact No" formControlName="contact">
               </div>
               <div class="form-group col-md-6" *ngIf="template && template.shipperWarehouses">
                 <label for="concernpersonname">Concern Person Name</label>
-                <input type="text" class="form-control" id="concernpersonname" placeholder="Contact No"
-                  formControlName="contact">
+                <input type="text" class="form-control" id="concernpersonname" placeholder="Contact No" formControlName="contact">
               </div>
               <div class="form-group col-md-6" *ngIf="template && template.shipperWarehouses">
                 <label for="contactNo">Address</label>
-                <input type="text" class="form-control" id="contactNo" placeholder="Contact No"
-                  formControlName="contact">
+                <input type="text" class="form-control" id="contactNo" placeholder="Contact No" formControlName="contact">
               </div>
             </div>
             <div class="btn-container float-right">
@@ -244,6 +236,84 @@
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Bulk Shipment Detail" *ngIf="multiple">
           <div class="table-responsive mt-5  mb-3">
+
+            <div class="bulk-shippment-detail">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Shipment Title</label>
+                  <input class="form-control" placeholder="Shipment Title" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Content</label>
+                  <input class="form-control" placeholder="Shipment Content" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Value</label>
+                  <input class="form-control" placeholder="Shipment Value" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Payment Type</label>
+                  <select class="form-control">
+                    <option value="" ng-reflect-value="">--- Payment Type ---</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Type</label>
+                  <select class="form-control">
+                    <option value="" ng-reflect-value="">--- Shipment Type ---</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Billed Amount</label>
+                  <input class="form-control" placeholder="Shipment Billed Amount" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Delivery Charges</label>
+                  <input class="form-control" placeholder="Shipment Delivery Charges" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Weight</label>
+                  <input class="form-control" placeholder="Shipment Weight" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Shipment Dimension</label>
+                  <input class="form-control" placeholder="Shipment Dimension" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Receiver Name</label>
+                  <input class="form-control" placeholder="Receiver Name" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Contact No</label>
+                  <input class="form-control" placeholder="Contact No" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Email</label>
+                  <input class="form-control" placeholder="Email" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Addrss</label>
+                  <input class="form-control" placeholder="Addrss" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>City</label>
+                  <input class="form-control" placeholder="City" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Country</label>
+                  <input class="form-control" placeholder="Country" type="text">
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Post Code</label>
+                  <input class="form-control" placeholder="Post Code" type="text">
+                </div>
+              </div>
+              <div class="btn-container float-right">
+                <button class="btn btn-success" type="button" (click)="addShipmentDetail()">ADD</button>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
             <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
               <thead>
                 <tr>
@@ -272,12 +342,12 @@
               <tbody>
                 <tr *ngFor="let shipment of shipmentDetails">
                   <!-- <td>  <input type="text" class="form-control" placeholder="Shipment Id" [(ngModel)]="shipment.id"> </td> -->
-                  <td> <input type="text" class="form-control" placeholder="Shipment Title"
-                      [(ngModel)]="shipment.shipmentTitle"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Content"
-                      [(ngModel)]="shipment.shipmentContent"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Value"
-                      [(ngModel)]="shipment.shipmentValue"> </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Shipment Title" [(ngModel)]="shipment.shipmentTitle"> </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Shipment Content" [(ngModel)]="shipment.shipmentContent"> </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Shipment Value" [(ngModel)]="shipment.shipmentValue"> </td>
                   <td>
                     <select class="form-control" id="paymentType" [(ngModel)]="shipment.paymentType">
                       <option>--Select Payment Type</option>
@@ -286,51 +356,46 @@
                       <option value="COD">COD</option>
 
                     </select>
-                    Delicate
-                    Rigid
-                    Hard Block
-                    Electronics
-                    Others
+                    Delicate Rigid Hard Block Electronics Others
                     <!-- <input type="text" class="form-control" placeholder="Payment Type" [(ngModel)]="shipment.paymentType"> </td> -->
-                  <td>
-                    <select class="form-control" id="paymentType" [(ngModel)]="shipment.shipmentType">
-                      <option>--Select Payment Type</option>
-                      <option value="Delicate">Delicate</option>
-                      <option value="Rigid">Full Rigid</option>
-                      <option value="Hard Block">Hard Block</option>
-                      <option value="Electronics">Electronics</option>
-                      <option value="Others">Others</option>
+                    <td>
+                      <select class="form-control" id="paymentType" [(ngModel)]="shipment.shipmentType">
+                        <option>--Select Payment Type</option>
+                        <option value="Delicate">Delicate</option>
+                        <option value="Rigid">Full Rigid</option>
+                        <option value="Hard Block">Hard Block</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Others">Others</option>
 
-                    </select>
-                    <input type="text" class="form-control" placeholder="Shipment Type"
-                      [(ngModel)]="shipment.shipmentType"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Bill Amount"
-                      [(ngModel)]="shipment.billedAmount"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Delivery Charges"
-                      [(ngModel)]="shipment.deliveryCharges"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Weight"
-                      [(ngModel)]="shipment.weight"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Shipment Dimension"
-                      [(ngModel)]="shipment.dimensions"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.receiverName"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.contact"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.email"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.address"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.city"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.country"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.postalCode"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.locationLongitude"> </td>
-                  <td> <input type="text" class="form-control" placeholder="Receiver Name"
-                      [(ngModel)]="shipment.receiver.locationLatitude"> </td>
-                  <!-- <td>  <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment."> </td> -->
+                      </select>
+                      <input type="text" class="form-control" placeholder="Shipment Type" [(ngModel)]="shipment.shipmentType"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Shipment Bill Amount" [(ngModel)]="shipment.billedAmount"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Shipment Delivery Charges" [(ngModel)]="shipment.deliveryCharges"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Shipment Weight" [(ngModel)]="shipment.weight"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Shipment Dimension" [(ngModel)]="shipment.dimensions"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.receiverName"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.contact"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.email"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.address"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.city"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.country"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.postalCode"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.locationLongitude"> </td>
+                    <td>
+                      <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment.receiver.locationLatitude"> </td>
+                    <!-- <td>  <input type="text" class="form-control" placeholder="Receiver Name" [(ngModel)]="shipment."> </td> -->
                 </tr>
               </tbody>
             </table>
