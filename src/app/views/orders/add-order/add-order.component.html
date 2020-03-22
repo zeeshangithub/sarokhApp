@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="btn-container float-left">
-              <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-success" type="button" awNextStep>Next Step</button>
@@ -122,7 +122,7 @@
               </div>
             </div>
             <div class="btn-container float-left">
-              <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
@@ -184,7 +184,7 @@
             </div>
           </div>
           <div class="btn-container float-left">
-            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
           </div>
           <div class="btn-container float-right">
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
@@ -237,7 +237,7 @@
             </div>
           </div>
           <div class="btn-container float-left">
-            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
           </div>
           <div class="btn-container float-right">
             <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
@@ -249,173 +249,180 @@
           <div class="table-responsive mt-5  mb-3">
 
             <div class="bulk-shippment-detail">
-              <div class="row">
-                <form style="width: 100%;">
-                <div class="form-group col-md-3">
-                  <label>Shipment Title</label>
-                  <input class="form-control" name="shipmentTitle" placeholder="Shipment Title" [(ngModel)]="shipmentDetails.shipmentTitle" type="text">
+
+              <form style="width: 100%;">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <label>Shipment Title</label>
+                    <input class="form-control" name="shipmentTitle" placeholder="Shipment Title" [(ngModel)]="shipmentDetails.shipmentTitle"
+                      type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Content</label>
+                    <input class="form-control" placeholder="Shipment Content" name="shipmentContent" [(ngModel)]="shipmentDetails.shipmentContent"
+                      type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Value</label>
+                    <input class="form-control" placeholder="Shipment Value" name="shipmentValue" [(ngModel)]="shipmentDetails.shipmentValue"
+                      type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Payment Type</label>
+                    <select class="form-control" id="paymentType" name="paymentType" [(ngModel)]="shipmentDetails.paymentType">
+                      <option>--Select Payment Type</option>
+                      <option value="Prepaid">Prepaid</option>
+                      <option value="Full Prepaid">Full Prepaid</option>
+                      <option value="COD">COD</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Type</label>
+                    <select class="form-control" id="shipmentType" name="shipmentType" [(ngModel)]="shipmentDetails.shipmentType">
+                      <option>--Select Shipment Type</option>
+                      <option value="Delicate">Delicate</option>
+                      <option value="Rigid">Full Rigid</option>
+                      <option value="Hard Block">Hard Block</option>
+                      <option value="Electronics">Electronics</option>
+                      <option value="Others">Others</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Billed Amount</label>
+                    <input class="form-control" placeholder="Shipment Billed Amount" name="billedAmount" [(ngModel)]="shipmentDetails.billedAmount"
+                      type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Delivery Charges</label>
+                    <input class="form-control" placeholder="Shipment Delivery Charges" name="deliveryCharges" [(ngModel)]="shipmentDetails.deliveryCharges"
+                      type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Weight</label>
+                    <input class="form-control" placeholder="Shipment Weight" name="weight" [(ngModel)]="shipmentDetails.weight" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Shipment Dimension</label>
+                    <input class="form-control" placeholder="Shipment Dimension" name="dimensions" [(ngModel)]="shipmentDetails.dimensions" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Receiver Name</label>
+                    <input class="form-control" placeholder="Receiver Name" name="reciverName" [(ngModel)]="shipmentDetails.receiverName" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Contact No</label>
+                    <input class="form-control" placeholder="Contact No" name="contact" [(ngModel)]="shipmentDetails.contact" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Email</label>
+                    <input class="form-control" placeholder="Email" name="email" [(ngModel)]="shipmentDetails.email" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Addrss</label>
+                    <input class="form-control" placeholder="Address" name="address" [(ngModel)]="shipmentDetails.address" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>City</label>
+                    <input class="form-control" placeholder="City" name="city" [(ngModel)]="shipmentDetails.city" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Country</label>
+                    <input class="form-control" placeholder="Country" name="country" [(ngModel)]="shipmentDetails.country" type="text">
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label>Post Code</label>
+                    <input class="form-control" placeholder="Post Code" name="postalCode" [(ngModel)]="shipmentDetails.postalCode" type="text">
+                  </div>
+                  <div class="clearfix"></div>
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Content</label>
-                  <input class="form-control" placeholder="Shipment Content" name="shipmentContent" [(ngModel)]="shipmentDetails.shipmentContent" type="text">
+                <div class="btn-container float-right mb-3">
+                  <button class="btn btn-success" type="button" (click)="addShipmentDetail()">ADD</button>
                 </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Value</label>
-                  <input class="form-control" placeholder="Shipment Value" name="shipmentValue" [(ngModel)]="shipmentDetails.shipmentValue" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Payment Type</label>
-                  <select class="form-control" id="paymentType" name="paymentType"  [(ngModel)]="shipmentDetails.paymentType">
-                    <option>--Select Payment Type</option>
-                    <option value="Prepaid">Prepaid</option>
-                    <option value="Full Prepaid">Full Prepaid</option>
-                    <option value="COD">COD</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Type</label>
-                  <select class="form-control" id="shipmentType" name="shipmentType" [(ngModel)]="shipmentDetails.shipmentType">
-                    <option>--Select Shipment Type</option>
-                    <option value="Delicate">Delicate</option>
-                    <option value="Rigid">Full Rigid</option>
-                    <option value="Hard Block">Hard Block</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Others">Others</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Billed Amount</label>
-                  <input class="form-control" placeholder="Shipment Billed Amount" name="billedAmount" [(ngModel)]="shipmentDetails.billedAmount" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Delivery Charges</label>
-                  <input class="form-control" placeholder="Shipment Delivery Charges" name="deliveryCharges" [(ngModel)]="shipmentDetails.deliveryCharges" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Weight</label>
-                  <input class="form-control" placeholder="Shipment Weight" name="weight" [(ngModel)]="shipmentDetails.weight" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Shipment Dimension</label>
-                  <input class="form-control" placeholder="Shipment Dimension" name="dimensions" [(ngModel)]="shipmentDetails.dimensions" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Receiver Name</label>
-                  <input class="form-control" placeholder="Receiver Name" name="reciverName" [(ngModel)]="shipmentDetails.receiverName" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Contact No</label>
-                  <input class="form-control" placeholder="Contact No" name="contact" [(ngModel)]="shipmentDetails.contact" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Email</label>
-                  <input class="form-control" placeholder="Email" name="email" [(ngModel)]="shipmentDetails.email" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Addrss</label>
-                  <input class="form-control" placeholder="Address" name="address" [(ngModel)]="shipmentDetails.address" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>City</label>
-                  <input class="form-control" placeholder="City" name="city" [(ngModel)]="shipmentDetails.city" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Country</label>
-                  <input class="form-control" placeholder="Country" name="country" [(ngModel)]="shipmentDetails.country" type="text">
-                </div>
-                <div class="form-group col-md-3">
-                  <label>Post Code</label>
-                  <input class="form-control" placeholder="Post Code" name="postalCode" [(ngModel)]="shipmentDetails.postalCode" type="text">
-                </div>
-          
-              <div class="btn-container float-right">
-                <button class="btn btn-success" type="button" (click)="addShipmentDetail()">ADD</button>
-              </div>
-            </form>
-              <div class="clearfix"></div>
+                <div class="clearfix"></div>
+              </form>
+
+            </div>
+            <div class="col-sm-12">
+              <table #dataTable style="width:100%" class="dataTable table-responsive pb-3">
+                <thead>
+                  <tr>
+
+                    <th scope="col">Shipment Title</th>
+                    <th scope="col">Shipment Content</th>
+                    <th scope="col">Shipment Value</th>
+                    <th scope="col">Payment Type</th>
+                    <th scope="col">Shipment Type</th>
+                    <th scope="col">Shipment Billed Amount</th>
+                    <th scope="col">Shipment Delivery Charges</th>
+                    <th scope="col">Shipment Weight</th>
+                    <th scope="col">Shipment Dimension</th>
+                    <th scope="col">Receiver Name</th>
+                    <th scope="col">Contact No</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Addrss</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Post Code</th>
+                    <!-- <th scope="col">Delivery Due Date</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let shipment of shipmentDetailsData">
+                    <td>
+                      {{shipment.shipmentTitle}}
+                    </td>
+                    <td>
+                      {{shipment.shipmentContent}}
+                    </td>
+                    <td>
+                      {{shipment.shipmentValue}}
+                    </td>
+                    <td>
+                      {{shipment.paymentType}}
+                    </td>
+                    <td>
+                      {{shipment.shipmentType}}
+                    </td>
+                    <td>
+                      {{shipment.billedAmount}}
+                    </td>
+                    <td>
+                      {{shipment.deliveryCharges}}
+                    </td>
+                    <td>
+                      {{shipment.weight}}
+                    </td>
+                    <td>
+                      {{shipment.dimensions}}
+                    </td>
+                    <td>
+                      {{shipment.receiverName}}
+                    </td>
+                    <td>
+                      {{shipment.contact}}
+                    </td>
+                    <td>
+                      {{shipment.email}}
+                    </td>
+                    <td>
+                      {{shipment.address}}
+                    </td>
+                    <td>
+                      {{shipment.city}}
+                    </td>
+                    <td>
+                      {{shipment.country}}
+                    </td>
+                    <td>
+                      {{shipment.postalCode}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-            <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
-              <thead>
-                <tr>
-
-                  <th scope="col">Shipment Title</th>
-                  <th scope="col">Shipment Content</th>
-                  <th scope="col">Shipment Value</th>
-                  <th scope="col">Payment Type</th>
-                  <th scope="col">Shipment Type</th>
-                  <th scope="col">Shipment Billed Amount</th>
-                  <th scope="col">Shipment Delivery Charges</th>
-                  <th scope="col">Shipment Weight</th>
-                  <th scope="col">Shipment Dimension</th>
-                  <th scope="col">Receiver Name</th>
-                  <th scope="col">Contact No</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Addrss</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Post Code</th>
-                  <th scope="col">Longitude</th>
-                  <th scope="col">Latitude</th>
-                  <!-- <th scope="col">Delivery Due Date</th> -->
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let shipment of shipmentDetailsData">
-                <td>
-                  {{shipment.shipmentTitle}}
-                </td>
-                <td>
-                  {{shipment.shipmentContent}}
-                </td>
-                <td>
-                  {{shipment.shipmentValue}}
-                </td>
-                <td>
-                  {{shipment.paymentType}}
-                </td>
-                <td>
-                  {{shipment.shipmentType}}
-                </td>
-                <td>
-                  {{shipment.billedAmount}}
-                </td>
-                <td>
-                  {{shipment.deliveryCharges}}
-                </td>
-                <td>
-                  {{shipment.dimensions}}
-                </td>
-                <td>
-                  {{shipment.receiverName}}
-                </td>
-                <td>
-                  {{shipment.contact}}
-                </td>
-                <td>
-                  {{shipment.email}}
-                </td>
-                <td>
-                  {{shipment.address}}
-                </td>
-                <td>
-                  {{shipment.city}}
-                </td>
-                <td>
-                  {{shipment.country}}
-                </td>
-                <td>
-                  {{shipment.postalCode}}
-                </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
           <div class="btn-container float-left">
-            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
-          </div>
-          <div class="btn-container float-left">
-            <button class="btn btn-success" type="button" (click)="addShipmentDetail()">ADD</button>
+            <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
           </div>
           <div class="btn-container float-right">
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Previous Step</button>
