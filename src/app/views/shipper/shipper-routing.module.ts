@@ -9,6 +9,8 @@ import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhous
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
+import { ReturnshipmentsComponent } from './returnshipments/returnshipments.component';
+import { ShipmentsComponent } from './shipments/shipments.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,16 @@ const routes: Routes = [
   {
 		path: 'sarokhwearhouselist',
 		component: SarokhwearhouselistComponent,
+  }
+  ,
+  {
+		path: 'shipments',
+		component: ShipmentsComponent,
+  }
+  ,
+  {
+		path: 'returnshipments',
+		component: ReturnshipmentsComponent,
   }
 ];
 

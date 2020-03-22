@@ -5,15 +5,8 @@ export const navItems: INavData[] = [
         name: 'Dashboard',
         url: '/dashboard',
         icon: 'fas fa-rocket',
-        // badge: {
-        //   variant: 'info',
-        //   text: 'NEW'
-        // }
+
     },
-    // {
-    //   title: true,
-    //   name: 'Theme'
-    // },
     {
         name: 'Tracking',
         url: '/base',
@@ -41,31 +34,6 @@ export const navItems: INavData[] = [
                 url: '/orders/allorders',
                 icon: 'fas fa-dolly-flatbed'
             },
-            // {
-            //     name: 'Pick up Orders',
-            //     url: '/orders/pickuporders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'Delivery Orders',
-            //     url: '/orders/deliveryorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'No Response Orders',
-            //     url: '/orders/noresponseorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'Bulk Order Update',
-            //     url: '/orders/bulkordersupdate',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'COD Reports',
-            //     url: '/orders/codreports',
-            //     icon: 'icon-map'
-            // }
         ]
     },
     {
@@ -105,26 +73,6 @@ export const navItems: INavData[] = [
                 url: '/shipper/sarokhwearhouselist',
                 icon: 'icon-map'
             },
-            // {
-            //     name: 'Bulk Inventory Update',
-            //     url: '/base/carousels',
-            //     icon: 'icon-map'
-            // },
-            // {
-            //     name: 'Operator',
-            //     url: '/base/carousels',
-            //     icon: 'icon-map'
-            // },
-            // {
-            //     name: 'Print Label',
-            //     url: '/base/carousels',
-            //     icon: 'icon-map'
-            // },
-            // {
-            //     name: 'Inventory Reconcilation',
-            //     url: '/base/carousels',
-            //     icon: 'icon-map'
-            // }
         ]
     },
     {
@@ -257,38 +205,8 @@ export const navItems: INavData[] = [
                 url: '/base/cards',
                 icon: 'icon-map'
             },
-            // {
-            //     name: 'Audit Trail',
-            //     url: '/base/cards',
-            //     icon: 'icon-map'
-            // },
-            // {
-            //     name: 'Audit Trail',
-            //     url: '/base/cards',
-            //     icon: 'icon-map'
-            // },
-            // {
-            //     name: 'Audit Trail',
-            //     url: '/base/cards',
-            //     icon: 'icon-map'
-            // }
         ]
     },
-    // {
-    //   name: 'Download CoreUI',
-    //   url: 'http://coreui.io/angular/',
-    //   icon: 'icon-cloud-download',
-    //   class: 'mt-auto',
-    //   variant: 'success',
-    //   attributes: { target: '_blank', rel: 'noopener' }
-    // },
-    // {
-    //   name: 'Try CoreUI PRO',
-    //   url: 'http://coreui.io/pro/angular/',
-    //   icon: 'icon-layers',
-    //   variant: 'danger',
-    //   attributes: { target: '_blank', rel: 'noopener' }
-    // }
 ];
 export const ShipperNavItems: INavData[] = [
     {
@@ -297,22 +215,9 @@ export const ShipperNavItems: INavData[] = [
         icon: 'icon-speedometer',
     },
     {
-        name: 'Shipper Wearhouse',
-        url: '/shipper/shipperwearhouse',
+        name: 'Wearhouse',
+        url: '/shipper/shipperwearhouselist',
         icon: 'icon-pie-chart',
-        children : [
-            {
-                name: 'Add Wearhouse',
-                url: '/shipper/addshipperwearhouse',
-                icon: 'fas fa-dolly-flatbed'   
-            },
-            {
-                name: 'Wearhouse List',
-                url: '/shipper/shipperwearhouselist',
-                icon: 'fas fa-dolly-flatbed'   
-            }
-        ]
-        
     },
     {
         name: 'Orders',
@@ -320,7 +225,7 @@ export const ShipperNavItems: INavData[] = [
         icon: 'fas fa-dolly-flatbed',
         children: [
             {
-                name: 'Add Order',
+                name: 'New Order',
                 url: '/orders/add',
                 icon: 'fas fa-dolly-flatbed'
             },
@@ -329,56 +234,35 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/allorders',
                 icon: 'fas fa-dolly-flatbed'
             },
-            // {
-            //     name: 'Pick up Orders',
-            //     url: '/orders/pickuporders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'Delivery Orders',
-            //     url: '/orders/deliveryorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'No Response Orders',
-            //     url: '/orders/noresponseorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'Bulk Order Update',
-            //     url: '/orders/bulkordersupdate',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'COD Reports',
-            //     url: '/orders/codreports',
-            //     icon: 'fas fa-dolly-flatbed'
-            // }
+            {
+                name: 'Pending Orders',
+                url: '/orders/allorders',
+                icon: 'fas fa-dolly-flatbed'
+            },
         ]
     },
     {
-        name: 'COD Reconciliation',
-        url: '/charts',
-        icon: 'icon-pie-chart'
+        name: 'Shipments',
+        url: '/dashboard',
+        icon: 'icon-ban',
+        children: [
+            {
+                name: 'All Shipments',
+                url: '/shipper/shipments',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Return Shipments',
+                url: '/shipper/returnshipments',
+                icon: 'icon-map'
+            }
+        ]
     },
-  
-    // {
-    //     name: 'Drivers',
-    //     url: '/widgets',
-    //     icon: 'icon-calculator',
-    //     children: [
-    //         {
-    //             name: 'Add Drivers',
-    //             url: '/driver/add',
-    //             icon: 'icon-map'
-    //         },
-    //         {
-    //             name: 'Drivers Issues',
-    //             url: '/base/carousels',
-    //             icon: 'icon-map'
-    //         }
-    //     ]
-    // },
+    {
+        name: 'Print Labels',
+        url: '/shipper/shipperwearhouselist',
+        icon: 'icon-pie-chart',
+    },
     {
         name: 'User',
         url: '/dashboard',
@@ -393,12 +277,12 @@ export const ShipperNavItems: INavData[] = [
                 name: 'All Users',
                 url: '/user',
                 icon: 'icon-map'
-            },
-            {
-                name: 'Rolls & Permission Management',
-                url: '/base/carousels',
-                icon: 'icon-map'
             }
         ]
+    },
+    {
+        name: 'Reports',
+        url: '/shipper/shipperwearhouselist',
+        icon: 'icon-pie-chart',
     },
 ];

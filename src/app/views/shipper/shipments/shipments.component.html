@@ -1,0 +1,51 @@
+<div class="card card-accent-primary mt-4 users-listing" >
+    <div class="card-header">
+      All Shipments
+
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+      <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+        <thead>
+          <!-- <tr>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+            Details
+          </button>
+        </tr> -->
+          <tr>
+            <th scope="col">Tracking Number</th>
+            <!-- <th scope="col">User Type</th> -->
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+            <th scope="col">Value</th>
+            <th scope="col">Type</th>
+            <th scope="col">Payment Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Email</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let shipment of shipments">
+            <td>{{shipment.trackingNumber}}</td>
+            <td>{{shipment.shipmentTitle}}</td>
+            <td>{{shipment.shipmentContent}}</td>
+            <td>{{shipment.shipmentValue}}</td>
+            <td>{{shipment.shipmentType}}</td>
+            <td>{{shipment.paymentType}}</td>
+            <td>{{shipment.deliveryStatus}}</td>
+            <td>{{shipment.email}}</td>
+            <td>{{shipment.country}}</td>
+            <td>{{shipment.city}}</td>
+            <td>
+              <!-- <button class="btn btn-info">Edit</button> -->
+              <!-- <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button> -->
+            </td>
+            <td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
