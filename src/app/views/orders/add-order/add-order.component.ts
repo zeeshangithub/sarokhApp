@@ -18,11 +18,11 @@ export class AddOrderComponent implements OnInit {
   dropoffDetailsForm: FormGroup;
   template = {} as any;
   multiple = false;
-  shipmentDetails: Shipment[] = [];
+  shipmentDetails: Shipment = {};
   editOrder = false;
   @Output()
   showlisting = new EventEmitter<boolean>();
-
+  shipmentDetailsData = []
   constructor(
     private formbuilder: FormBuilder,
     private orderService: OrderService,
@@ -168,14 +168,17 @@ console.log("this.shipmentDetails" , this.shipmentDetails)
   }
 
   addShipmentDetail(){
-    this.shipmentDetails.push(new Shipment());
+   
+    this.shipmentDetailsData.push(this.shipmentDetails);
+    this.shipmentDetails = {}
+    console.log(this.shipmentDetailsData)
   }
 
   finishFunction(){
     var pickType = this.orderBasicInfoForm.controls['pickupType'].value;
     var fullFormData = {
       orderBasicInfo: this.orderBasicInfoForm.value,
-      shipmentItems: this.shipmentDetails,
+      shipmentItems: this.addShipmentDetail,
       shipperWarehouse: pickType === 'ShipperWarehouse'? this.dropoffDetailsForm.value : null,
       sarokhWarehouse: pickType === 'SarokhWarehouse'? this.dropoffDetailsForm.value : null,
       dealerDropOff: pickType === 'DealerPoint'? this.dropoffDetailsForm.value : null,

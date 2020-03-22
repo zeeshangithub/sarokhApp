@@ -1,9 +1,9 @@
-
 <div class="card card-accent-primary mt-4 users-listing" *ngIf="showlisting">
   <div class="card-header">
-      Users
-      <button class="btn btn-success" (click)="showaddnew(false)">Add New</button>
-    </div>
+    Users
+    <button class="btn btn-success float-right" (click)="showaddnew(false)">Add New</button>
+    <div class="clearfix"></div>
+  </div>
   <div class="card-body">
     <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
       <thead>
@@ -38,14 +38,10 @@
           <td>{{user.designation}}</td>
           <td>
             <!-- <button class="btn btn-info">Edit</button> -->
+            <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
             <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
-            <button class="btn btn-warning" (click) = "editUuser(user.userId , false)">Edit</button>
           </td>
           <td>
-            <!-- <button class="btn btn-info">Edit</button> -->
-            <button class="btn btn-primary" (click)="deleteUSer(user.userId)">Edit</button>
-            <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
-          </td>
         </tr>
       </tbody>
     </table>
@@ -53,5 +49,5 @@
 </div>
 
 <div>
-  <app-add-user *ngIf="!showlisting"  (showlisting)="showaddnew($event)"></app-add-user>
+  <app-add-user *ngIf="!showlisting" (showlisting)="showaddnew($event)"></app-add-user>
 </div>
