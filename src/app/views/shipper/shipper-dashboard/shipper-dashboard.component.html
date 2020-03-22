@@ -191,15 +191,11 @@
                         <i class="fa fa-group" aria-hidden="true"></i>
                     </a>
                 </div>
+                <div>
+                    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;">
+                    </highcharts-chart>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div>
-    <highcharts-chart
-    [Highcharts] = "highcharts" 
-    [options] = "chartOptions" 
-    style = "width: 100%; height: 400px; display: block;">
- </highcharts-chart>
 </div>
