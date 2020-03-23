@@ -212,12 +212,13 @@ export const ShipperNavItems: INavData[] = [
     {
         name: 'Shipper Dashboard',
         url: '/shipper/Dashboard',
-        icon: 'icon-speedometer',
+        icon: 'fas fa-rocket',
+
     },
     {
         name: 'Wearhouse',
-        url: '/shipper/shipperwearhouselist',
-        icon: 'icon-pie-chart',
+        url: '/shipper/shipperwearhouse',
+        icon: 'fas fa-warehouse',
     },
     {
         name: 'Orders',
