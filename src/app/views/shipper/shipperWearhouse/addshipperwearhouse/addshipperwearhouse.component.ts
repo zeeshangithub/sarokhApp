@@ -145,7 +145,7 @@ editwarehouse = false;
     console.log("fullFormData", fullRequest)
     this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
       console.log("res", res)
-      // alert('Order created successfully')
+      this.showlisting.emit(true);
       this.router.navigate(['shipper/shipperwearhouselist']);
     })
 

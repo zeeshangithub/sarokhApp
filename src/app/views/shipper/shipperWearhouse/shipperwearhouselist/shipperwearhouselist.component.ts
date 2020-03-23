@@ -28,6 +28,7 @@ export class ShipperwearhouselistComponent implements OnInit {
     };
 
     this.fetchWearhouse();
+    
   }
   ngAfterViewInit() {
     this.dataTable = $(this.table.nativeElement);
@@ -46,7 +47,9 @@ export class ShipperwearhouselistComponent implements OnInit {
     })
   }
   DeleteWearhouse(id){
+    
     this.shipperwearhouse.DeleteShipperWearhouse(id).subscribe( res => {
+      debugger;
       console.log("res" , res)
       if(res.status === 200){
         this.fetchWearhouse();
