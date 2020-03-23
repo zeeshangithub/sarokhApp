@@ -212,31 +212,32 @@ export const ShipperNavItems: INavData[] = [
     {
         name: 'Shipper Dashboard',
         url: '/shipper/Dashboard',
-        icon: 'icon-speedometer',
+        icon: 'fas fa-rocket',
+
     },
     {
         name: 'Wearhouse',
-        url: '/shipper/shipperwearhouselist',
-        icon: 'icon-pie-chart',
+        url: '/shipper/shipperwearhouse',
+        icon: 'fas fa-warehouse',
     },
     {
         name: 'Orders',
         url: '/orders',
         icon: 'fas fa-dolly-flatbed',
         children: [
-            {
-                name: 'New Order',
-                url: '/orders/add',
-                icon: 'fas fa-dolly-flatbed'
-            },
+            // {
+            //     name: 'New Order',
+            //     url: '/orders/add',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
             {
                 name: 'All Orders',
-                url: '/orders/allorders',
+                url: '/orders/orders',
                 icon: 'fas fa-dolly-flatbed'
             },
             {
                 name: 'Pending Orders',
-                url: '/orders/allorders',
+                url: '/orders/pendingorders',
                 icon: 'fas fa-dolly-flatbed'
             },
         ]

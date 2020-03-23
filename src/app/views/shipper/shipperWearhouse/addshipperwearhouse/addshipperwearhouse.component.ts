@@ -159,10 +159,12 @@ editwarehouse = false;
     this.dataService.setID('')
   }
   updateWarehouse(){
+    const sharedId = this.dataService.getID();
     var fullFormData = {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
       amminitie: this.amenities.value,
+      
 
     }
     console.log("fullFormData", fullFormData)
@@ -175,10 +177,15 @@ editwarehouse = false;
     console.log("fullRequest" , fullRequest);
 
 
+    fullRequest.id = sharedId;
+    fullRequest.shipperId = localStorage.getItem('_id');
+
+    console.log("fullRequest" , fullRequest);
     this.shipperwarehouse.updateShipperWearhouse(fullRequest).subscribe(res =>{
       console.log("res" , res)
       if(res){
         this.showlisting.emit(true);
+        
     this.warehouseadress.reset();
     this.warehousemanager.reset();
     this.amenities.reset();

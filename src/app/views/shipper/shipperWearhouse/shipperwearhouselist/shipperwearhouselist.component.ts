@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.service';
 import { DataService } from '../../../../services/data.service';
@@ -8,7 +8,8 @@ declare var $;
 @Component({
   selector: 'app-shipperwearhouselist',
   templateUrl: './shipperwearhouselist.component.html',
-  styleUrls: ['./shipperwearhouselist.component.css']
+  styleUrls: ['./shipperwearhouselist.component.css'],
+  
 })
 export class ShipperwearhouselistComponent implements OnInit {
 
@@ -18,7 +19,8 @@ export class ShipperwearhouselistComponent implements OnInit {
   shipperwearhouselist: any;
   showlisting  : boolean = true;
   constructor(private router: Router, private shipperwearhouse: ShipperWearhouseService,
-    private shareData : DataService
+    private shareData : DataService,
+    private cdr: ChangeDetectorRef
     ) { }
   ngOnInit(): void {
     this.dtOption = {
@@ -26,6 +28,7 @@ export class ShipperwearhouselistComponent implements OnInit {
       "ordering": true,
       "info": true
     };
+    // debugger;
 
     this.fetchWearhouse();
     
@@ -33,6 +36,12 @@ export class ShipperwearhouselistComponent implements OnInit {
   ngAfterViewInit() {
     this.dataTable = $(this.table.nativeElement);
     this.dataTable.DataTable(this.dtOption);
+    this.fetchWearhouse();
+
+  }
+  onLoadNext(){
+    
+    this.fetchWearhouse();
   }
   viewOrder() {
     this.router.navigate(['orders/vieworder', '216513']);
@@ -49,7 +58,6 @@ export class ShipperwearhouselistComponent implements OnInit {
   DeleteWearhouse(id){
     
     this.shipperwearhouse.DeleteShipperWearhouse(id).subscribe( res => {
-      debugger;
       console.log("res" , res)
       if(res.status === 200){
         this.fetchWearhouse();

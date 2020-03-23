@@ -17,4 +17,7 @@ export class AllshipmentsService {
   fetchAllPendingOders(id){
     return this.http.get<any>(`${environment.apiURL}order/get-pending-orders/${id}`);
   }
+  fetchAllReturnedShipments(id){
+    return this.http.get<any>(`${environment.apiURL}order/get-returned-shipments/${id}`);
+  }
 }

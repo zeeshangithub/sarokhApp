@@ -60,6 +60,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { DataService } from '../../services/data.service';
+import { ReturnShipmentsComponent } from './return-shipments/return-shipments.component';
+import { PendingOrderComponent } from './pending-order/pending-order.component';
 
 
 @NgModule({
@@ -72,7 +74,10 @@ import { DataService } from '../../services/data.service';
     CodReportsComponent,
     ViewOrderComponent,
     EditOrderComponent,
-    AddOrderComponent
+    AddOrderComponent,
+    
+    ReturnShipmentsComponent,
+    PendingOrderComponent
   ],
   imports: [
     // BrowserAnimationsModule,

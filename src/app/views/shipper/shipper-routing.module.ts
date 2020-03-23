@@ -14,45 +14,45 @@ import { ShipmentsComponent } from './shipments/shipments.component';
 
 const routes: Routes = [
   {
-		path: '',
-		component: ShippersComponent,
+    path: '',
+    component: ShippersComponent,
   },
   {
-		path: 'Dashboard',
-		component: ShipperDashboardComponent,
+    path: 'Dashboard',
+    component: ShipperDashboardComponent,
   },
-  
+
   {
-		path: 'add',
-		component: AddShipperComponent,
+    path: 'add',
+    component: AddShipperComponent,
   },
   {
-		path: 'addshipperwearhouse',
-		component: AddshipperwearhouseComponent,
+    path: 'addshipperwearhouse',
+    component: AddshipperwearhouseComponent,
   }
   ,
   {
-		path: 'shipperwearhouselist',
-		component: ShipperwearhouselistComponent,
+    path: 'shipperwearhouse',
+    component: ShipperwearhouselistComponent,
   },
   {
-		path: 'addsarokhwearhouse',
-		component: AddsarokhwearhouseComponent,
+    path: 'addsarokhwearhouse',
+    component: AddsarokhwearhouseComponent,
   }
   ,
   {
-		path: 'sarokhwearhouselist',
-		component: SarokhwearhouselistComponent,
+    path: 'sarokhwearhouselist',
+    component: SarokhwearhouselistComponent,
   }
   ,
   {
-		path: 'shipments',
-		component: ShipmentsComponent,
+    path: 'shipments',
+    component: ShipmentsComponent,
   }
   ,
   {
-		path: 'returnshipments',
-		component: ReturnshipmentsComponent,
+    path: 'returnshipments',
+    component: ReturnshipmentsComponent,
   }
 ];
 

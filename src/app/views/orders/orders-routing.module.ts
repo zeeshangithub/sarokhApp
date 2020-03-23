@@ -10,24 +10,29 @@ import { ViewOrderComponent } from './view-order/view-order.component';
 import { EditOrderComponent } from './edit-order/edit-order.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { ShipperOnlyGuard } from '../../guards/shipper-only.guard';
+import { PendingOrderComponent } from './pending-order/pending-order.component';
 
 const routes: Routes = [
   {
 		path: '',
 		component: AllOrdersComponent,
   },
+  // {
+	// 	path: 'add',
+  //   component: AddOrderComponent,
+  //   canActivate: [ShipperOnlyGuard]
+  // },
   {
-		path: 'add',
-    component: AddOrderComponent,
-    canActivate: [ShipperOnlyGuard]
-  },
-  {
-    path: 'allorders',
+    path: 'orders',
     component: AllOrdersComponent
   },
   {
     path: 'pickuporders',
     component: PickupOrdersComponent
+  },
+  {
+    path: 'pendingorders',
+    component: PendingOrderComponent
   },
   {
     path: 'deliveryorders',
