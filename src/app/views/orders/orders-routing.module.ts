@@ -17,11 +17,11 @@ const routes: Routes = [
 		path: '',
 		component: AllOrdersComponent,
   },
-  // {
-	// 	path: 'add',
-  //   component: AddOrderComponent,
-  //   canActivate: [ShipperOnlyGuard]
-  // },
+  {
+		path: 'add',
+    component: AddOrderComponent,
+    canActivate: [ShipperOnlyGuard]
+  },
   {
     path: 'orders',
     component: AllOrdersComponent
