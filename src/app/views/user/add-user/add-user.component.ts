@@ -114,10 +114,10 @@ export class AddUserComponent implements OnInit {
       // this.userForm.updateValueAndValidity();
       // this.userForm.patchValue({'parentTypeId' :parentTypeId  })
       console.log("this.userForm", this.userForm)
-      // this.userService.addShipperUser(this.userForm.value).subscribe(res => {
-      //   // alert('Order created successfully')
-      //   this.router.navigate(['user']);
-      // })
+      this.userService.addShipperUser(this.userForm.value).subscribe(res => {
+        // alert('Order created successfully')
+        this.router.navigate(['user']);
+      })
     } else if (localStorage.getItem('role') === 'admin') {
       this.userService.addUser(this.userForm.value).subscribe(res => {
         // alert('Order created successfully')
