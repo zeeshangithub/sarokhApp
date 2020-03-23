@@ -60,3 +60,12 @@ i:hover{cursor: pointer;}
 .highcharts-credits{
   display: none;
 }
+.top-nav-links a:hover{color: #f6921d !important;}
+.sidebar .nav-link:hover {
+  color: #fff;
+  background: #f6921d !important;
+}
+.sidebar .nav-link.active .nav-icon {
+  color: #f6921d !important;
+}
+.card-header{font-weight: bold;}
