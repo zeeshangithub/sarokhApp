@@ -16,18 +16,19 @@ export class DefaultLayoutComponent implements  OnInit{
   public routerLinkVariable = "/orders/add";
   public routerlink404 = "/base/cards"
   ngOnInit(): void {
-    const  shipperID  = localStorage.getItem("id");
-    this.shipperdetails.fetchshipperDetails(shipperID).subscribe(res => {
-        this.shipperdata = res.user;
-        console.log(this.shipperdata)
-
-    })
+ 
 }
   constructor(private router: Router, private storage: LocalStorageService,private shipperdetails : ShipperService){
     if(localStorage.getItem('role') === 'admin'){
       this.navItems = navItems;
     }else{
       this.navItems = ShipperNavItems;
+      const  shipperID  = localStorage.getItem("id");
+      this.shipperdetails.fetchshipperDetails(shipperID).subscribe(res => {
+          this.shipperdata = res.user;
+          console.log(this.shipperdata)
+  
+      })
     }
     this.showRole = localStorage.getItem('role');
     console.log("this.showRole" , this.showRole)
