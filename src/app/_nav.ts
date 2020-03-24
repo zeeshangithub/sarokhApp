@@ -282,6 +282,23 @@ export const ShipperNavItems: INavData[] = [
         ]
     },
     {
+        name: 'Legder',
+        // url: '',
+        icon: 'icon-ban',
+        children: [
+            {
+                name: 'All Ledger',
+                url: '/shipper/ledgers',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Add Ledger',
+                url: '/shipper/addledgers',
+                icon: 'icon-map'
+            }
+        ]
+    },
+    {
         name: 'Reports',
         url: '/base/cards',
         icon: 'icon-pie-chart',

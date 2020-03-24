@@ -11,6 +11,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
 import { ReturnshipmentsComponent } from './returnshipments/returnshipments.component';
 import { ShipmentsComponent } from './shipments/shipments.component';
+import { ShipperLedgerComponent } from './shipper-ledger/shipper-ledger.component';
+import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledger.component';
 
 const routes: Routes = [
   {
@@ -53,6 +55,14 @@ const routes: Routes = [
   {
     path: 'returnshipments',
     component: ReturnshipmentsComponent,
+  }
+  ,{
+    path: 'ledgers',
+    component: ShipperLedgerComponent,
+  }
+  ,{
+    path: 'addledgers',
+    component: AddShipperLedgerComponent,
   }
 ];
 
