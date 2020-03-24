@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import * as Highcharts from 'highcharts';
+import { ShipperService } from '../../../services/shipper.service';
+import {Shipperdetails } from '../../../interfaces/shipperdetails'
 @Component({
   selector: 'app-shipper-dashboard',
   templateUrl: './shipper-dashboard.component.html',
   styleUrls: ['./shipper-dashboard.component.css']
 })
-export class ShipperDashboardComponent implements OnInit {
 
-  constructor() { }
+export class ShipperDashboardComponent implements OnInit {
+    shipperdata;
+  constructor(private shipperdetails : ShipperService) { }
 highcharts = Highcharts;
+
 
   ngOnInit(): void {
 
+    const  shipperID  = localStorage.getItem("id");
+    this.shipperdetails.fetchshipperDetails(shipperID).subscribe(res => {
+        this.shipperdata = res.user;
+        console.log(this.shipperdata)
+
+    })
   }
 
 

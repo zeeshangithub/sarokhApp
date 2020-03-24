@@ -261,7 +261,7 @@ export const ShipperNavItems: INavData[] = [
     },
     {
         name: 'Print Labels',
-        url: '/shipper/shipperwearhouselist',
+        url: '/base/cards',
         icon: 'icon-pie-chart',
     },
     {
@@ -283,7 +283,7 @@ export const ShipperNavItems: INavData[] = [
     },
     {
         name: 'Reports',
-        url: '/shipper/shipperwearhouselist',
+        url: '/base/cards',
         icon: 'icon-pie-chart',
     },
 ];

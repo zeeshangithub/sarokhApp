@@ -15,4 +15,7 @@ export class ShipperService {
   addShipper(formData:any){
     return this.http.post<any>(`${environment.apiURL}shipper/add`, formData);
   }
+  fetchshipperDetails(id){
+    return this.http.get<any>(`${environment.apiURL}shipper/get-details/${id}`)
+  }
 }
