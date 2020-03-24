@@ -8,7 +8,8 @@
       Add Orders
 
     </div>
-    <button class="btn btn-success float-right custom-position" (click)="addNew(false)">Add New</button>
+    <button style="background: #ec1c24 !important; border: #ec1c24 solid 1px;" class="btn btn-success float-right custom-position"
+      (click)="addNew(false)">Add New</button>
     <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8 mb-5">
       <ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
         <th mat-header-cell *matHeaderCellDef> {{column}} </th>
