@@ -1,1 +1,61 @@
-<p>add-shipper-ledger works!</p>
+<div class="card mt-4">
+    <div class="card-header">
+        Add Ledger
+    </div>
+    <div class="card-body">
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Ledger ID" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                    required>
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="to" formControlName="dob" [owlDateTime]="dob" [owlDateTimeTrigger]="dob"
+                    [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="from" required>
+            </div>
+        </div>
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Due Date" required>
+            </div>
+        </div>
+
+        <div class="total-amount">
+            <label class="float-left">Total Amount : </label>
+            <p class="float-left">4500/-</p>
+        </div>
+        <div class="clearfix"></div>
+
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Shipment ID/ Tracking No</th>
+                    <th scope="col">Shipment Title</th>
+                    <th scope="col">Delivery Date</th>
+                    <th scope="col">COD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>12</td>
+                    <td>fdsfsdf</td>
+                    <td>gdfgfg</td>
+                    <td>dsfds@fdsf</td>
+                    <td>3423443</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-danger float-right mt-3">Create Bill</button>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -95,8 +95,11 @@ i:hover{cursor: pointer;}
   background: #f6921d !important;
 }
 .card-header{font-weight: bold;}
+.total-amount{float: right; margin-bottom: 25px;}
+.total-amount label{font-weight: bold;}
 
 
 @media screen and (max-width: 680px) {
   .card{margin-top: 50px !important;}
+  table.dataTable{display: block !important;}
 }
