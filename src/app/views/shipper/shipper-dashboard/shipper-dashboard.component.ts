@@ -11,6 +11,7 @@ import {Shipperdetails } from '../../../interfaces/shipperdetails'
 
 export class ShipperDashboardComponent implements OnInit {
     shipperdata;
+    showDetails = false;
   constructor(private shipperdetails : ShipperService) { }
 highcharts = Highcharts;
 
@@ -19,7 +20,10 @@ highcharts = Highcharts;
 
     const  shipperID  = localStorage.getItem("id");
     this.shipperdetails.fetchshipperDetails(shipperID).subscribe(res => {
+        console.log("res" , res)
         this.shipperdata = res.user;
+
+        this.showDetails = true;
         console.log(this.shipperdata)
 
     })
