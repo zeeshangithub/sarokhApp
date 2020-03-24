@@ -2,15 +2,15 @@
   [navbarBrandMinimized]="{src: 'assets/img/brand/sarokh-logo.jpg', width: 30, height: 30, alt: 'CoreUI Logo'}" [sidebarToggler]="'lg'"
   [asideMenuToggler]=false>
   <div class="top-nav-links">
-    <a style="color: #000;" class="pull-left mr-4 ml-5" href="#">Print Slip</a>
-    <a style="color: #000;" class="pull-left mr-4" href="#">New Order</a>
-    <a style="color: #000;" class="pull-left" href="#">COD Reconciliation</a>
+    <a style="color: #000;" class="pull-left mr-4 ml-5" [routerLink]="routerlink404">Print Labels</a>
+    <a style="color: #000;" class="pull-left mr-4" [routerLink]="routerLinkVariable">New Order</a>
+    <a style="color: #000;" class="pull-left" [routerLink]="routerlink404">COD Reconciliation</a>
   </div>
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
       <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle
         (click)="false">
-        <span>{{showRole}}</span>
+        <span>{{shipperdata.userName}}</span>
         <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" />
       </a>
       <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">

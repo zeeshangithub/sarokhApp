@@ -73,7 +73,7 @@ i:hover{cursor: pointer;}
 .card-header{font-weight: bold; background: #FFF;border-bottom:#f6921d solid 2px;}
 .sidebar{background: #FFF; }
 .sidebar .nav-link{color: #ec1c24 !important;}
-.sidebar .nav-link i{color: #e49396 !important;} 
+.sidebar .nav-link i{color: #ec1c24 !important;} 
 .sidebar .nav-link:hover .nav-icon{color: #FFF !important;}
 .sidebar .nav-link.active{color: #FFF !important;background: #ec1c24 !important;}
 .sidebar .nav-dropdown.open{background: #FFF !important;border-right:#f6921d solid 2px;}
@@ -94,3 +94,12 @@ i:hover{cursor: pointer;}
 @media screen and (max-width: 680px) {
   .card{margin-top: 50px !important;}
 }
+.top-nav-links a:hover{color: #FFF !important;}
+.sidebar .nav-link:hover {
+  color: #fff;
+  background: #f6921d !important;
+}
+// .sidebar .nav-link.active .nav-icon {
+//   color: #f6921d !important;
+// }
+.card-header{font-weight: bold;}

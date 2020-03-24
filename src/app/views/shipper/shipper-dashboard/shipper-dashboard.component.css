@@ -9,7 +9,7 @@
 .profile__header {
     /* overflow: hidden; */
     font-family: 'Poppins', sans-serif;
-    border-bottom: #c1c1c1 solid 1px;padding-bottom: 8px;
+    border-bottom: #f6921d solid 1px;padding-bottom: 8px;
 }
 .panel-body :first-child {
     margin-top: 0; vertical-align: top;

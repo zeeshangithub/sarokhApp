@@ -6,6 +6,10 @@
             <div class="col-sm-12">
                 <div class="profile__header">
                     <h4 class=" float-left">SOUQ.com</h4>
+                    <div class="profile__avatar float-right">
+                        <img alt="..." src="../../../../assets/Souq_Logo.svg">
+                    </div>
+                    <div class="clearfix"></div>
                     <!-- <div class="row margintop10">
                         <div class="d-flex flex-row col-md-4">
                             <div class="icon color-default fs-20 mr-10">
@@ -32,10 +36,6 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="profile__avatar float-right">
-                        <img src="../../../../assets/Souq_Logo.svg" alt="...">
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
                 <div>
                     <div class="float-left mt-2">
@@ -43,7 +43,7 @@
                             <i class="fa fa-user"></i>
                         </div>
                         <div style="display: inline-block;margin-right: 30px;">
-                            <p>John Doe</p>
+                            <p>{{shipperdata.userName}}</p>
                         </div>
                     </div>
                     <div class="float-left mt-2">
@@ -51,7 +51,7 @@
                             <i class="fa fa-envelope"></i>
                         </div>
                         <div style="display: inline-block;margin-right: 30px;">
-                            <p>johndoe@gmail.com</p>
+                            <p>{{shipperdata.email}}</p>
                         </div>
                     </div>
                     <div class="float-left mt-2">
@@ -59,7 +59,7 @@
                             <i class="fa fa-mobile"></i>
                         </div>
                         <div style="display: inline-block; margin-right: 30px;">
-                            <p>03361234568</p>
+                            <p>{{shipperdata.contact}}</p>
                         </div>
                     </div>
                 </div>
