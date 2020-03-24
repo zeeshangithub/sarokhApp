@@ -51,6 +51,7 @@ export class SarokhwearhouselistComponent implements OnInit {
   DeleteWearhouse(id){
     this.sarokhwearhouse.DeleteSarokhWearhouse(id).subscribe( res => {
       console.log("res" , res)
+      
       if(res.status === 200){
         this.fetchWearhouse();
       }

@@ -18,8 +18,10 @@ import { DataService } from '../../services/data.service';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { ShipmentsComponent } from './shipments/shipments.component';
 import { ReturnshipmentsComponent } from './returnshipments/returnshipments.component';
+import { ShipperLedgerComponent } from './shipper-ledger/shipper-ledger.component';
+import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledger.component';
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent , HighchartsChartComponent, ShipmentsComponent, ReturnshipmentsComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent , HighchartsChartComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
