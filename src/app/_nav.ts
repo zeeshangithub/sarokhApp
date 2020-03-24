@@ -216,7 +216,7 @@ export const ShipperNavItems: INavData[] = [
 
     },
     {
-        name: 'Wearhouse',
+        name: 'Warehouse',
         url: '/shipper/shipperwearhouse',
         icon: 'fas fa-warehouse',
     },
