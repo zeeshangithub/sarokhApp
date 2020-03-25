@@ -3,9 +3,13 @@
 <div class="card borderradius40 margintop30">
     <div class="panel-body">
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-12">
                 <div class="profile__header">
-                    <h4>SOUQ.com</h4>
+                    <h4 class=" float-left">SOUQ.com</h4>
+                    <div class="profile__avatar float-right">
+                        <img alt="..." src="../../../../assets/Souq_Logo.svg">
+                    </div>
+                    <div class="clearfix"></div>
                     <!-- <div class="row margintop10">
                         <div class="d-flex flex-row col-md-4">
                             <div class="icon color-default fs-20 mr-10">
@@ -32,197 +36,194 @@
                             </div>
                         </div>
                     </div> -->
-                    <div *ngIf="showDetails">
-                    <div class="float-left mt-2" >
-                        <div class="icon color-default fs-20 mr-10 float-left">
-                            <i class="fa fa-user"></i>
-                        </div>
-                        <div style="display: inline-block;margin-right: 30px;">
-                            <p>{{shipperdata.userName}}</p>
-                        </div>
-                    </div>
-                    <div class="float-left mt-2">
-                        <div class="icon color-default fs-20 mr-10 float-left">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div style="display: inline-block;margin-right: 30px;">
-                            <p>{{shipperdata.email}}</p>
-                        </div>
-                    </div>
-                    <div class="float-left mt-2">
-                        <div class="icon color-default fs-20 mr-10 float-left">
-                            <i class="fa fa-mobile"></i>
-                        </div>
-                        <div style="display: inline-block; margin-right: 30px;">
-                            <p>{{shipperdata.contact}}</p>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <hr>
-            </div>
-            <div class="col-sm-4">
-                <div class="profile__avatar float-right">
-                    <img src="../../../../assets/Souq_Logo.svg" alt="...">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 ">
-                <div class="row mt-2">
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fa fa-usd font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">SAR 15000/-</span>
-                                    <br>Total Earning</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fa fa-usd font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">SAR 15000/-</span>
-                                    <br>Completed Orders</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fa fa-money font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">SAR 525/-</span>
-                                    <br>Pending Balance</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fa fa-money font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">SAR 525/-</span>
-                                    <br>Pending Receivables</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fas fa-dolly-flatbed font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">150</span>
-                                    <br>Total Orders</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fas fa-dolly-flatbed font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">13</span>
-                                    <br>Pending Order(pickups)</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fas fa-dolly-flatbed font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">2</span>
-                                    <br>Return Orders</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fas fa-dolly-flatbed font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">10</span>
-                                    <br>Order Pending Deliveries</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="flex-row col-md-6">
-                        <div class="thumnail-box">
-                            <div class="icon color-default fs-26 mr-10 float-left">
-                                <i class="fa fa-exclamation-circle font40"></i>
-                            </div>
-                            <div class="float-left">
-                                <p>
-                                    <span class="font20">25</span>
-                                    <br>Active Shipment Issues</p>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <h4>Shipper Users</h4>
-                <div class="profile__avatar-small">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-                </div>
-                <div class="profile__avatar-small">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-                </div>
-                <div class="profile__avatar-small">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-                </div>
-                <div class="profile__avatar-small">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-                </div>
-                <div class="profile__avatar-small">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
-                </div>
-                <div class="profile__avatar_small_addnew">
-                    <a href="/">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="profile__avatar_small_addnew marginleft10">
-                    <a href="/">
-                        <i class="fa fa-group" aria-hidden="true"></i>
-                    </a>
                 </div>
                 <div>
-                    <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;">
-                    </highcharts-chart>
+                    <div class="float-left mt-2">
+                        <div *ngIf="showDetails">
+                            <div class="float-left mt-2">
+                                <div class="icon color-default fs-20 mr-10 float-left">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div style="display: inline-block;margin-right: 30px;">
+                                    <p>{{shipperdata.userName}}</p>
+                                </div>
+                            </div>
+                            <div class="float-left mt-2">
+                                <div class="icon color-default fs-20 mr-10 float-left">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div style="display: inline-block;margin-right: 30px;">
+                                    <p>{{shipperdata.email}}</p>
+                                </div>
+                            </div>
+                            <div class="float-left mt-2">
+                                <div class="icon color-default fs-20 mr-10 float-left">
+                                    <i class="fa fa-mobile"></i>
+                                </div>
+                                <div style="display: inline-block; margin-right: 30px;">
+                                    <p>{{shipperdata.contact}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="row mt-2">
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fa fa-usd font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">SAR 15000/-</span>
+                                        <br>Total Earning</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fa fa-usd font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">SAR 15000/-</span>
+                                        <br>Completed Orders</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fa fa-money font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">SAR 525/-</span>
+                                        <br>Pending Balance</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fa fa-money font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">SAR 525/-</span>
+                                        <br>Pending Receivables</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fas fa-dolly-flatbed font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">150</span>
+                                        <br>Total Orders</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fas fa-dolly-flatbed font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">13</span>
+                                        <br>Pending Order(pickups)</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fas fa-dolly-flatbed font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">2</span>
+                                        <br>Return Orders</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fas fa-dolly-flatbed font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">10</span>
+                                        <br>Order Pending Deliveries</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="flex-row col-md-6">
+                            <div class="thumnail-box">
+                                <div class="icon color-default fs-26 mr-10 float-left">
+                                    <i class="fa fa-exclamation-circle font40"></i>
+                                </div>
+                                <div class="float-left">
+                                    <p>
+                                        <span class="font20">25</span>
+                                        <br>Active Shipment Issues</p>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h4>Shipper Users</h4>
+                    <div class="profile__avatar-small">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+                    </div>
+                    <div class="profile__avatar-small">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+                    </div>
+                    <div class="profile__avatar-small">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+                    </div>
+                    <div class="profile__avatar-small">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+                    </div>
+                    <div class="profile__avatar-small">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="...">
+                    </div>
+                    <div class="profile__avatar_small_addnew">
+                        <a href="/">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="profile__avatar_small_addnew marginleft10">
+                        <a href="/">
+                            <i class="fa fa-group" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;">
+                        </highcharts-chart>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

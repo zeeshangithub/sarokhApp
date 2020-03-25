@@ -1,60 +1,59 @@
-<div class="card card-accent-primary mt-4 users-listing" >
-    <div class="card-header">
-      Return Shipment
-      <div class="clearfix"></div>
-    </div>
-    <div class="card-body">
-      <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
-        <thead>
-          <!-- <tr>
+<div class="card card-accent-primary mt-4 users-listing">
+  <div class="card-header">
+    Return Shipment
+    <div class="clearfix"></div>
+  </div>
+  <div class="card-body">
+    <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+      <thead>
+        <!-- <tr>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
             Details
           </button>
         </tr> -->
-          <tr>
-            <th scope="col">Tracking Number</th>
-            <!-- <th scope="col">User Type</th> -->
-            <th scope="col">Shipment Title</th>
-            <th scope="col">Shipment Content</th>
-            <th scope="col">Shipment Value</th>
-            <th scope="col">Shipment Type</th>
-            <th scope="col">Payment Type</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Delivery Status</th>
-            <th scope="col">Weight</th>
-            <th scope="col">Reciver</th>
-            <th scope="col">Contact</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let pendingshipment of pendingshipments">
-            <td>{{pendingshipment.trackingNumber}}</td>
-            <td>{{pendingshipment.shipmentTitle}}</td>
-            <td>{{pendingshipment.shipmentContent}}</td>
-            <td>{{pendingshipment.shipmentValue}}</td>
-            <td>{{pendingshipment.shipmentType}}</td>
-            <td>{{pendingshipment.paymentType}}</td>
-            <td>{{pendingshipment.shipmentBilledAmount }}</td>
-            <td>{{pendingshipment.deliveryStatus}}</td>
-            <td>{{pendingshipment.weight}}</td>
-            <td>{{pendingshipment.receiverName}}</td>
-            <td>{{pendingshipment.contact}}</td>
-            <td>{{pendingshipment.address}}</td>
-            <td>{{pendingshipment.city}}</td>
-            
-       
-            <td>
-              <!-- <button class="btn btn-info">Edit</button> -->
-              <!-- <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button> -->
-            </td>
-            <td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <tr>
+          <th scope="col">Tracking Number</th>
+          <!-- <th scope="col">User Type</th> -->
+          <th scope="col">Shipment Title</th>
+          <th scope="col">Shipment Content</th>
+          <th scope="col">Shipment Value</th>
+          <th scope="col">Shipment Type</th>
+          <th scope="col">Payment Type</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Delivery Status</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Reciver</th>
+          <th scope="col">Contact</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pendingshipment of pendingshipments">
+          <td>{{pendingshipment.trackingNumber}}</td>
+          <td>{{pendingshipment.shipmentTitle}}</td>
+          <td>{{pendingshipment.shipmentContent}}</td>
+          <td>{{pendingshipment.shipmentValue}}</td>
+          <td>{{pendingshipment.shipmentType}}</td>
+          <td>{{pendingshipment.paymentType}}</td>
+          <td>{{pendingshipment.shipmentBilledAmount }}</td>
+          <td>{{pendingshipment.deliveryStatus}}</td>
+          <td>{{pendingshipment.weight}}</td>
+          <td>{{pendingshipment.receiverName}}</td>
+          <td>{{pendingshipment.contact}}</td>
+          <td>{{pendingshipment.address}}</td>
+          <td>{{pendingshipment.city}}</td>
+
+
+          <!-- <td>
+              <button class="btn btn-info">Edit</button>
+              <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
+            </td> -->
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>

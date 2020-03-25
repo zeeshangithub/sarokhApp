@@ -18,4 +18,10 @@ export class ShipperService {
   fetchshipperDetails(id){
     return this.http.get<any>(`${environment.apiURL}shipper/get-details/${id}`)
   }
+  searchShipperShipment(formData:any){
+    return this.http.post<any>(`${environment.apiURL}order/search-shipper-shipments/`, formData);
+  }
+  createShipperLedgerShipment(formData:any){
+    return this.http.post<any>(`${environment.apiURL}ledger/add/`, formData);
+  }
 }

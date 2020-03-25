@@ -52,8 +52,8 @@ tr.example-element-row:not(.example-expanded-row):active {
 .mat-cell, .mat-footer-cell{color:#595d6e}
 .mat-table th, td{text-align: left;}
 .mat-table td{ padding-bottom: 15px;}
-.mat-table th{border-bottom: 1px solid #f0f3ff; font-weight: bold;}
-.mat-table tr{border-bottom: 1px solid #f0f3ff;}
+.mat-table th{border-bottom: 1px solid #f6921d; font-weight: bold;}
+.mat-table tr{border-bottom: 1px solid #f6921d;}
 .mat-table .mat-row:hover{background: none !important;}
 table.mat-table tbody tr:first-child{padding-top: 15px !important;}
 .example-element-detail{display: grid; margin-left: 20px; margin-top: 15px;}

@@ -1,0 +1,4 @@
+.table-responsive{display: inline-table;}
+@media screen and (max-width: 680px) {
+    .table-responsive{display: block;}
+}
