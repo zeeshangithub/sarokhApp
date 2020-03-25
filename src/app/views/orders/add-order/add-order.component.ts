@@ -187,7 +187,7 @@ console.log("this.shipmentDetails" , this.shipmentDetails)
     this.orderService.addOrder(fullFormData).subscribe(res => {
       // alert('Order created successfully')
       console.log("res" , res)
-      this.router.navigate(['orders/allorders']);
+      this.router.navigate(['orders/orders']);
     })
 
   }

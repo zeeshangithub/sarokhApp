@@ -8,6 +8,7 @@ import { AdminService } from '../../../services/admin.service';
 import { DataSource } from '@angular/cdk/collections';
 import { Order } from '../../../interfaces/order'
 import { DataService } from '../../../services/data.service';
+import { OrderService } from '../../../services/order.service';
 declare var $;
 
 @Component({
@@ -47,7 +48,7 @@ export class AllOrdersComponent implements OnInit {
   }
 
   constructor(private router: Router, private adminService: AdminService,
-    private shareData : DataService) { }
+    private shareData : DataService , private orderService: OrderService) { }
 
 
   fetchOrders() {
@@ -79,4 +80,15 @@ export class AllOrdersComponent implements OnInit {
   //   })
   // }
 
+
+  deleteOrder(id){
+
+    this.orderService.deleteOrder(id).subscribe(res => {
+      console.log("res" , res.status)
+      if(res.status === 200){
+        this.fetchOrders();
+      }
+    })
+
+  }
 }

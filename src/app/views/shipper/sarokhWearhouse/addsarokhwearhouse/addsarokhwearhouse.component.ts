@@ -167,7 +167,8 @@ this.storagecapacity = this.formbuilder.group({
     this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
       console.log("res" , res)
       alert('Order created successfully')
-      this.router.navigate(['/sarokhwearhouselist']);
+      // window.onload
+      this.router.navigate(['/shipperwearhouse']);
     })
 
   }
