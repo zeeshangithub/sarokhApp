@@ -1,4 +1,4 @@
-<div class="row mt-4" *ngIf="showlisting" (loadNext)="onLoadNext()">
+<div class="row mt-4" *ngIf="showlisting" (editDone)="qrIconClicked($event)">
   <div class="col-12">
     <div class="card card-accent-primary">
       <div class="card-header" *ngIf="showlisting">

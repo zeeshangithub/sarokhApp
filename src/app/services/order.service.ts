@@ -19,6 +19,9 @@ export class OrderService {
     return this.http.post<any>(`${environment.apiURL}order/create-order-id/${shipperId}`, {});
   }
 
+  deleteOrder(Id){
+    return this.http.delete<any>(`${environment.apiURL}order/delete/${Id}`)
+  }
   getOrderDetails(Id){
     return this.http.get<any>(`${environment.apiURL}order/get-details/${Id}`);
   // return this.http.post<any>(`${environment.apiURL}order/get-details/${Id}`);

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import { OrderService } from '../../../services/order.service';
 import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.service';
@@ -23,7 +23,7 @@ export class AddshipperwearhouseComponent implements OnInit {
 editwarehouse = false;
   @Output()
   showlisting = new EventEmitter<boolean>();
-  // shipmentDetails: Shipment[] = [];
+  @Output() editDone = new EventEmitter<string>();
 
   constructor(
     private formbuilder: FormBuilder,
@@ -69,17 +69,6 @@ editwarehouse = false;
     }
 
   }
-
-  // generateOrderID(){
-  //   var shipperId = localStorage.getItem('_id');
-  //   var orderId = '';
-  //   this.orderService.getOrderId(shipperId).subscribe(res=>{
-  //     orderId = res.data;
-  //     this.orderBasicInfoForm.controls['orderId'].setValue(orderId);
-  //     this.orderBasicInfoForm.controls['shipperId'].setValue(shipperId);
-  //   })
-  // }
-
   initializeWarehouseAdress() {
     this.warehouseadress = this.formbuilder.group({
       name: ['', [Validators.required]],
@@ -91,7 +80,6 @@ editwarehouse = false;
       latitude: ['', [Validators.required]],
     })
   }
-
   initializeamenities() {
     this.amenities = this.formbuilder.group({
       forkLifter: ['', [Validators.required]],
@@ -101,10 +89,6 @@ editwarehouse = false;
     })
   }
   initializeWarehouseManager() {
-    // let operationalTime
-    // const lblIdCode = this.warehousemanager.get('txtReference').value + this.warehousemanager.get('txtPublicacion').value
-
-
     this.shipperId = localStorage.getItem('_id')
     this.warehousemanager = this.formbuilder.group({
       managerName: ['', [Validators.required]],
@@ -113,11 +97,8 @@ editwarehouse = false;
       operationalTimeto: ['', [Validators.required]],
       operationalTimefrom: ['', Validators.required],
       shipperId: this.shipperId,
-      // operationalTime : 'operationalTimefrom' + 'operationalTimefrom'      
     })
-    //  console.log("this.warehousemanager.get(['operationalTimeto','operationalTimefrom']).value" , this.warehousemanager.get(['operationalTimeto','operationalTimefrom']).value);
   }
-
   shipperWarehouseSelected(warehouse): void {
     this.template.users = [];
     this.template.shipperWarehouses.forEach(element => {
@@ -126,14 +107,11 @@ editwarehouse = false;
       }
     });
   }
-
   finishFunction() {
-
     var fullFormData = {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
       amminitie: this.amenities.value,
-
     }
     console.log("fullFormData", fullFormData)
     const fullRequest = {
@@ -141,12 +119,16 @@ editwarehouse = false;
       ...fullFormData.shipmentItems,
       ...fullFormData.amminitie
     };
-
     console.log("fullFormData", fullRequest)
     this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
       console.log("res", res)
+      this.router.navigate(['shipper/shipperwearhouse']);
+      // window.reload
+    
       this.showlisting.emit(true);
-      this.router.navigate(['shipper/shipperwearhouselist']);
+      this.editDone.emit('some value');
+    
+  
     })
 
   }

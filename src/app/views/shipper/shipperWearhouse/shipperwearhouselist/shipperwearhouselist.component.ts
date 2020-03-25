@@ -39,6 +39,11 @@ export class ShipperwearhouselistComponent implements OnInit {
     this.fetchWearhouse();
 
   }
+
+qrIconClicked(event: any){
+ 
+  console.log("dfdfsd" , event)
+}
   onLoadNext(){
     
     this.fetchWearhouse();
@@ -71,4 +76,5 @@ export class ShipperwearhouselistComponent implements OnInit {
     this.showlisting = e;
     this.shareData.setID(id);
   }
+
 }
