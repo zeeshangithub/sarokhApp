@@ -109,7 +109,7 @@ console.log("this.shipmentDetails" , this.shipmentDetails)
     this.initializeDropoffDetailsForm();
     this.shipmentTypeSelected();
     var pickType = this.orderBasicInfoForm.controls['pickupType'].value;
-    if(pickType === 'SarokhWarehouse'){
+    if(pickType === 'Sarokh Warehouse'){
       this.dropoffDetailsForm.controls['warehouseId'].setValidators([Validators.required]);
       this.dropoffDetailsForm.controls['contact'].setValidators([Validators.required]);
       this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
@@ -118,7 +118,7 @@ console.log("this.shipmentDetails" , this.shipmentDetails)
           this.template.sarokhWarehouses = res.data;
         }
       })
-    }else if(pickType === 'ShipperWarehouse'){
+    }else if(pickType === 'Shipper Warehouse'){
       this.dropoffDetailsForm.controls['warehouseId'].setValidators([Validators.required]);
       this.warehouseService.fetchShipperWarehouses(localStorage.getItem('_id')).subscribe(res => {
         if(res && res.data){
@@ -126,7 +126,7 @@ console.log("this.shipmentDetails" , this.shipmentDetails)
           this.template.shipperWarehouses = res.data;
         }
       })
-    }else if(pickType === 'DealerPoint'){
+    }else if(pickType === 'Dealer Points'){
       this.dealerService.fetchDealers().subscribe(res => {
         if(res && res.data){
           this.template.dealers = res.data;
