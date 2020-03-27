@@ -11,13 +11,13 @@ import { IfStmt } from '@angular/compiler';
 export class AddShipperLedgerComponent implements OnInit {
   myGroup
   ledgerForm: any;
-  // formbuilder: any;
   shipperId;
   shipperShipments;
   sum = 0;
   newobj;
   date : string;
   selectedShippment;
+  selectedShipmentsIds = [];
 
   constructor(private formbuilder: FormBuilder, private shipperservice: ShipperService) { }
 
@@ -38,10 +38,11 @@ export class AddShipperLedgerComponent implements OnInit {
   }
   fetchDetails() {
 
-    //  this.date = this.ledgerForm.get('endDate').value.getDate() + 7;
-     var d = new Date();
-     d.setDate(10);
-     console.log("d" , d);
+     this.date = this.ledgerForm.get('endDate').value.setDate(this.ledgerForm.get('endDate').value.getDate()+7);
+
+     const calculatedDate = new Date(this.date); // The 0 there is the key, which sets the date to the epoch
+    this.ledgerForm.get('dueDate').setValue(calculatedDate)
+    
      
     // this.ledgerForm.get('dueDate').value.setDate(this.date);
 console.log("date" , this.date)
@@ -60,25 +61,32 @@ console.log("date" , this.date)
       this.newobj = this.shipperShipments.filter(
         book => book.id === this.selectedShippment.id);
       console.log(this.newobj[0].shipmentBilledAmount)
+      
       this.sum = this.sum + this.newobj[0].shipmentBilledAmount;
-
+      this.selectedShipmentsIds.push(this.newobj[0].id);
+console.log("this.selectedShipmentsIds" , this.selectedShipmentsIds)
       console.log(this.sum)
     } else if (event === false) {
-      this.sum = this.sum - this.newobj[0].shipmentBilledAmount
+      const index = this.selectedShipmentsIds.indexOf(this.selectedShippment.id)
+      this.sum = this.sum - this.newobj[0].shipmentBilledAmount;
+      this.selectedShipmentsIds.splice(index , 1)
     }
 
+    console.log("this.selectedShipmentsIds", this.selectedShipmentsIds)
 
 
     console.log(this.sum);
 
+    this.selectedShipmentsIds.toString();
 
 
   }
   createBill(){
+    this.selectedShipmentsIds.toString();
     this.ledgerForm.get('id').setValue(this.selectedShippment.id);
     this.ledgerForm.get('totalAmount').setValue(this.sum);
     this.ledgerForm.get('paymentStatus').setValue(this.selectedShippment.deliveryStatus);
-    this.ledgerForm.get('shipmentsIdList').setValue(this.selectedShippment.shipmentsIdList);
+    this.ledgerForm.get('shipmentsIdList').setValue(this.selectedShipmentsIds);
     this.ledgerForm.get('dueDate').setValue(new Date('August 19, 1975 23:15:30'));
     this.ledgerForm.get('ledgerName').setValue(this.selectedShippment.paymentType);
     console.log("this.ledgerForm" , this.ledgerForm.value)

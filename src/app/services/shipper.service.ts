@@ -24,4 +24,11 @@ export class ShipperService {
   createShipperLedgerShipment(formData:any){
     return this.http.post<any>(`${environment.apiURL}ledger/add/`, formData);
   }
+  getLedgerList(){
+  return this.http.get<any>(`${environment.apiURL}ledger/get-list`);
+  }
+  deleteLedger (id){
+
+    return this.http.delete<any>(`${environment.apiURL}ledger/delete/${id}`)
+  }
 }

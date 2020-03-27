@@ -8,33 +8,25 @@
             <thead>
                 <tr>
                     <th scope="col">Status</th>
-                    <th scope="col">Ledger ID</th>
                     <th scope="col">Ledger Name</th>
-                    <th scope="col">Amount Due</th>
-                    <th scope="col">Amount Receiveable</th>
-                    <th scope="col">Payment Due Date</th>
-                    <th scope="col">Bill View</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Debit</td>
-                    <td>45</td>
-                    <td>gdfgfg</td>
-                    <td>SR 500</td>
-                    <td>SR 435</td>
-                    <td>15 june</td>
-                    <td>3423443</td>
+                <tr *ngFor="let ledger of ledgerList">
+                    <td>{{ledger.paymentStatus}}</td>
+                    <td>{{ledger.ledgerName}}</td>
+                    <td>{{ledger.startDate  | date}}</td>
+                    <td>{{ledger.endDate | date}} </td>
+                    <td>{{ledger.dueDate | date}}</td>
+                    <td>{{ledger.totalAmount}}</td>
+                    <td><button (click)="deleteLedger(ledger.id)">Delete</button></td>
                 </tr>
-                <tr>
-                    <td>Credit</td>
-                    <td>12</td>
-                    <td>gdfgfg</td>
-                    <td>SR 500</td>
-                    <td>SR 234</td>
-                    <td>15 june</td>
-                    <td>3423443</td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
