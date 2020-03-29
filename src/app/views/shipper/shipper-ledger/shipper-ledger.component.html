@@ -24,7 +24,10 @@
                     <td>{{ledger.endDate | date}} </td>
                     <td>{{ledger.dueDate | date}}</td>
                     <td>{{ledger.totalAmount}}</td>
-                    <td><button (click)="deleteLedger(ledger.id)">Delete</button></td>
+                    
+                    <td><button (click)="deleteLedger(ledger.id)">Delete</button>
+                        <button [routerLink]="['/shipper/addledgers',ledger.id]">Edit</button>
+                    </td>
                 </tr>
                 
             </tbody>

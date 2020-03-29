@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import { navItems, ShipperNavItems } from '../../_nav';
+import { navItems, ShipperNavItems , DealerNavItems } from '../../_nav';
 import { Router } from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import { ShipperService } from '../../services/shipper.service';
@@ -21,7 +21,7 @@ export class DefaultLayoutComponent implements  OnInit{
   constructor(private router: Router, private storage: LocalStorageService,private shipperdetails : ShipperService){
     if(localStorage.getItem('role') === 'admin'){
       this.navItems = navItems;
-    }else{
+    }else if(localStorage.getItem('role') === 'shipper'){
       this.navItems = ShipperNavItems;
       const  shipperID  = localStorage.getItem("id");
       this.shipperdetails.fetchshipperDetails(shipperID).subscribe(res => {
@@ -29,6 +29,8 @@ export class DefaultLayoutComponent implements  OnInit{
           console.log(this.shipperdata)
   
       })
+    }else if (localStorage.getItem('role') === 'Dealer'){
+      this.navItems = DealerNavItems;
     }
     this.showRole = localStorage.getItem('role');
     console.log("this.showRole" , this.showRole)

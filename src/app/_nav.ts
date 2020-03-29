@@ -304,3 +304,100 @@ export const ShipperNavItems: INavData[] = [
         icon: 'icon-pie-chart',
     },
 ];
+
+export const DealerNavItems: INavData[] = [
+    {
+        name: 'Dealer Dashboard',
+        url: '/Dealer/Dashboard',
+        icon: 'fas fa-rocket',
+
+    },
+    // {
+    //     name: 'Dealer Warehouse',
+    //     url: '/shipper/shipperwearhouse',
+    //     icon: 'fas fa-warehouse',
+    // },
+    // {
+    //     name: 'Orders',
+    //     url: '/orders',
+    //     icon: 'fas fa-dolly-flatbed',
+    //     children: [
+    //         {
+    //             name: 'New Order',
+    //             url: '/orders/add',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //         {
+    //             name: 'All Orders',
+    //             url: '/orders/orders',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //         {
+    //             name: 'Pending Orders',
+    //             url: '/orders/pendingorders',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //     ]
+    // },
+    // {
+    //     name: 'Shipments',
+    //     url: '/dashboard',
+    //     icon: 'icon-ban',
+    //     children: [
+    //         {
+    //             name: 'All Shipments',
+    //             url: '/shipper/shipments',
+    //             icon: 'icon-map'
+    //         },
+    //         {
+    //             name: 'Return Shipments',
+    //             url: '/shipper/returnshipments',
+    //             icon: 'icon-map'
+    //         }
+    //     ]
+    // },
+    // {
+    //     name: 'Print Labels',
+    //     url: '/base/cards',
+    //     icon: 'icon-pie-chart',
+    // },
+    // {
+    //     name: 'User',
+    //     url: '/dashboard',
+    //     icon: 'icon-ban',
+    //     children: [
+    //         {
+    //             name: 'Add Users',
+    //             url: '/user/add',
+    //             icon: 'icon-map'
+    //         },
+    //         {
+    //             name: 'All Users',
+    //             url: '/user',
+    //             icon: 'icon-map'
+    //         }
+    //     ]
+    // },
+    // {
+    //     name: 'Legder',
+    //     // url: '',
+    //     icon: 'icon-ban',
+    //     children: [
+    //         {
+    //             name: 'All Ledger',
+    //             url: '/shipper/ledgers',
+    //             icon: 'icon-map'
+    //         },
+    //         {
+    //             name: 'Add Ledger',
+    //             url: '/shipper/addledgers',
+    //             icon: 'icon-map'
+    //         }
+    //     ]
+    // },
+    // {
+    //     name: 'Reports',
+    //     url: '/base/cards',
+    //     icon: 'icon-pie-chart',
+    // },
+];

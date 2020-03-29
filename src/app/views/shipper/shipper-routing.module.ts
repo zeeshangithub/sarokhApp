@@ -61,6 +61,10 @@ const routes: Routes = [
     component: ShipperLedgerComponent,
   }
   ,{
+    path: 'addledgers/:id',
+    component: AddShipperLedgerComponent,
+  }
+  ,{
     path: 'addledgers',
     component: AddShipperLedgerComponent,
   }

@@ -11,7 +11,7 @@ export class AllshipmentsService {
 
   constructor(private http: HttpClient) { }
 
-  fetchAllShipments(id){
+    fetchAllShipments(id){
     return this.http.get<any>(`${environment.apiURL}order/get-all-shipments/${id}`);
   }
   fetchAllPendingOders(id){

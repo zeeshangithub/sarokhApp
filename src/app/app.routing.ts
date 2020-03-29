@@ -68,7 +68,7 @@ export const routes: Routes = [
         loadChildren: () => import('./views/shipper/shipper.module').then(m => m.ShipperModule)
       },
       {
-        path: 'dealer',
+        path: 'Dealer',
         canActivate: [AuthGuard],
         loadChildren: () => import('./views/dealer/dealer.module').then(m => m.DealerModule)
       },

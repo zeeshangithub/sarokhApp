@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealersComponent } from './dealers/dealers.component';
+import { DealerDashboardComponent } from './dealer-dashboard/dealer-dashboard.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
 		path: 'add',
 		component: AddDealerComponent,
+  },
+  {
+		path: 'Dashboard',
+		component: DealerDashboardComponent,
   }
 ];
 

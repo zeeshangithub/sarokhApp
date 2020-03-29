@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipperService } from '../../../services/shipper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shipper-ledger',
@@ -9,7 +10,7 @@ import { ShipperService } from '../../../services/shipper.service';
 export class ShipperLedgerComponent implements OnInit {
 
   public ledgerList;
-  constructor(private getallLedger : ShipperService ) {}
+  constructor(private getallLedger : ShipperService , private router : Router ) {}
 
   ngOnInit(): void {
   this.getLedgers();

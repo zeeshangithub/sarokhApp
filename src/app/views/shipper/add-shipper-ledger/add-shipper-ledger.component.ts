@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ShipperService } from '../../../services/shipper.service';
 import { IfStmt } from '@angular/compiler';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-add-shipper-ledger',
@@ -18,10 +20,21 @@ export class AddShipperLedgerComponent implements OnInit {
   date : string;
   selectedShippment;
   selectedShipmentsIds = [];
+  sub;
+  // _Activatedroute: any;
+  id: any;
 
-  constructor(private formbuilder: FormBuilder, private shipperservice: ShipperService) { }
+  constructor(private formbuilder: FormBuilder, private shipperservice: ShipperService,
+    private router: Router, private _Activatedroute:ActivatedRoute,) { }
 
   ngOnInit(): void {
+
+  this._Activatedroute.paramMap.subscribe(params => { 
+    this.id = params.get('id'); 
+    console.log("this.id" , this.id)
+});
+
+      console.log(this.id);
     this.shipperId = localStorage.getItem('id')
     this.ledgerForm = this.formbuilder.group({
       startDate: [''],
@@ -75,23 +88,26 @@ console.log("this.selectedShipmentsIds" , this.selectedShipmentsIds)
     console.log("this.selectedShipmentsIds", this.selectedShipmentsIds)
 
 
-    console.log(this.sum);
+    
 
-    this.selectedShipmentsIds.toString();
-
+ 
 
   }
   createBill(){
-    this.selectedShipmentsIds.toString();
+    var str =  this.selectedShipmentsIds.toString();
+    console.log("str" , str);
     this.ledgerForm.get('id').setValue(this.selectedShippment.id);
     this.ledgerForm.get('totalAmount').setValue(this.sum);
     this.ledgerForm.get('paymentStatus').setValue(this.selectedShippment.deliveryStatus);
-    this.ledgerForm.get('shipmentsIdList').setValue(this.selectedShipmentsIds);
+    this.ledgerForm.get('shipmentsIdList').setValue(str);
     this.ledgerForm.get('dueDate').setValue(new Date('August 19, 1975 23:15:30'));
     this.ledgerForm.get('ledgerName').setValue(this.selectedShippment.paymentType);
     console.log("this.ledgerForm" , this.ledgerForm.value)
     this.shipperservice.createShipperLedgerShipment(this.ledgerForm.value).subscribe(res=>{
       console.log(res);
+      if (res.status === 200){
+        this.router.navigate(['/shipper/ledgers']);
+      }
     })
   }
 }

@@ -30,7 +30,7 @@ export class AllOrdersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<AdminService>(this.orders);
-  columnsToDisplay = ['orderId', 'orderPickupType', 'shipmentType', 'deliveryPersonName', 'deliveryPersonContact'];
+  columnsToDisplay = ['orderId', 'pickupType', 'shipFromCity', 'shipToCity', 'deliveryLocation','status'];
   expandedElement: Order | null;
   ngOnInit(): void {
     this.fetchOrders();
@@ -87,6 +87,7 @@ export class AllOrdersComponent implements OnInit {
       console.log("res" , res.status)
       if(res.status === 200){
         this.fetchOrders();
+        this.router.routeReuseStrategy.shouldReuseRoute = () => true;
       }
     })
 
