@@ -53,7 +53,7 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'returnshipments',
+    path: 'pendingshipments',
     component: ReturnshipmentsComponent,
   }
   ,{

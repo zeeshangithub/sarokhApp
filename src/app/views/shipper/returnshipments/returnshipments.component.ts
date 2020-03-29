@@ -23,7 +23,7 @@ export class ReturnshipmentsComponent implements OnInit {
     localStorage
     let shipperId =  localStorage.getItem('id')
     console.log(shipperId)
-    this.allShipments.fetchAllReturnedShipments(shipperId).subscribe(res => {
+    this.allShipments.fetchAllPendingOders(shipperId).subscribe(res => {
       this.pendingshipments = res.data;
       console.log("this.shipments" , this.pendingshipments)
  
