@@ -310,52 +310,25 @@ export const DealerNavItems: INavData[] = [
         name: 'Dealer Dashboard',
         url: '/Dealer/Dashboard',
         icon: 'fas fa-rocket',
-
     },
     {
-        name: 'Point',
-        url: '/',
+        name: 'View Dealer Points',
+        url: '/Dealer/ViewDealerPoints',
         icon: 'fas fa-dolly-flatbed',
-        children: [
-            {
-                name: 'View Dealer Points',
-                url: '/orders/add',
-                icon: 'fas fa-dolly-flatbed'
-            },
-        ]
     },
     {
         name: 'Inventory',
-        url: '/',
+        url: '/Dealer/Inventory',
         icon: 'fas fa-rocket',
-
     },
     {
-        name: 'Ledger',
-        url: '/',
-        icon: 'fas fa-dolly-flatbed',
-        children: [
-            {
-                name: 'Service Charges',
-                url: '/orders/add',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'COD Returns',
-                url: '/orders/add',
-                icon: 'fas fa-dolly-flatbed'
-            },
-        ]
-    },
-    {
-        name: 'User',
-        url: '/dashboard',
+        name: 'ServicesCharges',
+        url: '/Dealer/ServicesCharges',
         icon: 'icon-ban',
     },
-
     {
-        name: 'Reports',
-        url: '/base/cards',
+        name: 'CODReturns',
+        url: '/Dealer/CODReturns',
         icon: 'icon-pie-chart',
     },
 ];

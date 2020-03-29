@@ -8,11 +8,15 @@ import { DealerRoutingModule } from './dealer-routing.module';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealersComponent } from './dealers/dealers.component';
 import { DealerDashboardComponent } from './dealer-dashboard/dealer-dashboard.component';
+import { ViewdealerpointComponent } from './viewdealerpoint/viewdealerpoint.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ServiceschargesComponent } from './servicescharges/servicescharges.component';
+import { CodreturnsComponent } from './codreturns/codreturns.component';
 // import { HighchartsChartComponent } from 'highcharts-angular';
 
 
 @NgModule({
-  declarations: [AddDealerComponent, DealersComponent, DealerDashboardComponent],
+  declarations: [AddDealerComponent, DealersComponent, DealerDashboardComponent, ViewdealerpointComponent, InventoryComponent, ServiceschargesComponent, CodreturnsComponent],
   imports: [
     CommonModule,
     DealerRoutingModule,

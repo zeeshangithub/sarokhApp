@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddDealerComponent } from './add-dealer/add-dealer.component';
 import { DealersComponent } from './dealers/dealers.component';
 import { DealerDashboardComponent } from './dealer-dashboard/dealer-dashboard.component';
+import { ViewdealerpointComponent } from './viewdealerpoint/viewdealerpoint.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ServiceschargesComponent } from './servicescharges/servicescharges.component';
+import { CodreturnsComponent } from './codreturns/codreturns.component';
 
 
 const routes: Routes = [
@@ -18,6 +22,22 @@ const routes: Routes = [
   {
 		path: 'Dashboard',
 		component: DealerDashboardComponent,
+  },
+  {
+		path: 'ViewDealerPoints',
+		component: ViewdealerpointComponent,
+  },
+  {
+		path: 'Inventory',
+		component: InventoryComponent,
+  },
+  {
+		path: 'ServicesCharges',
+		component: ServiceschargesComponent,
+  },
+  {
+		path: 'CODReturns',
+		component: CodreturnsComponent,
   }
 ];
 
