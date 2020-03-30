@@ -16,45 +16,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>500</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>500</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>500</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>500</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>500</td>
-                    <td>400</td>
-                    <td>300</td>
+                <tr *ngFor="let Charges of serviceCharges">
+                    <td>{{Charges.dealerId}}</td>
+                    <td>{{Charges.ledgerId}}</td>
+                    <td>{{Charges.currentBalance}}</td>
+                    <td>{{Charges.receivable}}</td>
+                    <td>{{Charges.payable}}</td>
+                    <td>{{Charges.dueAmount}}</td>
                 </tr>
             </tbody>
         </table>

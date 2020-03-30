@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DealerService } from '../../../services/dealer.service';
 
 @Component({
   selector: 'app-servicescharges',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServiceschargesComponent implements OnInit {
 
-  constructor() { }
+  public serviceCharges;
+
+  constructor(private charges: DealerService) { }
 
   ngOnInit(): void {
+    this.getServiceCharges();
+  }
+
+  getServiceCharges() {
+    this.charges.fetchDealersCharges().subscribe(res => {
+      this.serviceCharges = res.data
+    })
   }
 
 }

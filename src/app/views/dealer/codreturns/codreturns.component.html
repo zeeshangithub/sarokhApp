@@ -15,40 +15,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>400</td>
-                    <td>300</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>897</td>
-                    <td>560</td>
-                    <td>400</td>
-                    <td>300</td>
+                <tr *ngFor="let Cod of codReturn">
+                    <td>{{Cod.dealerId}}</td>
+                    <td>{{Cod.ledgerId}}</td>
+                    <td>{{Cod.currentBalance}}</td>
+                    <td>{{Cod.payable}}</td>
+                    <td>{{Cod.dueAmount}}</td>
                 </tr>
             </tbody>
         </table>

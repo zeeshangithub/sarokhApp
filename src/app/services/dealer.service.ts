@@ -11,11 +11,21 @@ export class DealerService {
 
   constructor(private http: HttpClient) { }
 
-  addDealer(formData:any){
+  addDealer(formData: any) {
     return this.http.post<any>(`${environment.apiURL}dealer/add`, formData);
   }
 
-  fetchDealers(){
-    return this.http.get<any>(`${environment.apiURL}dealer/get-list`);
+  fetchDealersInventory() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}dealer/get-dealer-inventory/${user}`);
   }
+  fetchDealersCharges() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}dealer/get-delear-service-charges/${user}`);
+  }
+  fetchCodReturn() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}dealer/get-dealer-cod-returns/${user}`);
+  }
+
 }

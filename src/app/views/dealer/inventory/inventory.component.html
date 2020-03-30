@@ -18,55 +18,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>12</td>
-                    <td>1 june 2000</td>
-                    <td>123445</td>
-                    <td>Hamid Shah</td>
-                    <td>03451234567</td>
-                    <td>wwrrrw</td>
-                    <td>SR 300</td>
-                    <td>wqeqeq</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>1 june 2000</td>
-                    <td>123445</td>
-                    <td>Hamid Shah</td>
-                    <td>03451234567</td>
-                    <td>wwrrrw</td>
-                    <td>SR 300</td>
-                    <td>wqeqeq</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>1 june 2000</td>
-                    <td>123445</td>
-                    <td>Hamid Shah</td>
-                    <td>03451234567</td>
-                    <td>wwrrrw</td>
-                    <td>SR 300</td>
-                    <td>wqeqeq</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>1 june 2000</td>
-                    <td>123445</td>
-                    <td>Hamid Shah</td>
-                    <td>03451234567</td>
-                    <td>wwrrrw</td>
-                    <td>SR 300</td>
-                    <td>wqeqeq</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>1 june 2000</td>
-                    <td>123445</td>
-                    <td>Hamid Shah</td>
-                    <td>03451234567</td>
-                    <td>wwrrrw</td>
-                    <td>SR 300</td>
-                    <td>wqeqeq</td>
+                <tr *ngFor="let Inventory of inventoryList">
+                    <td>{{Inventory.orderId}}</td>
+                    <td>{{Inventory.dateTime}}</td>
+                    <td>{{Inventory.trackingNumber}}</td>
+                    <td>{{Inventory.receiverName}}</td>
+                    <td>{{Inventory.receiverContact}}</td>
+                    <td>{{Inventory.status}}</td>
+                    <td>{{Inventory.codAmount}}</td>
+                    <td>{{Inventory.prepaidAmount}}</td>
                 </tr>
             </tbody>
         </table>
