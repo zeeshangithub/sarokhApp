@@ -230,16 +230,16 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/add',
                 icon: 'fas fa-dolly-flatbed'
             },
-            {
-                name: 'All Orders',
-                url: '/orders/orders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Pending Orders',
-                url: '/orders/pendingorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
+            // {
+            //     name: 'All Orders',
+            //     url: '/orders/orders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Pending Orders',
+            //     url: '/orders/pendingorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
         ]
     },
     {

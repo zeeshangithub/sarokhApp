@@ -12,28 +12,32 @@ export class ShipperService {
 
   constructor(private http: HttpClient) { }
 
-  addShipper(formData:any){
+  addShipper(formData: any) {
     return this.http.post<any>(`${environment.apiURL}shipper/add`, formData);
   }
-  fetchshipperDetails(id){
+  fetchshipperDetails(id) {
     return this.http.get<any>(`${environment.apiURL}shipper/get-details/${id}`)
   }
-  searchShipperShipment(formData:any){
+  searchShipperShipment(formData: any) {
     return this.http.post<any>(`${environment.apiURL}order/search-shipper-shipments/`, formData);
   }
-  createShipperLedgerShipment(formData:any){
+  createShipperLedgerShipment(formData: any) {
     return this.http.post<any>(`${environment.apiURL}ledger/add/`, formData);
   }
-  getLedgerList(){
-  return this.http.get<any>(`${environment.apiURL}ledger/get-list`);
+  getLedgerList() {
+    return this.http.get<any>(`${environment.apiURL}ledger/get-list`);
   }
-  deleteLedger (id){
+  deleteLedger(id) {
     return this.http.delete<any>(`${environment.apiURL}ledger/delete/${id}`)
   }
-  getLedgerDetails (id) {
+  getLedgerDetails(id) {
     return this.http.get<any>(`${environment.apiURL}ledger/get-details/${id}`)
   }
-  updateLedger(formData : any){
-    return this.http.put<any>(`${environment.apiURL}ledger/update` , formData)
+  updateLedger(formData: any) {
+    return this.http.put<any>(`${environment.apiURL}ledger/update`, formData)
+  }
+  fetchCodShipment() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}order/get-COD-shipments/${user}`);
   }
 }

@@ -11,9 +11,16 @@ export class DealerService {
 
   constructor(private http: HttpClient) { }
 
+  fetchDealers() {
+    return this.http.get<any>(`${environment.apiURL}dealer/get-list`);
+  }
+
   addDealer(formData: any) {
     return this.http.post<any>(`${environment.apiURL}dealer/add`, formData);
   }
+  // getDealerList(formData: any) {
+  //   return this.http.post<any>(`${environment.apiURL}dealer/add`, formData);
+  // }
 
   fetchDealersInventory() {
     var user = localStorage.getItem('id')

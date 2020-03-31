@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShipperService } from '../../../services/shipper.service';
 
 @Component({
   selector: 'app-codshipments',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodshipmentsComponent implements OnInit {
 
-  constructor() { }
+  public codShipmentList;
+
+  constructor(private inventory: ShipperService) { }
+
 
   ngOnInit(): void {
+    this.getcodShipmentList();
+  }
+  getcodShipmentList() {
+    this.inventory.fetchCodShipment().subscribe(res => {
+      this.codShipmentList = res.data
+    })
   }
 
 }

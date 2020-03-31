@@ -11,10 +11,10 @@ export class DealersComponent implements OnInit {
   @ViewChild('dataTable') table;
   dataTable: any;
   dtOption: any = {};
-  dealerList : any;
+  dealerList: any;
   constructor(private router: Router,
-              private dealerservice : DealerService
-    ) { }
+    private dealerservice: DealerService
+  ) { }
 
   ngOnInit(): void {
     this.dtOption = {
@@ -22,7 +22,7 @@ export class DealersComponent implements OnInit {
       "ordering": true,
       "info": true
     };
-  this.getDealerList();
+    this.getDealerList();
   }
 
   ngAfterViewInit() {
@@ -30,14 +30,14 @@ export class DealersComponent implements OnInit {
     this.dataTable.DataTable(this.dtOption);
   }
 
-  getDealerList(){
-    this.dealerservice.fetchDealers().subscribe(res =>{
-this.dealerList = res;
-console.log("this.driverList" , this.dealerList)
+  getDealerList() {
+    this.dealerservice.fetchDealers().subscribe(res => {
+      this.dealerList = res;
+      console.log("this.driverList", this.dealerList)
     })
   }
 
-  redirectTo(path: string): void{
+  redirectTo(path: string): void {
     this.router.navigate([path]);
   }
 

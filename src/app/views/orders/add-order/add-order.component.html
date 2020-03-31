@@ -54,7 +54,7 @@
                 <select class="form-control" id="pickupType" formControlName="pickupType" (change)="selectedpickuplocation($event.target.value)">
                   <option value="">Pick up Location</option>
                   <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
-                  <option value="DealerPoint">From Dealer Points</option>
+                  <option value="DealerPoint">From Sarokh Points</option>
                   <option value="ShipperWarehouse">From Shipper Warehouse</option>
                   <option value="SarokhWarehouse">From Sarokh Warehouse</option>
                 </select>
@@ -100,7 +100,7 @@
                   <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
                 </div>
                 <div class="btn-container float-right">
-            
+
                   <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
                   <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
                 </div>
