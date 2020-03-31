@@ -4,6 +4,7 @@ import { ShipperService } from '../../../services/shipper.service';
 import { IfStmt } from '@angular/compiler';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router'
+// import { type } from 'os';
 
 @Component({
   selector: 'app-add-shipper-ledger',
@@ -20,8 +21,11 @@ export class AddShipperLedgerComponent implements OnInit {
   date: string;
   selectedShippment;
   selectedShipmentsIds = [];
+  SelectedShipmentInfo = [];
   sub;
   legderid: any;
+  disablebutton = false;
+  selectedLedger;
 
   constructor(private formbuilder: FormBuilder, private shipperservice: ShipperService,
     private router: Router, private _Activatedroute: ActivatedRoute, ) { }
@@ -33,23 +37,36 @@ export class AddShipperLedgerComponent implements OnInit {
       console.log("this.id", this.legderid)
     });
     if (this.legderid) {
+      this.disablebutton = true;
       this.shipperservice.getLedgerDetails(this.legderid).subscribe(res => {
-        const selectedLedger = res.data;
-        console.log("selectedLedger", selectedLedger)
+        this.selectedLedger = res.data;
+        console.log("selectedLedger", this.selectedLedger)
         // this.ledgerForm.patchValue({ 'startDate': selectedLedger.startDate })
         // this.ledgerForm.patchValue({ 'endDate': selectedLedger.endDate })
         // this.ledgerForm.patchValue({ 'dueDate': selectedLedger.dueDate })
-        this.ledgerForm = this.formbuilder.group({
-          startDate: [selectedLedger.startDate],
-          endDate: [selectedLedger.endDate],
-          shipperId: [selectedLedger.shipperId],
-          dueDate: [selectedLedger.dueDate],
-          ledgerName: [selectedLedger.ledgerName],
-          paymentStatus: [''],
-          shipmentsIdList: [''],
-          totalAmount: [''],
-          id: ['']
-        })
+        const startDate = new Date(this.selectedLedger.startDate).toISOString()
+        this.ledgerForm.get('startDate').setValue(startDate)
+        const endDate = new Date(this.selectedLedger.startDate).toISOString()
+        this.ledgerForm.get('endDate').setValue(endDate)
+        const dueDate = new Date(this.selectedLedger.dueDate).toISOString()
+        this.ledgerForm.get('dueDate').setValue(dueDate)
+        // console.log(zzz)
+        // this.ledgerForm = this.formbuilder.group({
+        //   startDate: [selectedLedger.startDate],
+        //   endDate: [selectedLedger.endDate],
+        //   shipperId: [selectedLedger.shipperId],
+        //   dueDate: [selectedLedger.dueDate],
+        //   ledgerName: [selectedLedger.ledgerName],
+        //   paymentStatus: [''],
+        //   shipmentsIdList: [''],
+        //   totalAmount: [''],
+        //   id: ['']
+        // })
+        this.sum = res.data.totalAmount;
+        this.SelectedShipmentInfo.push(res.data);
+        this.shipperShipments = this.SelectedShipmentInfo;
+
+
       })
     }
   }
@@ -108,6 +125,24 @@ export class AddShipperLedgerComponent implements OnInit {
     console.log("this.ledgerForm", this.ledgerForm.value)
     this.shipperservice.createShipperLedgerShipment(this.ledgerForm.value).subscribe(res => {
       console.log(res);
+      if (res.status === 200) {
+        this.router.navigate(['/shipper/ledgers']);
+      }
+    })
+  }
+  updateBill() {
+
+    console.log(this.selectedLedger);
+    // this.ledgerForm.get('id').setValue(this.selectedLedger.id);
+    this.ledgerForm.get('totalAmount').setValue(this.sum);
+    this.ledgerForm.get('paymentStatus').setValue(this.selectedLedger.paymentStatus);
+    this.ledgerForm.get('shipmentsIdList').setValue(this.selectedLedger.shipmentsIdList);
+    this.ledgerForm.get('dueDate').setValue(this.selectedLedger.dueDate);
+    this.ledgerForm.get('ledgerName').setValue(this.selectedLedger.ledgerName);
+    this.ledgerForm.get('shipperId').setValue(this.selectedLedger.shipperId);
+    console.log(this.ledgerForm.value)
+    this.shipperservice.updateLedger(this.ledgerForm.value).subscribe(res => {
+      console.log(res)
       if (res.status === 200) {
         this.router.navigate(['/shipper/ledgers']);
       }

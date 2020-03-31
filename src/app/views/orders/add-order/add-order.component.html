@@ -86,9 +86,9 @@
                 </select>
               </div>
               <div class="form-group col-md-6" *ngIf="dealerPointList">
-                <label for="concernPerson">Dealer Point</label>
+                <label for="concernPerson">Sarokh Point</label>
                 <select class="form-control" id="dealerPointId" formControlName="dealerPointId">
-                  <option value="">--- Select Dealer Point ---</option>
+                  <option value="">--- Select Sarokh Point ---</option>
                   <option [value]="dealer.id" *ngFor="let dealer of alldealers">{{dealer.firstName}}
 
                 </select>
@@ -100,8 +100,7 @@
                   <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
                 </div>
                 <div class="btn-container float-right">
-                  <button class="btn btn-success" type="button" (click)="AddandCreateNew()">Add Shipment $ Create New Shipment
-                  </button>
+            
                   <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
                   <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
                 </div>

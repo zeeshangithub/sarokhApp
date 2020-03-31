@@ -253,6 +253,11 @@ export const ShipperNavItems: INavData[] = [
                 icon: 'icon-map'
             },
             {
+                name: 'COD Shipments',
+                url: '/shipper/codshipments',
+                icon: 'icon-map'
+            },
+            {
                 name: 'Pending Shipments',
                 url: '/shipper/pendingshipments',
                 icon: 'icon-map'
