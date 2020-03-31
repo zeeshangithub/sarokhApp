@@ -1,43 +1,43 @@
-<div class="card card-accent-primary mt-4 users-listing" >
-    <div class="card-header">
-      All Shipments
+<div class="card card-accent-primary mt-4 users-listing">
+  <div class="card-header">
+    All Shipments
 
-      <div class="clearfix"></div>
-    </div>
-    <div class="card-body">
-      <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
-        <thead>
-          <!-- <tr>
+    <div class="clearfix"></div>
+  </div>
+  <div class="card-body">
+    <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+      <thead>
+        <!-- <tr>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
             Details
           </button>
         </tr> -->
-          <tr>
-            <th scope="col">Order ID</th>
-            <th scope="col">Pickup Type</th>
-            <th scope="col">Delivery Type</th>
-            <th scope="col">Reciver Name</th>
-            <th scope="col">Status</th>
-            <th scope="col">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let shipment of shipments">
-            <td>{{shipment.orderId}}</td>
-            <td>{{shipment.pickType}}</td>
-            <td>{{shipment.deliveryType}}</td>
-            <td>{{shipment.receiverName}}</td>
-            <td>{{shipment.status}}</td>
-            <td>{{shipment.dateTime | date}}</td>
-          
-            <td>
-              <!-- <button class="btn btn-info">Edit</button> -->
-              <!-- <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
-              <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button> -->
-            </td>
-            <td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+        <tr>
+          <th scope="col">Order ID</th>
+          <th scope="col">Pickup Type</th>
+          <th scope="col">Delivery Type</th>
+          <th scope="col">Reciver Name</th>
+          <th scope="col">Status</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shipment of shipments">
+          <td>{{shipment.orderId}}</td>
+          <td>{{shipment.pickType}}</td>
+          <td>{{shipment.deliveryType}}</td>
+          <td>{{shipment.receiverName}}</td>
+          <td>{{shipment.status}}</td>
+          <td>{{shipment.dateTime | date}}</td>
+
+          <!-- <td>
+            <button class="btn btn-info">Edit</button>
+            <button class="btn btn-primary" (click)="editUuser(user.userId , false)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteUSer(user.userId)">Delete</button>
+          </td> -->
+
+        </tr>
+      </tbody>
+    </table>
   </div>
+</div>
