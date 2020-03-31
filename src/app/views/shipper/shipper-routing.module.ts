@@ -13,6 +13,7 @@ import { ReturnshipmentsComponent } from './returnshipments/returnshipments.comp
 import { ShipmentsComponent } from './shipments/shipments.component';
 import { ShipperLedgerComponent } from './shipper-ledger/shipper-ledger.component';
 import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledger.component';
+import { CodshipmentsComponent } from './codshipments/codshipments.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,11 @@ const routes: Routes = [
   {
     path: 'pendingshipments',
     component: ReturnshipmentsComponent,
+  }
+  ,
+  {
+    path: 'codshipments',
+    component: CodshipmentsComponent,
   }
   ,{
     path: 'ledgers',

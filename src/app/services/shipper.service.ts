@@ -33,4 +33,7 @@ export class ShipperService {
   getLedgerDetails (id) {
     return this.http.get<any>(`${environment.apiURL}ledger/get-details/${id}`)
   }
+  updateLedger(formData : any){
+    return this.http.put<any>(`${environment.apiURL}ledger/update` , formData)
+  }
 }

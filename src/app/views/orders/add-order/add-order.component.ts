@@ -127,7 +127,7 @@ export class AddOrderComponent implements OnInit {
       codAmount: [''],
       billedAmount: [''],
       additionalServices: this.formbuilder.array([]),
-      deliveryCharges: ['']
+      deliveryCharges: [30]
     })
   }
   selectedpickuplocation(warehouse): void {
