@@ -15,6 +15,11 @@ export class DealerService {
     return this.http.get<any>(`${environment.apiURL}dealer/get-list`);
   }
 
+  fetchDealersDetail() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}dealer/get-details/${user}`);
+  }
+
   addDealer(formData: any) {
     return this.http.post<any>(`${environment.apiURL}dealer/add`, formData);
   }
