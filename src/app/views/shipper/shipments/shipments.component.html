@@ -13,22 +13,22 @@
           </button>
         </tr> -->
         <tr>
-          <th scope="col">Order ID</th>
-          <th scope="col">Pickup Type</th>
+          <th scope="col">Shipment ID</th>
+          <th scope="col">Creation Date/Time</th>
+          <th scope="col">Pick up Type</th>
           <th scope="col">Delivery Type</th>
           <th scope="col">Receiver Name</th>
           <th scope="col">Status</th>
-          <th scope="col">Date</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let shipment of shipments">
           <td>{{shipment.orderId}}</td>
+          <td>{{shipment.dateTime}}</td>
           <td>{{shipment.pickType}}</td>
           <td>{{shipment.deliveryType}}</td>
           <td>{{shipment.receiverName}}</td>
           <td>{{shipment.status}}</td>
-          <td>{{shipment.dateTime | date}}</td>
 
           <!-- <td>
             <button class="btn btn-info">Edit</button>

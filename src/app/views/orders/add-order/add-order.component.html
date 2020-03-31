@@ -117,7 +117,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="receiverMobileNumber">Receiver Contact No</label>
-                <input type="text" class="form-control" id="receiverMobileNumber" formControlName="receiverMobileNumber" placeholder="Receiver Contact No">
+                <input type="number" class="form-control" id="receiverMobileNumber" formControlName="receiverMobileNumber" placeholder="Receiver Contact No">
               </div>
             </div>
             <div class="form-row">
@@ -157,16 +157,17 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="shipmentcontent">Shipment Content</label>
-                <input type="text" class="form-control" formControlName="shipmentContent" id="content" placeholder="Content">
+                <!-- <input type="text" class="form-control" formControlName="shipmentContent" id="content" placeholder="Content"> -->
+                <textarea style="resize: none;" class="form-control" formControlName="shipmentContent" id="content" placeholder="Shipment Content"></textarea>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="shipmentValue">Shipment Value</label>
+                <label for="shipmentValue">Shipment Value (SAR)</label>
                 <input type="text" class="form-control" formControlName="shipmentValue" id="value" placeholder="Shipment Value">
               </div>
               <div class="form-group col-md-6">
-                <label for="deliveryCharges">Delivery Charges</label>
+                <label for="deliveryCharges">Delivery Charges (SAR)</label>
                 <input type="text" class="form-control" formControlName="deliveryCharges" id="deliveryCharges" placeholder="Delivery Charges">
               </div>
             </div>
@@ -179,14 +180,14 @@
                 </select>
               </div>
               <div class="form-group col-md-6" *ngIf="shipmentInformation.value.paymentType == 'COD'">
-                <label for="codAmount">COD Amount</label>
+                <label for="codAmount">COD Amount (SAR)</label>
                 <input type="text" class="form-control" formControlName="codAmount" id="codAmount" placeholder="COD Amount">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="billedAmount">Receiver Billed Amount</label>
-                <input type="text" class="form-control" formControlName="billedAmount" id="billedAmount" placeholder="Billed Amount">
+                <input disabled type="text" class="form-control" formControlName="billedAmount" id="billedAmount" placeholder="Billed Amount">
               </div>
             </div>
             <div class="form-row ml-3 mb-4 mt-4">
@@ -208,6 +209,10 @@
                 <div class="btn-container float-right mr-2 mb-4">
                   <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
                 </div>
+                <div class="clearfix"></div>
+                <small style="color: #ec1c24 !important;">Prepaid means that you will be obliged to pay the shipping charges mentioned below Cash on Delivery (COD)
+                  are the total charges that will be collected from the receiver upon delivery. This includes the Shipping
+                  charges that are to be paid to Sarokh.</small>
               </div>
             </div>
           </form>
