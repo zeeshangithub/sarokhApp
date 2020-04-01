@@ -99,6 +99,12 @@ i:hover{cursor: pointer;}
 .total-amount label{font-weight: bold;}
 
 
+@media screen and (max-width: 991px) {
+  img.thumbnail{position: absolute;top: -18px;right: -49px;}
+  .top-nav-links{display: none;}
+  .abc button{display: none;}
+}
+
 @media screen and (max-width: 680px) {
   .card{margin-top: 50px !important;}
   table.dataTable{display: block !important;}
