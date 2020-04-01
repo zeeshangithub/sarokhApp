@@ -21,8 +21,9 @@ import { ReturnshipmentsComponent } from './returnshipments/returnshipments.comp
 import { ShipperLedgerComponent } from './shipper-ledger/shipper-ledger.component';
 import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledger.component';
 import { CodshipmentsComponent } from './codshipments/codshipments.component';
+import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component';
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , HighchartsChartComponent, CodshipmentsComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, AddsarokhwearhouseComponent, SarokhwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , HighchartsChartComponent, CodshipmentsComponent, ShipmentissueComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

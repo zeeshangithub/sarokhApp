@@ -6,14 +6,12 @@ import { DealerService } from '../../../services/dealer.service';
 import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
-
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
   styleUrls: ['./add-order.component.css']
 })
 export class AddOrderComponent implements OnInit {
-
   orderBasicInfoForm: FormGroup;
   pickupAndDelivery: FormGroup;
   shipmentInformation: FormGroup;
@@ -30,11 +28,11 @@ export class AddOrderComponent implements OnInit {
   shipmentInformationArray: any = [];
   finalresponse: any = [];
   obj: {};
+  showsarokhpointdropdown = false;
   alldealers;
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
-
   additionalServices: Array<any> = [
     { name: 'Normal Packaging', value: 'Normal Packaging' },
     { name: 'Gift Wrapping ', value: 'Gift Wrapping' },
@@ -48,7 +46,6 @@ export class AddOrderComponent implements OnInit {
     private router: Router,
     private shareData: DataService
   ) { }
-
   ngOnInit(): void {
     // this.shipmentDetails = [];
     this.getshippersnadsarokhwarehouses();
@@ -63,7 +60,6 @@ export class AddOrderComponent implements OnInit {
     console.log(sharedId)
     if (sharedId) {
       this.editOrder = true;
-
       this.orderService.getOrderDetails(sharedId).subscribe(res => {
         // console.log("res", res.data)
         const oderDetail = res.data;
@@ -82,17 +78,12 @@ export class AddOrderComponent implements OnInit {
           // concernPersonId: [oderDetail.concernPersonId],
           // zone: [oderDetail.zone],
           // city: [oderDetail.city]
-
-
         })
-
         this.shipmentDetails = oderDetail.shipmentOrderItems;
         // console.log("this.shipmentDetails" , this.shipmentDetails)
       })
     }
   }
-
-
   initializeBasicInformationForm() {
     this.orderBasicInfoForm = this.formbuilder.group({
       orderId: ['', [Validators.required]],
@@ -101,7 +92,6 @@ export class AddOrderComponent implements OnInit {
       shipToCity: ['']
     })
   }
-
   initializeDropoffDetailsForm() {
     this.pickupAndDelivery = this.formbuilder.group({
       pickupType: ['', [Validators.required]],
@@ -109,8 +99,8 @@ export class AddOrderComponent implements OnInit {
       shipperWarehouseId: [''],
       sarokhWarehouseId: [''],
       dealerPointId: [''],
+      sarokhPointRadio: ['']
       // city: ['', [Validators.required]]
-
     })
   }
   initializeShipmentInformationForm() {
@@ -140,15 +130,12 @@ export class AddOrderComponent implements OnInit {
       // this.orderBasicInfoForm.sarokhwarehosue.value('');
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
       // this.orderBasicInfoForm.controls['sarokhPoint'].setValue('');
-
     } else if (warehouse === "SarokhWarehouse") {
       this.shipperWarehousesList = false;
       this.sarokhWarehousesList = true;
       this.dealerPointList = false;
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
-
-
     } else if (warehouse === "DealerPoint") {
       this.dealerPointList = true
       this.shipperWarehousesList = false;
@@ -156,74 +143,60 @@ export class AddOrderComponent implements OnInit {
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhwarehosue': '' })
     }
-
   }
-
   // addShipmentDetail(){
   //   this.shipmentDetailsData.push(this.shipmentDetails);
   //   this.shipmentDetails = {}
   //   console.log(this.shipmentDetailsData)
   // }
   finishFunction() {
-   
-
-  if(this.finalresponse.length <= 1 ){
-    var fullFormData = {
-      orderBasicInfo: this.orderBasicInfoForm.value,
-      pickupAndDelivery: this.pickupAndDelivery.value,
-      shipmentItems: this.shipmentInformationArray,
+    if (this.finalresponse.length <= 1) {
+      var fullFormData = {
+        orderBasicInfo: this.orderBasicInfoForm.value,
+        pickupAndDelivery: this.pickupAndDelivery.value,
+        shipmentItems: this.shipmentInformationArray,
+      }
+      console.log("full form data", fullFormData)
+      const fullRequest = {
+        ...fullFormData.orderBasicInfo,
+        ...fullFormData.pickupAndDelivery,
+      };
+      console.log("fullRequest", fullRequest)
+      fullRequest.shipmentItems = this.shipmentInformationArray;
+      console.log("fullRequest", fullRequest)
+      this.finalresponse.push(fullRequest);
     }
-    console.log("full form data", fullFormData)
-    const fullRequest = {
-      ...fullFormData.orderBasicInfo,
-      ...fullFormData.pickupAndDelivery,
-    };
-    console.log("fullRequest", fullRequest)
-    fullRequest.shipmentItems = this.shipmentInformationArray;
-    console.log("fullRequest", fullRequest)
-    this.finalresponse.push(fullRequest);
-  }
     console.table("fullRequest", this.finalresponse)
     this.orderService.addOrder(this.finalresponse).subscribe(res => {
-
       console.log("res", res)
-
-      if (res.status == 200){
-      this.router.navigate(['orders/orders']);
-    }
+      if (res.status == 200) {
+        this.router.navigate(['orders/orders']);
+      }
     })
-
   }
-
-  editShipment(shipment){
-    this.shipmentInformation.patchValue({ 'receiverName': shipment.receiverName })
-    this.shipmentInformation.patchValue({ 'receiverMobileNumber': shipment.receiverMobileNumber })
-    this.shipmentInformation.patchValue({ 'receiverAddress': shipment.receiverAddress })
-    this.shipmentInformation.patchValue({ 'shipmentType': shipment.shipmentType })
-    this.shipmentInformation.patchValue({ 'weight': shipment.weight })
-    this.shipmentInformation.patchValue({ 'shipmentTitle': shipment.shipmentTitle })
-    this.shipmentInformation.patchValue({ 'shipmentContent': shipment.shipmentContent })
-    this.shipmentInformation.patchValue({ 'shipmentValue': shipment.shipmentValue })
-    this.shipmentInformation.patchValue({ 'paymentType': shipment.paymentType })
-    this.shipmentInformation.patchValue({ 'codAmount': shipment.codAmount })
-    this.shipmentInformation.patchValue({ 'billedAmount': shipment.billedAmount })
-    this.shipmentInformation.patchValue({ 'additionalServices': shipment.additionalServices })
-    this.shipmentInformation.patchValue({ 'deliveryCharges': shipment.deliveryCharges })
-    // this.shipmentInformationArray = [];
+  editShipment(shipment) {
+    this.shipmentInformation.patchValue({ 'receiverName': shipment.receiverName });
+    this.shipmentInformation.patchValue({ 'receiverMobileNumber': shipment.receiverMobileNumber });
+    this.shipmentInformation.patchValue({ 'receiverAddress': shipment.receiverAddress });
+    this.shipmentInformation.patchValue({ 'shipmentType': shipment.shipmentType });
+    this.shipmentInformation.patchValue({ 'weight': shipment.weight });
+    this.shipmentInformation.patchValue({ 'shipmentTitle': shipment.shipmentTitle });
+    this.shipmentInformation.patchValue({ 'shipmentContent': shipment.shipmentContent });
+    this.shipmentInformation.patchValue({ 'shipmentValue': shipment.shipmentValue });
+    this.shipmentInformation.patchValue({ 'paymentType': shipment.paymentType });
+    this.shipmentInformation.patchValue({ 'codAmount': shipment.codAmount });
+    this.shipmentInformation.patchValue({ 'billedAmount': shipment.billedAmount });
+    this.shipmentInformation.patchValue({ 'additionalServices': shipment.additionalServices });
+    this.shipmentInformation.patchValue({ 'deliveryCharges': shipment.deliveryCharges });
   }
-  deleteShipment(){
-this.shipmentInformationArray = [];
+  deleteShipment() {
+    this.shipmentInformationArray = [];
   }
   AddandCreateNew(shi) {
     this.shipmentInformationArray = [];
-    console.log(shi.value)
     this.obj = this.shipmentInformation.value;
-    this.shipmentInformationArray.push(shi.value)
-    // localStorage.setItem('shipperinfo', JSON.stringify(shi));
+    this.shipmentInformationArray.push(shi.value);
     this.shipmentInformation.reset();
-    console.log(this.pickupAndDelivery.value)
-    console.log(this.shipmentInformation.value);
-    console.log("this.shipmentInformationArray", this.shipmentInformationArray)
     this.shipmentInformation.reset();
     var fullFormData = {
       orderBasicInfo: this.orderBasicInfoForm.value,
@@ -298,6 +271,18 @@ this.shipmentInformationArray = [];
         }
         i++;
       });
+    }
+  }
+  codAmountCalculation(value) {
+    const val = parseInt(value) + 30;
+    this.shipmentInformation.patchValue({ 'billedAmount': val })
+  }
+  checkSarokhPoint(value) {
+    console.log("value", value)
+    if (value.target.defaultValue === "selectNow") {
+      this.showsarokhpointdropdown = true;
+    } else {
+      this.showsarokhpointdropdown = false;
     }
   }
 }

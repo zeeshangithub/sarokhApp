@@ -14,9 +14,13 @@ export class DefaultLayoutComponent implements  OnInit{
   public showRole;
   shipperdata;
   public routerLinkVariable = "/orders/add";
-  public routerlink404 = "/base/cards"
+  public routerlink404 = "/base/cards";
+  public hidetoplink = true;
   ngOnInit(): void {
  
+    if (localStorage.getItem('role') === 'Dealer'){
+          this.hidetoplink = false;
+    }
 }
   constructor(private router: Router, private storage: LocalStorageService,private shipperdetails : ShipperService){
     if(localStorage.getItem('role') === 'admin'){

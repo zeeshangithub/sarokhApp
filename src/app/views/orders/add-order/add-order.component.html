@@ -85,12 +85,30 @@
                   </option>
                 </select>
               </div>
+
               <div class="form-group col-md-6" *ngIf="dealerPointList">
+                <label name="sarokhPointRadio">Sarokh Point</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sarokhPointRadio" (change)="checkSarokhPoint($event)" formControlName="sarokhPointRadio" id="indeliverycase" value="indeliverycase" checked>
+                  <label class="form-check-label" for="indeliverycase">
+                    In case of delivery to Sarokh Point
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="sarokhPointRadio" (change)="checkSarokhPoint($event)" formControlName="sarokhPointRadio" id="selectNow" value="selectNow">
+                  <label class="form-check-label" for="selectNow">
+                    Select Sarokh Point Now
+                  </label>
+                </div>
+
+
+              </div>
+
+              <div class="form-group col-md-6" *ngIf="showsarokhpointdropdown">
                 <label for="concernPerson">Sarokh Point</label>
                 <select class="form-control" id="dealerPointId" formControlName="dealerPointId">
                   <option value="">--- Select Sarokh Point ---</option>
                   <option [value]="dealer.id" *ngFor="let dealer of alldealers">{{dealer.firstName}}
-
                 </select>
               </div>
             </div>
@@ -184,7 +202,7 @@
               </div>
               <div class="form-group col-md-6" *ngIf="shipmentInformation.value.paymentType == 'COD'">
                 <label for="codAmount">COD Amount (SAR)</label>
-                <input type="text" class="form-control" formControlName="codAmount" id="codAmount" placeholder="COD Amount">
+                <input (input)="codAmountCalculation($event.target.value)" type="text" class="form-control" formControlName="codAmount" id="codAmount" placeholder="COD Amount">
               </div>
             </div>
             <div class="form-row">
