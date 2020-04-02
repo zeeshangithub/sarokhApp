@@ -34,6 +34,63 @@ export const navItems: INavData[] = [
                 url: '/orders/allorders',
                 icon: 'fas fa-dolly-flatbed'
             },
+            {
+                name: 'Pickup Orders',
+                url: '/base/cards',
+                icon: 'fas fa-dolly-flatbed'
+            },
+            {
+                name: 'Delivery Orders',
+                url: '/base/cards',
+                icon: 'fas fa-dolly-flatbed'
+            },
+        ]
+    },
+    {
+        name: 'Shipments',
+        url: '/Shipments',
+        icon: 'fas fa-shipping-fast',
+        children: [
+            {
+                name: 'All Shipments',
+                url: '/base/cards',
+                icon: 'fas fa-shipping-fast'
+            },
+            {
+                name: 'Deliverd Shipments',
+                url: '/base/cards',
+                icon: 'fas fa-box'
+            },
+            {
+                name: 'Pending Shipments',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'No Response Shipments',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'COD Shipments',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Prepaid Shipments',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Return Shipments',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Shipment Issues',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
         ]
     },
     {
@@ -48,14 +105,14 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Shipment Issues',
-                url: '/shipper',
+                url: '/base/cards',
                 icon: 'fas fa-box'
             },
             {
                 name: 'Billing',
-                url: '/shipper',
+                url: '/base/cards',
                 icon: 'icon-map'
-            }
+            },
         ]
     },
     {
@@ -73,6 +130,63 @@ export const navItems: INavData[] = [
                 url: '/shipper/sarokhwearhouselist',
                 icon: 'icon-map'
             },
+            {
+                name: 'Inventory Management',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Driver Allocation',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Oprators',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Print Label',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Inventory Reconcilation',
+                url: '/base/cards',
+                icon: 'icon-map'
+            },
+        ]
+    },
+    {
+        name: 'Scheduling',
+        url: '/notifications',
+        icon: 'fas fa-money-bill-wave',
+        children: [
+            {
+                name: 'Create Trip',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
+                name: 'All Trips',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
+                name: 'Active Trips',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
+                name: 'Pending Trips',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
+                name: 'Completed Trips',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
         ]
     },
     {
@@ -83,37 +197,42 @@ export const navItems: INavData[] = [
             {
                 name: 'All ledgers',
                 url: '/base/cards',
-                icon: 'icon-map'
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Receive Cash',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Dispense Cash',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Account Statements',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'COD Reconcilation',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Shipper Billing',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Driver Payouts',
-                url: '/base/carousels',
-                icon: 'icon-map'
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
+                name: 'Dealer Payouts',
+                url: '/base/cards',
+                icon: 'fas fa-money-bill-wave'
             },
         ]
     },
@@ -148,7 +267,22 @@ export const navItems: INavData[] = [
                 name: 'Add Dealers',
                 url: '/dealer/add',
                 icon: 'icon-map'
-            }
+            },
+            {
+                name: 'Dealers Inventory',
+                url: '/dealer/add',
+                icon: 'icon-map'
+            },
+            {
+                name: 'Received Ledgers',
+                url: '/dealer/add',
+                icon: 'icon-map'
+            },
+            {
+                name: 'COD Ledgers',
+                url: '/dealer/add',
+                icon: 'icon-map'
+            },
         ]
     },
     {
