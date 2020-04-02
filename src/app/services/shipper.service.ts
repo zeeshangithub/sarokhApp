@@ -40,4 +40,8 @@ export class ShipperService {
     var user = localStorage.getItem('id')
     return this.http.get<any>(`${environment.apiURL}order/get-COD-shipments/${user}`);
   }
+  fetchShipmentIssues() {
+    var user = localStorage.getItem('id')
+    return this.http.get<any>(`${environment.apiURL}order/get-issue-shipments/${user}`);
+  }
 }

@@ -1,1 +1,31 @@
-<p>shipmentissue works!</p>
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Shipment Issues
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Shipment ID</th>
+                    <th scope="col">Reported By</th>
+                    <th scope="col">Issue Type</th>
+                    <th scope="col">Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Issues of shipmentIssues">
+                    <td>{{Issues.orderId}}</td>
+                    <td>{{Issues.shipmentId}}</td>
+                    <td>{{Issues.reportedBy}}</td>
+                    <td>{{Issues.issueType}}</td>
+                    <td>{{Issues.notes}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>
