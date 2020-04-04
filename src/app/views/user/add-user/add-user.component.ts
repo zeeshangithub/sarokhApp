@@ -65,34 +65,15 @@ export class AddUserComponent implements OnInit {
   }
 
   fetchUserRoles(): void {
-    this.userService.fetchUserRoles().subscribe(res => {
+      const selectedRoel =  localStorage.getItem('role');
+      this.userService.fetchUserRoleByParentRole(selectedRoel).subscribe(res => {
       console.log("res", res)
-      this.roles = res;
+      this.roles = res.data;
 
 
 
-      if (localStorage.getItem('role') === 'shipper') {
+    
 
-
-        this.roles = this.roles.filter(function (item) {
-          return (item.name === 'Manager')
-        })
-        // this.roles = this.roles.filter(function(item) {return item.name === 'Supervisor'})
-        // this.roles = this.roles.filter(function(item) {return item.name === 'Supervisor'})
-        console.log(this.roles)
-        // const allowed = ['id'];
-        // const filtered = Object.keys(this.roles)
-        //   .filter(key => allowed.includes(key))
-        //   .reduce((obj, key) => {
-        //     obj[key] = this.roles[key];
-        //     return obj;
-        //   }, {});
-
-        // console.log(filtered)
-
-        //  this.roles = "";
-        //   this.roles = 
-      }
 
 
     })

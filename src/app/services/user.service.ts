@@ -37,5 +37,10 @@ export class UserService {
   updateShipperUser(formData: any) {
     return this.http.patch<any>(`${environment.apiURL}user/update/`, formData);
   }
+  fetchUserRoleByParentRole(parentRole : string){
+  
+    return this.http.get<any>(`${environment.apiURL}Role-role/get-roles-by-type/${parentRole}`);
+  }
+
 
 }

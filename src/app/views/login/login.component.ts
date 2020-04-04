@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit{
         if(role === 'Admin'){
           localStorage.setItem('role', 'admin');
         }
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['/admin/dashboard']);
       }
       else if(res && res.data.user.role.name === 'Shipper') {
         localStorage.setItem('id', res.data.id);

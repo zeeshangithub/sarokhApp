@@ -1,0 +1,129 @@
+<div class="animated fadeIn">
+    <div class="row mt-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-info">
+          <div class="card-body pb-4">
+            <div class="text-value">{{dashboardData.totalOrders}}</div>
+            <div>Total Orders</div>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-primary">
+          <div class="card-body pb-4">
+            <div class="text-value">{{dashboardData.inProgressOrders}}</div>
+            <div>Order in Progress</div>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-warning">
+          <div class="card-body pb-4">
+            <div class="text-value">{{dashboardData.pendingDelivery}}</div>
+            <div>Pending Delivery</div>
+          </div>
+        </div>
+      </div><!--/.col-->
+      <div class="col-sm-6 col-lg-3">
+        <div class="card text-white bg-danger">
+          <div class="card-body pb-4">
+            <div class="text-value">{{dashboardData.pendingPickups}}</div>
+            <div>Pending Pickups</div>
+          </div>
+        </div>
+      </div><!--/.col-->
+    </div><!--/.row-->
+    <div class="row">
+      <div class="col-9">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-5">
+                <h4 class="card-title mb-0">Traffic</h4>
+                <div class="small text-muted">November 2017</div>
+              </div><!--/.col-->
+              <!-- <div class="col-sm-7 d-none d-md-block">
+                <button type="button" class="btn btn-primary float-right"><i class="icon-cloud-download"></i></button>
+                <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons">
+                  <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Day" id="option1">Day</label>
+                  <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Month" id="option2">Month</label>
+                  <label class="btn btn-outline-secondary" [(ngModel)]="radioModel" btnRadio="Year" id="option3">Year</label>
+                </div>
+              </div> -->
+              <!--/.col-->
+            </div><!--/.row-->
+            <div class="chart-wrapper" style="height:300px;margin-top:40px;">
+              <!-- <canvas baseChart class="chart"
+              [datasets]="mainChartData"
+              [labels]="mainChartLabels"
+              [options]="mainChartOptions"
+              [colors]="mainChartColours"
+              [legend]="mainChartLegend"
+              [chartType]="mainChartType"></canvas> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="row">
+          <div class="col-12">
+            <div class="card text-white bg-warning">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.walletPickups}}</div>
+                <div>Wallet Pickups</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.codPayable}}</div>
+                <div>COD Payable</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-info">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.prepaidOrdersReceivable}}</div>
+                <div>Prepaid Order Receivable</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.agentsPayable}}</div>
+                <div>Agent's Payables</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-danger">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.agentsReceivable}}</div>
+                <div>Agent's Recieveables</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-warning">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.driverReceivable}}</div>
+                <div>Driver Recieveables</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-4">
+                <div class="text-value">Rial {{dashboardData.driverPayable}}</div>
+                <div>Driver Payable</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

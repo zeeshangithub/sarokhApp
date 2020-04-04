@@ -126,6 +126,7 @@ export class AddOrderComponent implements OnInit {
       this.shipperWarehousesList = true;
       this.sarokhWarehousesList = false;
       this.dealerPointList = false;
+      this.showsarokhpointdropdown = false;
       this.pickupAndDelivery.patchValue({ 'sarokhwarehosue': '' })
       // this.orderBasicInfoForm.sarokhwarehosue.value('');
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
@@ -134,15 +135,17 @@ export class AddOrderComponent implements OnInit {
       this.shipperWarehousesList = false;
       this.sarokhWarehousesList = true;
       this.dealerPointList = false;
+      this.showsarokhpointdropdown = false;
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
-    } else if (warehouse === "DealerPoint") {
-      this.dealerPointList = true
-      this.shipperWarehousesList = false;
-      this.sarokhWarehousesList = false;
-      this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
-      this.pickupAndDelivery.patchValue({ 'sarokhwarehosue': '' })
     }
+    // else if (warehouse === "DealerPoint") {
+    //   this.dealerPointList = true
+    //   this.shipperWarehousesList = false;
+    //   this.sarokhWarehousesList = false;
+    //   this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
+    //   this.pickupAndDelivery.patchValue({ 'sarokhwarehosue': '' })
+    // }
   }
   // addShipmentDetail(){
   //   this.shipmentDetailsData.push(this.shipmentDetails);
@@ -284,5 +287,15 @@ export class AddOrderComponent implements OnInit {
     } else {
       this.showsarokhpointdropdown = false;
     }
+  }
+
+  todealerpoint(value) {
+    console.log("value", value)
+    if (value === "To Sarokh Point") {
+      this.dealerPointList = true;
+    }else{
+      this.dealerPointList = false;
+    }
+
   }
 }

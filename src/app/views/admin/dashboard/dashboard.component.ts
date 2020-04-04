@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 
-import { AdminService } from '../../services/admin.service';
-import { Dashboard } from '../../interfaces/dashboard';
+import { AdminService } from '../../../services/admin.service';
+import { Dashboard } from '../../../interfaces/dashboard';
 
 @Component({
   templateUrl: 'dashboard.component.html'

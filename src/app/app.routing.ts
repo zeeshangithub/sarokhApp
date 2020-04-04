@@ -52,11 +52,11 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
-      {
-        path: 'dashboard',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
+      // {
+      //   path: 'dashboard',
+      //   canActivate: [AuthGuard],
+      //   loadChildren: () => import('./views/admin/dashboard/dashboard.module').then(m => m.DashboardModule)
+      // },
       {
         path: 'orders',
         canActivate: [AuthGuard],
@@ -81,6 +81,11 @@ export const routes: Routes = [
         path: 'user',
         // canActivate: [AuthGuard],
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+      },
+      {
+        path: 'admin',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule)
       }
     ]
   },

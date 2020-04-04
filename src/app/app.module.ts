@@ -46,6 +46,8 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { ButtonsModule } from 'ngx-bootstrap/buttons/buttons.module';
+// import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -66,6 +68,8 @@ import { ChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
     ArchwizardModule,
+    // BsDropdownModule,
+    // ButtonsModule.forRoot(),
     // HighchartsChartComponent
   ],
   declarations: [
@@ -75,6 +79,7 @@ import { ChartsModule } from 'ng2-charts';
     P500Component,
     LoginComponent,
     RegisterComponent,
+    // DashboardComponent,
     // HighchartsChartComponent
   ],
   providers: [{

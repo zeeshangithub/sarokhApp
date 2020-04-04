@@ -61,7 +61,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="deliveryLocation">Delivery Location</label>
-                <select class="form-control" id="deliveryLocation" formControlName="deliveryLocation">
+                <select class="form-control" id="deliveryLocation" (change)="todealerpoint($event.target.value)" formControlName="deliveryLocation">
                   <option value="">Delivery Location </option>
                   <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
                   <option value="To Sarokh Point">To Sarokh Point</option>

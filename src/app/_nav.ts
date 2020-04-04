@@ -3,7 +3,7 @@ import { INavData } from '@coreui/angular';
 export const navItems: INavData[] = [
     {
         name: 'Dashboard',
-        url: '/dashboard',
+        url: '/admin/dashboard',
         icon: 'fas fa-rocket',
 
     },
@@ -191,12 +191,12 @@ export const navItems: INavData[] = [
     },
     {
         name: 'Finance',
-        url: '/notifications',
+        url: '',
         icon: 'fas fa-money-bill-wave',
         children: [
             {
                 name: 'All ledgers',
-                url: '/base/cards',
+                url: '/admin/allLedgers',
                 icon: 'fas fa-money-bill-wave'
             },
             {
@@ -492,8 +492,20 @@ export const DealerNavItems: INavData[] = [
     },
     {
         name: 'User',
-        url: '/',
-        icon: 'fas fa-rocket',
+        url: '/dashboard',
+        icon: 'icon-ban',
+        children: [
+            {
+                name: 'Add Users',
+                url: '/user/add',
+                icon: 'icon-map'
+            },
+            {
+                name: 'All Users',
+                url: '/user',
+                icon: 'icon-map'
+            }
+        ]
     },
     {
         name: 'Reports',
