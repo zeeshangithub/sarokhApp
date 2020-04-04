@@ -11,15 +11,31 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  fetchDashboard(userType: string, userId: string){
+  fetchDashboard(userType: string, userId: string) {
     return this.http.post<any>(`${environment.apiURL}web-dashboard/${userType}/${userId}`, {});
   }
 
-  fetchOrdersList(){
+  fetchOrdersList() {
     return this.http.get<any>(`${environment.apiURL}order/get-list`);
   }
 
-  fetchOrderByType(orderType: string){
+  fetchOrderByType(orderType: string) {
     return this.http.post<any>(`${environment.apiURL}order/get-order-type/${orderType}`, {});
+  }
+
+  fetchAllLedgers() {
+    return this.http.get<any>(`${environment.apiURL}finance/all-ledgers`);
+  }
+
+  fetchCodCollection() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-cod-collection`);
+  }
+
+  fetchShipperBilling() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-shipper-billing`);
+  }
+
+  fetchDriverPayout() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-driver-payout`);
   }
 }

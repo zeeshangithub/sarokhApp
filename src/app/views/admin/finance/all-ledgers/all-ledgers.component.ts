@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../../../../services/admin.service';
 
 @Component({
   selector: 'app-all-ledgers',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllLedgersComponent implements OnInit {
 
-  constructor() { }
+  public allLedgers;
+
+  constructor(private ledgers: AdminService) { }
 
   ngOnInit(): void {
+    this.getAllLedgers();
+  }
+
+  getAllLedgers() {
+    this.ledgers.fetchAllLedgers().subscribe(res => {
+      this.allLedgers = res.data
+    })
   }
 
 }
