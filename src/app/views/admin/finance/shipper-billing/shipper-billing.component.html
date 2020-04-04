@@ -1,0 +1,35 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Shipper Billing
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Shipper ID</th>
+                    <th scope="col">Shipper Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Period</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Ledger</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Billing of shipperBilling">
+                    <td>{{Billing.shipperId}}</td>
+                    <td>{{Billing.shipperName}}</td>
+                    <td>{{Billing.date}}</td>
+                    <td>{{Billing.period}}</td>
+                    <td>{{Billing.amount}}</td>
+                    <td>{{Billing.status}}</td>
+                    <td>{{Billing.ledger}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

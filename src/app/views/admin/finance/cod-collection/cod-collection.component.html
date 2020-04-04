@@ -1,32 +1,34 @@
 <div class="card card-accent-primary mt-4 users-listing">
     <div class="card-header">
-        All Ledgers
+        COD Collection
         <div class="clearfix"></div>
     </div>
     <div class="card-body">
         <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
             <thead>
                 <tr>
-                    <th scope="col">Action</th>
                     <th scope="col">Ledger ID</th>
                     <th scope="col">Ledger Name</th>
-                    <th scope="col">Ledger Holder</th>
                     <th scope="col">Current Balance</th>
                     <th scope="col">Receivable</th>
                     <th scope="col">Payable</th>
+                    <th scope="col">Bill View</th>
+                    <th scope="col">Ledger Holder</th>
+                    <th scope="col">Holder Type</th>
+                    <th scope="col">Notes</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let Ledger of allLedgers">
-                    <td>
-                        <i class="fa fa-info-circle" style="font-size: 20px; margin-right: 15px; color: #337ab7;" aria-hidden="true"></i>
-                    </td>
-                    <td>{{Ledger.ledgerId}}</td>
-                    <td>{{Ledger.ledgerName}}</td>
-                    <td>{{Ledger.ledgerHolder}}</td>
-                    <td>{{Ledger.currentBalance}}</td>
-                    <td>{{Ledger.receivable}}</td>
-                    <td>{{Ledger.payable}}</td>
+                <tr *ngFor="let Cod of codCollection">
+                    <td>{{Cod.ledgerId}}</td>
+                    <td>{{Cod.ledgerName}}</td>
+                    <td>{{Cod.currentBalance}}</td>
+                    <td>{{Cod.receivable}}</td>
+                    <td>{{Cod.payable}}</td>
+                    <td>{{Cod.billView}}</td>
+                    <td>{{Cod.ledgerHolder}}</td>
+                    <td>{{Cod.holderType}}</td>
+                    <td>{{Cod.notes}}</td>
                 </tr>
             </tbody>
         </table>

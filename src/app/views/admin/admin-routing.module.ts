@@ -19,6 +19,10 @@ import { ShipmentsissueComponent } from './shipments/shipmentsissue/shipmentsiss
 import { ShippersComponent } from './shippers/shippers/shippers.component';
 import { ShippersissueComponent } from './shippers/shippersissue/shippersissue.component';
 import { ShippersbillingComponent } from './shippers/shippersbilling/shippersbilling.component';
+import { CodCollectionComponent } from './finance/cod-collection/cod-collection.component';
+import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billing.component';
+import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
+
 
 const routes: Routes = [
   {
@@ -115,6 +119,18 @@ const routes: Routes = [
 
 
 
+  {
+    path: 'codCollection',
+    component: CodCollectionComponent,
+  },
+  {
+    path: 'shipperBilling',
+    component: ShipperBillingComponent,
+  },
+  {
+    path: 'driverPayout',
+    component: DriverPayoutComponent,
+  },
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

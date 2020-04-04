@@ -24,11 +24,15 @@ import { ShipmentissueComponent } from '../shipper/shipmentissue/shipmentissue.c
 import { ShippersComponent } from './shippers/shippers/shippers.component';
 import { ShippersissueComponent } from './shippers/shippersissue/shippersissue.component';
 import { ShippersbillingComponent } from './shippers/shippersbilling/shippersbilling.component';
+import { CodCollectionComponent } from './finance/cod-collection/cod-collection.component';
+import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billing.component';
+import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
+import { LedgerDetailComponent } from './finance/ledger-detail/ledger-detail.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent , AllLedgersComponent, DriverLocationComponent, OrderLocationComponent, AllordersComponent, PickupordersComponent, DeliveryordersComponent, AllshipmentsComponent, DeliverdshipmentsComponent, PendingshipmentsComponent, NoresponseshipmentComponent, CodshipmentsComponent, PrepeaidshipmentsComponent, ReturnshipmentsComponent, ShipmentsissueComponent, ShippersComponent, ShippersissueComponent, ShippersbillingComponent],
+  declarations: [DashboardComponent, AdminComponent , AllLedgersComponent, DriverLocationComponent, OrderLocationComponent, AllordersComponent, PickupordersComponent, DeliveryordersComponent, AllshipmentsComponent, DeliverdshipmentsComponent, PendingshipmentsComponent, NoresponseshipmentComponent, CodshipmentsComponent, PrepeaidshipmentsComponent, ReturnshipmentsComponent, ShipmentsissueComponent, ShippersComponent, ShippersissueComponent, ShippersbillingComponent,CodCollectionComponent, ShipperBillingComponent, DriverPayoutComponent, LedgerDetailComponent],
   imports: [
     CommonModule,
     ChartsModule,

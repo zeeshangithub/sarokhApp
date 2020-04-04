@@ -209,24 +209,24 @@ export const navItems: INavData[] = [
                 url: '/base/cards',
                 icon: 'fas fa-money-bill-wave'
             },
+            // {
+            //     name: 'Account Statements',
+            //     url: '/base/cards',
+            //     icon: 'fas fa-money-bill-wave'
+            // },
             {
-                name: 'Account Statements',
-                url: '/base/cards',
-                icon: 'fas fa-money-bill-wave'
-            },
-            {
-                name: 'COD Reconcilation',
-                url: '/base/cards',
+                name: 'COD Collection',
+                url: '/admin/codCollection',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Shipper Billing',
-                url: '/base/cards',
+                url: '/admin/shipperBilling',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Driver Payouts',
-                url: '/base/cards',
+                url: '/admin/driverPayout',
                 icon: 'fas fa-money-bill-wave'
             },
             {
