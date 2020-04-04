@@ -9,17 +9,17 @@ export const navItems: INavData[] = [
     },
     {
         name: 'Tracking',
-        url: '/base',
+        url: '',
         icon: 'fas fa-map-marker-alt',
         children: [
             {
                 name: 'Driver Locations',
-                url: '/base/cards',
+                url: '/admin/driverlocation',
                 icon: 'icon-map'
             },
             {
                 name: 'Order Locations',
-                url: '/base/carousels',
+                url: '/admin/orderlocation',
                 icon: 'icon-map'
             }
         ]
@@ -31,86 +31,86 @@ export const navItems: INavData[] = [
         children: [
             {
                 name: 'All Orders',
-                url: '/orders/allorders',
+                url: '/admin/allorder',
                 icon: 'fas fa-dolly-flatbed'
             },
             {
                 name: 'Pickup Orders',
-                url: '/base/cards',
+                url: '/admin/pickuporders',
                 icon: 'fas fa-dolly-flatbed'
             },
             {
                 name: 'Delivery Orders',
-                url: '/base/cards',
+                url: '/admin/deliveryorders',
                 icon: 'fas fa-dolly-flatbed'
             },
         ]
     },
     {
         name: 'Shipments',
-        url: '/Shipments',
+        url: '',
         icon: 'fas fa-shipping-fast',
         children: [
             {
                 name: 'All Shipments',
-                url: '/base/cards',
+                url: '/admin/allshipments',
                 icon: 'fas fa-shipping-fast'
             },
             {
                 name: 'Deliverd Shipments',
-                url: '/base/cards',
+                url: '/admin/deliverdshipments',
                 icon: 'fas fa-box'
             },
             {
                 name: 'Pending Shipments',
-                url: '/base/cards',
+                url: '/admin/pendingshipments',
                 icon: 'icon-map'
             },
             {
                 name: 'No Response Shipments',
-                url: '/base/cards',
+                url: '/admin/noresponseshipments',
                 icon: 'icon-map'
             },
             {
                 name: 'COD Shipments',
-                url: '/base/cards',
+                url: '/admin/codshipments',
                 icon: 'icon-map'
             },
             {
                 name: 'Prepaid Shipments',
-                url: '/base/cards',
+                url: '/admin/prepaidshipments',
                 icon: 'icon-map'
             },
             {
                 name: 'Return Shipments',
-                url: '/base/cards',
+                url: '/admin/returnshipments',
                 icon: 'icon-map'
             },
             {
                 name: 'Shipment Issues',
-                url: '/base/cards',
+                url: '/admin/issushipments',
                 icon: 'icon-map'
             },
         ]
     },
     {
         name: 'Shippers',
-        url: '/shipper',
+        url: '',
         icon: 'fas fa-shipping-fast',
         children: [
             {
                 name: 'Shippers',
-                url: '/shipper',
+                url: '/admin/shippers',
                 icon: 'fas fa-shipping-fast'
             },
             {
-                name: 'Shipment Issues',
-                url: '/base/cards',
+                name: 'Shipper Issues',
+                url: '/admin/shippersissues',
                 icon: 'fas fa-box'
             },
             {
-                name: 'Billing',
-                url: '/base/cards',
+                name: 'Shipper Billing',
+                url: '/admin/shippersbilling',
                 icon: 'icon-map'
             },
         ]
