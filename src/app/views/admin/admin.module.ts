@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ArchwizardModule } from 'angular-archwizard';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
@@ -28,17 +31,38 @@ import { CodCollectionComponent } from './finance/cod-collection/cod-collection.
 import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billing.component';
 import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
 import { LedgerDetailComponent } from './finance/ledger-detail/ledger-detail.component';
+import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
+import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
+import { DataService } from '../../services/data.service';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, AdminComponent , AllLedgersComponent, DriverLocationComponent, OrderLocationComponent, AllordersComponent, PickupordersComponent, DeliveryordersComponent, AllshipmentsComponent, DeliverdshipmentsComponent, PendingshipmentsComponent, NoresponseshipmentComponent, CodshipmentsComponent, PrepeaidshipmentsComponent, ReturnshipmentsComponent, ShipmentsissueComponent, ShippersComponent, ShippersissueComponent, ShippersbillingComponent,CodCollectionComponent, ShipperBillingComponent, DriverPayoutComponent, LedgerDetailComponent],
+  declarations: [DashboardComponent, AdminComponent,
+    AllLedgersComponent, DriverLocationComponent,
+    OrderLocationComponent, AllordersComponent,
+    PickupordersComponent, DeliveryordersComponent,
+    AllshipmentsComponent, DeliverdshipmentsComponent, 
+    PendingshipmentsComponent, NoresponseshipmentComponent, 
+    CodshipmentsComponent, PrepeaidshipmentsComponent, 
+    ReturnshipmentsComponent, ShipmentsissueComponent, 
+    ShippersComponent, ShippersissueComponent, 
+    ShippersbillingComponent, CodCollectionComponent, 
+    ShipperBillingComponent, DriverPayoutComponent, 
+    LedgerDetailComponent , AddDealerComponent, AlldealersComponent],
   imports: [
     CommonModule,
     ChartsModule,
     BsDropdownModule,
+    ArchwizardModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    ReactiveFormsModule,
     ButtonsModule.forRoot(),
-    AdminRoutingModule
-  ]
+    AdminRoutingModule,
+    FileUploadModule
+  ],
+  providers : [DataService]
 })
 export class AdminModule { }

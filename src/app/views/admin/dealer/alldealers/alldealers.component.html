@@ -15,21 +15,20 @@
               <tr>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
-                <th scope="col">Date Of Birth</th>
-                <th scope="col">Email</th>
+                <th scope="col">City</th>
                 <th scope="col">Contact</th> 
-                
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let dealers of dealerlist">
+              <tr *ngFor="let dealer of dealerlist">
             
-                <td>{{drivers.firstName}}</td>
-                <td>{{drivers.lastName}}</td>
-                <td>{{drivers.dateOfBirth}}</td>
-                <td>{{drivers.email}}</td>
-                <td>{{drivers.contact}}</td>
-                <td><button (click)="DeleteDriver(drivers.id)">Delete</button></td> 
+                <td>{{dealer.firstName}}</td>
+                <td>{{dealer.lastName}}</td>
+                <td>{{dealer.city}}</td>
+                <td>{{dealer.contact}}</td>
+                <td><button class="btn btn-primary" (click)="deletedealer(dealer.id)">Delete</button></td> 
+                <td><button class="btn btn-primary" (click)="editDealer(dealer.id)">Eidt</button></td>
               </tr>
             </tbody>
           </table>

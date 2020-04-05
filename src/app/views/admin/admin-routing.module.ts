@@ -22,6 +22,8 @@ import { ShippersbillingComponent } from './shippers/shippersbilling/shippersbil
 import { CodCollectionComponent } from './finance/cod-collection/cod-collection.component';
 import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billing.component';
 import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
+import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
+import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
 
 
 const routes: Routes = [
@@ -37,88 +39,67 @@ const routes: Routes = [
     path: 'allLedgers',
     component: AllLedgersComponent,
   },
+  {
+    path: 'driverlocation',
+    component: DriverLocationComponent,
+  },
+  {
+    path: 'orderlocation',
+    component: OrderLocationComponent,
+  },
+  {
+    path: 'allorder',
+    component: AllordersComponent,
+  },
+  // {
+  //   path: 'pickuporders',
+  //   component: PickupOrdersComponent,
+  // },
+  // {
+  //   path: 'deliveryorders',
+  //   component: DeliveryOrdersComponent,
+  // },
+  {
+    path: 'allshipments',
+    component: AllshipmentsComponent,
+  },
+  {
+    path: 'deliverdshipments',
+    component: DeliverdshipmentsComponent,
+  },
+  {
+    path: 'pendingshipments',
+    component: PendingshipmentsComponent,
+  },
+  {
+    path: 'noresponseshipments',
+    component: NoresponseshipmentComponent,
+  },
+  {
+    path: 'codshipments',
+    component: PendingshipmentsComponent,
+  },
+  {
+    path: 'prepaidshipments',
+    component: PrepeaidshipmentsComponent,
+  },
+  {
+    path: 'returnshipments',
+    component: ReturnshipmentsComponent,
+  },
+  {
+    path: 'issushipments',
+    component: ShipmentsissueComponent,
+  },
 
-
-
-
-
-
-
-
-
-
-
-{
-  path: 'driverlocation',
-  component: DriverLocationComponent,
-},
-{
-  path: 'orderlocation',
-  component: OrderLocationComponent,
-},
-{
-  path: 'allorder',
-  component: AllordersComponent,
-},
-// {
-//   path: 'pickuporders',
-//   component: PickupOrdersComponent,
-// },
-// {
-//   path: 'deliveryorders',
-//   component: DeliveryOrdersComponent,
-// },
-{
-  path: 'allshipments',
-  component: AllshipmentsComponent,
-},
-{
-  path: 'deliverdshipments',
-  component: DeliverdshipmentsComponent,
-},
-{
-  path: 'pendingshipments',
-  component: PendingshipmentsComponent,
-},
-{
-  path: 'noresponseshipments',
-  component: NoresponseshipmentComponent,
-},
-{
-  path: 'codshipments',
-  component: PendingshipmentsComponent,
-},
-{
-  path: 'prepaidshipments',
-  component: PrepeaidshipmentsComponent,
-},
-{
-  path: 'returnshipments',
-  component: ReturnshipmentsComponent ,
-},
-{
-  path: 'issushipments',
-  component: ShipmentsissueComponent,
-},
-
-{
-  path: 'shippersissues',
-  component: ShippersissueComponent,
-},
-{
-  path: 'shippersbilling',
-  component: ShippersbillingComponent,
-},
-
-
-
-
-
-
-
-
-
-
+  {
+    path: 'shippersissues',
+    component: ShippersissueComponent,
+  },
+  {
+    path: 'shippersbilling',
+    component: ShippersbillingComponent,
+  },
   {
     path: 'codCollection',
     component: CodCollectionComponent,
@@ -130,6 +111,20 @@ const routes: Routes = [
   {
     path: 'driverPayout',
     component: DriverPayoutComponent,
+  },
+  {
+    path: 'adddealer',
+    component: AddDealerComponent,
+  },
+  
+  {
+    path: 'adddealer/:id',
+    component: AddDealerComponent,
+  },
+  
+  {
+    path: 'alldealers',
+    component: AlldealersComponent,
   },
 ]
 @NgModule({

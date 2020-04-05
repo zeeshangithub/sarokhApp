@@ -45,6 +45,7 @@ export class AddShipperLedgerComponent implements OnInit {
         // this.ledgerForm.patchValue({ 'endDate': selectedLedger.endDate })
         // this.ledgerForm.patchValue({ 'dueDate': selectedLedger.dueDate })
         const startDate = new Date(this.selectedLedger.startDate).toISOString()
+        console.log("startDate" , startDate)
         this.ledgerForm.get('startDate').setValue(startDate)
         const endDate = new Date(this.selectedLedger.startDate).toISOString()
         this.ledgerForm.get('endDate').setValue(endDate)

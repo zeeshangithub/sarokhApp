@@ -5,8 +5,6 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { DealerRoutingModule } from './dealer-routing.module';
-import { AddDealerComponent } from './add-dealer/add-dealer.component';
-import { DealersComponent } from './dealers/dealers.component';
 import { DealerDashboardComponent } from './dealer-dashboard/dealer-dashboard.component';
 import { ViewdealerpointComponent } from './viewdealerpoint/viewdealerpoint.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -16,7 +14,7 @@ import { CodreturnsComponent } from './codreturns/codreturns.component';
 
 
 @NgModule({
-  declarations: [AddDealerComponent, DealersComponent, DealerDashboardComponent, ViewdealerpointComponent, InventoryComponent, ServiceschargesComponent, CodreturnsComponent],
+  declarations: [DealerDashboardComponent, ViewdealerpointComponent, InventoryComponent, ServiceschargesComponent, CodreturnsComponent],
   imports: [
     CommonModule,
     DealerRoutingModule,

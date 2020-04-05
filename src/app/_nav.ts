@@ -260,12 +260,12 @@ export const navItems: INavData[] = [
         children: [
             {
                 name: 'All Dealers',
-                url: '/dealer',
+                url: '/admin/alldealers',
                 icon: 'icon-map'
             },
             {
                 name: 'Add Dealers',
-                url: '/dealer/add',
+                url: '/admin/adddealer',
                 icon: 'icon-map'
             },
             {
@@ -364,11 +364,11 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/add',
                 icon: 'fas fa-dolly-flatbed'
             },
-            // {
-            //     name: 'All Orders',
-            //     url: '/orders/orders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
+            {
+                name: 'All Orders',
+                url: '/orders/orders',
+                icon: 'fas fa-dolly-flatbed'
+            },
             // {
             //     name: 'Pending Orders',
             //     url: '/orders/pendingorders',
