@@ -24,6 +24,8 @@ import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billi
 import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
 import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
 import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
+import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.component';
+import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
 
 
 const routes: Routes = [
@@ -113,18 +115,27 @@ const routes: Routes = [
     component: DriverPayoutComponent,
   },
   {
+    path: 'dealerPayout',
+    component: DealerPayoutComponent,
+  },
+  {
     path: 'adddealer',
     component: AddDealerComponent,
   },
-  
+
   {
     path: 'adddealer/:id',
     component: AddDealerComponent,
   },
-  
+
   {
     path: 'alldealers',
     component: AlldealersComponent,
+  },
+
+  {
+    path: 'financeDashboard',
+    component: FinanceDashboardComponent,
   },
 ]
 @NgModule({

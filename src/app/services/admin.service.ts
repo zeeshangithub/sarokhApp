@@ -38,4 +38,12 @@ export class AdminService {
   fetchDriverPayout() {
     return this.http.get<any>(`${environment.apiURL}finance/get-driver-payout`);
   }
+
+  fetchDealerPayout() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-dealer-payout`);
+  }
+
+  fetchFinanceDashboard() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-finance-dashboard`);
+  }
 }

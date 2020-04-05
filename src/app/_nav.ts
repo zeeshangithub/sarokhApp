@@ -195,6 +195,11 @@ export const navItems: INavData[] = [
         icon: 'fas fa-money-bill-wave',
         children: [
             {
+                name: 'Finance Dashboard',
+                url: '/admin/financeDashboard',
+                icon: 'fas fa-rocket',
+            },
+            {
                 name: 'All ledgers',
                 url: '/admin/allLedgers',
                 icon: 'fas fa-money-bill-wave'
@@ -231,7 +236,7 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Dealer Payouts',
-                url: '/base/cards',
+                url: '/admin/dealerPayout',
                 icon: 'fas fa-money-bill-wave'
             },
         ]
