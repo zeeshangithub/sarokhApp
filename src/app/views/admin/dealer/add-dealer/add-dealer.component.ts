@@ -70,7 +70,7 @@ export class AddDealerComponent implements OnInit {
             dateOfBirth: [this.selectedDealer.user.dob],
             contact: [this.selectedDealer.contact],
             profilePicture: [this.selectedDealer.profilePicture],
-            dealerId : [this.selectedDealer.id],
+            id : [this.selectedDealer.id],
 
             
           })
@@ -114,7 +114,7 @@ export class AddDealerComponent implements OnInit {
       dateOfBirth: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       profilePicture: [''],
-      dealerId:['']
+      id:['']
     })
   }
   initializeDealerDetailsForm() {
@@ -175,8 +175,8 @@ export class AddDealerComponent implements OnInit {
     console.log(this.securityForm.value);
     console.log(this.selectedDealer.id)
     this.basicInfoForm.get('profilePicture').setValue(this.filepath)
-    // this.basicInfoForm.controls['dealerId'].setValue(this.selectedDealer.id);
-    // // this.basicInfoForm.controls['dealerId'].setValue
+    // this.basicInfoForm.controls['id'].setValue(this.selectedDealer.id);
+    // // this.basicInfoForm.controls['id'].setValue
     console.log(this.basicInfoForm.value);
     this.fullFormsInfo.dealerContract = this.contractDetailsForm.value;
     this.fullFormsInfo.credentials = this.securityForm.value;

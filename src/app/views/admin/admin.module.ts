@@ -35,6 +35,8 @@ import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
 import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
 import { DataService } from '../../services/data.service';
 import { FileUploadModule } from 'ng2-file-upload';
+import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
+import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 
 
 
@@ -50,7 +52,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     ShippersComponent, ShippersissueComponent, 
     ShippersbillingComponent, CodCollectionComponent, 
     ShipperBillingComponent, DriverPayoutComponent, 
-    LedgerDetailComponent , AddDealerComponent, AlldealersComponent],
+    LedgerDetailComponent , AddDealerComponent, AlldealersComponent,
+     AlldriversComponent, AdddriversComponent],
   imports: [
     CommonModule,
     ChartsModule,

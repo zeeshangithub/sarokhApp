@@ -70,12 +70,6 @@ export class AddUserComponent implements OnInit {
       console.log("res", res)
       this.roles = res.data;
 
-
-
-    
-
-
-
     })
   }
 
@@ -96,12 +90,19 @@ export class AddUserComponent implements OnInit {
       // this.userForm.patchValue({'parentTypeId' :parentTypeId  })
       console.log("this.userForm", this.userForm)
       this.userService.addShipperUser(this.userForm.value).subscribe(res => {
-        // alert('Order created successfully')
-        this.router.navigate(['user']);
+        // console.log("res" , res)
+        // this.router.navigate(['user']);
       })
     } else if (localStorage.getItem('role') === 'admin') {
       this.userService.addUser(this.userForm.value).subscribe(res => {
         // alert('Order created successfully')
+        this.router.navigate(['user']);
+      })
+    }
+    else if (localStorage.getItem('role') === 'Dealer') {
+      this.userService.addUser(this.userForm.value).subscribe(res => {
+        // alert('Order created successfully')
+        console.log("res" , res);
         this.router.navigate(['user']);
       })
     }

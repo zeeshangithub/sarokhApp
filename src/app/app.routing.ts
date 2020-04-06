@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
@@ -72,14 +70,14 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: () => import('./views/dealer/dealer.module').then(m => m.DealerModule)
       },
-      {
-        path: 'driver',
-        canActivate: [AuthGuard],
-        loadChildren: () => import('./views/driver/driver.module').then(m => m.DriverModule)
-      },
+      // {
+      //   path: 'driver',
+      //   canActivate: [AuthGuard],
+      //   loadChildren: () => import('./views/driver/driver.module').then(m => m.DriverModule)
+      // },
       {
         path: 'user',
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
       },
       {
