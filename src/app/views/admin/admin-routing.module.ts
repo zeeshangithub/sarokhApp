@@ -28,6 +28,7 @@ import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.com
 import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
+import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 
 
 const routes: Routes = [
@@ -152,6 +153,14 @@ const routes: Routes = [
   {
     path: 'alldrivers',
     component: AlldriversComponent,
+  },
+  {
+    path: 'allorders',
+    component: AllordersComponent,
+  },
+  {
+    path: 'pickupshipments',
+    component: PickupShipmentsComponent,
   },
 ]
 @NgModule({

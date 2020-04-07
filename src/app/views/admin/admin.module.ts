@@ -39,6 +39,7 @@ import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.com
 import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
+import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 
 
 
@@ -55,7 +56,7 @@ import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
     ShippersbillingComponent, CodCollectionComponent,
     ShipperBillingComponent, DriverPayoutComponent,
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
-    AlldriversComponent, AdddriversComponent,],
+    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent,],
   imports: [
     CommonModule,
     ChartsModule,

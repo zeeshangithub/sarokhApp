@@ -34,16 +34,16 @@ export const navItems: INavData[] = [
                 url: '/admin/allorder',
                 icon: 'fas fa-dolly-flatbed'
             },
-            {
-                name: 'Pickup Orders',
-                url: '/admin/pickuporders',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            {
-                name: 'Delivery Orders',
-                url: '/admin/deliveryorders',
-                icon: 'fas fa-dolly-flatbed'
-            },
+            // {
+            //     name: 'Pickup Orders',
+            //     url: '/admin/pickuporders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Delivery Orders',
+            //     url: '/admin/deliveryorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
         ]
     },
     {
@@ -91,6 +91,11 @@ export const navItems: INavData[] = [
                 url: '/admin/issushipments',
                 icon: 'icon-map'
             },
+            {
+                name: 'Pickup Shipments',
+                url: '/admin/pickupshipments',
+                icon: 'icon-map'
+            },
         ]
     },
     {
@@ -102,11 +107,6 @@ export const navItems: INavData[] = [
                 name: 'Shippers',
                 url: '/admin/shippers',
                 icon: 'fas fa-shipping-fast'
-            },
-            {
-                name: 'Shipper Issues',
-                url: '/admin/shippersissues',
-                icon: 'fas fa-box'
             },
             {
                 name: 'Shipper Billing',
@@ -305,11 +305,6 @@ export const navItems: INavData[] = [
                 url: '/base/carousels',
                 icon: 'icon-map'
             },
-            {
-                name: 'Accident History',
-                url: '/base/carousels',
-                icon: 'icon-map'
-            }
         ]
     },
     {
