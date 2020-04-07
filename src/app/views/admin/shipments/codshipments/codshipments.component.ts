@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../../../../services/admin.service';
 
 @Component({
   selector: 'app-codshipments',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CodshipmentsComponent implements OnInit {
 
-  constructor() { }
+  public codShipments;
+
+  constructor(private CodShipments: AdminService) { }
 
   ngOnInit(): void {
+    this.getCodShipments();
+  }
+
+  getCodShipments() {
+    this.CodShipments.fetchCodShipments().subscribe(res => {
+      this.codShipments = res.data
+    })
   }
 
 }

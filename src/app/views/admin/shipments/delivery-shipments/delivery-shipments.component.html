@@ -1,6 +1,6 @@
 <div class="card card-accent-primary mt-4 users-listing">
     <div class="card-header">
-        Pending Shipments
+        Delivery Shipments
         <div class="clearfix"></div>
     </div>
     <div class="card-body">
@@ -12,16 +12,18 @@
                     <th scope="col">Shipment Type</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Shipper</th>
+                    <th scope="col">Assign To</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let shipments of pendingShipments">
+                <tr *ngFor="let shipments of deliveryShipments">
                     <td>{{shipments.shipmentId}}</td>
                     <td>{{shipments.dateTime}}</td>
                     <td>{{shipments.shipmentType}}</td>
                     <td>{{shipments.amount}}</td>
                     <td>{{shipments.shipper}}</td>
+                    <td></td>
                     <td>{{shipments.status}}</td>
                 </tr>
             </tbody>

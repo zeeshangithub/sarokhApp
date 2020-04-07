@@ -38,4 +38,53 @@ export class AdminService {
   fetchDriverPayout() {
     return this.http.get<any>(`${environment.apiURL}finance/get-driver-payout`);
   }
+
+  fetchDealerPayout() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-dealer-payout`);
+  }
+
+  fetchFinanceDashboard() {
+    return this.http.get<any>(`${environment.apiURL}finance/get-finance-dashboard`);
+  }
+
+  fetchAllShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-all-shipments/`);
+  }
+
+  fetchDeliverdShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-delivered-shipments/`);
+  }
+
+  fetchPendingShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-pending-shipments/`);
+  }
+
+  fetchNoResponseShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-noresponse-shipments/`);
+  }
+
+  fetchCodShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-cod-shipments/`);
+  }
+
+  fetchPrepaidShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-prepaid-shipments/`);
+  }
+
+  fetchReturnedShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-returned-shipments/`);
+  }
+
+  fetchShipmentIssues() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-shipment-issues/`);
+  }
+
+  fetchPickupShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-pickup-shipments/`);
+  }
+
+  fetchDeliveryShipments() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-delivery-shipments/`);
+  }
+
 }

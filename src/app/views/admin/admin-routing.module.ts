@@ -24,10 +24,15 @@ import { ShipperBillingComponent } from './finance/shipper-billing/shipper-billi
 import { DriverPayoutComponent } from './finance/driver-payout/driver-payout.component';
 import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
 import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
+import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.component';
+import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 import { ReceivecashComponent } from './receivecash/receivecash.component';
 import { DispensecashComponent } from './dispensecash/dispensecash.component';
+import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
+import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
+import { CodshipmentsComponent } from './shipments/codshipments/codshipments.component';
 
 
 const routes: Routes = [
@@ -81,7 +86,7 @@ const routes: Routes = [
   },
   {
     path: 'codshipments',
-    component: PendingshipmentsComponent,
+    component: CodshipmentsComponent,
   },
   {
     path: 'prepaidshipments',
@@ -117,6 +122,10 @@ const routes: Routes = [
     component: DriverPayoutComponent,
   },
   {
+    path: 'dealerPayout',
+    component: DealerPayoutComponent,
+  },
+  {
     path: 'adddealer',
     component: AddDealerComponent,
   },
@@ -129,6 +138,11 @@ const routes: Routes = [
   {
     path: 'alldealers',
     component: AlldealersComponent,
+  },
+
+  {
+    path: 'financeDashboard',
+    component: FinanceDashboardComponent,
   },
   {
     path: 'adddriver',
@@ -143,10 +157,26 @@ const routes: Routes = [
     path: 'dispensecash',
     component : DispensecashComponent
   },
+  // {
+  //   path: 'adddealer/:id',
+  //   component: AddDealerComponent,
+  // },
 
   {
     path: 'alldrivers',
     component: AlldriversComponent,
+  },
+  {
+    path: 'allorders',
+    component: AllordersComponent,
+  },
+  {
+    path: 'pickupshipments',
+    component: PickupShipmentsComponent,
+  },
+  {
+    path: 'deliveryshipments',
+    component: DeliveryShipmentsComponent,
   },
 ]
 @NgModule({

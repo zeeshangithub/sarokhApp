@@ -1,1 +1,35 @@
-<p>allorders works!</p>
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        All orders
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Gendar</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">Designation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{user.userId}}</td>
+                    <td>{{user.fullName}}</td>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.contact}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.dob}}</td>
+                    <td>{{user.designation}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
