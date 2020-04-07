@@ -26,6 +26,8 @@ import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
 import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
 import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.component';
 import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
+import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
+import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 
 
 const routes: Routes = [
@@ -136,6 +138,20 @@ const routes: Routes = [
   {
     path: 'financeDashboard',
     component: FinanceDashboardComponent,
+  },
+  {
+    path: 'adddriver',
+    component: AdddriversComponent,
+  },
+
+  // {
+  //   path: 'adddealer/:id',
+  //   component: AddDealerComponent,
+  // },
+
+  {
+    path: 'alldrivers',
+    component: AlldriversComponent,
   },
 ]
 @NgModule({

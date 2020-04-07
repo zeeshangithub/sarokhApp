@@ -37,6 +37,8 @@ import { DataService } from '../../services/data.service';
 import { FileUploadModule } from 'ng2-file-upload';
 import { DealerPayoutComponent } from './finance/dealer-payout/dealer-payout.component';
 import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-dashboard.component';
+import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
+import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 
 
 
@@ -45,14 +47,15 @@ import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-d
     AllLedgersComponent, DriverLocationComponent,
     OrderLocationComponent, AllordersComponent,
     PickupordersComponent, DeliveryordersComponent,
-    AllshipmentsComponent, DeliverdshipmentsComponent, 
-    PendingshipmentsComponent, NoresponseshipmentComponent, 
-    CodshipmentsComponent, PrepeaidshipmentsComponent, 
-    ReturnshipmentsComponent, ShipmentsissueComponent, 
-    ShippersComponent, ShippersissueComponent, 
-    ShippersbillingComponent, CodCollectionComponent, 
-    ShipperBillingComponent, DriverPayoutComponent, 
-    LedgerDetailComponent , AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent],
+    AllshipmentsComponent, DeliverdshipmentsComponent,
+    PendingshipmentsComponent, NoresponseshipmentComponent,
+    CodshipmentsComponent, PrepeaidshipmentsComponent,
+    ReturnshipmentsComponent, ShipmentsissueComponent,
+    ShippersComponent, ShippersissueComponent,
+    ShippersbillingComponent, CodCollectionComponent,
+    ShipperBillingComponent, DriverPayoutComponent,
+    LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
+    AlldriversComponent, AdddriversComponent,],
   imports: [
     CommonModule,
     ChartsModule,
@@ -65,6 +68,6 @@ import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-d
     AdminRoutingModule,
     FileUploadModule
   ],
-  providers : [DataService]
+  providers: [DataService]
 })
 export class AdminModule { }

@@ -248,12 +248,12 @@ export const navItems: INavData[] = [
         children: [
             {
                 name: 'Add Driver',
-                url: '/driver/add',
+                url: '/admin/adddriver',
                 icon: 'icon-map'
             },
             {
                 name: 'All Drivers',
-                url: '/driver',
+                url: '/admin/alldrivers',
                 icon: 'icon-map'
             }
         ]

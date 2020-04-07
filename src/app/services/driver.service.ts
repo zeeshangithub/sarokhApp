@@ -22,4 +22,12 @@ export class DriverService {
   DeleteDriver(id: string){
     return this.http.delete<any>(`${environment.apiURL}/driver/delete/${id}`);
   }
+  GetSingleDriver(id){
+
+    return this.http.get<any>(`${environment.apiURL}driver/get-details/${id}`);
+  }
+  updateSingleDriver(formData){
+
+    return this.http.put<any>(`${environment.apiURL}driver/update`, formData);
+  }
 }

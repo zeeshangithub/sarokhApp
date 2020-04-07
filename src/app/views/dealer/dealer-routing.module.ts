@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AddDealerComponent } from '../admin/dealer/add-dealer/add-dealer.component';
 import { DealerDashboardComponent } from './dealer-dashboard/dealer-dashboard.component';
 import { ViewdealerpointComponent } from './viewdealerpoint/viewdealerpoint.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -14,10 +13,7 @@ const routes: Routes = [
 		path: '',
 		component: DealerDashboardComponent,
   },
-  {
-		path: 'add',
-		component: AddDealerComponent,
-  },
+ 
   {
 		path: 'Dashboard',
 		component: DealerDashboardComponent,
