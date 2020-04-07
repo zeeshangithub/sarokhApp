@@ -201,12 +201,12 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Receive Cash',
-                url: '/base/cards',
+                url: '/admin/receivecash',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Dispense Cash',
-                url: '/base/cards',
+                url: '/admin/dispensecash',
                 icon: 'fas fa-money-bill-wave'
             },
             // {

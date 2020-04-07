@@ -100,6 +100,9 @@ export class AddUserComponent implements OnInit {
       })
     }
     else if (localStorage.getItem('role') === 'Dealer') {
+      const parentTypeId = localStorage.getItem('id')
+      console.log(parentTypeId);
+      this.userForm.get('parentTypeId').setValue(parentTypeId);
       this.userService.addUser(this.userForm.value).subscribe(res => {
         // alert('Order created successfully')
         console.log("res" , res);

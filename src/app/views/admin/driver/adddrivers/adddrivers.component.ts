@@ -207,8 +207,9 @@ export class AdddriversComponent implements OnInit {
 
     console.log("this.fullFormsInfo" , this.fullFormsInfo)
     this.driverService.updateSingleDriver(this.fullFormsInfo).subscribe(res=>{
-
-      console.log("res" , res)
+      if(res.status === 200){
+        this.router.navigate(['admin/alldrivers'])
+      }
     })
   }
   result(event) {

@@ -26,6 +26,8 @@ import { AddDealerComponent } from './dealer/add-dealer/add-dealer.component';
 import { AlldealersComponent } from './dealer/alldealers/alldealers.component';
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
+import { ReceivecashComponent } from './receivecash/receivecash.component';
+import { DispensecashComponent } from './dispensecash/dispensecash.component';
 
 
 const routes: Routes = [
@@ -118,12 +120,12 @@ const routes: Routes = [
     path: 'adddealer',
     component: AddDealerComponent,
   },
-  
+
   {
     path: 'adddealer/:id',
     component: AddDealerComponent,
   },
-  
+
   {
     path: 'alldealers',
     component: AlldealersComponent,
@@ -132,12 +134,16 @@ const routes: Routes = [
     path: 'adddriver',
     component: AdddriversComponent,
   },
-  
-  // {
-  //   path: 'adddealer/:id',
-  //   component: AddDealerComponent,
-  // },
-  
+
+  {
+    path: 'receivecash',
+    component: ReceivecashComponent,
+  },
+  {
+    path: 'dispensecash',
+    component : DispensecashComponent
+  },
+
   {
     path: 'alldrivers',
     component: AlldriversComponent,

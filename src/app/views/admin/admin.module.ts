@@ -37,6 +37,8 @@ import { DataService } from '../../services/data.service';
 import { FileUploadModule } from 'ng2-file-upload';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
+import { ReceivecashComponent } from './receivecash/receivecash.component';
+import { DispensecashComponent } from './dispensecash/dispensecash.component';
 
 
 
@@ -53,7 +55,7 @@ import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
     ShippersbillingComponent, CodCollectionComponent, 
     ShipperBillingComponent, DriverPayoutComponent, 
     LedgerDetailComponent , AddDealerComponent, AlldealersComponent,
-     AlldriversComponent, AdddriversComponent],
+     AlldriversComponent, AdddriversComponent, ReceivecashComponent, DispensecashComponent],
   imports: [
     CommonModule,
     ChartsModule,
