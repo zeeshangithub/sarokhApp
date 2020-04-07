@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../../../../services/admin.service';
 
 @Component({
   selector: 'app-delivery-shipments',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeliveryShipmentsComponent implements OnInit {
 
-  constructor() { }
+  public deliveryShipments;
+
+  constructor(private DeliveryShipments: AdminService) { }
 
   ngOnInit(): void {
+    this.getDeliveryShipments();
+  }
+
+  getDeliveryShipments() {
+    this.DeliveryShipments.fetchDeliveryShipments().subscribe(res => {
+      this.deliveryShipments = res.data
+    })
   }
 
 }

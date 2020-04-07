@@ -30,6 +30,7 @@ import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
+import { CodshipmentsComponent } from './shipments/codshipments/codshipments.component';
 
 
 const routes: Routes = [
@@ -83,7 +84,7 @@ const routes: Routes = [
   },
   {
     path: 'codshipments',
-    component: PendingshipmentsComponent,
+    component: CodshipmentsComponent,
   },
   {
     path: 'prepaidshipments',
