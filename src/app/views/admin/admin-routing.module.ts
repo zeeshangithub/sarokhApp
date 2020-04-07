@@ -29,6 +29,7 @@ import { FinanceDashboardComponent } from './finance/finance-dashboard/finance-d
 import { AdddriversComponent } from './driver/adddrivers/adddrivers.component';
 import { AlldriversComponent } from './driver/alldrivers/alldrivers.component';
 import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
+import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
 
 
 const routes: Routes = [
@@ -161,6 +162,10 @@ const routes: Routes = [
   {
     path: 'pickupshipments',
     component: PickupShipmentsComponent,
+  },
+  {
+    path: 'deliveryshipments',
+    component: DeliveryShipmentsComponent,
   },
 ]
 @NgModule({

@@ -96,6 +96,11 @@ export const navItems: INavData[] = [
                 url: '/admin/pickupshipments',
                 icon: 'icon-map'
             },
+            {
+                name: 'Delivery Shipments',
+                url: '/admin/deliveryshipments',
+                icon: 'icon-map'
+            },
         ]
     },
     {
