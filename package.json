@@ -44,6 +44,7 @@
     "@coreui/icons": "0.3.0",
     "@fortawesome/fontawesome-free": "^5.12.1",
     "@swimlane/ngx-datatable": "^16.0.3",
+    "alife-file-to-base64": "0.0.4",
     "angular-archwizard": "^5.0.0",
     "angular-highcharts": "^9.0.2",
     "bootstrap": "^4.3.1",

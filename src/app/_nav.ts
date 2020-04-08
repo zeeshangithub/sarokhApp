@@ -297,12 +297,12 @@ export const navItems: INavData[] = [
     },
     {
         name: 'Vehicles',
-        url: '/pages',
+        url: '',
         icon: 'fas fa-truck',
         children: [
             {
-                name: 'Vehicles',
-                url: '/base/cards',
+                name: 'Add Vehicles',
+                url: '/admin/addVehical',
                 icon: 'icon-map'
             },
             {
