@@ -1,0 +1,81 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                Add Dispense Cash
+            </div>
+            <div class="card-body">
+                <form [formGroup]="addVehicalForm" (ngSubmit)="addVehical()">
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <select class="form-control" id="status" formControlName="cargoCapacity">
+                                <option value="">--- Select Cargo ---</option>
+                                <option [value]="sarokh">Sarokh</option>
+                                <option [value]="leasedoroperator">Leased Or Operator Owned</option>
+                              </select>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Current Milage" formControlName="currentMilage" />
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Make" formControlName="make" />
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Model" formControlName="model" />
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Created Date" formControlName="createdDate"
+                                [owlDateTime]="createdDate" [owlDateTimeTrigger]="createdDate"
+                                [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <owl-date-time [pickerType]="'calendar'" #createdDate></owl-date-time>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Owner" formControlName="owner"/>
+                        </div>
+                        <div class="col">
+                            <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="registrationFile" />
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                
+                            <input type="text" class="form-control" placeholder="Registration Number" formControlName="registrationNumber" />
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Registration Year" formControlName="registrationYear" />
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            
+                                <select class="form-control" id="status" formControlName="status">
+                                  <option value="">--- Select Status ---</option>
+                                  <option [value]="active">Active</option>
+                                  <option [value]="undermaintinence">Under Maintinence</option>
+                                  <option [value]="accidented">Accidented</option>
+                                  <option [value]="sold">Sold</option>
+                                  <option [value]="returned">Returned</option>
+                                </select>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Type" formControlName="type" />
+                        </div>
+                    </div>
+                    <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
+                    <!-- <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button> -->
+                    <button *ngIf="editUser" type="button" class="btn btn-warning"
+                        (click)="updateUser()">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

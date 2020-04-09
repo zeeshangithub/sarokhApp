@@ -33,6 +33,7 @@ import { DispensecashComponent } from './dispensecash/dispensecash.component';
 import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
 import { CodshipmentsComponent } from './shipments/codshipments/codshipments.component';
+import { AddVehicalComponent } from './add-vehical/add-vehical.component';
 
 
 const routes: Routes = [
@@ -177,6 +178,10 @@ const routes: Routes = [
   {
     path: 'deliveryshipments',
     component: DeliveryShipmentsComponent,
+  },
+  {
+    path: 'addVehical',
+    component: AddVehicalComponent,
   },
 ]
 @NgModule({

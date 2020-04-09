@@ -43,6 +43,7 @@ import { ReceivecashComponent } from './receivecash/receivecash.component';
 import { DispensecashComponent } from './dispensecash/dispensecash.component';
 import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
+import { AddVehicalComponent } from './add-vehical/add-vehical.component';
 
 
 
@@ -68,7 +69,7 @@ import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/deliv
     ShippersbillingComponent, CodCollectionComponent,
     ShipperBillingComponent, DriverPayoutComponent,
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
-    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent,],
+    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent,],
   imports: [
     CommonModule,
     ChartsModule,
