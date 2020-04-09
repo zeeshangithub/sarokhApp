@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminMisService } from '../../../services/adminMis.service';
 import { VeshicalService } from '../../../services/vehical.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-add-vehical',
@@ -12,7 +14,10 @@ export class AddVehicalComponent implements OnInit {
 
   modelvalue
   addVehicalForm: FormGroup;
-  constructor(private formbuilder: FormBuilder, private addVehicalService : VeshicalService) { }
+  preview: string;
+
+  constructor(private formbuilder: FormBuilder, private addVehicalService : VeshicalService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initializeReciveCashForm();
@@ -37,28 +42,31 @@ export class AddVehicalComponent implements OnInit {
     })
   }
   onUploadChange(event){
-    let me = this;
-    let file = event.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      me.modelvalue = reader.result;
-      console.log("reader.result" , reader.result);
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
-console.log(event)
+    const file = (event.target as HTMLInputElement).files[0];
+    this.addVehicalForm.patchValue({
+      avatar: file
+    });
+    this.addVehicalForm.get('registrationFile').updateValueAndValidity()
+
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    }
+    reader.readAsDataURL(file)
 
   }
   addVehical(){
-    console.log("file" , this.modelvalue)
-    this.addVehicalForm.get("registrationFile").setValue(this.modelvalue);
+   
+    // this.addVehicalForm.get("registrationFile").setValue(this.modelvalue);
     this.addVehicalService.addVehical(this.addVehicalForm.value).subscribe(res=>{
       console.log("res" , res)
       if(res.status === 200){
+        this.toastr.success(res.message);
+
         this.addVehicalForm.reset();
       }
     })
   }
+ 
 }

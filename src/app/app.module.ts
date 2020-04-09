@@ -47,6 +47,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ButtonsModule } from 'ngx-bootstrap/buttons/buttons.module';
+import { ToastrModule } from 'ngx-toastr';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 
@@ -67,7 +68,11 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons/buttons.module';
     HttpClientModule,
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
-    ArchwizardModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     // BsDropdownModule,
     // ButtonsModule.forRoot(),
     // HighchartsChartComponent
