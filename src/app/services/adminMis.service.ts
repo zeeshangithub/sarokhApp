@@ -20,6 +20,11 @@ export class AdminMisService {
   dispenseCashService(FormData , parentRole){
     return this.http.post<any>(`${environment.apiURL}/finance/dispensing-cash/${parentRole}`, FormData);
   }
-
+  
+  upoadFileService(file ){
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<any>(`${environment.apiURL}upload-file`, formData);
+  }
 
 }

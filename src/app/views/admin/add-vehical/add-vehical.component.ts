@@ -17,7 +17,7 @@ export class AddVehicalComponent implements OnInit {
   preview: string;
 
   constructor(private formbuilder: FormBuilder, private addVehicalService : VeshicalService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService , private fileUpload : AdminMisService) { }
 
   ngOnInit(): void {
     this.initializeReciveCashForm();
@@ -43,22 +43,22 @@ export class AddVehicalComponent implements OnInit {
   }
   onUploadChange(event){
     const file = (event.target as HTMLInputElement).files[0];
-    this.addVehicalForm.patchValue({
-      avatar: file
-    });
-    this.addVehicalForm.get('registrationFile').updateValueAndValidity()
-
+    console.log(file);
+    this.fileUpload.upoadFileService(file).subscribe(res =>{
+      this.toastr.success(res.message);
+      this.modelvalue = res.data;
+    })
     // File Preview
     const reader = new FileReader();
     reader.onload = () => {
       this.preview = reader.result as string;
     }
     reader.readAsDataURL(file)
-
   }
+
   addVehical(){
    
-    // this.addVehicalForm.get("registrationFile").setValue(this.modelvalue);
+    this.addVehicalForm.get("registrationFile").setValue(this.modelvalue);
     this.addVehicalService.addVehical(this.addVehicalForm.value).subscribe(res=>{
       console.log("res" , res)
       if(res.status === 200){

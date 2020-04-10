@@ -38,13 +38,9 @@
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Profile Picture</label>
                   <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                    </div>
+                    <div class="col">
+                      <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="profilePicture" />
+                  </div>
                   </div>
                 </div>
                 <div class="form-group col-md-6">
@@ -101,13 +97,9 @@
                     <div class="form-group col-md-6">
                       <label for="inputEmail4">Iqama/NIC/Passport Copy Upload</label>
                       <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
+                        <div class="col">
+                          <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="nicFile" />
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -120,13 +112,9 @@
                     <div class="form-group col-md-6">
                       <label for="inputEmail4">Licence Copy Upload</label>
                       <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                        </div>
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                        </div>
+                        <div class="col">
+                          <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="licenceFile" />
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -236,7 +224,9 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="registrationFile">Vehicle Registration Copy</label>
-                  <input type="file" class="form-control" id="registrationFile" placeholder="Vehicle Registration Copy" formControlName="registrationFile">
+                  <div class="col">
+                    <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="registrationFile" />
+                </div>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="productionYear">Production Year</label>
@@ -289,13 +279,9 @@
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Upload Contract</label>
                   <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" contactFile>
-                      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                    </div>
+                    <div class="col">
+                      <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  formControlName="contactFile" />
+                  </div>
                   </div>
                 </div>
                 <div class="form-group col-md-6">

@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DriverService } from '../../../../services/driver.service';
 import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
+import { ToastrService } from 'ngx-toastr';
+import { AdminMisService } from '../../../../services/adminMis.service';
 
 @Component({
   selector: 'app-adddrivers',
@@ -10,8 +12,6 @@ import { DataService } from '../../../../services/data.service';
   styleUrls: ['./adddrivers.component.css']
 })
 export class AdddriversComponent implements OnInit {
-
-
   basicInfoForm: FormGroup;
   driverDetailsForm: FormGroup;
   employeeFreelancerDetailsForm: FormGroup;
@@ -20,7 +20,8 @@ export class AdddriversComponent implements OnInit {
   diverType;
   forFreelancer = false;
   editMode = false;
-
+  preview: string;
+  modelvalue
   fullFormsInfo = {
     basicInfo: {},
     credentials: {},
@@ -29,27 +30,21 @@ export class AdddriversComponent implements OnInit {
     freelanceDriverVehicle: {},
     driverType: ''
   }
-
   constructor(private formbuilder: FormBuilder,
      private driverService: DriverService,
       private router: Router,
-      private shareData : DataService ) { }
-
+      private shareData : DataService ,
+      private toastr: ToastrService , private fileUpload : AdminMisService) { }
   ngOnInit(): void {
     this.initializeBasicInformationForm();
     this.initializeDriverDetailsForm();
     this.initializeVehicleDetailsForm();
     this.initializeEmployeeFreelancerDetailsForm();
     this.initializeSecurityForm();
-
-
     const sharedId = this.shareData.getID();
-
     if(sharedId){
-
       this.editMode = true;
       this.driverService.GetSingleDriver(sharedId).subscribe(res =>{
-
         console.log(res)
         this.basicInfoForm = this.formbuilder.group({
           firstName: [res.firstName],
@@ -60,7 +55,6 @@ export class AdddriversComponent implements OnInit {
           profilePicture: [''],
           id: [res.id]
         })
-
         this.driverDetailsForm = this.formbuilder.group({
           address: [res.address],
           city: [res.city],
@@ -73,7 +67,6 @@ export class AdddriversComponent implements OnInit {
           nicFile: [''],
           nicNumber: [res.nicNumber]
         })
-
         this.vehicleDetailsForm = this.formbuilder.group({
           cargoCapacity: [res.vehicle.cargoCapacity],
           make: [res.vehicle.make],
@@ -96,24 +89,14 @@ export class AdddriversComponent implements OnInit {
           iban: [res.bankAccount.iban],
           bankAccountId:[res.bankAccount.id],
         })
-
-
         this.securityForm = this.formbuilder.group({
           username: [res.user.userName],
           password: [res.user.userPassword],
           userId: [res.user.userId]
         })
-
-
       })
-
     }
-
-
-
-
   }
-
   initializeBasicInformationForm() {
     this.basicInfoForm = this.formbuilder.group({
       firstName: ['', [Validators.required]],
@@ -187,6 +170,13 @@ export class AdddriversComponent implements OnInit {
     this.submit();
   }
   submit() {
+    this.basicInfoForm.get("profilePicture").setValue(this.modelvalue);
+    this.driverDetailsForm.get("licenceFile").setValue(this.modelvalue);
+    this.driverDetailsForm.get("nicFile").setValue(this.modelvalue);
+    this.employeeFreelancerDetailsForm.get("contactFile").setValue(this.modelvalue);
+    this.driverDetailsForm.get("nicFile").setValue(this.modelvalue);
+    this.employeeFreelancerDetailsForm.get("contactFile").setValue(this.modelvalue);
+ 
     console.log("this.fullFormsInfo", this.fullFormsInfo)
     this.driverService.addDriver(this.fullFormsInfo).subscribe(res => {
       
@@ -220,5 +210,19 @@ export class AdddriversComponent implements OnInit {
     }else{
       this.forFreelancer = false;
     }
+  }
+  onUploadChange(event){
+    const file = (event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.fileUpload.upoadFileService(file).subscribe(res =>{
+      this.toastr.success(res.message);
+      this.modelvalue = res.data;
+    })
+    // File Preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    }
+    reader.readAsDataURL(file)
   }
 }
