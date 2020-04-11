@@ -34,6 +34,14 @@ import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-sh
 import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
 import { CodshipmentsComponent } from './shipments/codshipments/codshipments.component';
 import { AddVehicalComponent } from './add-vehical/add-vehical.component';
+import { AllTripsComponent } from './scheduling/all-trips/all-trips.component';
+import { ActiveTripsComponent } from './scheduling/active-trips/active-trips.component';
+import { CreateTripComponent } from './scheduling/create-trip/create-trip.component';
+import { PendingTripsComponent } from './scheduling/pending-trips/pending-trips.component';
+import { CompletedTripsComponent } from './scheduling/completed-trips/completed-trips.component';
+import { AllVehiclesComponent } from './vehicles/all-vehicles/all-vehicles.component';
+import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/maintenance-records.component';
+import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
 
 
 const routes: Routes = [
@@ -156,7 +164,7 @@ const routes: Routes = [
   },
   {
     path: 'dispensecash',
-    component : DispensecashComponent
+    component: DispensecashComponent
   },
   // {
   //   path: 'adddealer/:id',
@@ -182,6 +190,38 @@ const routes: Routes = [
   {
     path: 'addVehical',
     component: AddVehicalComponent,
+  },
+  {
+    path: 'allTrips',
+    component: AllTripsComponent,
+  },
+  {
+    path: 'activeTrips',
+    component: ActiveTripsComponent,
+  },
+  {
+    path: 'createTrip',
+    component: CreateTripComponent,
+  },
+  {
+    path: 'pendingTrips',
+    component: PendingTripsComponent,
+  },
+  {
+    path: 'completedTrips',
+    component: CompletedTripsComponent,
+  },
+  {
+    path: 'allVehicles',
+    component: AllVehiclesComponent,
+  },
+  {
+    path: 'maintenanceRecords',
+    component: MaintenanceRecordsComponent,
+  },
+  {
+    path: 'inventoryManagement',
+    component: InventoryManagementComponent,
   },
 ]
 @NgModule({

@@ -87,4 +87,24 @@ export class AdminService {
     return this.http.get<any>(`${environment.apiURL}admin/get-delivery-shipments/`);
   }
 
+  fetchAllTrips() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-all-trips`);
+  }
+
+  fetchActiveTrips() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-active-trips`);
+  }
+
+  fetchAllVehicles() {
+    return this.http.get<any>(`${environment.apiURL}vehicle/get-list`);
+  }
+
+  fetchMaintenanceRecord() {
+    return this.http.get<any>(`${environment.apiURL}vehicle-maintenance/get-list`);
+  }
+
+  fetchInventoryManagement() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-warehouse-inventory`);
+  }
+
 }
