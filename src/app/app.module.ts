@@ -48,6 +48,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { ButtonsModule } from 'ngx-bootstrap/buttons/buttons.module';
 import { ToastrModule } from 'ngx-toastr';
+import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin.component';
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 
@@ -84,6 +85,7 @@ import { ToastrModule } from 'ngx-toastr';
     P500Component,
     LoginComponent,
     RegisterComponent,
+    WarehouseAdminComponent,
     // DashboardComponent,
     // HighchartsChartComponent
   ],

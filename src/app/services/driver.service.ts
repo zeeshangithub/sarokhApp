@@ -15,8 +15,6 @@ export class DriverService {
     return this.http.post<any>(`${environment.apiURL}driver/add`, formData);
   }
   GetDriverList(){
-    let shipperId =  localStorage.getItem('_id')
-    console.log(shipperId)
     return this.http.get<any>(`${environment.apiURL}driver/get-list`);
   }
   DeleteDriver(id: string){

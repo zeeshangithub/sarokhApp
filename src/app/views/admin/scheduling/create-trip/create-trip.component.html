@@ -1,1 +1,76 @@
-<p>create-trip works!</p>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                Create Trip
+            </div>
+            <div class="card-body">
+                <form [formGroup]="createTripForm" (ngSubmit)="fetchDetailsTrip()">
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <select class="form-control" id="status" formControlName="warehouse">
+                                <option value="">--- Select Warehouse ---</option>
+                                <option [value]='warehouse.id' *ngFor="let warehouse of warehouselist">
+                                    {{warehouse.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-control" id="status" formControlName="vehical">
+                                <option value="">--- Select Vehical ---</option>
+                                <option [value]="vehical.cargoCapacity" *ngFor="let vehical of vehicallist">
+                                    {{vehical.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <select class="form-control" id="status" formControlName="driver">
+                                <option value="">--- Select Driver ---</option>
+                                <option [value]="driver.id" *ngFor="let driver of driverlsit">{{driver.firstName}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Fetch Details</button>
+                </form>
+
+                <div *ngIf="showTrip">
+
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">Remaining Cargo Capacity : {{selectedCargoCapacity}}</li>
+                        <li class="list-group-item">Code Collection : {{newcodcollection}}</li>
+                        <li class="list-group-item">Shipment Displaced : {{numberofShipments}}</li>
+                    </ul>
+
+                    <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Action</th>
+                                <th scope="col">From Location</th>
+                                <th scope="col">To Location</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Pickup Delivery</th>
+                                <th scope="col">Weight</th>
+                                <th scope="col">Cod Collection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let trip of tripList">
+                                <td>
+                                    <input #showTrip type="checkbox" (click)="addValue(trip, showTrip.checked)" />
+                                </td>
+                                <td>{{trip.fromLocation}}</td>
+                                <td>{{trip.toLocation}}</td>
+                                <td>{{trip.address}}</td>
+                                <td>{{trip.deliveryPickup}}</td>
+                                <td>{{trip.weight}}</td>
+                                <td>{{trip.codcollection}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success" (click)="createTrip()" >Create Trip</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,17 +7,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class VeshicalService {
+export class TripService {
 
   constructor(private http: HttpClient) { }
 
 
+  getTripDetails(id){
 
-  getVehical(){
-    return this.http.get<any>(`${environment.apiURL}vehicle/get-list`);
+    return this.http.get<any>(`${environment.apiURL}trip/get-trips-shipments/${id}`);
   }
-
-  addVehical(formdata){
-    return this.http.post<any>(`${environment.apiURL}vehicle/add` , formdata);
+  createTrip(formdata){
+    return this.http.post<any>(`${environment.apiURL}trip/create-trip`, formdata);
   }
 }

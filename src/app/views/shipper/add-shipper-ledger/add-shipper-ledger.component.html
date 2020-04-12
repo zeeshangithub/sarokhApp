@@ -52,7 +52,6 @@
                 <tr *ngFor="let shipperShipment of shipperShipments">
                     <td>
                         <input #rolInput type="checkbox" (click)="addValue(shipperShipment, rolInput.checked)" />
-                        <!-- <input type="checkbox"  id="isCheckBox" (change)="addValue(shipperShipment.id,$event)"/> -->
                     </td>
                     <td>{{shipperShipment.id}}</td>
                     <td>{{shipperShipment.shipmentOrderId}}</td>

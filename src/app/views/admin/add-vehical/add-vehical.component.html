@@ -8,8 +8,8 @@
                 <form [formGroup]="addVehicalForm" (ngSubmit)="addVehical()">
                     <div class="form-row mb-3">
                         <div class="col">
-                            <select class="form-control" id="status" formControlName="cargoCapacity">
-                                <option value="">--- Select Cargo ---</option>
+                            <select class="form-control" id="status" formControlName="owner">
+                                <option value="">--- Select Owner ---</option>
                                 <option value="sarokh">Sarokh</option>
                                 <option value="leasedoroperator">Leased Or Operator Owned</option>
                               </select>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Owner" formControlName="owner"/>
+                            <input type="text" class="form-control" placeholder="Cargo Capacity" formControlName="cargoCapacity"/>
                         </div>
                         <div class="col">
                             <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  />
