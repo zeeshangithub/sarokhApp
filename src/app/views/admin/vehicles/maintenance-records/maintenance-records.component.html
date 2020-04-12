@@ -1,0 +1,43 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Maintenance Record
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Maintenance Type</th>
+                    <th scope="col">Repair Facility</th>
+                    <th scope="col">Repair Facility Contact</th>
+                    <th scope="col">Authorize dby</th>
+                    <th scope="col">Repair Start Date/time</th>
+                    <th scope="col">RepairEnd Datetime</th>
+                    <th scope="col">Invoice</th>
+                    <th scope="col">VehicleId</th>
+                    <th scope="col">Ledger Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let records of maintenanceRecord">
+                    <td>{{records.id}}</td>
+                    <td>{{records.description}}</td>
+                    <td>{{records.maintenanceType}}</td>
+                    <td>{{records.repairFacility}}</td>
+                    <td>{{records.repairFacilityContact}}</td>
+                    <td>{{records.authorizedby}}</td>
+                    <td>{{records.repairStartDatetime}}</td>
+                    <td>{{records.repairEndDatetime}}</td>
+                    <td>{{records.invoice}}</td>
+                    <td>{{records.vehicleId}}</td>
+                    <td>{{records.ledgerId}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

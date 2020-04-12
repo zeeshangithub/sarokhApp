@@ -44,6 +44,14 @@ import { DispensecashComponent } from './dispensecash/dispensecash.component';
 import { PickupShipmentsComponent } from './shipments/pickup-shipments/pickup-shipments.component';
 import { DeliveryShipmentsComponent } from './shipments/delivery-shipments/delivery-shipments.component';
 import { AddVehicalComponent } from './add-vehical/add-vehical.component';
+import { AllTripsComponent } from './scheduling/all-trips/all-trips.component';
+import { ActiveTripsComponent } from './scheduling/active-trips/active-trips.component';
+import { CreateTripComponent } from './scheduling/create-trip/create-trip.component';
+import { PendingTripsComponent } from './scheduling/pending-trips/pending-trips.component';
+import { CompletedTripsComponent } from './scheduling/completed-trips/completed-trips.component';
+import { AllVehiclesComponent } from './vehicles/all-vehicles/all-vehicles.component';
+import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/maintenance-records.component';
+import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
 
 
 
@@ -69,7 +77,7 @@ import { AddVehicalComponent } from './add-vehical/add-vehical.component';
     ShippersbillingComponent, CodCollectionComponent,
     ShipperBillingComponent, DriverPayoutComponent,
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
-    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent,],
+    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent,],
   imports: [
     CommonModule,
     ChartsModule,

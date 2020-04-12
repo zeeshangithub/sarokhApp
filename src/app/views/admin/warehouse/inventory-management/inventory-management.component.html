@@ -1,0 +1,35 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Inventory Management
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Warehouse Name</th>
+                    <th scope="col">Time Date</th>
+                    <th scope="col">Usage</th>
+                    <th scope="col">Total Inventory</th>
+                    <th scope="col">New Delivery</th>
+                    <th scope="col">Re Attempt</th>
+                    <th scope="col">Return Inv</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventory of inventoryMangement">
+                    <td>{{inventory.warehouseName}}</td>
+                    <td>{{inventory.timeDate}}</td>
+                    <td>{{inventory.usage}}</td>
+                    <td>{{inventory.totalInventory}}</td>
+                    <td>{{inventory.newDelivery}}</td>
+                    <td>{{inventory.reAttempt}}</td>
+                    <td>{{inventory.returnInv}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

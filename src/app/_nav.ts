@@ -137,7 +137,7 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Inventory Management',
-                url: '/base/cards',
+                url: '/admin/inventoryManagement',
                 icon: 'icon-map'
             },
             {
@@ -169,27 +169,27 @@ export const navItems: INavData[] = [
         children: [
             {
                 name: 'Create Trip',
-                url: '/base/cards',
+                url: '/admin/createTrip',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'All Trips',
-                url: '/base/cards',
+                url: '/admin/allTrips',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Active Trips',
-                url: '/base/cards',
+                url: '/admin/activeTrips',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Pending Trips',
-                url: '/base/cards',
+                url: '/admin/pendingTrips',
                 icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Completed Trips',
-                url: '/base/cards',
+                url: '/admin/completedTrips',
                 icon: 'fas fa-money-bill-wave'
             },
         ]
@@ -306,8 +306,13 @@ export const navItems: INavData[] = [
                 icon: 'icon-map'
             },
             {
+                name: 'All Vehicles',
+                url: '/admin/allVehicles',
+                icon: 'icon-map'
+            },
+            {
                 name: 'Maintenance Records',
-                url: '/base/carousels',
+                url: '/admin/maintenanceRecords',
                 icon: 'icon-map'
             },
         ]

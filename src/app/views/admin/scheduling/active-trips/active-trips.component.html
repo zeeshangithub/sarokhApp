@@ -1,0 +1,39 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Active Trips
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Trip Id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">SarkhWarehouse</th>
+                    <th scope="col">Driver</th>
+                    <th scope="col">Driver Type</th>
+                    <th scope="col">Shipment Pickup</th>
+                    <th scope="col">Shipment Delivered</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Cod Collection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let trips of activeTrips">
+                    <td>{{trips.tripId}}</td>
+                    <td>{{trips.date}}</td>
+                    <td>{{trips.sarkhWarehouse}}</td>
+                    <td>{{trips.driver}}</td>
+                    <td>{{trips.driverType}}</td>
+                    <td>{{trips.shipmentPickup}}</td>
+                    <td>{{trips.shipmentDelivered}}</td>
+                    <td>{{trips.status}}</td>
+                    <td>{{trips.codcollection}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>
