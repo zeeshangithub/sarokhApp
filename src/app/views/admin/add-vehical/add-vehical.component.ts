@@ -46,7 +46,14 @@ export class AddVehicalComponent implements OnInit {
     console.log(file);
     this.fileUpload.upoadFileService(file).subscribe(res =>{
       this.toastr.success(res.message);
-      this.modelvalue = res.data;
+      console.log(res.data);
+      this.modelvalue = res.data.toString().replace(/\+/gi, '%2B');
+     
+      console.log(this.modelvalue)
+      
+      this.addVehicalForm.patchValue({
+        registrationFile:res.data.toString()
+      })
     })
     // File Preview
     const reader = new FileReader();
@@ -57,8 +64,10 @@ export class AddVehicalComponent implements OnInit {
   }
 
   addVehical(){
+    console.log(this.addVehicalForm.value)
+    console.log(this.modelvalue)
    
-    this.addVehicalForm.get("registrationFile").setValue(this.modelvalue);
+    
     this.addVehicalService.addVehical(this.addVehicalForm.value).subscribe(res=>{
       console.log("res" , res)
       if(res.status === 200){
