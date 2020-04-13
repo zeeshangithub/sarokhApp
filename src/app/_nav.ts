@@ -182,16 +182,16 @@ export const navItems: INavData[] = [
                 url: '/admin/activeTrips',
                 icon: 'fas fa-money-bill-wave'
             },
-            {
-                name: 'Pending Trips',
-                url: '/admin/pendingTrips',
-                icon: 'fas fa-money-bill-wave'
-            },
-            {
-                name: 'Completed Trips',
-                url: '/admin/completedTrips',
-                icon: 'fas fa-money-bill-wave'
-            },
+            // {
+            //     name: 'Pending Trips',
+            //     url: '/admin/pendingTrips',
+            //     icon: 'fas fa-money-bill-wave'
+            // },
+            // {
+            //     name: 'Completed Trips',
+            //     url: '/admin/completedTrips',
+            //     icon: 'fas fa-money-bill-wave'
+            // },
         ]
     },
     {
@@ -280,7 +280,7 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Dealers Inventory',
-                url: '/dealer/add',
+                url: '/admin/dealersInventory',
                 icon: 'icon-map'
             },
             {
@@ -290,7 +290,7 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'COD Ledgers',
-                url: '/dealer/add',
+                url: '/admin/codLedgers',
                 icon: 'icon-map'
             },
         ]

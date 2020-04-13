@@ -52,6 +52,8 @@ import { CompletedTripsComponent } from './scheduling/completed-trips/completed-
 import { AllVehiclesComponent } from './vehicles/all-vehicles/all-vehicles.component';
 import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/maintenance-records.component';
 import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
+import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component';
+import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
 
 
 
@@ -60,15 +62,15 @@ import { InventoryManagementComponent } from './warehouse/inventory-management/i
     AllLedgersComponent, DriverLocationComponent,
     OrderLocationComponent, AllordersComponent,
     PickupordersComponent, DeliveryordersComponent,
-    AllshipmentsComponent, DeliverdshipmentsComponent, 
-    PendingshipmentsComponent, NoresponseshipmentComponent, 
-    CodshipmentsComponent, PrepeaidshipmentsComponent, 
-    ReturnshipmentsComponent, ShipmentsissueComponent, 
-    ShippersComponent, ShippersissueComponent, 
-    ShippersbillingComponent, CodCollectionComponent, 
-    ShipperBillingComponent, DriverPayoutComponent, 
-    LedgerDetailComponent , AddDealerComponent, AlldealersComponent,
-     AlldriversComponent, AdddriversComponent, ReceivecashComponent, DispensecashComponent,
+    AllshipmentsComponent, DeliverdshipmentsComponent,
+    PendingshipmentsComponent, NoresponseshipmentComponent,
+    CodshipmentsComponent, PrepeaidshipmentsComponent,
+    ReturnshipmentsComponent, ShipmentsissueComponent,
+    ShippersComponent, ShippersissueComponent,
+    ShippersbillingComponent, CodCollectionComponent,
+    ShipperBillingComponent, DriverPayoutComponent,
+    LedgerDetailComponent, AddDealerComponent, AlldealersComponent,
+    AlldriversComponent, AdddriversComponent, ReceivecashComponent, DispensecashComponent,
     AllshipmentsComponent, DeliverdshipmentsComponent,
     PendingshipmentsComponent, NoresponseshipmentComponent,
     CodshipmentsComponent, PrepeaidshipmentsComponent,
@@ -77,7 +79,7 @@ import { InventoryManagementComponent } from './warehouse/inventory-management/i
     ShippersbillingComponent, CodCollectionComponent,
     ShipperBillingComponent, DriverPayoutComponent,
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
-    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent,],
+    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent, CodLedgersComponent, DealersInventoryComponent,],
   imports: [
     CommonModule,
     ChartsModule,

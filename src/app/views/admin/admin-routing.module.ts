@@ -42,6 +42,8 @@ import { CompletedTripsComponent } from './scheduling/completed-trips/completed-
 import { AllVehiclesComponent } from './vehicles/all-vehicles/all-vehicles.component';
 import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/maintenance-records.component';
 import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
+import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component';
+import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
 
 
 const routes: Routes = [
@@ -222,6 +224,18 @@ const routes: Routes = [
   {
     path: 'inventoryManagement',
     component: InventoryManagementComponent,
+  },
+  {
+    path: 'shippers',
+    component: ShippersComponent,
+  },
+  {
+    path: 'codLedgers',
+    component: CodLedgersComponent,
+  },
+  {
+    path: 'dealersInventory',
+    component: DealersInventoryComponent,
   },
 ]
 @NgModule({

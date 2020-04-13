@@ -31,12 +31,13 @@
                             </select>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Fetch Details</button>
+                    <button type="submit" class="btn btn-success mb-3">Fetch Details</button>
+                    <div class="clearfix"></div>
                 </form>
 
                 <div *ngIf="showTrip">
 
-                    <ul class="list-group list-group-horizontal">
+                    <ul class="list-group list-group-horizontal mt-3 mb-3">
                         <li class="list-group-item">Remaining Cargo Capacity : {{selectedCargoCapacity}}</li>
                         <li class="list-group-item">Code Collection : {{newcodcollection}}</li>
                         <li class="list-group-item">Shipment Displaced : {{numberofShipments}}</li>
@@ -68,7 +69,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-success" (click)="createTrip()" >Create Trip</button>
+                    <button class="btn btn-success float-right" (click)="createTrip()">Create Trip</button>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>

@@ -1,1 +1,41 @@
-<p>shippersbilling works!</p>
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Shippr Billing
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Ledger Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Due Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Payment Status</th>
+                    <th scope="col">Shipments ID List</th>
+                    <th scope="col">Shipper ID</th>
+                    <th scope="col">Transaction Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Billing of shippersBilling">
+                    <td>{{Billing.id}}</td>
+                    <td>{{Billing.ledgerName}}</td>
+                    <td>{{Billing.startDate}}</td>
+                    <td>{{Billing.endDate}}</td>
+                    <td>{{Billing.dueDate}}</td>
+                    <td>{{Billing.totalAmount}}</td>
+                    <td>{{Billing.paymentStatus}}</td>
+                    <td>{{Billing.shipmentsIdList}}</td>
+                    <td>{{Billing.shipperId}}</td>
+                    <td>{{Billing.transactionType}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

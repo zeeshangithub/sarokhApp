@@ -1,1 +1,35 @@
-<p>shippers works!</p>
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        All Shippers
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">ShipperID</th>
+                    <th scope="col">Shipper Name</th>
+                    <th scope="col">Shipper Type</th>
+                    <th scope="col">Warehouses</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Shippers of allShippers">
+                    <td>{{Shippers.id}}</td>
+                    <td>{{Shippers.user.fullName}}</td>
+                    <td>{{Shippers.shipperType}}</td>
+                    <td>{{Shippers.shipperWarehouses}}</td>
+                    <td>{{Shippers.user.contact}}</td>
+                    <td>{{Shippers.user.email}}</td>
+                    <td>{{Shippers.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

@@ -107,4 +107,20 @@ export class AdminService {
     return this.http.get<any>(`${environment.apiURL}admin/get-warehouse-inventory`);
   }
 
+  fetchAllShippers() {
+    return this.http.get<any>(`${environment.apiURL}shipper/get-list`);
+  }
+
+  fetchCodLedgers() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-dealer-cod-ledgers`);
+  }
+
+  fetchDealersInventory() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-dealer-inventory`);
+  }
+
+  fetchShippersBilling() {
+    return this.http.get<any>(`${environment.apiURL}admin/get-shipper-billing`);
+  }
+
 }
