@@ -1,0 +1,33 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        COD Ledgers
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Shipment Id</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">ShipmentType</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Shipper</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Inventory of dealersInventory">
+                    <td>{{Inventory.shipmentId}}</td>
+                    <td>{{Inventory.dateTime}}</td>
+                    <td>{{Inventory.shipmentType}}</td>
+                    <td>{{Inventory.amount}}</td>
+                    <td>{{Inventory.shipper}}</td>
+                    <td>{{Inventory.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>
