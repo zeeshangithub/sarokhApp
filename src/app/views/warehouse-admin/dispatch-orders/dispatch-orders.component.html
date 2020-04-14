@@ -2,27 +2,28 @@
     <div class="col-12">
         <div class="card card-accent-primary">
             <div class="card-header">
+                Dispatch Order
             </div>
             <div class="card-body">
                 <div class="form-row mb-3">
-                    <div class="col">
+                    <div class="col-sm-6">
                         <form #login="ngForm" (ngSubmit)="enterInputTracking(login.value)">
                             <div class="form-row">
-                                <label>Input Tracking No </label>
-                                <input class="form-control" placeholder="Tracking No" name="inputTracking"
-                                    [(ngModel)]="inputTracking" required />
+                                <label style="width: 100%;">Input Tracking No </label>
+                                <input class="form-control col-sm-9 mr-2" placeholder="Tracking No" name="inputTracking" [(ngModel)]="inputTracking" required
+                                />
+                                <input class="btn btn-primary col-sm-2" type="submit" value="submit">
+                                <div class="clearfix"></div>
                             </div>
-                            <input class="btn btn-primary" type="submit" value="submit">
                         </form>
                     </div>
                 </div>
                 <div *ngIf="showAssignCard" class="form-row mb-3">
-                    <div class="col">
+                    <div class="col-sm-6">
                         <form #login="ngForm" (ngSubmit)="assignDriver()">
                             <div class="form-row">
-                                <label>Select Driver</label>
-                                <select id="selectid" class="form-control"
-                                    (change)="assignDriver($event.target.value)">
+                                <label style="width: 100%;">Select Driver</label>
+                                <select id="selectid" class="form-control col-sm-9" (change)="assignDriver($event.target.value)">
                                     <option value="">---Select Driver---</option>
                                     <option [value]="driver.id" *ngFor="let driver of driverList">
                                         {{driver.firstName}}</option>

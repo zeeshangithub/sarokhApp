@@ -1,0 +1,37 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        Receiver Drop Off
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Date/Name</th>
+                    <th scope="col">Tracking Number</th>
+                    <th scope="col">Receiver Name</th>
+                    <th scope="col">Receiver Contact Number</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">COD Amount</th>
+                    <th scope="col">Pre-paid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Inventory of inventoryList">
+                    <td>{{Inventory.orderId}}</td>
+                    <td>{{Inventory.dateTime}}</td>
+                    <td>{{Inventory.trackingNumber}}</td>
+                    <td>{{Inventory.receiverName}}</td>
+                    <td>{{Inventory.receiverContact}}</td>
+                    <td>{{Inventory.status}}</td>
+                    <td>{{Inventory.codAmount}}</td>
+                    <td>{{Inventory.prepaidAmount}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

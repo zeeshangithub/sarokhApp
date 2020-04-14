@@ -6,6 +6,7 @@ import { WarehouseDashboardComponent } from './warehouse-dashboard/warehouse-das
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { ReciveOrdersComponent } from './recive-orders/recive-orders.component';
 import { DispatchOrdersComponent } from './dispatch-orders/dispatch-orders.component';
+import { ReceiverDropOffComponent } from './receiver-drop-off/receiver-drop-off.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,10 @@ const routes: Routes = [
     path: 'dispatchOrder',
     component: DispatchOrdersComponent,
   },
-  
+  {
+    path: 'receiverDropOff',
+    component: ReceiverDropOffComponent,
+  },
 
 
 

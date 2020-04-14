@@ -7,11 +7,12 @@ import { WarehouseComponent } from './warehouse/warehouse.component';
 import { ReciveOrdersComponent } from './recive-orders/recive-orders.component';
 import { FormsModule } from '@angular/forms';
 import { DispatchOrdersComponent } from './dispatch-orders/dispatch-orders.component';
+import { ReceiverDropOffComponent } from './receiver-drop-off/receiver-drop-off.component';
 
 
 
 @NgModule({
-  declarations: [WarehouseAdminComponent, WarehouseDashboardComponent, WarehouseComponent, ReciveOrdersComponent, DispatchOrdersComponent],
+  declarations: [WarehouseAdminComponent, WarehouseDashboardComponent, WarehouseComponent, ReciveOrdersComponent, DispatchOrdersComponent, ReceiverDropOffComponent],
   imports: [
     CommonModule,
     WarehouseAdminRoutingModule,

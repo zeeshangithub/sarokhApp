@@ -535,10 +535,16 @@ export const AdminWarehouseNavItems: INavData[] = [
         name: 'Recive Orders',
         url: '/warehouseadmin/reciveOrder',
         icon: 'icon-ban',
-    },{
+    },
+    {
         name: 'Dispatch Orders',
         url: '/warehouseadmin/dispatchOrder',
         icon: 'icon-ban',
     },
-    
+    {
+        name: 'Receiver Drop Off',
+        url: '/warehouseadmin/receiverDropOff',
+        icon: 'icon-ban',
+    },
+
 ];
