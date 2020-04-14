@@ -528,13 +528,8 @@ export const DealerNavItems: INavData[] = [
 export const AdminWarehouseNavItems: INavData[] = [
     {
         name: 'Warehouse Dashboard',
-        url: '/warehouseadmin/warehousedashboard',
-        icon: 'fas fa-rocket',
-    },
-    {
-        name: 'Warehouse',
         url: '/warehouseadmin/warehouse',
-        icon: 'icon-ban',
+        icon: 'fas fa-rocket',
     },
     {
         name: 'Recive Orders',

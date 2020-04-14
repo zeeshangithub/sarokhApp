@@ -41,31 +41,27 @@ export class LoginComponent implements OnInit {
 
       console.log("res", res)
       let role = '';
-      // debugger
       if (res && res.data.role) {
-
         role = res.data.role.name;
         localStorage.setItem('_id', res.data.id);
         if (role === 'Admin') {
           localStorage.setItem('role', 'admin');
+          this.router.navigate(['/admin']);
         }
-
         else if (res && role === 'Shipper') {
           localStorage.setItem('id', res.data.id);
           localStorage.setItem('role', 'shipper');
           this.router.navigate(['/shipper/Dashboard']);
         }
-        else if (res && role === 'Dealer') {
-          // debugger  
+        else if (res && role === 'Dealer') {  
           localStorage.setItem('id', res.data.id);
           localStorage.setItem('role', 'Dealer');
           this.router.navigate(['/Dealer/Dashboard']);
         }
         else if (res && role === "WarehouseUser") {
-          // debugger  
           localStorage.setItem('id', res.data.id);
           localStorage.setItem('role', 'WarehouseUser');
-          this.router.navigate(['/warehouseadmin/warehousedashboard']);
+          this.router.navigate(['/warehouseadmin/warehouse']);
         }
       }
     }, err => {
