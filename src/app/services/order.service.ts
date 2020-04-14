@@ -28,4 +28,14 @@ export class OrderService {
   getCityList() {
     return this.http.get<any>(`${environment.apiURL}city/get-list`);
   }
+  getshipmentByTrackingNo(trackingno) {
+    return this.http.post<any>(`${environment.apiURL}order/search-shipment-by-trackingno/${trackingno}` , trackingno);
+  }
+  assignCardBy(formData) {
+    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-card-to-shipment` , formData);
+  }
+  assignDriverBy(formData) {
+    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-driver-to-shipment` , formData);
+  }
+  
 }

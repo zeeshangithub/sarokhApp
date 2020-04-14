@@ -84,6 +84,11 @@ export const routes: Routes = [
         path: 'admin',
         canActivate: [AuthGuard],
         loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: 'warehouseadmin',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./views/warehouse-admin/warehouse-admin.module').then(m => m.WarehouseAdminModule)
       }
     ]
   },

@@ -85,7 +85,7 @@ import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin
     P500Component,
     LoginComponent,
     RegisterComponent,
-    WarehouseAdminComponent,
+    // WarehouseAdminComponent,
     // DashboardComponent,
     // HighchartsChartComponent
   ],

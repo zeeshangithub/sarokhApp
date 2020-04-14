@@ -25,7 +25,9 @@ export class SarokhwearhouseService {
     return this.http.get<any>(`${environment.apiURL}sarokh-warehouse/get-details/${id}`);
   }
   updateSarokhWearhouse(sarokhwarehouse){
- 
-    return this.http.put<any>(`${environment.apiURL}shipper-warehouse/update` , sarokhwarehouse);
+     return this.http.put<any>(`${environment.apiURL}shipper-warehouse/update` , sarokhwarehouse);
   } 
+  dashboardSarokhWearhouse(warehouseId){
+    return this.http.get<any>(`${environment.apiURL}sarokh-warehouse/get-warehouse-dashboard/${warehouseId}` );
+ } 
 }

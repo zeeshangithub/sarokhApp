@@ -523,3 +523,27 @@ export const DealerNavItems: INavData[] = [
         icon: 'fas fa-dolly-flatbed',
     },
 ];
+
+
+export const AdminWarehouseNavItems: INavData[] = [
+    {
+        name: 'Warehouse Dashboard',
+        url: '/warehouseadmin/warehousedashboard',
+        icon: 'fas fa-rocket',
+    },
+    {
+        name: 'Warehouse',
+        url: '/warehouseadmin/warehouse',
+        icon: 'icon-ban',
+    },
+    {
+        name: 'Recive Orders',
+        url: '/warehouseadmin/reciveOrder',
+        icon: 'icon-ban',
+    },{
+        name: 'Dispatch Orders',
+        url: '/warehouseadmin/dispatchOrder',
+        icon: 'icon-ban',
+    },
+    
+];

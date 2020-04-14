@@ -1,0 +1,63 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+                <div class="form-row mb-3">
+                    <div class="col">
+                        <form #login="ngForm" (ngSubmit)="enterInputTracking(login.value)">
+                            <div class="form-row">
+                                <label>Input Tracking No </label>
+                                <input class="form-control" placeholder="Tracking No" name="inputTracking" [(ngModel)]="inputTracking" required />
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="submit">
+                        </form>
+                    </div>
+                </div>
+                <div *ngIf="showAssignCard" class="form-row mb-3">
+                    <div class="col">
+                        <form #login="ngForm" (ngSubmit)="assginCard()">
+                            <div class="form-row">
+                                <label>Assign Card</label>
+                                <input class="form-control" placeholder="Card ID" name="assignCard" [(ngModel)]="cardId" required />
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="submit">
+                        </form>
+                    </div>
+                </div>
+
+                <div *ngIf="shipments != null"> 
+                    <table  style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tracking Number</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Shipment Content</th>
+                                <th scope="col">Delivery Status</th>
+                                <th scope="col">Reciver Name</th>
+                                <th scope="col">Contact</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Dimensions</th>
+                                <th scope="col">Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let shipment of shipments">
+                                <td>{{shipment.trackingNumber}}</td>
+                                <td>{{shipment.shipmentTitle}}</td>
+                                <td>{{shipment.shipmentContent}}</td>
+                                <td>{{shipment.deliveryStatus}}</td>
+                                <td>{{shipment.receiverName}}</td>
+                                <td>{{shipment.contact}}</td>
+                                <td>{{shipment.email}}</td>
+                                <td>{{shipment.dimensions}}</td>
+                                <td>{{shipment.weight}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
