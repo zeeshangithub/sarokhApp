@@ -15,12 +15,12 @@ export const navItems: INavData[] = [
             {
                 name: 'Driver Locations',
                 url: '/admin/driverlocation',
-                icon: 'icon-map'
+                icon: 'fas fa-map-marker-alt'
             },
             {
                 name: 'Order Locations',
                 url: '/admin/orderlocation',
-                icon: 'icon-map'
+                icon: 'fas fa-map-marker-alt'
             }
         ]
     },
@@ -49,57 +49,57 @@ export const navItems: INavData[] = [
     {
         name: 'Shipments',
         url: '',
-        icon: 'fas fa-shipping-fast',
+        icon: 'fas fa-box',
         children: [
             {
                 name: 'All Shipments',
                 url: '/admin/allshipments',
-                icon: 'fas fa-shipping-fast'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Deliverd Shipments',
                 url: '/admin/deliverdshipments',
-                icon: 'fas fa-box'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Pending Shipments',
                 url: '/admin/pendingshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'No Response Shipments',
                 url: '/admin/noresponseshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'COD Shipments',
                 url: '/admin/codshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Prepaid Shipments',
                 url: '/admin/prepaidshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Return Shipments',
                 url: '/admin/returnshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Shipment Issues',
                 url: '/admin/issushipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Pickup Shipments',
                 url: '/admin/pickupshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
             {
                 name: 'Delivery Shipments',
                 url: '/admin/deliveryshipments',
-                icon: 'icon-map'
+                icon: 'fas fa-box',
             },
         ]
     },
@@ -116,7 +116,7 @@ export const navItems: INavData[] = [
             {
                 name: 'Shipper Billing',
                 url: '/admin/shippersbilling',
-                icon: 'icon-map'
+                icon: 'fas fa-shipping-fast'
             },
         ]
     },
@@ -128,17 +128,17 @@ export const navItems: INavData[] = [
             {
                 name: 'Add Wearhouse',
                 url: '/shipper/addsarokhwearhouse',
-                icon: 'icon-map'
+                icon: 'fas fa-warehouse',
             },
             {
                 name: 'Wearhouse List',
                 url: '/shipper/sarokhwearhouselist',
-                icon: 'icon-map'
+                icon: 'fas fa-warehouse',
             },
             {
                 name: 'Inventory Management',
                 url: '/admin/inventoryManagement',
-                icon: 'icon-map'
+                icon: 'fas fa-warehouse',
             },
             {
                 name: 'Driver Allocation',
@@ -153,7 +153,7 @@ export const navItems: INavData[] = [
             {
                 name: 'Print Label',
                 url: '/base/cards',
-                icon: 'icon-map'
+                icon: 'fas fa-print'
             },
             {
                 name: 'Inventory Reconcilation',
@@ -266,22 +266,22 @@ export const navItems: INavData[] = [
     {
         name: 'Dealer',
         url: '/dealer',
-        icon: 'icon-calculator',
+        icon: 'fas fa-store',
         children: [
             {
                 name: 'All Dealers',
                 url: '/admin/alldealers',
-                icon: 'icon-map'
+                icon: 'fas fa-store',
             },
             {
                 name: 'Add Dealers',
                 url: '/admin/adddealer',
-                icon: 'icon-map'
+                icon: 'fas fa-store',
             },
             {
                 name: 'Dealers Inventory',
                 url: '/admin/dealersInventory',
-                icon: 'icon-map'
+                icon: 'fas fa-store',
             },
             {
                 name: 'Received Ledgers',
@@ -303,34 +303,34 @@ export const navItems: INavData[] = [
             {
                 name: 'Add Vehicles',
                 url: '/admin/addVehical',
-                icon: 'icon-map'
+                icon: 'fas fa-truck'
             },
             {
                 name: 'All Vehicles',
                 url: '/admin/allVehicles',
-                icon: 'icon-map'
+                icon: 'fas fa-truck'
             },
             {
                 name: 'Maintenance Records',
                 url: '/admin/maintenanceRecords',
-                icon: 'icon-map'
+                icon: 'fas fa-truck'
             },
         ]
     },
     {
         name: 'User',
         url: '/user',
-        icon: 'icon-ban',
+        icon: 'fas fa-user',
         children: [
             {
                 name: 'Add User',
                 url: '/user/add',
-                icon: 'icon-map'
+                icon: 'fas fa-user-plus'
             },
             {
                 name: 'All Users',
                 url: '/user',
-                icon: 'icon-map'
+                icon: 'fas fa-users'
             },
             {
                 name: 'Rolls & Permission Management',
@@ -372,12 +372,12 @@ export const ShipperNavItems: INavData[] = [
             {
                 name: 'New Order',
                 url: '/orders/add',
-                icon: 'fas fa-dolly-flatbed'
+                icon: 'fas fa-shopping-cart'
             },
             {
                 name: 'All Orders',
                 url: '/orders/orders',
-                icon: 'fas fa-dolly-flatbed'
+                icon: 'fas fa-shopping-cart'
             },
             // {
             //     name: 'Pending Orders',
@@ -389,7 +389,7 @@ export const ShipperNavItems: INavData[] = [
     {
         name: 'Shipments',
         url: '/dashboard',
-        icon: 'icon-ban',
+        icon: 'fas fa-box',
         children: [
             {
                 name: 'All Shipments',
@@ -417,39 +417,39 @@ export const ShipperNavItems: INavData[] = [
     {
         name: 'Print Labels',
         url: '/base/cards',
-        icon: 'icon-pie-chart',
+        icon: 'fas fa-print',
     },
     {
         name: 'User',
         url: '/dashboard',
-        icon: 'icon-ban',
+        icon: 'fas fa-user',
         children: [
             {
                 name: 'Add Users',
                 url: '/user/add',
-                icon: 'icon-map'
+                icon: 'fas fa-user-plus'
             },
             {
                 name: 'All Users',
                 url: '/user',
-                icon: 'icon-map'
+                icon: 'fas fa-users'
             }
         ]
     },
     {
         name: 'Legder',
         // url: '',
-        icon: 'icon-ban',
+        icon: 'fas fa-money-bill-wave',
         children: [
             {
                 name: 'All Ledger',
                 url: '/shipper/ledgers',
-                icon: 'icon-map'
+                icon: 'fas fa-money-bill-wave'
             },
             {
                 name: 'Add Ledger',
                 url: '/shipper/addledgers',
-                icon: 'icon-map'
+                icon: 'fas fa-money-bill-wave'
             }
         ]
     },
@@ -469,12 +469,12 @@ export const DealerNavItems: INavData[] = [
     {
         name: 'Point',
         // url: '',
-        icon: 'icon-ban',
+        icon: 'fas fa-store',
         children: [
             {
                 name: 'View Dealer Points',
                 url: '/Dealer/ViewDealerPoints',
-                icon: 'fas fa-dolly-flatbed',
+                icon: 'fas fa-store',
             },
         ]
     },
@@ -486,7 +486,7 @@ export const DealerNavItems: INavData[] = [
     {
         name: 'Legder',
         // url: '',
-        icon: 'icon-ban',
+        icon: 'fas fa-money-bill-wave',
         children: [
             {
                 name: 'Service Charges',
@@ -503,17 +503,17 @@ export const DealerNavItems: INavData[] = [
     {
         name: 'User',
         url: '/dashboard',
-        icon: 'icon-ban',
+        icon: 'fas fa-user',
         children: [
             {
                 name: 'Add Users',
                 url: '/user/add',
-                icon: 'icon-map'
+                icon: 'fas fa-user-plus'
             },
             {
                 name: 'All Users',
                 url: '/user',
-                icon: 'icon-map'
+                icon: 'fas fa-users'
             }
         ]
     },
@@ -534,7 +534,7 @@ export const AdminWarehouseNavItems: INavData[] = [
     {
         name: 'Recive Orders',
         url: '/warehouseadmin/reciveOrder',
-        icon: 'icon-ban',
+        icon: 'fas fa-dolly-flatbed',
     },
     {
         name: 'Dispatch Orders',
