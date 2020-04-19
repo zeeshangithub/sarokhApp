@@ -20,7 +20,6 @@ export class AddDealerComponent implements OnInit {
   sharedID;
   selectedDealer;
   filepath;
-
   fullFormsInfo = {
     dealerContract: {},
     credentials: {},

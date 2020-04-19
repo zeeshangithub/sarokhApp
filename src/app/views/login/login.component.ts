@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 import { AuthService } from '../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private formbuilder: FormBuilder,
     private router: Router,
     private storage: LocalStorageService,
-    private auth: AuthService
+    private auth: AuthService,
+    private toast : ToastrService
   ) { }
 
   ngOnInit() {
@@ -38,11 +40,22 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.auth.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).subscribe(res => {
-
       console.log("res", res)
+      if(res.status === 401){
+        this.toast.error(res.message)
+      }else{
+        this.toast.success(res.message)
+      }
       let role = '';
-      if (res && res.data.role) {
-        role = res.data.role.name;
+      if (res.status === 200) {
+       
+        
+        if (res.data.user && res.data.user.role ) {
+          role = res.data.user.role.name;
+        }
+        else {
+          role = res.data.role.name;
+        }
         localStorage.setItem('_id', res.data.id);
         if (role === 'Admin') {
           localStorage.setItem('role', 'admin');
@@ -53,7 +66,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', 'shipper');
           this.router.navigate(['/shipper/Dashboard']);
         }
-        else if (res && role === 'Dealer') {  
+        else if (res && role === 'Dealer') {
           localStorage.setItem('id', res.data.id);
           localStorage.setItem('role', 'Dealer');
           this.router.navigate(['/Dealer/Dashboard']);

@@ -51,7 +51,7 @@ const routes: Routes = [
     component: CodReportsComponent
   },
   {
-    path: 'vieworder/:orderId',
+    path: 'vieworder/:id',
     component: ViewOrderComponent
   },
   {

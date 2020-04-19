@@ -91,7 +91,7 @@ this.storagecapacity = this.formbuilder.group({
   //     this.orderBasicInfoForm.controls['shipperId'].setValue(shipperId);
   //   })
   // }
-
+  get f() { return this.warehouseadress.controls; }
   initializeWarehouseAdress(){
     this.warehouseadress = this.formbuilder.group({
       name: ['', [Validators.required]],

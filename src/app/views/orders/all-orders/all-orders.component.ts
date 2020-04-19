@@ -55,8 +55,8 @@ export class AllOrdersComponent implements OnInit {
 
   }
 
-  viewOrder() {
-    this.router.navigate(['orders/vieworder', '216513']);
+  viewOrder(id) {
+    this.router.navigate(['orders/vieworder',id]);
   }
   addNew(e){
     this.showlisting = e

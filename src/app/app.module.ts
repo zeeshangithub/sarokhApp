@@ -70,7 +70,7 @@ import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin
     ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 2000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),

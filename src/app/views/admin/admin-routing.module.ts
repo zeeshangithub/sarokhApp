@@ -238,8 +238,7 @@ const routes: Routes = [
   {
     path: 'addsarokhwearhouse',
     component: AddsarokhwearhouseComponent,
-  }
-  ,
+  },
   {
     path: 'sarokhwearhouselist',
     component: SarokhwearhouselistComponent,

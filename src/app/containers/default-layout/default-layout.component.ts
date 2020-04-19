@@ -15,11 +15,11 @@ export class DefaultLayoutComponent implements  OnInit{
   shipperdata;
   public routerLinkVariable = "/orders/add";
   public routerlink404 = "/base/cards";
-  public hidetoplink = true;
+  public hidetoplink = false;
   ngOnInit(): void {
  
-    if (localStorage.getItem('role') === 'Dealer'){
-          this.hidetoplink = false;
+    if (localStorage.getItem('role') === 'shipper' ){
+          this.hidetoplink = true;
     }
 }
   constructor(private router: Router, private storage: LocalStorageService,private shipperdetails : ShipperService){
