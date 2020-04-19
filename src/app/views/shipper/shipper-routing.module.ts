@@ -5,8 +5,6 @@ import { AddShipperComponent } from './add-shipper/add-shipper.component';
 import { ShippersComponent } from './shippers/shippers.component';
 import { AddshipperwearhouseComponent } from './shipperWearhouse/addshipperwearhouse/addshipperwearhouse.component';
 import { ShipperwearhouselistComponent } from './shipperWearhouse/shipperwearhouselist/shipperwearhouselist.component';
-import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
-import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { ShipperDashboardComponent } from './shipper-dashboard/shipper-dashboard.component';
 import { ReturnshipmentsComponent } from './returnshipments/returnshipments.component';
@@ -39,16 +37,6 @@ const routes: Routes = [
     path: 'shipperwearhouse',
     component: ShipperwearhouselistComponent,
   },
-  {
-    path: 'addsarokhwearhouse',
-    component: AddsarokhwearhouseComponent,
-  }
-  ,
-  {
-    path: 'sarokhwearhouselist',
-    component: SarokhwearhouselistComponent,
-  }
-  ,
   {
     path: 'shipments',
     component: ShipmentsComponent,

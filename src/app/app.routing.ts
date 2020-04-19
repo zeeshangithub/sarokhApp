@@ -50,11 +50,6 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
-      // {
-      //   path: 'dashboard',
-      //   canActivate: [AuthGuard],
-      //   loadChildren: () => import('./views/admin/dashboard/dashboard.module').then(m => m.DashboardModule)
-      // },
       {
         path: 'orders',
         canActivate: [AuthGuard],

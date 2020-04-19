@@ -54,11 +54,14 @@ import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/main
 import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
 import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component';
 import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
+import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
+import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 
 
 
 @NgModule({
   declarations: [DashboardComponent, AdminComponent,
+    SarokhwearhouselistComponent, AddsarokhwearhouseComponent,
     AllLedgersComponent, DriverLocationComponent,
     OrderLocationComponent, AllordersComponent,
     PickupordersComponent, DeliveryordersComponent,

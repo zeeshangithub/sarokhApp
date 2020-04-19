@@ -7,6 +7,7 @@ import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.s
 import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-addsarokhwearhouse',
   templateUrl: './addsarokhwearhouse.component.html',
@@ -30,7 +31,8 @@ export class AddsarokhwearhouseComponent implements OnInit {
     private sarokhwarehouse: SarokhwearhouseService,
     // private warehouseService: WarehouseService,
     private shareData : DataService,
-    private router: Router
+    private router: Router,
+    private toast : ToastrService
     ) { }
 
   ngOnInit(): void {
@@ -116,7 +118,7 @@ this.storagecapacity = this.formbuilder.group({
       managerName: ['', [Validators.required]],
       mangerContact: [''],
       mangerEmail: [''],
-      operationalTime: ['', [Validators.required]],
+      operationalTime: [''],
       shipperId: shipperId  
     })
   }
@@ -124,7 +126,7 @@ this.storagecapacity = this.formbuilder.group({
     this.storagecapacity = this.formbuilder.group({
       racksPerRow:['' , [Validators.required]],
       rows : ['' , [Validators.required]],
-      dimensions: ['' , [Validators.required]],
+      // dimensions: ['' , [Validators.required]],
       columnsPerRow : ['', [Validators.required]]
     })
   }
@@ -166,9 +168,13 @@ this.storagecapacity = this.formbuilder.group({
     console.log("fullFormData" , fullRequest)
     this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
       console.log("res" , res)
-      alert('Order created successfully')
+        if(res.managerName){
+          this.toast.success("Sarokh Warehouse Added Successfully");
+          this.router.navigate(['shipper/shipperwearhouse']);
+        }
+
       // window.onload
-      this.router.navigate(['/shipperwearhouse']);
+
     })
 
   }

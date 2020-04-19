@@ -44,6 +44,8 @@ import { MaintenanceRecordsComponent } from './vehicles/maintenance-records/main
 import { InventoryManagementComponent } from './warehouse/inventory-management/inventory-management.component';
 import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component';
 import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
+import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
+import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 
 
 const routes: Routes = [
@@ -168,10 +170,6 @@ const routes: Routes = [
     path: 'dispensecash',
     component: DispensecashComponent
   },
-  // {
-  //   path: 'adddealer/:id',
-  //   component: AddDealerComponent,
-  // },
 
   {
     path: 'alldrivers',
@@ -237,6 +235,15 @@ const routes: Routes = [
     path: 'dealersInventory',
     component: DealersInventoryComponent,
   },
+  {
+    path: 'addsarokhwearhouse',
+    component: AddsarokhwearhouseComponent,
+  }
+  ,
+  {
+    path: 'sarokhwearhouselist',
+    component: SarokhwearhouselistComponent,
+  }
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
