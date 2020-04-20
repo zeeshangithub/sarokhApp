@@ -20,6 +20,7 @@ import { ShipperLedgerComponent } from './shipper-ledger/shipper-ledger.componen
 import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledger.component';
 import { CodshipmentsComponent } from './codshipments/codshipments.component';
 import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component';
+import { NgxPrintModule } from 'ngx-print';
 @NgModule({
   declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent],
   imports: [
@@ -30,6 +31,7 @@ import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component'
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     ReactiveFormsModule,
+    NgxPrintModule
     // HighchartsChartComponent
   ],
   providers: [DataService]

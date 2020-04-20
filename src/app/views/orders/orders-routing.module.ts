@@ -57,7 +57,8 @@ const routes: Routes = [
   {
     path: 'editorder/:orderId',
     component: EditOrderComponent
-  }
+  },
+  { path: 'print/:invoiceIds', component: ViewOrderComponent }
 ];
 
 @NgModule({

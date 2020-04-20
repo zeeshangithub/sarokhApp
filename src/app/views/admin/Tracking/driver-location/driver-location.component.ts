@@ -28,21 +28,21 @@ export class DriverLocationComponent implements OnInit {
       zoom: 7
     });
 
-    // var marker = new window['google'].maps.Marker({
-    //   position: {lat: 21.553333, lng: 39.192779},
-    //   map: map,
-    //   title: 'Warehouse1',
-    //   draggable: true,
-    //   animation: window['google'].maps.Animation.DROP,
-    // });
+    var marker = new window['google'].maps.Marker({
+      position: {lat: 21.553333, lng: 39.192779},
+      map: map,
+      title: 'Warehouse1',
+      draggable: true,
+      animation: window['google'].maps.Animation.DROP,
+    });
 
-    for (let i = 0; i < this.locations.length; i++) { 
-      var marker = new window['google'].maps.Marker({
-          position: new window['google'].maps.LatLng(this.locations[i]['lat'], this.locations[i]['lng']),
-          map: map,
-          title: this.locations[i]['name']
-      });
-  }
+  //   for (let i = 0; i < this.locations.length; i++) { 
+  //     var marker = new window['google'].maps.Marker({
+  //         position: new window['google'].maps.LatLng(this.locations[i]['lat'], this.locations[i]['lng']),
+  //         map: map,
+  //         title: this.locations[i]['name']
+  //     });
+  // }
  
   
 

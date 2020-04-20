@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { OrderService } from '../../../services/order.service';
+import { PrintService } from '../../../services/print.service';
 
 @Component({
   selector: 'app-view-order',
@@ -12,7 +13,7 @@ export class ViewOrderComponent implements OnInit {
   selectedOrderData : any;
   selectedShipments: any;
   showrec = false;
-  constructor(private router: Router, private route: ActivatedRoute , private getorderdetail : OrderService) {}
+  constructor(public printService: PrintService , private router: Router, private route: ActivatedRoute , private getorderdetail : OrderService) {}
 
   ngOnInit(): void {
   this.selectedId = this.route.snapshot.params.id;
@@ -30,6 +31,12 @@ export class ViewOrderComponent implements OnInit {
 
   cancleOrder() {
     this.router.navigate(['/orders/orders', '216513']);
+  }
+
+  onPrintInvoice() {
+    const invoiceIds = ['101'];
+    this.printService
+      .printDocument('invoice', invoiceIds);
   }
 
 }

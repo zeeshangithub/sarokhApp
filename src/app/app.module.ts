@@ -14,6 +14,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
+import {NgxPrintModule} from 'ngx-print';
 
 import { AppComponent } from './app.component';
 
@@ -74,9 +75,7 @@ import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    // BsDropdownModule,
-    // ButtonsModule.forRoot(),
-    // HighchartsChartComponent
+    NgxPrintModule
   ],
   declarations: [
     AppComponent,

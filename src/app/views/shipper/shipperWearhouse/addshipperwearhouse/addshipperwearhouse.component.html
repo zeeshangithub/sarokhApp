@@ -47,33 +47,11 @@
               </div>
 
             </div>
-            <!-- <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="pickupType">Pickup Type</label>
-                  <select class="form-control" id="pickupType" formControlName="pickupType">
-                    <option value="">--- Select Pickup Type ---</option>
-                    <option value="SarokhWarehouse">Sarokh Warehouse</option>
-                    <option value="DealerPoint">Dealer Point</option>
-                    <option value="ShipperWarehouse">Shipper Warehouse</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="shipmentType">Shipment Type</label>
-                  <select class="form-control" id="shipmentType" formControlName="shipmentType">
-                    <option value="">--- Select Shipment Type ---</option>
-                    <option value="singleReceiver">Single Receiver</option>
-                    <option value="multipleReceiver">Multiple Receiver</option>
-                    <option value="bulkOrder">Bulk Order</option>
-                    <option value="interCity">Inter City</option>
-                    <option value="bulkOrder">Bulk Pickup Last Mile</option>
-                  </select>
-                </div>
-              </div> -->
               <div class="btn-container float-left">
                 <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
               </div>
             <div class="btn-container float-right">
-              <button class="btn btn-success" type="button" awNextStep>Next Step</button>
+              <button [disabled]="!warehouseadress.valid" class="btn btn-success" type="button" awNextStep>Next Step</button>
             </div>
           </form>
 
@@ -126,7 +104,7 @@
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+              <button [disabled]="!warehousemanager.valid" class="btn btn-success" type="button" awNextStep>Go to next step</button>
             </div>
           </form>
 
@@ -183,7 +161,7 @@
           <div class="btn-container float-right">
             
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-            <button *ngIf="!editwarehouse" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            <button [disabled]="!amenities.valid" *ngIf="!editwarehouse" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
             <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()" type="button">Update</button> 
           </div>
         </aw-wizard-step>

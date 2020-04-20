@@ -4,6 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
 import { constants } from 'buffer';
 import { DataService } from '../../../services/data.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -21,7 +22,9 @@ export class AddUserComponent implements OnInit {
   editUser = false;
   constructor(private formbuilder: FormBuilder, private userService: UserService,
     private router: Router,
-    private data: DataService) { }
+    private data: DataService ,
+    private toaster: ToastrService
+    ) { }
   get f() { return this.userForm.controls; }
   ngOnInit(): void {
     this.initializeUserForm();
@@ -90,7 +93,12 @@ export class AddUserComponent implements OnInit {
       // this.userForm.patchValue({'parentTypeId' :parentTypeId  })
       console.log("this.userForm", this.userForm)
       this.userService.addShipperUser(this.userForm.value).subscribe(res => {
-        // console.log("res" , res)
+        console.log("res" , res)
+        if(res.status == 200){
+          this.toaster.success(res.message);
+           this.router.navigate(['user']);
+        }
+        // this.toaster.success(res.)
         // this.router.navigate(['user']);
       })
     } else if (localStorage.getItem('role') === 'admin') {

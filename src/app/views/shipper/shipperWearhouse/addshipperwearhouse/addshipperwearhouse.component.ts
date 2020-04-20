@@ -6,6 +6,7 @@ import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.s
 // import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-addshipperwearhouse',
   templateUrl: './addshipperwearhouse.component.html',
@@ -30,7 +31,8 @@ editwarehouse = false;
     private shipperwarehouse: ShipperWearhouseService,
     private dataService: DataService,
     // private dealerService: DealerService,
-    private router: Router
+    private router: Router,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -122,7 +124,9 @@ editwarehouse = false;
     console.log("fullFormData", fullRequest)
     this.shipperwarehouse.AddShipperWearhouse(fullRequest).subscribe(res => {
       console.log("res", res)
-      this.router.navigate(['shipper/shipperwearhouse']);
+      this.toaster.success("Shipper Warehouse Added")
+
+      // this.router.navigate(['shipper/shipperwearhouse']);
       // window.reload
     
       this.showlisting.emit(true);

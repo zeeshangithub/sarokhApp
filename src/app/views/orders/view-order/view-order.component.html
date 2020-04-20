@@ -1,4 +1,6 @@
-<div *ngIf="showrec" class="order-detail card margintop30 padding15">
+<div [class.isPrinting]="printService.isPrinting">
+<div id="print-section" *ngIf="showrec" class="order-detail card margintop30 padding15">
+  <button (click)="onPrintInvoice()">PRINT INVOICE</button>
   <div class="shipment-order">
     <h2>Order Details</h2>
     <button class="btn btn-primary">Cancle</button>
@@ -110,4 +112,8 @@
     </label>
     <div class="clearfix"></div>
   </div>
+</div>
+
+<router-outlet></router-outlet>
+<router-outlet name="print"></router-outlet>
 </div>

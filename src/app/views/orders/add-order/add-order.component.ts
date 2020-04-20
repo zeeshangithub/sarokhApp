@@ -6,6 +6,7 @@ import { DealerService } from '../../../services/dealer.service';
 import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
@@ -44,7 +45,8 @@ export class AddOrderComponent implements OnInit {
     private warehouseService: WarehouseService,
     private dealerService: DealerService,
     private router: Router,
-    private shareData: DataService
+    private shareData: DataService,
+    private toaster : ToastrService
   ) { }
   ngOnInit(): void {
     // this.shipmentDetails = [];
@@ -88,8 +90,8 @@ export class AddOrderComponent implements OnInit {
     this.orderBasicInfoForm = this.formbuilder.group({
       orderId: ['', [Validators.required]],
       shipperId: ['', [Validators.required]],
-      shipFromCity: [''],
-      shipToCity: ['']
+      shipFromCity: ['' , [Validators.required]],
+      shipToCity: ['' , [Validators.required]]
     })
   }
   initializeDropoffDetailsForm() {
@@ -139,19 +141,8 @@ export class AddOrderComponent implements OnInit {
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
     }
-    // else if (warehouse === "DealerPoint") {
-    //   this.dealerPointList = true
-    //   this.shipperWarehousesList = false;
-    //   this.sarokhWarehousesList = false;
-    //   this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
-    //   this.pickupAndDelivery.patchValue({ 'sarokhwarehosue': '' })
-    // }
   }
-  // addShipmentDetail(){
-  //   this.shipmentDetailsData.push(this.shipmentDetails);
-  //   this.shipmentDetails = {}
-  //   console.log(this.shipmentDetailsData)
-  // }
+
   finishFunction() {
     if (this.finalresponse.length <= 1) {
       var fullFormData = {
@@ -173,6 +164,7 @@ export class AddOrderComponent implements OnInit {
     this.orderService.addOrder(this.finalresponse).subscribe(res => {
       console.log("res", res)
       if (res.status == 200) {
+        this.toaster.success(res.message)
         this.router.navigate(['orders/orders']);
       }
     })
