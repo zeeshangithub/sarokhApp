@@ -1,8 +1,10 @@
 <div class="order-detail card margintop30 padding15">
+  <button  class="btn btn-primary float-right" [useExistingCss]="true" printSectionId="print-section"
+    ngxPrint>print</button>
+  <button class="btn btn-primary">Cancle</button>
   <div id="print-section">
     <div class="shipment-order">
       <h2>Order Details</h2>
-      <button class="btn btn-primary">Cancle</button>
       <div class="shipment-order-detail">
         <strong>
           <label>Order Id</label>
@@ -33,16 +35,9 @@
       </div>
     </div>
     <div class="clearfix"></div>
-
     <h2 class="mt-3 mb-1">Shipment Detail</h2>
-
     <table class="table table-resposive">
       <thead>
-        <!-- <tr>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
-            Details
-          </button>
-        </tr> -->
         <tr>
           <th scope="col">Tracking #</th>
           <th scope="col">Shipment Title</th>
@@ -55,14 +50,12 @@
           <th scope="col">Delivery Type</th>
           <th scope="col">Delivery Date </th>
           <th scope="col">Status</th>
-
         </tr>
       </thead>
       <tbody>
         <tr>
         </tr>
         <tr *ngFor="let column of selectedShipments">
-
           <td>{{column.trackingNumber}}</td>
           <td>{{column.shipmentTitle}}</td>
           <td>John WSick</td>
@@ -77,10 +70,8 @@
             Active
           </td>
         </tr>
-
       </tbody>
     </table>
-    <button class="btn btn-primary float-right" [useExistingCss]="true" printSectionId="print-section" ngxPrint>print</button>
     <div class="shipper-detail-container mt-3">
       <h2>Sippment Delivery Status</h2>
       <label class="customise-radio-btn">Shipper Warehouse
@@ -115,4 +106,3 @@
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

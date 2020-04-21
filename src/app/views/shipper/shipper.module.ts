@@ -21,8 +21,9 @@ import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledg
 import { CodshipmentsComponent } from './codshipments/codshipments.component';
 import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component';
 import { NgxPrintModule } from 'ngx-print';
+import { PrintlablesComponent } from './printlables/printlables.component';
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent, PrintlablesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -1,0 +1,20 @@
+<div class="card margintop50">
+    <div class="card-header">
+        Print Order
+    </div>
+    <div class="card-body">
+        <label>Select Tracking Numbers</label>
+        <select class="form-control" id="status" (change)="fetchDetails($event.target.value)" >
+            <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
+                {{Tracking}}</option>
+        </select>
+
+        <table >
+<tr>
+    <td><img src="../../../../assets/Souq_Logo.svg"/></td>
+    <td></td>
+    <td><img src = resquesteddata.message /></td>
+</tr>
+        </table>
+    </div>
+</div>

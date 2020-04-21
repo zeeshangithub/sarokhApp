@@ -37,5 +37,14 @@ export class OrderService {
   assignDriverBy(formData) {
     return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-driver-to-shipment` , formData);
   }
+  getOrderIDs(Id) {
+    return this.http.get<any>(`${environment.apiURL}order/get-all-shipments-trackingnumber/${Id}`);
+  } 
+  
+
+  searchShipment(Id) {
+    return this.http.get<any>(`${environment.apiURL}search-shipment-by-trackingno/${Id}`);
+  } 
+
   
 }

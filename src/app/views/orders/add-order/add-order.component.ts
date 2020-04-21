@@ -144,6 +144,7 @@ export class AddOrderComponent implements OnInit {
   }
 
   finishFunction() {
+    debugger;
     if (this.finalresponse.length <= 1) {
       var fullFormData = {
         orderBasicInfo: this.orderBasicInfoForm.value,
@@ -208,6 +209,7 @@ export class AddOrderComponent implements OnInit {
     console.log("fullRequest", fullRequest)
     this.finalresponse.push(fullRequest);
     console.log(this.finalresponse);
+    this.finishFunction();
   }
   closeAdd() {
     this.showlisting.emit(true);
@@ -219,16 +221,16 @@ export class AddOrderComponent implements OnInit {
   getCity() {
     this.orderService.getCityList().subscribe(res => {
       this.citylist = res.data;
-      console.log(this.citylist)
+      // console.log(this.citylist)
     })
   }
   generateOrderID() {
     var shipperId = localStorage.getItem('id');
-    console.log(shipperId)
+    // console.log(shipperId)
     var orderId = '';
     this.orderService.getOrderId(shipperId).subscribe(res => {
       orderId = res.data;
-      console.log("res", res.data)
+      // console.log("res", res.data)
       this.orderBasicInfoForm.controls['orderId'].setValue(orderId);
       this.orderBasicInfoForm.controls['shipperId'].setValue(shipperId);
     })
@@ -250,7 +252,7 @@ export class AddOrderComponent implements OnInit {
   dealers() {
     this.dealerService.fetchDealers().subscribe(res => {
       this.alldealers = res.data;
-      console.log("this.alldealers", this.alldealers)
+      // console.log("this.alldealers", this.alldealers)
     })
   }
   onCheckboxChange(e) {
@@ -273,7 +275,7 @@ export class AddOrderComponent implements OnInit {
     this.shipmentInformation.patchValue({ 'billedAmount': val })
   }
   checkSarokhPoint(value) {
-    console.log("value", value)
+    // console.log("value", value)
     if (value.target.defaultValue === "selectNow") {
       this.showsarokhpointdropdown = true;
     } else {
@@ -282,7 +284,7 @@ export class AddOrderComponent implements OnInit {
   }
 
   todealerpoint(value) {
-    console.log("value", value)
+    // console.log("value", value)
     if (value === "To Sarokh Point") {
       this.dealerPointList = true;
     }else{
