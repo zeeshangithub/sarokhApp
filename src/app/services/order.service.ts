@@ -40,10 +40,8 @@ export class OrderService {
   getOrderIDs(Id) {
     return this.http.get<any>(`${environment.apiURL}order/get-all-shipments-trackingnumber/${Id}`);
   } 
-  
-
   searchShipment(Id) {
-    return this.http.get<any>(`${environment.apiURL}search-shipment-by-trackingno/${Id}`);
+    return this.http.get<any>(`${environment.apiURL}order/find-shipment-trackingno/${Id}`);
   } 
 
   

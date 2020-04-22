@@ -11,6 +11,9 @@ export class PrintlablesComponent implements OnInit {
   trackingNos;
   showData = false;
   resquesteddata;
+  shimentorderDetail
+  imgsrc;
+  show = false;
   constructor(private getyids: OrderService) { }
 
   ngOnInit(): void {
@@ -21,11 +24,19 @@ export class PrintlablesComponent implements OnInit {
     })
   }
   fetchDetails(val) {
+    // debugger;
     console.log(val);
-    const value = val.
+    
       this.getyids.searchShipment(val).subscribe(res => {
         console.log(res)
-        this.resquesteddata = res.data;
+        if (res){
+          this.show   = true;
+          this.resquesteddata = res.data;
+          this.shimentorderDetail = res.data.shipmentOrderItems[0];
+          this.imgsrc = this.shimentorderDetail.barCode;
+        }
+      
+        console.log(this.imgsrc)
         console.log(this.resquesteddata)
       })
   }

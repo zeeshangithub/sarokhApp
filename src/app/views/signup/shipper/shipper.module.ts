@@ -16,6 +16,7 @@ import { AddShipperComponent } from './add-shipper/add-shipper.component';
     ShipperRoutingModule,
     ArchwizardModule,
     OwlNativeDateTimeModule,
+    OwlDateTimeModule,
     ReactiveFormsModule
   ]
 })

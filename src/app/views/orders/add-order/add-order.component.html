@@ -199,7 +199,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Payment Type</label>
-                <select class="form-control" id="paymentType" formControlName="paymentType">
+                <select class="form-control" id="paymentType" (change)="fetchDetails($event.target.value)" formControlName="paymentType">
                   <option value="">Payment Type</option>
                   <option value="COD">Cash On Delivery(COD)</option>
                   <option value="Prepaid">Prepaid</option>

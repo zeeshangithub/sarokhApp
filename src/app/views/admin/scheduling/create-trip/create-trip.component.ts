@@ -109,6 +109,10 @@ export class CreateTripComponent implements OnInit {
       shipmentDisplaced:this.numberofShipments
     }
     console.log("this.selectedFormData" , this.selectedFormData)
+    this.selectedFormData.warehouseId = this.createTripForm.controls['warehouse'].value ;
+    this.selectedFormData.driverId = this.createTripForm.controls['driver'].value ;
+   
+    console.log("this.selectedFormData" , this.selectedFormData)
     this.tripService.createTrip(this.selectedFormData).subscribe(res =>{
       this.toastr.success(res.message); 
     })

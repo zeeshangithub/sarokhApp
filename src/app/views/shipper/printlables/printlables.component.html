@@ -4,11 +4,12 @@
     </div>
     <div class="card-body">
         <label>Select Tracking Numbers</label>
-        <select class="form-control" id="status" (change)="searchDetails($event.target.value)">
+        <select class="form-control" id="status" (change)="fetchDetails($event.target.value)">
+            <option [value]="">===Select Tracking No===</option>
             <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
                 {{Tracking}}</option>
         </select>
-        <div id="print-section">
+        <div *ngIf="show" id="print-section">
             <table class="margintop50" width="100%" border="1">
                 <tbody>
                     <tr style="border: none;">
@@ -23,7 +24,7 @@
                             <img src="assets/img/brand/sarokh-logo.png" alt="Logo">
                         </td>
                         <td colspan="3">
-                            <img src="assets/img/brand/sarokh-logo.png" alt="Logo">
+                            <img [src]='imgsrc' alt="Logo">
                         </td>
                     </tr>
                     <tr>
@@ -37,19 +38,19 @@
                         <td>
                             <strong>Address</strong>
                         </td>
-                        <td>My Address</td>
+                        <td>{{shimentorderDetail.address}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>City</strong>
                         </td>
-                        <td>My City</td>
+                        <td>{{resquesteddata.shipFromCity}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Phone</strong>
                         </td>
-                        <td>My Phone</td>
+                        <td>{{shimentorderDetail.contact}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
@@ -57,31 +58,32 @@
                         <td>
                             <strong>Customer Name</strong>
                         </td>
-                        <td>Arshad</td>
+                        <td>{{shimentorderDetail.receiverName}}</td>
                     </tr>
                     <tr>
                         <td style="font-size: 18px; font-weight: bold;" rowspan="2" colspan="2">112</td>
                         <td>
                             <strong>Address</strong>
                         </td>
-                        <td>&nbsp;</td>
+                        
+                        <td>{{shimentorderDetail.address}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>City</strong>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>{{resquesteddata.shipToCity}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
                         <td>
                             <strong>Phone</strong>
                         </td>
-                        <td>&nbsp;</td>
+                        <td>{{shimentorderDetail.contact}}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
-                        <td style="font-size: 15px; font-weight: bold;">Jadah</td>
+                        <td style="font-size: 15px; font-weight: bold;">{{resquesteddata.shipFromCity}}</td>
                         <td colspan="2">For Sender Only</td>
                     </tr>
                     <tr>
@@ -91,17 +93,17 @@
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>
-                        <td style="font-size: 15px; font-weight: bold;">Ruh</td>
+                        <td style="font-size: 15px; font-weight: bold;">{{resquesteddata.shipToCity}}</td>
                     </tr>
                     <tr>
                         <td>
                             <strong>Pickup Date</strong>
                         </td>
-                        <td colspan="2">12-01-1987</td>
+                        <td colspan="2">{{resquesteddata.createdDatetime | date}}</td>
                         <td>
                             <strong>Service</strong>
                         </td>
-                        <td colspan="2">Prepaid/COD</td>
+                        <td colspan="2">{{shimentorderDetail.paymentType}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -111,7 +113,7 @@
                         <td>
                             <strong>Weight</strong>
                         </td>
-                        <td colspan="2">1 kG</td>
+                        <td colspan="2">{{shimentorderDetail.weight}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -121,7 +123,7 @@
                         <td>
                             <strong>Notes</strong>
                         </td>
-                        <td colspan="2">Special Instruction</td>
+                        <td colspan="2">{{shimentorderDetail.additionalServices}}</td>
                     </tr>
                 </tbody>
             </table>

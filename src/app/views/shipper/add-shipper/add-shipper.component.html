@@ -284,7 +284,10 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="workingHours">Operational Hours</label>
-                <input type="text" class="form-control" id="workingHours" placeholder="Operational Hours" formControlName="workingHours" required>
+                <input type="text" class="form-control" placeholder="Operational Hours" formControlName="workingHours"
+                [owlDateTime]="workingHours" [owlDateTimeTrigger]="workingHours"
+                [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+            <owl-date-time [pickerType]="'calendar'" #workingHours></owl-date-time>
               </div>
             </div>
             <div class="btn-container float-right">

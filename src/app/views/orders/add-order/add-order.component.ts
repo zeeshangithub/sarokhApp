@@ -273,6 +273,17 @@ export class AddOrderComponent implements OnInit {
   codAmountCalculation(value) {
     const val = parseInt(value) + 30;
     this.shipmentInformation.patchValue({ 'billedAmount': val })
+    
+  }
+  fetchDetails(val){
+    console.log(val)
+    if(val === 'Prepaid'){
+      this.shipmentInformation.patchValue({ 'billedAmount': 30 })
+      this.shipmentInformation.patchValue({ 'codAmount': 0 })
+    
+    }else if(val === 'COD'){
+      
+    }
   }
   checkSarokhPoint(value) {
     // console.log("value", value)

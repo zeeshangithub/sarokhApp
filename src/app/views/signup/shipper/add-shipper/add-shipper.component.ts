@@ -120,6 +120,7 @@ export class AddShipperComponent implements OnInit {
 
   submit() {
     this.shipperService.addShipper(this.fullFormsInfo).subscribe(res => {
+      console.log("res" , res)
       this.router.navigate([''])
     }, err => {
 
