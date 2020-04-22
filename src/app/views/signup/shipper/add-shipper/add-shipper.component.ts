@@ -31,7 +31,7 @@ export class AddShipperComponent implements OnInit {
   ngOnInit(): void {
     this.initializeBasicInformationForm();
     this.initializeBusinessDetailsForm();
-    this.initializeWareDetailsForm();
+    // this.initializeWareDetailsForm();
     this.initializeBillingDetailsForm();
     this.initializeSecurityForm();
     this.initializeOTPForm();
@@ -77,23 +77,23 @@ export class AddShipperComponent implements OnInit {
     })
   }
 
-  initializeWareDetailsForm() {
-    this.warehouseDetailsForm = this.formbuilder.group({
-      address: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      concernedPerson: ['', [Validators.required]],
-      concernedPersonDesignation: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-      locationLatitude: ['', [Validators.required]],
-      locationLongitude: ['', [Validators.required]],
-      postalCode: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      timing: ['', [Validators.required]],
-      workingHours: ['', [Validators.required]],
-    })
-  }
+  // initializeWareDetailsForm() {
+  //   this.warehouseDetailsForm = this.formbuilder.group({
+  //     address: ['', [Validators.required]],
+  //     city: ['', [Validators.required]],
+  //     concernedPerson: ['', [Validators.required]],
+  //     concernedPersonDesignation: ['', [Validators.required]],
+  //     country: ['', [Validators.required]],
+  //     locationLatitude: ['', [Validators.required]],
+  //     locationLongitude: ['', [Validators.required]],
+  //     postalCode: ['', [Validators.required]],
+  //     contact: ['', [Validators.required]],
+  //     email: ['', [Validators.required]],
+  //     name: ['', [Validators.required]],
+  //     timing: ['', [Validators.required]],
+  //     workingHours: ['', [Validators.required]],
+  //   })
+  // }
 
   initializeBillingDetailsForm() {
     this.billingDetailsForm = this.formbuilder.group({
@@ -113,12 +113,13 @@ export class AddShipperComponent implements OnInit {
     this.fullFormsInfo.billingAddress = this.billingDetailsForm.value;
     this.fullFormsInfo.security = this.securityForm.value;
     this.fullFormsInfo.shipperBusinessDetail = this.businessDetailsForm.value;
-    this.fullFormsInfo.shipperWarehouse = this.warehouseDetailsForm.value;
+    // this.fullFormsInfo.shipperWarehouse = this.warehouseDetailsForm.value;
     this.fullFormsInfo.verification = this.otpForm.value;
     this.submit();
   }
 
   submit() {
+    debugger;
     this.shipperService.addShipper(this.fullFormsInfo).subscribe(res => {
       this.router.navigate([''])
     }, err => {
