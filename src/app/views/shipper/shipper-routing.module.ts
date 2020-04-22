@@ -60,16 +60,16 @@ const routes: Routes = [
     path: 'ledgers',
     component: ShipperLedgerComponent,
   }
-  ,{
+  , {
     path: 'addledgers/:id',
     component: AddShipperLedgerComponent,
   }
-  ,{
+  , {
     path: 'addledgers',
     component: AddShipperLedgerComponent,
   }
-  ,{
-    path: 'printlable',
+  , {
+    path: 'printlabel',
     component: PrintlablesComponent,
   }
 ];

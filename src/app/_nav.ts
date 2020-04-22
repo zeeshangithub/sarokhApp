@@ -416,7 +416,7 @@ export const ShipperNavItems: INavData[] = [
     },
     {
         name: 'Print Labels',
-        url: '/shipper/printlable',
+        url: '/shipper/printlabel',
         icon: 'fas fa-print',
     },
     {

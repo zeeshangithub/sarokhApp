@@ -4,17 +4,128 @@
     </div>
     <div class="card-body">
         <label>Select Tracking Numbers</label>
-        <select class="form-control" id="status" (change)="fetchDetails($event.target.value)" >
+        <select class="form-control" id="status" (change)="searchDetails($event.target.value)">
             <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
                 {{Tracking}}</option>
         </select>
-
-        <table >
-<tr>
-    <td><img src="../../../../assets/Souq_Logo.svg"/></td>
-    <td></td>
-    <td><img src = resquesteddata.message /></td>
-</tr>
-        </table>
+        <div id="print-section">
+            <table class="margintop50" width="100%" border="1">
+                <tbody>
+                    <tr style="border: none;">
+                        <td style="width: 20%;"></td>
+                        <td style="width: 20%;"></td>
+                        <td style="width: 20%;"></td>
+                        <td style="width: 20%;"></td>
+                        <td style="width: 20%;"></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px 0;" colspan="2">
+                            <img src="assets/img/brand/sarokh-logo.png" alt="Logo">
+                        </td>
+                        <td colspan="3">
+                            <img src="assets/img/brand/sarokh-logo.png" alt="Logo">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="4">From</td>
+                        <td>
+                            <strong>Company Name</strong>
+                        </td>
+                        <td>ABC</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Address</strong>
+                        </td>
+                        <td>My Address</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>City</strong>
+                        </td>
+                        <td>My City</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Phone</strong>
+                        </td>
+                        <td>My Phone</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td style="font-size: 18px; font-weight: bold;" rowspan="4">To</td>
+                        <td>
+                            <strong>Customer Name</strong>
+                        </td>
+                        <td>Arshad</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 18px; font-weight: bold;" rowspan="2" colspan="2">112</td>
+                        <td>
+                            <strong>Address</strong>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>City</strong>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td>
+                            <strong>Phone</strong>
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td style="font-size: 15px; font-weight: bold;">Jadah</td>
+                        <td colspan="2">For Sender Only</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Clasification</td>
+                        <td>To</td>
+                        <td colspan="2" rowspan="2">Barcode</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td style="font-size: 15px; font-weight: bold;">Ruh</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Pickup Date</strong>
+                        </td>
+                        <td colspan="2">12-01-1987</td>
+                        <td>
+                            <strong>Service</strong>
+                        </td>
+                        <td colspan="2">Prepaid/COD</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Pices</strong>
+                        </td>
+                        <td colspan="2">1 of 1</td>
+                        <td>
+                            <strong>Weight</strong>
+                        </td>
+                        <td colspan="2">1 kG</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Reference</strong>
+                        </td>
+                        <td colspan="2">xxxxx</td>
+                        <td>
+                            <strong>Notes</strong>
+                        </td>
+                        <td colspan="2">Special Instruction</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-primary mt-4 float-right" [useExistingCss]="true" printSectionId="print-section" ngxPrint>print</button>
     </div>
 </div>

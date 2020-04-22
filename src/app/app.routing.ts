@@ -37,6 +37,13 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'signup',
+    loadChildren: () => import('./views/signup/signup.module').then(m => m.SignupModule),
+    data: {
+      title: 'Login Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
@@ -91,7 +98,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
