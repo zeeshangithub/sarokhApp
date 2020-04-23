@@ -77,7 +77,7 @@ i:hover{cursor: pointer;}
 .sidebar .nav-link i{color: #ec1c24 !important;} 
 .sidebar .nav-link:hover .nav-icon{color: #FFF !important;}
 .sidebar .nav-link.active{color: #FFF !important;background: #ec1c24 !important;}
-.sidebar .nav-dropdown.open{background: #FFF !important;border-right:#f6921d solid 2px;}
+.sidebar .nav-dropdown.open{background: #ec1c24 !important;border-right:#f6921d solid 2px; color: #FFF !important;}
 .sidebar .sidebar-minimizer{background: #282a2b !important;}
 .app-footer{background: #282a2b !important; color: #FFF;}
 .sidebar-minimized .sidebar .nav-item:hover > .nav-link{background: #FFF !important;color:#ec1c24 !important; }
@@ -98,6 +98,8 @@ i:hover{cursor: pointer;}
 .card-header{font-weight: bold;}
 .total-amount{float: right; margin-bottom: 25px;}
 .total-amount label{font-weight: bold;}
+.sidebar .nav-dropdown.open .nav-link{color:#FFF !important;}
+.sidebar .nav-dropdown.open .nav-icon{color:#FFF !important;}
 
 
 @media screen and (max-width: 991px) {
