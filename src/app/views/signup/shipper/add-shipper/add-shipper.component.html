@@ -11,28 +11,24 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="First Name"
-                  formControlName="firstName" required>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName" required>
                 <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
                   <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
                 </div>
               </div>
               <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName"
-                  required>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="contact">Contact No</label>
-                <input type="text" class="form-control" id="contact" placeholder="Contact No" formControlName="contact"
-                  required>
+                <input type="text" class="form-control" id="contact" placeholder="Contact No" formControlName="contact" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
-                  required>
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" required>
               </div>
             </div>
             <div class="form-row">
@@ -43,9 +39,8 @@
 
 
                 <input type="text" class="form-control" placeholder="Date Of Birth" formControlName="dateOfBirth" [owlDateTime]="dateOfBirth"
-                [owlDateTimeTrigger]="dateOfBirth" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
-                required>
-              <owl-date-time  [pickerType]="'calendar'" #dateOfBirth></owl-date-time>
+                  [owlDateTimeTrigger]="dateOfBirth" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" required>
+                <owl-date-time [pickerType]="'calendar'" #dateOfBirth></owl-date-time>
 
               </div>
             </div>
@@ -61,25 +56,21 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="businessName">Business Name</label>
-                <input type="text" class="form-control" id="businessName" placeholder="Business Name"
-                  formControlName="businessName" required>
+                <input type="text" class="form-control" id="businessName" placeholder="Business Name" formControlName="businessName" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="iqamaNumber">Iqama No</label>
-                <input type="text" class="form-control" id="iqamaNumber" placeholder="Iqama No"
-                  formControlName="iqamaNumber" required>
+                <input type="text" class="form-control" id="iqamaNumber" placeholder="Iqama No" formControlName="iqamaNumber" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="vatNumber">VAT Number</label>
-                <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number"
-                  formControlName="vatNumber" required>
+                <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number" formControlName="vatNumber" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="crNumber">CR No</label>
-                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber"
-                  required>
+                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
               </div>
             </div>
             <div class="form-row">
@@ -90,8 +81,7 @@
                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                   </div>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                      aria-describedby="inputGroupFileAddon01">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                   </div>
                 </div>
@@ -103,8 +93,7 @@
                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                   </div>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01"
-                      aria-describedby="inputGroupFileAddon01">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                   </div>
                 </div>
@@ -113,8 +102,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="bankName">Bank Name</label>
-                <input type="text" class="form-control" id="bankName" placeholder="Bank Name" formControlName="bankName"
-                  required>
+                <input type="text" class="form-control" id="bankName" placeholder="Bank Name" formControlName="bankName" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="iban">IBAN</label>
@@ -145,8 +133,6 @@
                   </div>
                 </div>
               </div> -->
-            <p class="mt-3 float-left" style="color: red;">Note: Please skip this step if you are an Individual (not a
-              business)</p>
             <div class="btn-container float-right margintop30">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
               <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
@@ -158,8 +144,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="address">Office/Billing Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Office/Billing Address"
-                  formControlName="address" required>
+                <input type="text" class="form-control" id="address" placeholder="Office/Billing Address" formControlName="address" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="city">City</label>
@@ -169,25 +154,23 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country"
-                  required>
+                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="postCode">Post Code</label>
-                <input type="number" class="form-control" id="postCode" placeholder="Post Code"
-                  formControlName="postCode" required>
+                <input type="number" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="concernedPerson">Concern Person</label>
-                <input type="text" class="form-control" id="concernedPerson" placeholder="Concern Person"
-                  formControlName="concernedPerson" required>
+                <input type="text" class="form-control" id="concernedPerson" placeholder="Concern Person" formControlName="concernedPerson"
+                  required>
               </div>
               <div class="form-group col-md-6">
                 <label for="concernedPersonDesignation">Designation</label>
-                <input type="text" class="form-control" id="concernedPersonDesignation" placeholder="Designation"
-                  formControlName="concernedPersonDesignation" required>
+                <input type="text" class="form-control" id="concernedPersonDesignation" placeholder="Designation" formControlName="concernedPersonDesignation"
+                  required>
               </div>
             </div>
             <!-- <div class="form-row">
@@ -281,20 +264,18 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username"
-                  required>
+                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="password">Passsword</label>
-                <input type="password" class="form-control" id="password" placeholder="Passsword"
-                  formControlName="password" required>
+                <input type="password" class="form-control" id="password" placeholder="Passsword" formControlName="password" required>
               </div>
               <div class="form-group col-md-6">
                 <label for="confirmPassword">Confirm Passsword</label>
-                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Passsword"
-                  formControlName="confirmPassword" required>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Passsword" formControlName="confirmPassword"
+                  required>
               </div>
             </div>
             <div class="btn-container float-right">
