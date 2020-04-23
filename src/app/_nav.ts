@@ -374,11 +374,11 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/add',
                 icon: 'fas fa-shopping-cart'
             },
-            {
-                name: 'All Orders',
-                url: '/orders/orders',
-                icon: 'fas fa-shopping-cart'
-            },
+            // {
+            //     name: 'All Orders',
+            //     url: '/orders/orders',
+            //     icon: 'fas fa-shopping-cart'
+            // },
             // {
             //     name: 'Pending Orders',
             //     url: '/orders/pendingorders',

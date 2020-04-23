@@ -1,21 +1,21 @@
 {
   "name": "@coreui/coreui-free-angular-admin-template",
   "version": "2.9.0",
-  "description": "CoreUI Free Angular 2+ Admin Template",
+  "description": "Sarokh",
   "author": {
-    "name": "Łukasz Holeczek",
+    "name": "Hamid",
     "url": "http://holeczek.pl",
     "github": "https://github.com/mrholek",
     "twitter": "https://twitter.com/lukaszholeczek"
   },
   "contributors": [
     {
-      "name": "Andrzej Kopański",
+      "name": "Hamid",
       "url": "https://github.com/xidedix"
     }
   ],
   "homepage": "https://coreui.io/angular",
-  "copyright": "Copyright 2020 creativeLabs Łukasz Holeczek",
+  "copyright": "Copyright 2020 Sarokh",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

@@ -13,6 +13,8 @@ export class PrintlablesComponent implements OnInit {
   resquesteddata;
   shimentorderDetail
   imgsrc;
+  qrsrc;
+
   show = false;
   constructor(private getyids: OrderService) { }
 
@@ -26,18 +28,19 @@ export class PrintlablesComponent implements OnInit {
   fetchDetails(val) {
     // debugger;
     console.log(val);
-    
-      this.getyids.searchShipment(val).subscribe(res => {
-        console.log(res)
-        if (res){
-          this.show   = true;
-          this.resquesteddata = res.data;
-          this.shimentorderDetail = res.data.shipmentOrderItems[0];
-          this.imgsrc = this.shimentorderDetail.barCode;
-        }
-      
-        console.log(this.imgsrc)
-        console.log(this.resquesteddata)
-      })
+
+    this.getyids.searchShipment(val).subscribe(res => {
+      console.log(res)
+      if (res) {
+        this.show = true;
+        this.resquesteddata = res.data;
+        this.shimentorderDetail = res.data.shipmentOrderItems[0];
+        this.imgsrc = this.shimentorderDetail.barCode;
+        this.qrsrc = this.shimentorderDetail.qrcode;
+      }
+      console.log(this.qrsrc)
+      console.log(this.imgsrc)
+      console.log(this.resquesteddata)
+    })
   }
 }
