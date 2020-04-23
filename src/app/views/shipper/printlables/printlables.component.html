@@ -38,7 +38,7 @@
                         <td>
                             <strong>Address</strong>
                         </td>
-                        <td>{{shimentorderDetail.address}}</td>
+                        <td>Shipper Address</td>
                     </tr>
                     <tr>
                         <td>
@@ -61,11 +61,11 @@
                         <td>{{shimentorderDetail.receiverName}}</td>
                     </tr>
                     <tr>
-                        <td style="font-size: 18px; font-weight: bold;" rowspan="2" colspan="2">112</td>
+                        <td style="font-size: 18px; font-weight: bold;" rowspan="2" colspan="2">{{resquesteddata.orderId}}</td>
                         <td>
                             <strong>Address</strong>
                         </td>
-                        
+
                         <td>{{shimentorderDetail.address}}</td>
                     </tr>
                     <tr>
@@ -89,7 +89,9 @@
                     <tr>
                         <td colspan="2">Clasification</td>
                         <td>To</td>
-                        <td colspan="2" rowspan="2">Barcode</td>
+                        <td colspan="2" rowspan="2">
+                            <img [src]='imgsrc' alt="Logo">
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp;</td>

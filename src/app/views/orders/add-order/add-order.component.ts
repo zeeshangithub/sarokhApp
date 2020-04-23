@@ -46,7 +46,7 @@ export class AddOrderComponent implements OnInit {
     private dealerService: DealerService,
     private router: Router,
     private shareData: DataService,
-    private toaster : ToastrService
+    private toaster: ToastrService
   ) { }
   ngOnInit(): void {
     // this.shipmentDetails = [];
@@ -90,8 +90,8 @@ export class AddOrderComponent implements OnInit {
     this.orderBasicInfoForm = this.formbuilder.group({
       orderId: ['', [Validators.required]],
       shipperId: ['', [Validators.required]],
-      shipFromCity: ['' , [Validators.required]],
-      shipToCity: ['' , [Validators.required]]
+      shipFromCity: ['', [Validators.required]],
+      shipToCity: ['', [Validators.required]]
     })
   }
   initializeDropoffDetailsForm() {
@@ -144,7 +144,6 @@ export class AddOrderComponent implements OnInit {
   }
 
   finishFunction() {
-    debugger;
     if (this.finalresponse.length <= 1) {
       var fullFormData = {
         orderBasicInfo: this.orderBasicInfoForm.value,
@@ -273,16 +272,16 @@ export class AddOrderComponent implements OnInit {
   codAmountCalculation(value) {
     const val = parseInt(value) + 30;
     this.shipmentInformation.patchValue({ 'billedAmount': val })
-    
+
   }
-  fetchDetails(val){
+  fetchDetails(val) {
     console.log(val)
-    if(val === 'Prepaid'){
+    if (val === 'Prepaid') {
       this.shipmentInformation.patchValue({ 'billedAmount': 30 })
       this.shipmentInformation.patchValue({ 'codAmount': 0 })
-    
-    }else if(val === 'COD'){
-      
+
+    } else if (val === 'COD') {
+
     }
   }
   checkSarokhPoint(value) {
@@ -298,7 +297,7 @@ export class AddOrderComponent implements OnInit {
     // console.log("value", value)
     if (value === "To Sarokh Point") {
       this.dealerPointList = true;
-    }else{
+    } else {
       this.dealerPointList = false;
     }
 
