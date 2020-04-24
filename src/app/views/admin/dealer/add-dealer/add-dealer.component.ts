@@ -4,6 +4,7 @@ import { DealerService } from '../../../../services/dealer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { FileUploader } from 'ng2-file-upload';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-dealer',
@@ -19,6 +20,7 @@ export class AddDealerComponent implements OnInit {
   ifEditMode = false;
   sharedID;
   selectedDealer;
+  validationErrorMessage = "Please Enter Required Fields";
   filepath;
   fullFormsInfo = {
     dealerContract: {},
@@ -27,20 +29,21 @@ export class AddDealerComponent implements OnInit {
     dealerDetails: {}
   }
 
-  constructor( private router: Router, private formbuilder: FormBuilder, private dealerService: DealerService,
-    private shareData: DataService,private route: ActivatedRoute) {
+  constructor(private router: Router, private formbuilder: FormBuilder, private dealerService: DealerService,
+    private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService) {
 
-   
-     }
- public uploader: FileUploader = new FileUploader({ itemAlias: 'file' });
+
+  }
+  public uploader: FileUploader = new FileUploader({ itemAlias: 'file' });
   ngOnInit(): void {
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; 
-    console.log(file);
-    this
-    this.filepath = file._file.name
+    this.uploader.onAfterAddingFile = (file) => {
+      file.withCredentials = false;
+      console.log(file);
+      this
+      this.filepath = file._file.name
 
     };
-   
+
 
     this.initializeBasicInformationForm();
     this.initializeDealerDetailsForm();
@@ -58,10 +61,10 @@ export class AddDealerComponent implements OnInit {
       this.dealerService.getSingleDealer(this.sharedID).subscribe(res => {
         console.log("selectedDealer", res)
         this.selectedDealer = res;
-        console.log("this.selectedDealer" , this.selectedDealer)
+        console.log("this.selectedDealer", this.selectedDealer)
         // const dateOfBirth = new Date(this.selectedDealer.dateOfBirth).toISOString()
-       
-        if(this.selectedDealer){
+
+        if (this.selectedDealer) {
           this.basicInfoForm = this.formbuilder.group({
             firstName: [this.selectedDealer.firstName],
             lastName: [this.selectedDealer.lastName],
@@ -69,9 +72,9 @@ export class AddDealerComponent implements OnInit {
             dateOfBirth: [this.selectedDealer.user.dob],
             contact: [this.selectedDealer.contact],
             profilePicture: [this.selectedDealer.profilePicture],
-            id : [this.selectedDealer.id],
+            id: [this.selectedDealer.id],
 
-            
+
           })
           this.dealerDetailsForm = this.formbuilder.group({
             address: [this.selectedDealer.address],
@@ -93,7 +96,7 @@ export class AddDealerComponent implements OnInit {
             contractFile: [''],
             iban: [this.selectedDealer.bankAccount.iban],
             preShipmentCompensation: [this.selectedDealer.preShipmentsCompensation],
-            bankAccountId : [this.selectedDealer.bankAccountId]
+            bankAccountId: [this.selectedDealer.bankAccountId]
           })
           this.securityForm = this.formbuilder.group({
             username: [this.selectedDealer.user.userName],
@@ -113,7 +116,7 @@ export class AddDealerComponent implements OnInit {
       dateOfBirth: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       profilePicture: [''],
-      id:['']
+      id: ['']
     })
   }
   initializeDealerDetailsForm() {
@@ -139,7 +142,7 @@ export class AddDealerComponent implements OnInit {
       contractFile: [''],
       iban: ['', [Validators.required]],
       preShipmentCompensation: ['', [Validators.required]],
-      bankAccountId:['']
+      bankAccountId: ['']
     })
   }
 
@@ -147,7 +150,7 @@ export class AddDealerComponent implements OnInit {
     this.securityForm = this.formbuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      userId:['']
+      userId: ['']
     })
   }
   finishFunction() {
@@ -169,7 +172,7 @@ export class AddDealerComponent implements OnInit {
 
     })
   }
-  updateFunction(){
+  updateFunction() {
     // this.fullFormsInfo.credentials = this.securityForm.value;
     console.log(this.securityForm.value);
     console.log(this.selectedDealer.id)
@@ -183,12 +186,29 @@ export class AddDealerComponent implements OnInit {
     this.fullFormsInfo.dealerDetails = this.dealerDetailsForm.value;
 
     console.log(this.fullFormsInfo)
-    this.dealerService.updateSingleDealer(this.fullFormsInfo).subscribe(res=> {
+    this.dealerService.updateSingleDealer(this.fullFormsInfo).subscribe(res => {
       console.log(res)
-      if(res){
-          this.router.navigate(['/admin/alldealers']);
+      if (res) {
+        this.router.navigate(['/admin/alldealers']);
       }
     })
   }
-
+  showErrorBasicInfoForm() {
+    console.log(this.basicInfoForm.valid);
+    if (this.basicInfoForm.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
+  }
+  showErrorDealerDetailsForm() {
+    console.log(this.dealerDetailsForm.valid);
+    if (this.dealerDetailsForm.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
+  }
+  showErrorContractDetailsForm() {
+    console.log(this.contractDetailsForm.valid);
+    if (this.contractDetailsForm.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
+  }
 }

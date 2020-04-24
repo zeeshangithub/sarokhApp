@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.service';
 import { ToastrService } from 'ngx-toastr';
+import { MAT_DRAWER_DEFAULT_AUTOSIZE_FACTORY } from '@angular/material';
 @Component({
   selector: 'app-addsarokhwearhouse',
   templateUrl: './addsarokhwearhouse.component.html',
@@ -27,8 +28,9 @@ export class AddsarokhwearhouseComponent implements OnInit {
   template = {} as any;
   multiple = false;
   editwarehouse = false;
-  public selectedLatitude : any;
-  public selectedLongitude : any;
+  validationErrorMessage = "Please Enter Required Fields";
+  public selectedLatitude: any;
+  public selectedLongitude: any;
   map;
   @Output()
   showlisting = new EventEmitter<boolean>();
@@ -40,7 +42,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
     // private warehouseService: WarehouseService,
     private shareData: DataService,
     private router: Router,
-    private toast: ToastrService
+    private toaster: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -99,7 +101,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
       postcode: ['', [Validators.required]],
-      longitude: ['' ],
+      longitude: [''],
       latitude: [''],
     })
   }
@@ -116,8 +118,8 @@ export class AddsarokhwearhouseComponent implements OnInit {
     let shipperId = localStorage.getItem('_id')
     this.warehousemanager = this.formbuilder.group({
       managerName: ['', [Validators.required]],
-      mangerContact: [''],
-      mangerEmail: [''],
+      mangerContact: ['', [Validators.required]],
+      mangerEmail: ['', [Validators.required]],
       operationalTime: [''],
       shipperId: shipperId
     })
@@ -146,16 +148,16 @@ export class AddsarokhwearhouseComponent implements OnInit {
     this.amenities.reset();
     this.shareData.setID('')
   }
-  valuestest(){
- 
+  valuestest() {
+
     console.log(this.warehouseadress.value);
   }
   finishFunction() {
-    
-   
+
+
     this.warehouseadress.patchValue({ 'longitude': localStorage.getItem("logitude") });
     this.warehouseadress.patchValue({ 'latitude': localStorage.getItem("latitude") });
-      console.log(this.warehouseadress.value);
+    console.log(this.warehouseadress.value);
 
     var fullFormData = {
       basicInfo: this.warehouseadress.value,
@@ -178,12 +180,30 @@ export class AddsarokhwearhouseComponent implements OnInit {
     this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
       console.log("res", res)
       if (res.managerName) {
-        this.toast.success("Sarokh Warehouse Added Successfully");
+        this.toaster.success("Sarokh Warehouse Added Successfully");
         this.router.navigate(['/admin/sarokhwearhouselist']);
       }
-      localStorage.setItem("latitude",'');
-      localStorage.setItem("logitude",'');
+      localStorage.setItem("latitude", '');
+      localStorage.setItem("logitude", '');
     })
+  }
+  showErrorWareHouseAddress() {
+    console.log(this.warehouseadress.valid);
+    if (this.warehouseadress.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
+  }
+  showErrorWareHouseManager() {
+    console.log(this.warehousemanager.valid);
+    if (this.warehousemanager.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
+  }
+  showErrorAmenities() {
+    console.log(this.amenities.valid);
+    if (this.amenities.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
   }
 }
   // loadMap = () => {
@@ -197,9 +217,9 @@ export class AddsarokhwearhouseComponent implements OnInit {
 
   //     localStorage.setItem("latitude",this.selectedLatitude);
   //     localStorage.setItem("logitude",this.selectedLongitude);
-      
+
   //     console.log(this.selectedLatitude, this.selectedLongitude)
-      
+
   //     var marker = new window['google'].maps.Marker({
   //       position: new window['google'].maps.LatLng(localStorage.getItem("latitude") , localStorage.getItem("logitude") ),
   //       //  {lat: new window['google'].maps.LatLng( this.selectedLatitude, lng: this.selectedLongitude},
@@ -216,19 +236,19 @@ export class AddsarokhwearhouseComponent implements OnInit {
   //     '<p></p>'+
   //     '</div>'+
   //     '</div>';
-  
+
   //     var infowindow = new window['google'].maps.InfoWindow({
   //       content: contentString
   //     });
-  
+
   //       marker.addListener('click', function() {
   //         infowindow.open(this.map, marker);
   //       });
-    
+
   //   });
-  
-  
-   
+
+
+
   // }
   // renderMap() {
   //   window['initMap'] = () => {
