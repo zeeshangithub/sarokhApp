@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
@@ -22,6 +22,7 @@ import { CodshipmentsComponent } from './codshipments/codshipments.component';
 import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component';
 import { NgxPrintModule } from 'ngx-print';
 import { PrintlablesComponent } from './printlables/printlables.component';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent, PrintlablesComponent],
   imports: [
@@ -32,9 +33,13 @@ import { PrintlablesComponent } from './printlables/printlables.component';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     ReactiveFormsModule,
-    NgxPrintModule
+    NgxPrintModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',
+    })
     // HighchartsChartComponent
   ],
-  providers: [DataService]
+  providers: [DataService],
+  schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class ShipperModule { }

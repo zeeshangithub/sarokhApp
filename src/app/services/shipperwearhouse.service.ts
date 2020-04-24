@@ -12,7 +12,7 @@ export class ShipperWearhouseService {
   GetShipperWerahouseList(){
     let shipperId =  localStorage.getItem('_id')
     console.log(shipperId)
-    return this.http.get<any>(`${environment.apiURL}shipper-warehouse/get-list/`);
+    return this.http.get<any>(`${environment.apiURL}/shipper-warehouse/get-list-by-shipperId/${shipperId}`);
   }
   AddShipperWearhouse(shipperwarehouse){
     let shipperId =  localStorage.getItem('_id')

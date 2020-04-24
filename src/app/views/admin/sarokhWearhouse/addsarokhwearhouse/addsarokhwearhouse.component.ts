@@ -18,7 +18,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
   @ViewChild('mapRef', { static: true }) mapElement: ElementRef;
 
   ngAfterViewInit() {
-    this.renderMap();
+    // this.renderMap();
   }
   warehouseadress: FormGroup;
   warehousemanager: FormGroup;
@@ -185,63 +185,63 @@ export class AddsarokhwearhouseComponent implements OnInit {
       localStorage.setItem("logitude",'');
     })
   }
-  loadMap = () => {
-    this.map = new window['google'].maps.Map(this.mapElement.nativeElement, {
-      center: { lat: 23.8859, lng: 45.0792 },
-      zoom: 7
-    });
-    this.map = new window['google'].maps.event.addListener(this.map, 'click', function (event) {
-      this.selectedLatitude = event.latLng.lat();
-      this.selectedLongitude = event.latLng.lng();
+}
+  // loadMap = () => {
+  //   this.map = new window['google'].maps.Map(this.mapElement.nativeElement, {
+  //     center: { lat: 23.8859, lng: 45.0792 },
+  //     zoom: 7
+  //   });
+  //   this.map = new window['google'].maps.event.addListener(this.map, 'click', function (event) {
+  //     this.selectedLatitude = event.latLng.lat();
+  //     this.selectedLongitude = event.latLng.lng();
 
-      localStorage.setItem("latitude",this.selectedLatitude);
-      localStorage.setItem("logitude",this.selectedLongitude);
+  //     localStorage.setItem("latitude",this.selectedLatitude);
+  //     localStorage.setItem("logitude",this.selectedLongitude);
       
-      console.log(this.selectedLatitude, this.selectedLongitude)
+  //     console.log(this.selectedLatitude, this.selectedLongitude)
       
-      var marker = new window['google'].maps.Marker({
-        position: new window['google'].maps.LatLng(localStorage.getItem("latitude") , localStorage.getItem("logitude") ),
-        //  {lat: new window['google'].maps.LatLng( this.selectedLatitude, lng: this.selectedLongitude},
-        map: this.map,
-        title: 'Warehouse1',
-        draggable: true,
-        animation: window['google'].maps.Animation.DROP,
-      });
-      var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h3 id="thirdHeading" class="thirdHeading">Sarokh</h3>'+
-      '<div id="bodyContent">'+
-      '<p></p>'+
-      '</div>'+
-      '</div>';
+  //     var marker = new window['google'].maps.Marker({
+  //       position: new window['google'].maps.LatLng(localStorage.getItem("latitude") , localStorage.getItem("logitude") ),
+  //       //  {lat: new window['google'].maps.LatLng( this.selectedLatitude, lng: this.selectedLongitude},
+  //       map: this.map,
+  //       title: 'Warehouse1',
+  //       draggable: true,
+  //       animation: window['google'].maps.Animation.DROP,
+  //     });
+  //     var contentString = '<div id="content">'+
+  //     '<div id="siteNotice">'+
+  //     '</div>'+
+  //     '<h3 id="thirdHeading" class="thirdHeading">Sarokh</h3>'+
+  //     '<div id="bodyContent">'+
+  //     '<p></p>'+
+  //     '</div>'+
+  //     '</div>';
   
-      var infowindow = new window['google'].maps.InfoWindow({
-        content: contentString
-      });
+  //     var infowindow = new window['google'].maps.InfoWindow({
+  //       content: contentString
+  //     });
   
-        marker.addListener('click', function() {
-          infowindow.open(this.map, marker);
-        });
+  //       marker.addListener('click', function() {
+  //         infowindow.open(this.map, marker);
+  //       });
     
-    });
+  //   });
   
   
    
-  }
-  renderMap() {
-    window['initMap'] = () => {
-      this.loadMap();
-    }
-    if (!window.document.getElementById('google-map-script')) {
-      var s = window.document.createElement("script");
-      s.id = "google-map-script";
-      s.type = "text/javascript";
-      s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw&callback=initMap";
+  // }
+  // renderMap() {
+  //   window['initMap'] = () => {
+  //     this.loadMap();
+  //   }
+  //   if (!window.document.getElementById('google-map-script')) {
+  //     var s = window.document.createElement("script");
+  //     s.id = "google-map-script";
+  //     s.type = "text/javascript";
+  //     s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw&callback=initMap";
 
-      window.document.body.appendChild(s);
-    } else {
-      this.loadMap();
-    }
-  }
-}
+  //     window.document.body.appendChild(s);
+  //   } else {
+  //     this.loadMap();
+  //   }
+  // }

@@ -53,6 +53,9 @@ import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin
 // import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 
+
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -75,7 +78,9 @@ import { WarehouseAdminComponent } from './views/warehouse-admin/warehouse-admin
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    NgxPrintModule
+    NgxPrintModule,
+ 
+
   ],
   declarations: [
     AppComponent,

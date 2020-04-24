@@ -1,1 +1,4 @@
-.map-img img{width: 100%; margin-bottom: 20px;}
+
+agm-map {
+    height: 300px;
+}
