@@ -24,6 +24,7 @@ export class AddshipperwearhouseComponent implements OnInit {
   shipperId;
   template = {} as any;
   multiple = false;
+  validationErrorMessage = "Please Enter Required Fields";
   editwarehouse = false;
   public selectedLatitude: any;
   public selectedLongitude: any;
@@ -150,6 +151,10 @@ export class AddshipperwearhouseComponent implements OnInit {
       this.toaster.success("Shipper Warehouse Added")
       this.showlisting.emit(true);
       this.editDone.emit('some value');
+
+
+
+
     })
   }
   closeAdd() {
@@ -165,6 +170,8 @@ export class AddshipperwearhouseComponent implements OnInit {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
       amminitie: this.amenities.value,
+
+
     }
     console.log("fullFormData", fullFormData)
     const fullRequest = {
@@ -229,6 +236,19 @@ export class AddshipperwearhouseComponent implements OnInit {
     console.log(this.warehouseadress.valid);
     if (this.warehouseadress.valid === false) {
       this.toaster.error("Please Enter Required Fields");
+    }
+  }
+
+  ShowErrorWarehouseAdress() {
+    console.log(this.warehouseadress.valid);
+    if (this.warehouseadress.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
+    }
+  }
+  ShowErrorWarehouseManager() {
+    console.log(this.warehousemanager.valid);
+    if (this.warehousemanager.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
     }
   }
 }

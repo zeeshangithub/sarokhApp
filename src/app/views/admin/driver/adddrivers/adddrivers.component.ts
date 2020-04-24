@@ -17,6 +17,7 @@ export class AdddriversComponent implements OnInit {
   employeeFreelancerDetailsForm: FormGroup;
   vehicleDetailsForm: FormGroup;
   securityForm: FormGroup;
+  validationErrorMessage = "Please Enter Required Fields";
   diverType;
   forFreelancer = false;
   editMode = false;
@@ -31,10 +32,10 @@ export class AdddriversComponent implements OnInit {
     driverType: ''
   }
   constructor(private formbuilder: FormBuilder,
-     private driverService: DriverService,
-      private router: Router,
-      private shareData : DataService ,
-      private toastr: ToastrService , private fileUpload : AdminMisService) { }
+    private driverService: DriverService,
+    private router: Router,
+    private shareData: DataService,
+    private toaster: ToastrService, private fileUpload: AdminMisService) { }
   ngOnInit(): void {
     this.initializeBasicInformationForm();
     this.initializeDriverDetailsForm();
@@ -42,9 +43,9 @@ export class AdddriversComponent implements OnInit {
     this.initializeEmployeeFreelancerDetailsForm();
     this.initializeSecurityForm();
     const sharedId = this.shareData.getID();
-    if(sharedId){
+    if (sharedId) {
       this.editMode = true;
-      this.driverService.GetSingleDriver(sharedId).subscribe(res =>{
+      this.driverService.GetSingleDriver(sharedId).subscribe(res => {
         console.log(res)
         this.basicInfoForm = this.formbuilder.group({
           firstName: [res.firstName],
@@ -77,7 +78,7 @@ export class AdddriversComponent implements OnInit {
           registrationNumber: [res.vehicle.registrationNumber],
           registrationYear: [res.vehicle.registrationYear],
           type: [res.vehicle.type],
-          vehicleId : [res.vehicleId]
+          vehicleId: [res.vehicleId]
         })
         this.employeeFreelancerDetailsForm = this.formbuilder.group({
           bank: [res.bankAccount.bank],
@@ -87,7 +88,7 @@ export class AdddriversComponent implements OnInit {
           contractStartDate: [res.contractStartDate],
           contactFile: [''],
           iban: [res.bankAccount.iban],
-          bankAccountId:[res.bankAccount.id],
+          bankAccountId: [res.bankAccount.id],
         })
         this.securityForm = this.formbuilder.group({
           username: [res.user.userName],
@@ -121,7 +122,7 @@ export class AdddriversComponent implements OnInit {
       locationLongitude: [''],
       nicFile: [''],
       nicNumber: ['', [Validators.required]],
-      bankAccountId:['']
+      bankAccountId: ['']
     })
   }
 
@@ -136,7 +137,7 @@ export class AdddriversComponent implements OnInit {
       registrationNumber: ['', [Validators.required]],
       registrationYear: ['', [Validators.required]],
       type: ['', [Validators.required]],
-      vehicleId:['']
+      vehicleId: ['']
     })
   }
 
@@ -176,18 +177,18 @@ export class AdddriversComponent implements OnInit {
     this.employeeFreelancerDetailsForm.get("contactFile").setValue(this.modelvalue);
     this.driverDetailsForm.get("nicFile").setValue(this.modelvalue);
     this.employeeFreelancerDetailsForm.get("contactFile").setValue(this.modelvalue);
- 
+
     console.log("this.fullFormsInfo", this.fullFormsInfo)
     this.driverService.addDriver(this.fullFormsInfo).subscribe(res => {
-      this.toastr.success(res.message);  
-      if(res.status === 200){
+      this.toaster.success(res.message);
+      if (res.status === 200) {
         this.router.navigate(['admin/alldrivers'])
       }
-      
+
     }, err => {
     })
   }
-  updateFunction(){
+  updateFunction() {
     this.fullFormsInfo.basicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.credentials = this.securityForm.value;
     this.fullFormsInfo.driverDetails = this.driverDetailsForm.value;
@@ -195,10 +196,10 @@ export class AdddriversComponent implements OnInit {
     this.fullFormsInfo.freelanceDriverVehicle = this.vehicleDetailsForm.value;
     this.fullFormsInfo.driverType = this.diverType;
 
-    console.log("this.fullFormsInfo" , this.fullFormsInfo)
-    this.driverService.updateSingleDriver(this.fullFormsInfo).subscribe(res=>{
-      this.toastr.success(res.message);
-      if(res.status === 200){
+    console.log("this.fullFormsInfo", this.fullFormsInfo)
+    this.driverService.updateSingleDriver(this.fullFormsInfo).subscribe(res => {
+      this.toaster.success(res.message);
+      if (res.status === 200) {
         this.router.navigate(['admin/alldrivers'])
       }
     })
@@ -206,17 +207,17 @@ export class AdddriversComponent implements OnInit {
   result(event) {
     console.log("event", event.target.text)
     this.diverType = event.target.text;
-    if(this.diverType === "Freelancer"){
-        this.forFreelancer = true;
-    }else{
+    if (this.diverType === "Freelancer") {
+      this.forFreelancer = true;
+    } else {
       this.forFreelancer = false;
     }
   }
-  onUploadChange(event){
+  onUploadChange(event) {
     const file = (event.target as HTMLInputElement).files[0];
     console.log(file);
-    this.fileUpload.upoadFileService(file).subscribe(res =>{
-      this.toastr.success(res.message);
+    this.fileUpload.upoadFileService(file).subscribe(res => {
+      this.toaster.success(res.message);
       this.modelvalue = res.data;
     })
     // File Preview
@@ -225,5 +226,11 @@ export class AdddriversComponent implements OnInit {
       this.preview = reader.result as string;
     }
     reader.readAsDataURL(file)
+  }
+  showErrorBasicInformationForm() {
+    console.log(this.basicInfoForm.valid);
+    if (this.basicInfoForm.valid === false) {
+      this.toaster.error(this.validationErrorMessage);
+    }
   }
 }

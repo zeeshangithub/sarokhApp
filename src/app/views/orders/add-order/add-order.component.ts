@@ -24,6 +24,7 @@ export class AddOrderComponent implements OnInit {
   citylist;
   sarokhWarehouses;
   shipperWarehouses;
+  validationErrorMessage = "Please Enter Required Fields";
   shipperWarehousesList = false;
   sarokhWarehousesList = false;
   dealerPointList = false;
@@ -342,4 +343,17 @@ export class AddOrderComponent implements OnInit {
     });
   }
 
+
+  ShowErrorWarehouseManager() {
+    console.log(this.orderBasicInfoForm.valid);
+    if (this.orderBasicInfoForm.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
+    }
+  }
+  ShowErrorPickupAndDelivery() {
+    console.log(this.pickupAndDelivery.valid);
+    if (this.pickupAndDelivery.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
+    }
+  }
 }

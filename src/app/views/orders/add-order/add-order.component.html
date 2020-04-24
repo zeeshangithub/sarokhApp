@@ -40,7 +40,7 @@
                   <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
                 </div>
                 <div class="btn-container float-right">
-                  <button [disabled]="!orderBasicInfoForm.valid" class="btn btn-success" type="button" awNextStep>Next Step
+                  <button class="btn btn-success" type="button" (click)="ShowErrorWarehouseManager()" awNextStep>Next Step
                   </button>
                 </div>
               </div>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="btn-container float-right">
                   <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-                  <button [disabled]="!pickupAndDelivery.valid" class="btn btn-success" type="button" awNextStep>Go to next step</button>
+                  <button class="btn btn-success" type="button" (click)="ShowErrorPickupAndDelivery()" awNextStep>Next step</button>
                 </div>
               </div>
             </div>
