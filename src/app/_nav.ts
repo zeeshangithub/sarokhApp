@@ -126,12 +126,12 @@ export const navItems: INavData[] = [
         icon: 'fas fa-warehouse',
         children: [
             {
-                name: 'Add Wearhouse',
+                name: 'Add Warehouse',
                 url: '/admin/addsarokhwearhouse',
                 icon: 'fas fa-warehouse',
             },
             {
-                name: 'Wearhouse List',
+                name: 'Warehouse List',
                 url: '/admin/sarokhwearhouselist',
                 icon: 'fas fa-warehouse',
             },
