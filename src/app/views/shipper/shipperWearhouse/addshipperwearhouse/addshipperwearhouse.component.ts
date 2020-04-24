@@ -21,10 +21,11 @@ export class AddshipperwearhouseComponent implements OnInit {
   shipperId;
   template = {} as any;
   multiple = false;
-editwarehouse = false;
-public selectedLatitude : any;
-public selectedLongitude : any;
-map;
+  validationErrorMessage = "Please Enter Required Fields";
+  editwarehouse = false;
+  public selectedLatitude: any;
+  public selectedLongitude: any;
+  map;
   @Output()
   showlisting = new EventEmitter<boolean>();
   @Output() editDone = new EventEmitter<string>();
@@ -37,7 +38,7 @@ map;
     private router: Router,
     private toaster: ToastrService
   ) { }
- 
+
 
   ngAfterViewInit() {
     // this.renderMap();
@@ -52,7 +53,7 @@ map;
     // this.generateOrderID();
     const sharedId = this.dataService.getID();
     if (sharedId) {
-      this.editwarehouse= true;
+      this.editwarehouse = true;
       console.log("sharedId", sharedId);
       this.shipperwarehouse.fetchSingleWarehouse(sharedId).subscribe(res => {
         console.log("res", res)
@@ -86,8 +87,8 @@ map;
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
       postcode: ['', [Validators.required]],
-      longitude: ['', ],
-      latitude: ['', ]
+      longitude: ['',],
+      latitude: ['',]
     })
   }
   initializeamenities() {
@@ -136,14 +137,14 @@ map;
 
       // this.router.navigate(['shipper/shipperwearhouse']);
       // window.reload
-    
-      localStorage.setItem("latitude",'');
-      localStorage.setItem("logitude",'');
+
+      localStorage.setItem("latitude", '');
+      localStorage.setItem("logitude", '');
       this.showlisting.emit(true);
       this.editDone.emit('some value');
 
-    
-  
+
+
     })
 
   }
@@ -155,13 +156,13 @@ map;
     this.amenities.reset();
     this.dataService.setID('')
   }
-  updateWarehouse(){
+  updateWarehouse() {
     const sharedId = this.dataService.getID();
     var fullFormData = {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
       amminitie: this.amenities.value,
-      
+
 
     }
     console.log("fullFormData", fullFormData)
@@ -171,30 +172,36 @@ map;
       ...fullFormData.amminitie
     };
 
-    console.log("fullRequest" , fullRequest);
+    console.log("fullRequest", fullRequest);
 
 
     fullRequest.id = sharedId;
     fullRequest.shipperId = localStorage.getItem('_id');
 
-    console.log("fullRequest" , fullRequest);
-    this.shipperwarehouse.updateShipperWearhouse(fullRequest).subscribe(res =>{
-      console.log("res" , res)
-      if(res){
+    console.log("fullRequest", fullRequest);
+    this.shipperwarehouse.updateShipperWearhouse(fullRequest).subscribe(res => {
+      console.log("res", res)
+      if (res) {
         this.showlisting.emit(true);
-        
-    this.warehouseadress.reset();
-    this.warehousemanager.reset();
-    this.amenities.reset();
-    this.dataService.setID('')
-    
+
+        this.warehouseadress.reset();
+        this.warehousemanager.reset();
+        this.amenities.reset();
+        this.dataService.setID('')
+
       }
     })
   }
-  ShowError(){
+  ShowErrorWarehouseAdress() {
     console.log(this.warehouseadress.valid);
-    if(this.warehouseadress.valid === false){
-      this.toaster.error("Please Enter Required Fields");
+    if (this.warehouseadress.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
+    }
+  }
+  ShowErrorWarehouseManager() {
+    console.log(this.warehousemanager.valid);
+    if (this.warehousemanager.valid === false) {
+      this.toaster.error("this.validationErrorMessage");
     }
   }
 }
@@ -211,9 +218,9 @@ map;
 
 //       localStorage.setItem("latitude",this.selectedLatitude);
 //       localStorage.setItem("logitude",this.selectedLongitude);
-      
+
 //       console.log(this.selectedLatitude, this.selectedLongitude)
-      
+
 //       var marker = new window['google'].maps.Marker({
 //         position: new window['google'].maps.LatLng(localStorage.getItem("latitude") , localStorage.getItem("logitude") ),
 //         //  {lat: new window['google'].maps.LatLng( this.selectedLatitude, lng: this.selectedLongitude},
@@ -230,19 +237,19 @@ map;
 //       '<p></p>'+
 //       '</div>'+
 //       '</div>';
-  
+
 //       var infowindow = new window['google'].maps.InfoWindow({
 //         content: contentString
 //       });
-  
+
 //         marker.addListener('click', function() {
 //           infowindow.open(this.map, marker);
 //         });
-    
+
 //     });
-  
-  
-   
+
+
+
 //   }
 //   renderMap() {
 //     window['initMap'] = () => {

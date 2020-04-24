@@ -2,7 +2,7 @@
   <div *ngIf="!editwarehouse" class="card-header">
     Add Shipper Warehouse
   </div>
-  <div *ngIf="editwarehouse"  class="card-header">
+  <div *ngIf="editwarehouse" class="card-header">
     Edit Shipper Warehouse
   </div>
   <div class="card-body">
@@ -35,7 +35,7 @@
                 <label for="postcode">Post Code</label>
                 <input type="text" class="form-control" id="postcode" placeholder="Postcode" formControlName="postcode">
               </div>
-          
+
             </div>
             <div class="form-row">
               <div class="form-group col-md-12">
@@ -44,11 +44,11 @@
               </div>
 
             </div>
-              <div class="btn-container float-left">
-                <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
-              </div>
+            <div class="btn-container float-left">
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            </div>
             <div class="btn-container float-right">
-              <button  class="btn btn-success" type="button" (click)="ShowError()" awNextStep>Next Step</button>
+              <button class="btn btn-success" type="button" (click)="ShowErrorWarehouseAdress()" awNextStep>Next Step</button>
             </div>
           </form>
 
@@ -97,11 +97,11 @@
 
             </div>
             <div class="btn-container float-left">
-              <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-              <button [disabled]="!warehousemanager.valid" class="btn btn-success" type="button" awNextStep>Go to next step</button>
+              <button class="btn btn-success" type="button" (click)="ShowErrorWarehouseManager()" awNextStep>Next step</button>
             </div>
           </form>
 
@@ -153,13 +153,13 @@
 
           </form>
           <div class="btn-container float-left">
-            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
           </div>
           <div class="btn-container float-right">
-            
+
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
             <button [disabled]="!amenities.valid" *ngIf="!editwarehouse" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
-            <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()" type="button">Update</button> 
+            <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()" type="button">Update</button>
           </div>
         </aw-wizard-step>
       </aw-wizard>
