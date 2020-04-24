@@ -2,7 +2,7 @@
   <div *ngIf="!editwarehouse" class="card-header">
     Add Shipper Warehouse
   </div>
-  <div *ngIf="editwarehouse"  class="card-header">
+  <div *ngIf="editwarehouse" class="card-header">
     Edit Shipper Warehouse
   </div>
   <div class="card-body">
@@ -35,20 +35,34 @@
                 <label for="postcode">Post Code</label>
                 <input type="text" class="form-control" id="postcode" placeholder="Postcode" formControlName="postcode">
               </div>
-          
+
             </div>
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="latitude">Select Location</label>
-                <div #mapRef style="width:100%;height:200px"></div>
+
+                <div class="container">
+                  <div class="form-group">
+                    <label>Enter address</label>
+                  </div>
+
+                  <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                    <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+                      (dragEnd)="markerDragEnd($event)"></agm-marker>
+                  </agm-map>
+
+                  <h5>Address: {{address}}</h5>
+                  <div>Latitude: {{latitude}}</div>
+                  <div>Longitude: {{longitude}}</div>
+                </div>
               </div>
 
             </div>
-              <div class="btn-container float-left">
-                <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
-              </div>
+            <div class="btn-container float-left">
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            </div>
             <div class="btn-container float-right">
-              <button  class="btn btn-success" type="button" (click)="ShowError()" awNextStep>Next Step</button>
+              <button class="btn btn-success" type="button" (click)="ShowError()" awNextStep>Next Step</button>
             </div>
           </form>
 
@@ -67,28 +81,33 @@
               <div class="form-group col-md-6">
                 <label for="managerName">Concern Person Name
                 </label>
-                <input type="text" class="form-control" id="managerName" placeholder="Concern Person Name" formControlName="managerName">
+                <input type="text" class="form-control" id="managerName" placeholder="Concern Person Name"
+                  formControlName="managerName">
               </div>
               <div class="form-group col-md-6">
                 <label for="mangerContact">Contact No</label>
-                <input type="text" class="form-control" id="mangerContact" placeholder="Contact No" formControlName="mangerContact">
+                <input type="text" class="form-control" id="mangerContact" placeholder="Contact No"
+                  formControlName="mangerContact">
               </div>
               <div class="form-group col-md-6">
                 <label for="mangerEmail">Email</label>
-                <input type="text" class="form-control" id="mangerEmail" placeholder="Email" formControlName="mangerEmail">
+                <input type="text" class="form-control" id="mangerEmail" placeholder="Email"
+                  formControlName="mangerEmail">
               </div>
               <div class="form-group col-md-6">
                 <label for="operationalTimeto">Operationl Time From</label>
-                <input type="text" class="form-control" placeholder="Operational Time To" formControlName="operationalTimeto" [owlDateTime]="operationalTimeto"
-                  [owlDateTimeTrigger]="operationalTimeto" [ngClass]="{ 'is-invalid': submitted && f.operationalTimeto.errors }"
-                  required>
+                <input type="text" class="form-control" placeholder="Operational Time To"
+                  formControlName="operationalTimeto" [owlDateTime]="operationalTimeto"
+                  [owlDateTimeTrigger]="operationalTimeto"
+                  [ngClass]="{ 'is-invalid': submitted && f.operationalTimeto.errors }" required>
                 <owl-date-time [pickerType]="'timer'" #operationalTimeto></owl-date-time>
               </div>
               <div class="col-md-6">
                 <label for="operationalTimeto">Operationl Time To</label>
-                <input type="text" class="form-control" placeholder="Operational Time From" formControlName="operationalTimefrom" [owlDateTime]="operationalTimefrom"
-                  [owlDateTimeTrigger]="operationalTimefrom" [ngClass]="{ 'is-invalid': submitted && f.operationalTimefrom.errors }"
-                  required>
+                <input type="text" class="form-control" placeholder="Operational Time From"
+                  formControlName="operationalTimefrom" [owlDateTime]="operationalTimefrom"
+                  [owlDateTimeTrigger]="operationalTimefrom"
+                  [ngClass]="{ 'is-invalid': submitted && f.operationalTimefrom.errors }" required>
                 <owl-date-time [pickerType]="'timer'" #operationalTimefrom></owl-date-time>
               </div>
               <!-- <label for="operationalTime">Operational Timing</label>
@@ -97,11 +116,12 @@
 
             </div>
             <div class="btn-container float-left">
-              <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+              <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-              <button [disabled]="!warehousemanager.valid" class="btn btn-success" type="button" awNextStep>Go to next step</button>
+              <button [disabled]="!warehousemanager.valid" class="btn btn-success" type="button" awNextStep>Go to next
+                step</button>
             </div>
           </form>
 
@@ -114,11 +134,13 @@
                 <div class="float-right">
                   <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="True">
+                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input"
+                      formControlName="forkLifter" value="True">
                     <label class="custom-control-label green" for="forkliftertrue">Yes</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="False">
+                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input"
+                      formControlName="forkLifter" value="False">
                     <label class="custom-control-label red" for="forklifterflase">No</label>
                   </div>
                 </div>
@@ -126,11 +148,13 @@
               <div class="form-group col-md-6 padddingleft110">
                 <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="True">
+                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input"
+                    formControlName="qrscanner" value="True">
                   <label class="custom-control-label green" for="qrscannertrue">Yes</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
+                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input"
+                    formControlName="qrscanner" value="False">
                   <label class="custom-control-label red" id="qrscannerfalse">No</label>
                 </div>
               </div>
@@ -138,13 +162,13 @@
                 <div class="float-right">
                   <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="True">
+                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input"
+                      formControlName="thermalPrinter" value="True">
                     <label class="custom-control-label green" for="thermalPrintertrue">Yes</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="False">
+                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input"
+                      formControlName="thermalPrinter" value="False">
                     <label class="custom-control-label red" for="thermalPrinterfasle">No</label>
                   </div>
                 </div>
@@ -153,13 +177,15 @@
 
           </form>
           <div class="btn-container float-left">
-            <button  type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
+            <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
           </div>
           <div class="btn-container float-right">
-            
+
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-            <button [disabled]="!amenities.valid" *ngIf="!editwarehouse" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
-            <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()" type="button">Update</button> 
+            <button [disabled]="!amenities.valid" *ngIf="!editwarehouse" class="btn btn-success" type="button"
+              (click)="finishFunction()">Finish</button>
+            <button *ngIf="editwarehouse" class="btn btn-secondary dark-grey" (click)="updateWarehouse()"
+              type="button">Update</button>
           </div>
         </aw-wizard-step>
       </aw-wizard>

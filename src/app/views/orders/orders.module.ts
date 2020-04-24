@@ -63,6 +63,7 @@ import { DataService } from '../../services/data.service';
 import { ReturnShipmentsComponent } from './return-shipments/return-shipments.component';
 import { PendingOrderComponent } from './pending-order/pending-order.component';
 import { NgxPrintModule } from 'ngx-print';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -134,6 +135,9 @@ import { NgxPrintModule } from 'ngx-print';
     PortalModule,
     ScrollingModule,
     NgxPrintModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',
+    })
   ],
   providers: [DataService]
 })

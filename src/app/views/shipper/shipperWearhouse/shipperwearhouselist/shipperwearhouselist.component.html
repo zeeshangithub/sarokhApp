@@ -1,6 +1,6 @@
 <div class="row mt-4" *ngIf="showlisting" (editDone)="qrIconClicked($event)">
   <div class="col-12">
-    
+
     <div class="card card-accent-primary">
       <div class="card-header" *ngIf="showlisting">
         Shipper Warehouse
@@ -10,31 +10,22 @@
         Add Shipper Warehouse
 
       </div>
-      <button style="background: #ec1c24 !important; border: #ec1c24 solid 1px;" class="btn btn-success float-right custom-position"
-        (click)="addNew(false)">Add New</button>
+      <button style="background: #ec1c24 !important; border: #ec1c24 solid 1px;"
+        class="btn btn-success float-right custom-position" (click)="addNew(false)">Add New</button>
       <div class="card-body">
-        <div class="map-img">
+        <div class="map-img" *ngIf="showmap">
           <div class="container">
-           
+
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-              <!-- <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-                (dragEnd)="markerDragEnd($event)"></agm-marker> -->
-                <agm-marker  *ngFor="let data of rooms; let i = index" [latitude]="data.lat" [longitude]="data.long">
-</agm-marker>
+              <agm-marker *ngFor="let location of mapLocations; " [latitude]="location.latitude"
+                [longitude]="location.longitude">
+              </agm-marker>
             </agm-map>
-           
-            <h5>Address: {{address}}</h5>
-            <div>Latitude: {{latitude}}</div>
-            <div>Longitude: {{longitude}}</div>
+
           </div>
         </div>
         <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
           <thead>
-            <!-- <tr>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
-                  Details
-                </button>
-              </tr> -->
             <tr>
               <th scope="col">Actions</th>
               <th scope="col">Warehouse ID</th>
@@ -49,13 +40,11 @@
           </thead>
           <tbody>
             <tr *ngFor="let shipperlist of shipperwearhouselist">
-              <!-- <td>
-                <button class="btn btn-warning" (click)="editShipper(shipperlist.id , false)">Edit</button>
-                <button class="btn btn-primary" (click)="DeleteWearhouse(shipperlist.id)">Delete</button>
-              </td> -->
               <td>
-                <i style="font-size: 20px; margin-right: 15px; color: #337ab7;" (click)="editShipper(shipperlist.id , false)" class="fa fa-pencil"></i>
-                <i style="font-size: 20px;  color: #d9534f;" (click)="DeleteWearhouse(shipperlist.id)" class="fa fa-trash-o"></i>
+                <i style="font-size: 20px; margin-right: 15px; color: #337ab7;"
+                  (click)="editShipper(shipperlist.id , false)" class="fa fa-pencil"></i>
+                <i style="font-size: 20px;  color: #d9534f;" (click)="DeleteWearhouse(shipperlist.id)"
+                  class="fa fa-trash-o"></i>
               </td>
               <td>{{shipperlist.id}}</td>
               <td>{{shipperlist.name}}</td>
@@ -63,10 +52,6 @@
               <td>{{shipperlist.mangerContact}}</td>
               <td>{{shipperlist.address}}</td>
               <td>{{shipperlist.city}}</td>
-              <!-- <td *ngFor="let users of shipperlist.users">{{users.fullName}} , {{users.designation}} </td> -->
-              <!--  <td>{{order.shipperId}}</td>
-                <td>{{order.status}}</td>-->
-
             </tr>
           </tbody>
         </table>
@@ -76,7 +61,8 @@
 </div>
 
 
-<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

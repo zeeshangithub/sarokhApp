@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { OrderService } from '../../../services/order.service';
 import { WarehouseService } from '../../../services/warehouse.service';
@@ -7,6 +7,7 @@ import { Shipment } from '../../../classes/shipment';
 import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { ToastrService } from 'ngx-toastr';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
@@ -31,6 +32,11 @@ export class AddOrderComponent implements OnInit {
   obj: {};
   showsarokhpointdropdown = false;
   alldealers;
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+  private geoCoder;
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
@@ -46,9 +52,15 @@ export class AddOrderComponent implements OnInit {
     private dealerService: DealerService,
     private router: Router,
     private shareData: DataService,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
   ) { }
   ngOnInit(): void {
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+    });
     // this.shipmentDetails = [];
     this.getshippersnadsarokhwarehouses();
     // this.addShipmentDetail();
@@ -119,7 +131,9 @@ export class AddOrderComponent implements OnInit {
       codAmount: [''],
       billedAmount: [''],
       additionalServices: this.formbuilder.array([]),
-      deliveryCharges: [30]
+      deliveryCharges: [30],
+      locationLatitude : [''],
+      locationLongitude : ['']
     })
   }
   selectedpickuplocation(warehouse): void {
@@ -189,6 +203,9 @@ export class AddOrderComponent implements OnInit {
   }
   AddandCreateNew(shi) {
     this.shipmentInformationArray = [];
+
+    this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
+    this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
     this.shipmentInformationArray.push(shi.value);
     this.shipmentInformation.reset();
@@ -220,16 +237,13 @@ export class AddOrderComponent implements OnInit {
   getCity() {
     this.orderService.getCityList().subscribe(res => {
       this.citylist = res.data;
-      // console.log(this.citylist)
     })
   }
   generateOrderID() {
     var shipperId = localStorage.getItem('id');
-    // console.log(shipperId)
     var orderId = '';
     this.orderService.getOrderId(shipperId).subscribe(res => {
       orderId = res.data;
-      // console.log("res", res.data)
       this.orderBasicInfoForm.controls['orderId'].setValue(orderId);
       this.orderBasicInfoForm.controls['shipperId'].setValue(shipperId);
     })
@@ -237,13 +251,11 @@ export class AddOrderComponent implements OnInit {
   getshippersnadsarokhwarehouses() {
     this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
       if (res && res.data) {
-        // console.log(res)
         this.sarokhWarehouses = res.data;
       }
     })
     this.warehouseService.fetchShipperWarehouses(localStorage.getItem('id')).subscribe(res => {
       if (res && res.data) {
-        // console.log(res);
         this.shipperWarehouses = res.data;
       }
     })
@@ -251,7 +263,6 @@ export class AddOrderComponent implements OnInit {
   dealers() {
     this.dealerService.fetchDealers().subscribe(res => {
       this.alldealers = res.data;
-      // console.log("this.alldealers", this.alldealers)
     })
   }
   onCheckboxChange(e) {
@@ -272,16 +283,13 @@ export class AddOrderComponent implements OnInit {
   codAmountCalculation(value) {
     const val = parseInt(value) + 30;
     this.shipmentInformation.patchValue({ 'billedAmount': val })
-
   }
   fetchDetails(val) {
     console.log(val)
     if (val === 'Prepaid') {
       this.shipmentInformation.patchValue({ 'billedAmount': 30 })
       this.shipmentInformation.patchValue({ 'codAmount': 0 })
-
     } else if (val === 'COD') {
-
     }
   }
   checkSarokhPoint(value) {
@@ -292,7 +300,6 @@ export class AddOrderComponent implements OnInit {
       this.showsarokhpointdropdown = false;
     }
   }
-
   todealerpoint(value) {
     // console.log("value", value)
     if (value === "To Sarokh Point") {
@@ -302,4 +309,37 @@ export class AddOrderComponent implements OnInit {
     }
 
   }
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoom = 8;
+        this.getAddress(this.latitude, this.longitude);
+      });
+    }
+  }
+  markerDragEnd($event: MouseEvent) {
+    console.log($event);
+    this.latitude = $event.coords.lat;
+    this.longitude = $event.coords.lng;
+    this.getAddress(this.latitude, this.longitude);
+  }
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 12;
+          this.address = results[0].formatted_address;
+        } else {
+          // window.alert('No results found');
+        }
+      } else {
+        // window.alert('Geocoder failed due to: ' + status);
+      }
+    });
+  }
+
 }

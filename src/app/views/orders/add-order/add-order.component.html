@@ -3,6 +3,7 @@
     Add Order
   </div>
   <div class="card-body">
+ 
     <div class="wizard-container">
       <aw-wizard>
         <aw-wizard-step stepTitle="Basic Information" [canExit]="orderBasicInfoForm.valid">
@@ -123,6 +124,20 @@
           </form>
         </aw-wizard-step>
         <aw-wizard-step stepTitle=" Shipment Information" [canExit]="shipmentInformation.valid">
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <!-- <h5>Address: {{address}}</h5> -->
+              <div>Latitude: {{latitude}}</div>
+           
+              </div>
+              <div class="form-group col-md-6">
+                <div>Longitude: {{longitude}}</div>
+              </div>
+              </div>
           <form class="margintop30" [formGroup]="shipmentInformation">
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -201,6 +216,11 @@
               <div class="form-group col-md-6">
                 <label for="billedAmount">Receiver Billed Amount</label>
                 <input disabled type="text" class="form-control" formControlName="billedAmount" id="billedAmount" placeholder="Billed Amount">
+              </div>
+              <div class="form-group col-md-6">
+              
+
+              
               </div>
             </div>
             <div class="form-row ml-3 mb-4 mt-4">

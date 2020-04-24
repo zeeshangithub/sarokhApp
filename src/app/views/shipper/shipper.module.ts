@@ -37,7 +37,6 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',
     })
-    // HighchartsChartComponent
   ],
   providers: [DataService],
   schemas:  [ CUSTOM_ELEMENTS_SCHEMA ]

@@ -28,6 +28,8 @@ export class ShipperwearhouselistComponent implements OnInit {
   dtOption: any = {};
   shipperwearhouselist: any;
   showlisting: boolean = true;
+  mapLocations;
+  showmap = false;
   constructor(private router: Router, private shipperwearhouse: ShipperWearhouseService,
     private shareData: DataService,
     // private cdr: ChangeDetectorRef,
@@ -63,24 +65,17 @@ export class ShipperwearhouselistComponent implements OnInit {
       "ordering": true,
       "info": true
     };
-    // debugger;
-
     this.fetchWearhouse();
-
   }
   ngAfterViewInit() {
     this.dataTable = $(this.table.nativeElement);
     this.dataTable.DataTable(this.dtOption);
     this.fetchWearhouse();
-
   }
-
   qrIconClicked(event: any) {
-
     console.log("dfdfsd", event)
   }
   onLoadNext() {
-
     this.fetchWearhouse();
   }
   viewOrder() {
@@ -91,8 +86,12 @@ export class ShipperwearhouselistComponent implements OnInit {
   }
   fetchWearhouse() {
     this.shipperwearhouse.GetShipperWerahouseList().subscribe(res => {
-      this.shipperwearhouselist = res.data;
-      console.log("res", res.data)
+      this.shipperwearhouselist = res.data.warehouseList;
+    if(res.data){
+      this.mapLocations = res.data.mapLocations;
+      this.showmap = true;
+    }
+      console.log("res", this.mapLocations)
     })
   }
   DeleteWearhouse(id) {
