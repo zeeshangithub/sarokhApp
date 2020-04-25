@@ -12,15 +12,15 @@
           <form class="margintop30" [formGroup]="basicInfoForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName" required>
+                <label for="firstName">Business Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Business Name" formControlName="firstName" required>
                 <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
                   <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
                 </div>
               </div>
               <div class="form-group col-md-6">
-                <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName" required>
+                <label for="lastName">Full Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Full Name" formControlName="lastName" required>
               </div>
             </div>
             <div class="form-row">

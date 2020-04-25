@@ -126,12 +126,12 @@ export const navItems: INavData[] = [
         icon: 'fas fa-warehouse',
         children: [
             {
-                name: 'Add Wearhouse',
+                name: 'Add Warehouse',
                 url: '/admin/addsarokhwearhouse',
                 icon: 'fas fa-warehouse',
             },
             {
-                name: 'Wearhouse List',
+                name: 'Warehouse List',
                 url: '/admin/sarokhwearhouselist',
                 icon: 'fas fa-warehouse',
             },
@@ -269,13 +269,13 @@ export const navItems: INavData[] = [
         icon: 'fas fa-store',
         children: [
             {
-                name: 'All Dealers',
-                url: '/admin/alldealers',
+                name: 'Add Dealers',
+                url: '/admin/adddealer',
                 icon: 'fas fa-store',
             },
             {
-                name: 'Add Dealers',
-                url: '/admin/adddealer',
+                name: 'All Dealers',
+                url: '/admin/alldealers',
                 icon: 'fas fa-store',
             },
             {
@@ -442,13 +442,13 @@ export const ShipperNavItems: INavData[] = [
         icon: 'fas fa-money-bill-wave',
         children: [
             {
-                name: 'All Ledger',
-                url: '/shipper/ledgers',
+                name: 'Add Ledger',
+                url: '/shipper/addledgers',
                 icon: 'fas fa-money-bill-wave'
             },
             {
-                name: 'Add Ledger',
-                url: '/shipper/addledgers',
+                name: 'All Ledger',
+                url: '/shipper/ledgers',
                 icon: 'fas fa-money-bill-wave'
             }
         ]
