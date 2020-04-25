@@ -11,6 +11,17 @@
         </div>
         <button class="btn btn-success float-right" (click)="addNew(false)" >Add New</button>
         <div class="card-body">
+          <div class="map-img" *ngIf="showmap">
+            <div class="container">
+  
+              <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                <agm-marker *ngFor="let location of mapLocations; " [latitude]="location.latitude"
+                  [longitude]="location.longitude">
+                </agm-marker>
+              </agm-map>
+  
+            </div>
+          </div>
           <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
             <thead>
               <!-- <tr>

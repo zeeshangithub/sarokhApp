@@ -252,12 +252,12 @@ export class AddOrderComponent implements OnInit {
   getshippersnadsarokhwarehouses() {
     this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
       if (res && res.data) {
-        this.sarokhWarehouses = res.data;
+        this.sarokhWarehouses = res.data.warehouselist;
       }
     })
     this.warehouseService.fetchShipperWarehouses(localStorage.getItem('id')).subscribe(res => {
       if (res && res.data) {
-        this.shipperWarehouses = res.data;
+        this.shipperWarehouses = res.data.warehouselist;
       }
     })
   }
@@ -312,12 +312,9 @@ export class AddOrderComponent implements OnInit {
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 8;
-        this.getAddress(this.latitude, this.longitude);
-      });
+      this.latitude = 21.543333;
+      this.longitude = 39.172779;
+      this.zoom = 7;
     }
   }
   markerDragEnd($event: MouseEvent) {

@@ -56,6 +56,21 @@
 
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Dealer Detail" [canExit]="dealerDetailsForm.valid">
+          
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+              (dragEnd)="markerDragEnd($event)"></agm-marker>
+          </agm-map>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <!-- <h5>Address: {{address}}</h5> -->
+              <div>Latitude: {{latitude}}</div>
+           
+              </div>
+              <div class="form-group col-md-6">
+                <div>Longitude: {{longitude}}</div>
+              </div>
+              </div>
           <form class="margintop30" [formGroup]="dealerDetailsForm">
             <div class="form-row">
               <div class="form-group col-md-6">

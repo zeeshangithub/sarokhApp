@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { DealerService } from '../../../../services/dealer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { FileUploader } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
-
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 @Component({
   selector: 'app-add-dealer',
   templateUrl: './add-dealer.component.html',
@@ -22,6 +22,11 @@ export class AddDealerComponent implements OnInit {
   selectedDealer;
   validationErrorMessage = "Please Enter Required Fields";
   filepath;
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+  private geoCoder;
   fullFormsInfo = {
     dealerContract: {},
     credentials: {},
@@ -30,7 +35,9 @@ export class AddDealerComponent implements OnInit {
   }
 
   constructor(private router: Router, private formbuilder: FormBuilder, private dealerService: DealerService,
-    private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService) {
+    private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService ,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,) {
 
 
   }
@@ -211,4 +218,36 @@ export class AddDealerComponent implements OnInit {
       this.toaster.error(this.validationErrorMessage);
     }
   }
+
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      this.latitude = 21.543333;
+      this.longitude = 39.172779;
+      this.zoom = 7;
+    }
+  }
+  markerDragEnd($event: MouseEvent) {
+    console.log($event);
+    this.latitude = $event.coords.lat;
+    this.longitude = $event.coords.lng;
+    this.getAddress(this.latitude, this.longitude);
+  }
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 12;
+          this.address = results[0].formatted_address;
+        } else {
+          // window.alert('No results found');
+        }
+      } else {
+        // window.alert('Geocoder failed due to: ' + status);
+      }
+    });
+  }
+
+
 }

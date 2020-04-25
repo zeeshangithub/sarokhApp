@@ -46,7 +46,7 @@ export class CreateTripComponent implements OnInit {
   getReleventData(){
 
     this.warehouse.fetchSarokhWarehouses().subscribe( res => {
-      this.warehouselist = res.data;
+      this.warehouselist = res.data.warehouselist;
       console.log('this.warehouselist' , this.warehouselist)
     })
     this.vehical.getVehical().subscribe( res => {

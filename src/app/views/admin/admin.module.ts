@@ -56,6 +56,7 @@ import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component'
 import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -94,7 +95,10 @@ import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhous
     ReactiveFormsModule,
     ButtonsModule.forRoot(),
     AdminRoutingModule,
-    FileUploadModule
+    FileUploadModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',
+    })
   ],
   providers: [DataService]
 })
