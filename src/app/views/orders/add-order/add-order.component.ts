@@ -133,8 +133,8 @@ export class AddOrderComponent implements OnInit {
       billedAmount: [''],
       additionalServices: this.formbuilder.array([]),
       deliveryCharges: [30],
-      locationLatitude : [''],
-      locationLongitude : ['']
+      locationLatitude: [''],
+      locationLongitude: ['']
     })
   }
   selectedpickuplocation(warehouse): void {
@@ -252,17 +252,18 @@ export class AddOrderComponent implements OnInit {
   getshippersnadsarokhwarehouses() {
     this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
       if (res && res.data) {
-        this.sarokhWarehouses = res.data.warehouselist;
+        this.sarokhWarehouses = res.data.warehouseList;
+        console.log(this.sarokhWarehouses);
       }
     })
     this.warehouseService.fetchShipperWarehouses(localStorage.getItem('id')).subscribe(res => {
       if (res && res.data) {
-        this.shipperWarehouses = res.data.warehouselist;
+        this.shipperWarehouses = res.data.warehouseList;
       }
     })
   }
   dealers() {
-    this.dealerService.fetchDealers().subscribe(res => {
+    this.dealerService.fetchAllDealersPoints().subscribe(res => {
       this.alldealers = res.data;
     })
   }

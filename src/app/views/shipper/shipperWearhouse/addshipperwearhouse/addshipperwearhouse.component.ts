@@ -202,12 +202,14 @@ export class AddshipperwearhouseComponent implements OnInit {
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
-        this.zoom = 8;
-        this.getAddress(this.latitude, this.longitude);
-      });
+      this.latitude = 21.543333;
+      this.longitude = 39.172779;
+      this.zoom = 7;
+      // navigator.geolocation.getCurrentPosition((position) => {
+      //   this.latitude = position.coords.latitude;
+      //   this.longitude = position.coords.longitude;
+      //   this.zoom = 15;
+      // });
     }
   }
   markerDragEnd($event: MouseEvent) {

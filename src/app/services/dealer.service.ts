@@ -14,6 +14,9 @@ export class DealerService {
   fetchDealers() {
     return this.http.get<any>(`${environment.apiURL}dealer/get-list`);
   }
+  fetchAllDealersPoints() {
+    return this.http.get<any>(`${environment.apiURL}dealer-point/get-list`);
+  }
 
   fetchDealersDetail() {
     var user = localStorage.getItem('id')
@@ -40,16 +43,16 @@ export class DealerService {
     return this.http.get<any>(`${environment.apiURL}dealer/get-dealer-cod-returns/${user}`);
   }
 
-  deleteDealer ( id : any){
+  deleteDealer(id: any) {
     return this.http.delete<any>(`${environment.apiURL}dealer/delete/${id}`)
   }
 
-  getSingleDealer ( id : any){
+  getSingleDealer(id: any) {
     return this.http.get<any>(`${environment.apiURL}/dealer/get-details/${id}`)
   }
 
-  
-  updateSingleDealer ( formData : any){
+
+  updateSingleDealer(formData: any) {
     return this.http.put<any>(`${environment.apiURL}dealer/update`, formData);
   }
 
