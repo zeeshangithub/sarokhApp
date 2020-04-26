@@ -44,7 +44,7 @@ export class AddShipperComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       dateOfBirth: ['', [Validators.required]],
       contact: ['', [Validators.required]],
-      profilePicture: ['']
+      profilePicture: [''],
     })
   }
 
@@ -109,6 +109,7 @@ export class AddShipperComponent implements OnInit {
   }
 
   finishFunction() {
+    debugger;
     this.fullFormsInfo.shipperBasicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.billingAddress = this.billingDetailsForm.value;
     this.fullFormsInfo.security = this.securityForm.value;

@@ -158,25 +158,26 @@ export class AddOrderComponent implements OnInit {
     }
   }
 
-  finishFunction() {
-    if (this.finalresponse.length <= 1) {
-      var fullFormData = {
-        orderBasicInfo: this.orderBasicInfoForm.value,
-        pickupAndDelivery: this.pickupAndDelivery.value,
-        shipmentItems: this.shipmentInformationArray,
-      }
-      console.log("full form data", fullFormData)
-      const fullRequest = {
-        ...fullFormData.orderBasicInfo,
-        ...fullFormData.pickupAndDelivery,
-      };
-      console.log("fullRequest", fullRequest)
-      fullRequest.shipmentItems = this.shipmentInformationArray;
-      console.log("fullRequest", fullRequest)
-      this.finalresponse.push(fullRequest);
-    }
-    console.table("fullRequest", this.finalresponse)
-    this.orderService.addOrder(this.finalresponse).subscribe(res => {
+  finishFunction( res) {
+    // if (this.finalresponse.length <= 1) {
+    //   var fullFormData = {
+    //     orderBasicInfo: this.orderBasicInfoForm.value,
+    //     pickupAndDelivery: this.pickupAndDelivery.value,
+    //     shipmentItems: this.shipmentInformationArray,
+    //   }
+    //   console.log("full form data", fullFormData)
+    //   const fullRequest = {
+    //     ...fullFormData.orderBasicInfo,
+    //     ...fullFormData.pickupAndDelivery,
+    //   };
+    //   console.log("fullRequest", fullRequest)
+    //   fullRequest.shipmentItems = this.shipmentInformationArray;
+    //   console.log("fullRequest", fullRequest)
+    //   this.finalresponse.push(fullRequest);
+    // }
+
+    console.table("fullRequest", res)
+    this.orderService.addOrder(res).subscribe(res => {
       console.log("res", res)
       if (res.status == 200) {
         this.toaster.success(res.message)
@@ -204,7 +205,7 @@ export class AddOrderComponent implements OnInit {
   }
   AddandCreateNew(shi) {
     this.shipmentInformationArray = [];
-
+debugger;
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
@@ -226,7 +227,7 @@ export class AddOrderComponent implements OnInit {
     console.log("fullRequest", fullRequest)
     this.finalresponse.push(fullRequest);
     console.log(this.finalresponse);
-    this.finishFunction();
+    this.finishFunction(this.finalresponse);
   }
   closeAdd() {
     this.showlisting.emit(true);

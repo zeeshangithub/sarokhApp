@@ -18,7 +18,7 @@ export class AdddriversComponent implements OnInit {
   vehicleDetailsForm: FormGroup;
   securityForm: FormGroup;
   validationErrorMessage = "Please Enter Required Fields";
-  diverType;
+  diverType = "Employee";
   forFreelancer = false;
   editMode = false;
   preview: string;
@@ -122,7 +122,9 @@ export class AdddriversComponent implements OnInit {
       locationLongitude: [''],
       nicFile: [''],
       nicNumber: ['', [Validators.required]],
-      bankAccountId: ['']
+      bankAccountId: [''],
+      diverType : ['Employee']
+
     })
   }
 

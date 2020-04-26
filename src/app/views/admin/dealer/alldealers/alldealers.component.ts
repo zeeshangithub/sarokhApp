@@ -34,7 +34,10 @@ export class AlldealersComponent implements OnInit {
 
   getDealerList() {
     this.dealerservice.fetchDealers().subscribe(res => {
+      console.log(res.data)
+
       this.dealerlist = res.data;
+
       console.log("this.dealerList", this.dealerlist)
     })
   }

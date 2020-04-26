@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 // import { OrderService } from '../../../services/order.service';
 import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.service';
@@ -9,6 +9,7 @@ import { DataService } from '../../../../services/data.service';
 import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.service';
 import { ToastrService } from 'ngx-toastr';
 import { MAT_DRAWER_DEFAULT_AUTOSIZE_FACTORY } from '@angular/material';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 @Component({
   selector: 'app-addsarokhwearhouse',
   templateUrl: './addsarokhwearhouse.component.html',
@@ -16,11 +17,15 @@ import { MAT_DRAWER_DEFAULT_AUTOSIZE_FACTORY } from '@angular/material';
 })
 export class AddsarokhwearhouseComponent implements OnInit {
 
-  @ViewChild('mapRef', { static: true }) mapElement: ElementRef;
 
   ngAfterViewInit() {
     // this.renderMap();
   }
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  address: string;
+  private geoCoder;
   warehouseadress: FormGroup;
   warehousemanager: FormGroup;
   amenities: FormGroup;
@@ -42,10 +47,16 @@ export class AddsarokhwearhouseComponent implements OnInit {
     // private warehouseService: WarehouseService,
     private shareData: DataService,
     private router: Router,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
   ) { }
 
   ngOnInit(): void {
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+    });
     // this.shipmentDetails = [];
 
     // this.addShipmentDetail();
@@ -66,8 +77,8 @@ export class AddsarokhwearhouseComponent implements OnInit {
           city: [res.city],
           country: [res.country],
           postcode: [res.postcode],
-          longitude: [res.longitude],
-          latitude: [res.latitude],
+          locationLongitude: [res.longitude],
+          locationLatitude: [res.latitude],
         })
         this.amenities = this.formbuilder.group({
           forkLifter: [res.forkLifter],
@@ -101,8 +112,8 @@ export class AddsarokhwearhouseComponent implements OnInit {
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
       postcode: ['', [Validators.required]],
-      longitude: [''],
-      latitude: [''],
+      locationLongitude: [''],
+      locationLatitude: [''],
     })
   }
 
@@ -155,8 +166,8 @@ export class AddsarokhwearhouseComponent implements OnInit {
   finishFunction() {
 
 
-    this.warehouseadress.patchValue({ 'longitude': localStorage.getItem("logitude") });
-    this.warehouseadress.patchValue({ 'latitude': localStorage.getItem("latitude") });
+    this.warehouseadress.patchValue({ 'locationLongitude': this.longitude});
+    this.warehouseadress.patchValue({ 'locationLatitude': this.latitude });
     console.log(this.warehouseadress.value);
 
     var fullFormData = {
@@ -205,63 +216,35 @@ export class AddsarokhwearhouseComponent implements OnInit {
       this.toaster.error(this.validationErrorMessage);
     }
   }
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      this.latitude = 21.543333;
+      this.longitude = 39.172779;
+      this.zoom = 7;
+    }
+  }
+  markerDragEnd($event: MouseEvent) {
+    console.log($event);
+    this.latitude = $event.coords.lat;
+    this.longitude = $event.coords.lng;
+    this.getAddress(this.latitude, this.longitude);
+  }
+  getAddress(latitude, longitude) {
+    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === 'OK') {
+        if (results[0]) {
+          this.zoom = 12;
+          this.address = results[0].formatted_address;
+        } else {
+          // window.alert('No results found');
+        }
+      } else {
+        // window.alert('Geocoder failed due to: ' + status);
+      }
+    });
+  }
+
 }
-  // loadMap = () => {
-  //   this.map = new window['google'].maps.Map(this.mapElement.nativeElement, {
-  //     center: { lat: 23.8859, lng: 45.0792 },
-  //     zoom: 7
-  //   });
-  //   this.map = new window['google'].maps.event.addListener(this.map, 'click', function (event) {
-  //     this.selectedLatitude = event.latLng.lat();
-  //     this.selectedLongitude = event.latLng.lng();
-
-  //     localStorage.setItem("latitude",this.selectedLatitude);
-  //     localStorage.setItem("logitude",this.selectedLongitude);
-
-  //     console.log(this.selectedLatitude, this.selectedLongitude)
-
-  //     var marker = new window['google'].maps.Marker({
-  //       position: new window['google'].maps.LatLng(localStorage.getItem("latitude") , localStorage.getItem("logitude") ),
-  //       //  {lat: new window['google'].maps.LatLng( this.selectedLatitude, lng: this.selectedLongitude},
-  //       map: this.map,
-  //       title: 'Warehouse1',
-  //       draggable: true,
-  //       animation: window['google'].maps.Animation.DROP,
-  //     });
-  //     var contentString = '<div id="content">'+
-  //     '<div id="siteNotice">'+
-  //     '</div>'+
-  //     '<h3 id="thirdHeading" class="thirdHeading">Sarokh</h3>'+
-  //     '<div id="bodyContent">'+
-  //     '<p></p>'+
-  //     '</div>'+
-  //     '</div>';
-
-  //     var infowindow = new window['google'].maps.InfoWindow({
-  //       content: contentString
-  //     });
-
-  //       marker.addListener('click', function() {
-  //         infowindow.open(this.map, marker);
-  //       });
-
-  //   });
-
-
-
-  // }
-  // renderMap() {
-  //   window['initMap'] = () => {
-  //     this.loadMap();
-  //   }
-  //   if (!window.document.getElementById('google-map-script')) {
-  //     var s = window.document.createElement("script");
-  //     s.id = "google-map-script";
-  //     s.type = "text/javascript";
-  //     s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw&callback=initMap";
-
-  //     window.document.body.appendChild(s);
-  //   } else {
-  //     this.loadMap();
-  //   }
-  // }
+  

@@ -37,12 +37,17 @@ export class AddDealerComponent implements OnInit {
   constructor(private router: Router, private formbuilder: FormBuilder, private dealerService: DealerService,
     private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService ,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone,) {
+    private ngZone: NgZone, ) {
 
 
   }
   public uploader: FileUploader = new FileUploader({ itemAlias: 'file' });
   ngOnInit(): void {
+
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation();
+      this.geoCoder = new google.maps.Geocoder;
+    });
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
       console.log(file);
@@ -161,6 +166,9 @@ export class AddDealerComponent implements OnInit {
     })
   }
   finishFunction() {
+    
+    this.dealerDetailsForm.patchValue({ 'locationLongitude': this.longitude});
+    this.dealerDetailsForm.patchValue({ 'locationLatitude': this.latitude });
     this.fullFormsInfo.dealerContract = this.contractDetailsForm.value;
     this.fullFormsInfo.credentials = this.securityForm.value;
     this.fullFormsInfo.dealerBasicInfo = this.basicInfoForm.value;
@@ -173,6 +181,9 @@ export class AddDealerComponent implements OnInit {
     this.dealerService.addDealer(this.fullFormsInfo).subscribe(res => {
       console.log(res)
       if (res.status === 200) {
+
+        this.toaster.success(res.message)
+
         this.router.navigate(['/admin/alldealers']);
       }
     }, err => {
