@@ -57,7 +57,7 @@ import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-in
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 import { AgmCoreModule } from '@agm/core';
-
+// import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -85,6 +85,7 @@ import { AgmCoreModule } from '@agm/core';
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
     AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent, CodLedgersComponent, DealersInventoryComponent,],
   imports: [
+    // AgGridModule.withComponents([]),
     CommonModule,
     ChartsModule,
     BsDropdownModule,

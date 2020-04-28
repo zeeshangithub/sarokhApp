@@ -11,64 +11,60 @@
                 <form [formGroup]="userForm" (ngSubmit)="submit()">
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Full Name" formControlName="fullName"
-                                [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" required>
+                            <input type="text" class="form-control" placeholder="Full Name" formControlName="fullName" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+                                required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Email" formControlName="email"
-                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Contact" formControlName="contact"
-                                [ngClass]="{ 'is-invalid': submitted && f.contact.errors }" required>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Designation"
-                                formControlName="designation"
-                                [ngClass]="{ 'is-invalid': submitted && f.designation.errors }" required>
+                            <input type="text" class="form-control" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                required>
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="DOB" formControlName="dob"
-                                [owlDateTime]="dob" [owlDateTimeTrigger]="dob"
+                            <input type="text" class="form-control" placeholder="Contact" formControlName="contact" [ngClass]="{ 'is-invalid': submitted && f.contact.errors }"
+                                required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Designation" formControlName="designation" [ngClass]="{ 'is-invalid': submitted && f.designation.errors }"
+                                required>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="DOB" formControlName="dob" [owlDateTime]="dob" [owlDateTimeTrigger]="dob"
                                 [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
                             <owl-date-time [pickerType]="'calendar'" #dob></owl-date-time>
                         </div>
                         <div class="col">
                             <select class="form-control" id="gender" formControlName="gender">
                                 <option value="">--- Select Gender ---</option>
-                                <option [value]="Male">Male</option>
-                                <option [value]="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="User Name" formControlName="userName"
-                                [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" required>
+                            <input type="text" class="form-control" placeholder="User Name" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }"
+                                required>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="User Password"
-                                formControlName="userPassword"
-                                [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }" required>
+                            <input type="text" class="form-control" placeholder="User Password" formControlName="userPassword" [ngClass]="{ 'is-invalid': submitted && f.userPassword.errors }"
+                                required>
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col-6 pl-1 pr-2">
-                            <select class="form-control" id="roleId" formControlName="roleId"
-                                [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }" required>
+                            <select class="form-control" id="roleId" formControlName="roleId" [ngClass]="{ 'is-invalid': submitted && f.roleId.errors }"
+                                required>
                                 <option value="">--- Select Role ---</option>
                                 <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
                             </select>
                         </div>
                     </div>
                     <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
-                    <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
-                    <button *ngIf="editUser" type="button" class="btn btn-warning"
-                        (click)="updateUser()">Update</button>
+                    <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button>
+                    <button *ngIf="editUser" type="button" class="btn btn-warning" (click)="updateUser()">Update</button>
                 </form>
             </div>
         </div>
