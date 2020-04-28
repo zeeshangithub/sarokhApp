@@ -38,7 +38,7 @@ export class WarehouseComponent implements OnInit {
 
     });
     this.getWarehouseService.fetchSarokhWarehouses().subscribe(res => {
-      this.warehouses = res.data
+      this.warehouses = res.data.warehouseList
     })
   }
 
