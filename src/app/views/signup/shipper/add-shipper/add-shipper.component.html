@@ -52,9 +52,13 @@
         </aw-wizard-step>
         <!-- <aw-wizard-step stepTitle="Business Detail" [canExit]="businessDetailsForm.valid"> -->
         <aw-wizard-step stepTitle="Business Detail">
-          <button class="btn btn-success" type="button" awNextStep>Individual</button>
-
           <form class="margintop30" [formGroup]="businessDetailsForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="indivi">Individual</label>
+                <input name="indivi" type="checkbox" (change)="change($event)"/>
+                </div>
+            </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="businessName">Business Name</label>
@@ -70,7 +74,7 @@
                 <label for="vatNumber">VAT Number</label>
                 <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number" formControlName="vatNumber" required>
               </div>
-              <div class="form-group col-md-6">
+              <div  *ngIf="showFields" class="form-group col-md-6">
                 <label for="crNumber">CR No</label>
                 <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
               </div>
@@ -88,7 +92,7 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group col-md-6">
+              <div *ngIf="showFields" class="form-group col-md-6">
                 <label for="inputEmail4">CR Copy Upload</label>
                 <div class="input-group">
                   <div class="input-group-prepend">

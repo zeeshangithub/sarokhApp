@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-shipper.component.css']
 })
 export class AddShipperComponent implements OnInit {
-
+  showFields =true;
   basicInfoForm: FormGroup;
   businessDetailsForm: FormGroup;
   warehouseDetailsForm: FormGroup;
@@ -128,5 +128,13 @@ export class AddShipperComponent implements OnInit {
 
     })
   }
-
+  change(value){
+    console.log(value)
+  
+    if (value.target.checked === true) {
+          this.showFields = false;
+    }else if(value.target.checked === false){
+      this.showFields = true;
+    }
+  }
 }
