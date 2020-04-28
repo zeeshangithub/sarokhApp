@@ -26,7 +26,7 @@ export class WarehouseComponent implements OnInit {
   ngOnInit(): void {
     this.renderMap();
     this.getWarehouseService.fetchSarokhWarehouses().subscribe(res => {
-      this.warehouses = res.data
+      this.warehouses = res.data.warehouseList
     })
   }
 
