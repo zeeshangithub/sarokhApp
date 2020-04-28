@@ -8,6 +8,7 @@ import { ReciveOrdersComponent } from './recive-orders/recive-orders.component';
 import { FormsModule } from '@angular/forms';
 import { DispatchOrdersComponent } from './dispatch-orders/dispatch-orders.component';
 import { ReceiverDropOffComponent } from './receiver-drop-off/receiver-drop-off.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -16,7 +17,10 @@ import { ReceiverDropOffComponent } from './receiver-drop-off/receiver-drop-off.
   imports: [
     CommonModule,
     WarehouseAdminRoutingModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',
+    })
   ]
 })
 export class WarehouseAdminModule { }

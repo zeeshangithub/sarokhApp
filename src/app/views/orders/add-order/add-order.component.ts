@@ -78,21 +78,24 @@ export class AddOrderComponent implements OnInit {
       this.orderService.getOrderDetails(sharedId).subscribe(res => {
         // console.log("res", res.data)
         const oderDetail = res.data;
-        // debugger
-        // console.log("oderDetail", oderDetail)
+        debugger
+        console.log("oderDetail", oderDetail)
+
         this.orderBasicInfoForm = this.formbuilder.group({
-          // orderId: [oderDetail.oderId],
-          pickupType: [oderDetail.pickupType],
-          shipmentType: [oderDetail.shipmentType],
-          // shipperId: [oderDetail.shipperId]
+          orderId: [oderDetail.oderId],
+          shipFromCity: [oderDetail.shipFromCity],
+          shipToCity: [oderDetail.shipToCity],
+          // pickupType: [oderDetail.pickupType],
+          // shipmentType: [oderDetail.shipmentType],
+          shipperId: [oderDetail.shipperId]
         })
         this.pickupAndDelivery = this.formbuilder.group({
-          // dateTime: [oderDetail.dateTime],
-          // warehouseId: [oderDetail.warehouseId],
-          // contact: [oderDetail.contact],
-          // concernPersonId: [oderDetail.concernPersonId],
-          // zone: [oderDetail.zone],
-          // city: [oderDetail.city]
+          dateTime: [oderDetail.dateTime],
+          warehouseId: [oderDetail.warehouseId],
+          contact: [oderDetail.contact],
+          concernPersonId: [oderDetail.concernPersonId],
+          zone: [oderDetail.zone],
+          city: [oderDetail.city]
         })
         this.shipmentDetails = oderDetail.shipmentOrderItems;
         // console.log("this.shipmentDetails" , this.shipmentDetails)
@@ -158,7 +161,7 @@ export class AddOrderComponent implements OnInit {
     }
   }
 
-  finishFunction( res) {
+  finishFunction(res) {
     // if (this.finalresponse.length <= 1) {
     //   var fullFormData = {
     //     orderBasicInfo: this.orderBasicInfoForm.value,
@@ -205,7 +208,7 @@ export class AddOrderComponent implements OnInit {
   }
   AddandCreateNew(shi) {
     this.shipmentInformationArray = [];
-debugger;
+    debugger;
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;

@@ -12,6 +12,24 @@ declare var $;
   styleUrls: ['./sarokhwearhouselist.component.css']
 })
 export class SarokhwearhouselistComponent implements OnInit {
+  // columnDefs = [
+  //   { headerName: 'Warehouse ID', field: 'id', sortable: true, filter: true },
+  //   { headerName: 'Name', field: 'name', sortable: true, filter: true },
+  //   { headerName: 'Manager Name', field: 'managerName', sortable: true, filter: true },
+  //   { headerName: 'Manager Contact', field: 'mangerContact', sortable: true, },
+  //   { headerName: 'Address', field: 'address', sortable: true, },
+  //   { headerName: 'City', field: 'city', sortable: true, },
+  //   { headerName: 'Action', field: 'price', sortable: true, }
+  // ];
+
+  // rowData = [
+  //   { make: 'Toyota', model: 'Celica', price: 35000 },
+  //   { make: 'Ford', model: 'Mondeo', price: 32000 },
+  //   { make: 'Porsche', model: 'Boxter', price: 72000 }
+  // ];
+
+  // rowData: any;
+
   latitude: number;
   longitude: number;
   zoom: number;
@@ -21,18 +39,18 @@ export class SarokhwearhouselistComponent implements OnInit {
   dataTable: any;
   dtOption: any = {};
   sarokhwearhouselist: any;
-  showlisting  : boolean = true;
+  showlisting: boolean = true;
   mapLocations;
   showmap = false;
   constructor(private router: Router, private sarokhwearhouse: SarokhwearhouseService,
-    private shareData : DataService ,   private mapsAPILoader: MapsAPILoader,
+    private shareData: DataService, private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
   ngOnInit(): void {
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
- 
-     
+
+
     });
     this.setCurrentLocation();
     this.dtOption = {
@@ -52,38 +70,38 @@ export class SarokhwearhouselistComponent implements OnInit {
     this.router.navigate(['orders/vieworder', '216513']);
   }
 
-  addOrder(){
+  addOrder() {
     this.router.navigate(['orders/add']);
   }
 
-  fetchWearhouse () {
-    this.sarokhwearhouse.GetSarokhWerahouseList().subscribe( res => {
+  fetchWearhouse() {
+    this.sarokhwearhouse.GetSarokhWerahouseList().subscribe(res => {
       this.sarokhwearhouselist = res.data.warehouseList;
-
-      if(res.data){
+      // this.rowData = res.data.warehouseList;
+      if (res.data) {
         this.mapLocations = res.data.mapLocations;
         this.showmap = true;
       }
-      console.log("res" , res.data)
+      console.log("res", res.data)
 
     })
   }
-  DeleteWearhouse(id){
-    this.sarokhwearhouse.DeleteSarokhWearhouse(id).subscribe( res => {
-      console.log("res" , res)
-      
-      if(res.status === 200){
+  DeleteWearhouse(id) {
+    this.sarokhwearhouse.DeleteSarokhWearhouse(id).subscribe(res => {
+      console.log("res", res)
+
+      if (res.status === 200) {
         this.fetchWearhouse();
       }
     })
   }
-  addNew(e){
+  addNew(e) {
     this.showlisting = e
   }
-  EditWarehouse(id , e : boolean){
+  EditWarehouse(id, e: boolean) {
     this.showlisting = e;
     this.shareData.setID(id);
-  }private setCurrentLocation() {
+  } private setCurrentLocation() {
     if ('geolocation' in navigator) {
       this.latitude = 21.543333;
       this.longitude = 39.172779;
@@ -101,7 +119,7 @@ export class SarokhwearhouselistComponent implements OnInit {
     this.longitude = $event.coords.lng;
     this.getAddress(this.latitude, this.longitude);
   }
- 
+
   getAddress(latitude, longitude) {
     this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
       console.log(results);
@@ -116,7 +134,7 @@ export class SarokhwearhouselistComponent implements OnInit {
       } else {
         // window.alert('Geocoder failed due to: ' + status);
       }
- 
+
     });
   }
 }

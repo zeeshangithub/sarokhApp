@@ -14,7 +14,11 @@
                         </select>
                     </div>
                     <div class="col-sm-6">
-                        <div #mapRef style="width:100%;height:200px"></div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                            <agm-marker *ngFor="let location of mapLocations; " [latitude]="location.latitude" [longitude]="location.longitude">
+                            </agm-marker>
+                          </agm-map>
+              
                     </div>
                 </div>
                 <!-- 

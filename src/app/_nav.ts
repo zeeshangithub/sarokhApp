@@ -24,28 +24,28 @@ export const navItems: INavData[] = [
             }
         ]
     },
-    // {
-    //     name: 'Orders',
-    //     url: '/orders',
-    //     icon: 'fas fa-dolly-flatbed',
-    //     children: [
-    //         {
-    //             name: 'All Orders',
-    //             url: '/admin/allorder',
-    //             icon: 'fas fa-dolly-flatbed'
-    //         },
-    //         {
-    //             name: 'Pickup Orders',
-    //             url: '/admin/pickuporders',
-    //             icon: 'fas fa-dolly-flatbed'
-    //         },
-    //         {
-    //             name: 'Delivery Orders',
-    //             url: '/admin/deliveryorders',
-    //             icon: 'fas fa-dolly-flatbed'
-    //         },
-    //     ]
-    // },
+    {
+        name: 'Orders',
+        url: '/orders',
+        icon: 'fas fa-dolly-flatbed',
+        children: [
+            {
+                name: 'All Orders',
+                url: '/orders/orders',
+                icon: 'fas fa-dolly-flatbed'
+            },
+            // {
+            //     name: 'Pickup Orders',
+            //     url: '/admin/pickuporders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+            // {
+            //     name: 'Delivery Orders',
+            //     url: '/admin/deliveryorders',
+            //     icon: 'fas fa-dolly-flatbed'
+            // },
+        ]
+    },
     {
         name: 'Shipments',
         url: '/dashboard',
@@ -374,11 +374,11 @@ export const ShipperNavItems: INavData[] = [
                 url: '/orders/add',
                 icon: 'fas fa-shopping-cart'
             },
-            // {
-            //     name: 'All Orders',
-            //     url: '/orders/orders',
-            //     icon: 'fas fa-shopping-cart'
-            // },
+            {
+                name: 'All Orders',
+                url: '/orders/orders',
+                icon: 'fas fa-shopping-cart'
+            },
             // {
             //     name: 'Pending Orders',
             //     url: '/orders/pendingorders',
