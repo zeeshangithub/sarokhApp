@@ -41,6 +41,7 @@ export class AddOrderComponent implements OnInit {
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
+  oderDetail
   additionalServices: Array<any> = [
     { name: 'Normal Packaging', value: 'Normal Packaging' },
     { name: 'Gift Wrapping ', value: 'Gift Wrapping' },
@@ -77,28 +78,61 @@ export class AddOrderComponent implements OnInit {
       this.editOrder = true;
       this.orderService.getOrderDetails(sharedId).subscribe(res => {
         // console.log("res", res.data)
-        const oderDetail = res.data;
-        debugger
-        console.log("oderDetail", oderDetail)
-
+        this.oderDetail = res.data;
+        console.log("oderDetail", this.oderDetail)
         this.orderBasicInfoForm = this.formbuilder.group({
-          orderId: [oderDetail.oderId],
-          shipFromCity: [oderDetail.shipFromCity],
-          shipToCity: [oderDetail.shipToCity],
+          orderId: [this.oderDetail.oderId],
+          shipFromCity: [this.oderDetail.shipFromCity],
+          shipToCity: [this.oderDetail.shipToCity],
           // pickupType: [oderDetail.pickupType],
           // shipmentType: [oderDetail.shipmentType],
-          shipperId: [oderDetail.shipperId]
+          shipperId: [this.oderDetail.shipperId]
         })
-        this.pickupAndDelivery = this.formbuilder.group({
-          dateTime: [oderDetail.dateTime],
-          warehouseId: [oderDetail.warehouseId],
-          contact: [oderDetail.contact],
-          concernPersonId: [oderDetail.concernPersonId],
-          zone: [oderDetail.zone],
-          city: [oderDetail.city]
+        console.log(this.oderDetail.pickupLocation)
+        console.log(this.oderDetail.deliveryLocation)
+        // this.pickupAndDelivery = this.formbuilder.group({
+          // dateTime: [oderDetail.dateTime],
+          // warehouseId: [oderDetail.warehouseId],
+          // contact: [oderDetail.contact],
+          // concernPersonId: [oderDetail.concernPersonId],
+          // zone: [oderDetail.zone],
+          // city: [oderDetail.city],
+        //   pickupType :[this.oderDetail.pickupLocation],
+        //   deliveryLocation: [this.oderDetail.deliveryLocation]
+        // })
+        console.log(this.oderDetail)
+        this.shipmentInformation.patchValue({ 'receiverName': this.oderDetail.shipmentOrderItems[0].receiverName });
+        this.shipmentInformation.patchValue({ 'receiverMobileNumber': this.oderDetail.shipmentOrderItems[0].contact });
+        this.shipmentInformation.patchValue({ 'receiverAddress': this.oderDetail.shipmentOrderItems[0].address });
+        this.shipmentInformation.patchValue({ 'shipmentType': this.oderDetail.shipmentOrderItems[0].shipmentType });
+        this.shipmentInformation.patchValue({ 'weight': this.oderDetail.shipmentOrderItems[0].weight });
+        this.shipmentInformation.patchValue({ 'shipmentTitle': this.oderDetail.shipmentOrderItems[0].shipmentTitle });
+        this.shipmentInformation.patchValue({ 'shipmentContent': this.oderDetail.shipmentOrderItems[0].shipmentContent });
+        this.shipmentInformation.patchValue({ 'shipmentValue': this.oderDetail.shipmentOrderItems[0].shipmentValue });
+        this.shipmentInformation.patchValue({ 'paymentType': this.oderDetail.shipmentOrderItems[0].paymentType });
+        this.shipmentInformation.patchValue({ 'codAmount': this.oderDetail.shipmentOrderItems[0].codAmount });
+        this.shipmentInformation.patchValue({ 'billedAmount': this.oderDetail.shipmentOrderItems[0].billedAmount });
+        this.shipmentInformation.patchValue({ 'additionalServices': this.oderDetail.shipmentOrderItems[0].additionalServices });
+        this.shipmentInformation.patchValue({ 'deliveryCharges': this.oderDetail.shipmentOrderItems[0].deliveryCharges });
+        this.shipmentInformation = this.formbuilder.group({
+          receiverName: [this.oderDetail.shipmentOrderItems.receiverName],
+          receiverMobileNumber: [this.oderDetail.shipmentOrderItems.receiverMobileNumber],
+          receiverAddress: [this.oderDetail.shipmentOrderItems.receiverAddress],
+          shipmentType: [''],
+          weight: [''],
+          shipmentTitle: [''],
+          shipmentContent: [''],
+          shipmentValue: [''],
+          paymentType: [''],
+          codAmount: [''],
+          billedAmount: [''],
+          additionalServices: this.formbuilder.array([]),
+          deliveryCharges: [30],
+          locationLatitude: [''],
+          locationLongitude: ['']
         })
-        this.shipmentDetails = oderDetail.shipmentOrderItems;
-        // console.log("this.shipmentDetails" , this.shipmentDetails)
+        this.shipmentDetails = this.oderDetail.shipmentOrderItems;
+        console.log("this.shipmentDetails" , this.shipmentDetails)
       })
     }
   }
@@ -160,7 +194,6 @@ export class AddOrderComponent implements OnInit {
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
     }
   }
-
   finishFunction(res) {
     // if (this.finalresponse.length <= 1) {
     //   var fullFormData = {
@@ -313,7 +346,6 @@ export class AddOrderComponent implements OnInit {
     } else {
       this.dealerPointList = false;
     }
-
   }
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
@@ -344,8 +376,6 @@ export class AddOrderComponent implements OnInit {
       }
     });
   }
-
-
   ShowErrorWarehouseManager() {
     console.log(this.orderBasicInfoForm.valid);
     if (this.orderBasicInfoForm.valid === false) {

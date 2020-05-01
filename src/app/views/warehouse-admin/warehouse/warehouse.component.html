@@ -13,9 +13,9 @@
                             <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">{{warehouse.name}}</option>
                         </select>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6" *ngIf="showMap">
                         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-                            <agm-marker *ngFor="let location of mapLocations; " [latitude]="location.latitude" [longitude]="location.longitude">
+                            <agm-marker  [latitude]="latitude" [longitude]="longitude">
                             </agm-marker>
                           </agm-map>
               

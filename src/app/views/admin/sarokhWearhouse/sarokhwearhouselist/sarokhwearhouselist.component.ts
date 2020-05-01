@@ -103,8 +103,8 @@ export class SarokhwearhouselistComponent implements OnInit {
     this.shareData.setID(id);
   } private setCurrentLocation() {
     if ('geolocation' in navigator) {
-      this.latitude = 21.543333;
-      this.longitude = 39.172779;
+      // this.latitude = 21.543333;
+      // this.longitude = 39.172779;
       this.zoom = 7;
       // navigator.geolocation.getCurrentPosition((position) => {
       //   this.latitude = position.coords.latitude;

@@ -5,7 +5,7 @@ import { WarehouseAdminComponent } from './warehouse-admin.component';
 import { WarehouseDashboardComponent } from './warehouse-dashboard/warehouse-dashboard.component';
 import { WarehouseComponent } from './warehouse/warehouse.component';
 import { ReciveOrdersComponent } from './recive-orders/recive-orders.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DispatchOrdersComponent } from './dispatch-orders/dispatch-orders.component';
 import { ReceiverDropOffComponent } from './receiver-drop-off/receiver-drop-off.component';
 import { AgmCoreModule } from '@agm/core';
@@ -17,6 +17,7 @@ import { AgmCoreModule } from '@agm/core';
   imports: [
     CommonModule,
     WarehouseAdminRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCjt_DROGYyzEY0BTDt0vrPcZIMLuBUGiw',

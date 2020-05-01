@@ -208,7 +208,7 @@
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Previous Step</button>
               <button *ngIf="ifEditMode" class="btn btn-success" type="button" (click)="updateFunction()">Update</button>
-              <button *ngIf="!ifEditMode" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+              <button *ngIf="!ifEditMode" [disabled]="!securityForm" class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
             </div>
           </form>
 

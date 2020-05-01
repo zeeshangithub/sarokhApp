@@ -16,6 +16,7 @@ export class WarehouseComponent implements OnInit {
   warehouseData: any;
   private geoCoder;
   address;
+  showMap = false;
   @ViewChild('mapRef', { static: true }) mapElement: ElementRef;
 
 
@@ -31,12 +32,7 @@ export class WarehouseComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-    this.mapsAPILoader.load().then(() => {
-      this.setCurrentLocation();
-      this.geoCoder = new google.maps.Geocoder;
-
-
-    });
+    
     this.getWarehouseService.fetchSarokhWarehouses().subscribe(res => {
       this.warehouses = res.data.warehouseList
     })
@@ -47,14 +43,27 @@ export class WarehouseComponent implements OnInit {
     this.getwarehouseDashoboardData.dashboardSarokhWearhouse(id).subscribe(res => {
       console.log("res", res)
       this.warehouseData = res.data;
-      this.shipmentList = res.data.shipments
+      this.shipmentList = res.data.shipments;
+      this.latitude = parseInt(res.data.locationLatitude);
+      this.longitude = parseInt(res.data.locationLongitude);
+      this.showMap = true;
+      this.initializeMap(this.latitude , this.longitude);
       console.log()
     })
   }
-  private setCurrentLocation() {
+  initializeMap(lat , long){
+    this.mapsAPILoader.load().then(() => {
+      this.setCurrentLocation(lat , long);
+      this.geoCoder = new google.maps.Geocoder;
+
+
+    });
+  }
+  private setCurrentLocation(lat , long) {
     if ('geolocation' in navigator) {
-      this.latitude = 21.543333;
-      this.longitude = 39.172779;
+      this.latitude = lat;
+      this.longitude = long;
+      
       this.zoom = 7;
       // navigator.geolocation.getCurrentPosition((position) => {
       //   this.latitude = position.coords.latitude;
@@ -63,29 +72,7 @@ export class WarehouseComponent implements OnInit {
       // });
     }
   }
-  markerDragEnd($event: MouseEvent) {
-    console.log($event);
-    this.latitude = $event.coords.lat;
-    this.longitude = $event.coords.lng;
-    this.getAddress(this.latitude, this.longitude);
-  }
+ 
 
-  getAddress(latitude, longitude) {
-    this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-      console.log(results);
-      console.log(status);
-      if (status === 'OK') {
-        if (results[0]) {
-          this.zoom = 12;
-          this.address = results[0].formatted_address;
-        } else {
-          // window.alert('No results found');
-        }
-      } else {
-        // window.alert('Geocoder failed due to: ' + status);
-      }
-
-    });
-  }
 
 }
