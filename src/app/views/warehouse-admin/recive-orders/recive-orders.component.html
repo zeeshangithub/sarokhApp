@@ -19,28 +19,34 @@
                         </form>
                     </div>
                 </div>
-                <div *ngIf="showAssignCard" >
-                    <div class="col-sm-6">
-                        <form [formGroup]="reciveOrderForm" (ngSubmit)="submit()">
-                            <div class="form-row">
+                <div *ngIf="showAssignCard">
+
+                    <form [formGroup]="reciveOrderForm" (ngSubmit)="submit()">
+                        <div class="form-row">
+                            <div class="col-sm-6">
                                 <label style="width: 100%;">Assign Card</label>
                                 <div class="clearfix"></div>
-                                <input class="form-control col-sm-9 mr-2" placeholder="Card ID" formControlName="cardNumber" name="cardNumber"  />
+                                <input class="form-control" placeholder="Card ID" formControlName="cardNumber" name="cardNumber" />
                                 <!-- <input class="btn btn-primary col-sm-2" type="submit" value="submit"> -->
                                 <div class="clerfix"></div>
                             </div>
-                            <div class="form-row">
+                            <div class="col-sm-6">
                                 <label>Select warehouse</label>
                                 <div class="clearfix"></div>
-                                <select id="selectid" class="form-control col-sm-9 mr-2" formControlName="warehouseId">
+                                <select id="selectid" class="form-control" formControlName="warehouseId">
                                     <option value="">---Select Warehouse---</option>
-                                    <option [value]="warehouse.id"  *ngFor="let warehouse of warehouses">{{warehouse.name}}</option>
+                                    <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">{{warehouse.name}}</option>
                                 </select>
                             </div>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary float-right mt-3 mb-3" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
 
-                        </form>
-                    </div>
                 </div>
 
                 <div *ngIf="shipments != null">
