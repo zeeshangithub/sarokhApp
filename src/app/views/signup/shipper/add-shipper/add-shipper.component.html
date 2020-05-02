@@ -55,9 +55,9 @@
           <form class="margintop30" [formGroup]="businessDetailsForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="indivi">Individual</label>
-                <input name="indivi" type="checkbox" (change)="change($event)"/>
-                </div>
+                <input name="indivi" type="checkbox" (change)="change($event)" />
+                <label style="margin-left: 6px;font-size: 16px;" for="indivi">Individual</label>
+              </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -74,7 +74,7 @@
                 <label for="vatNumber">VAT Number</label>
                 <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number" formControlName="vatNumber" required>
               </div>
-              <div  *ngIf="showFields" class="form-group col-md-6">
+              <div *ngIf="showFields" class="form-group col-md-6">
                 <label for="crNumber">CR No</label>
                 <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
               </div>
