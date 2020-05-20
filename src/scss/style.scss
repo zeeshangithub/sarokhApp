@@ -20,6 +20,7 @@
 //importing date time picker styles
 @import "~ng-pick-datetime/assets/style/picker.min.css";
 
+.order-detail-table .wizard-container table th, td{text-align: left !important;}
 .table-header{
   background-color: #f79f38;
   color: #000;

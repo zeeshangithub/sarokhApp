@@ -3,72 +3,104 @@
     ngxPrint>print</button>
   <button class="btn btn-primary">Cancle</button> -->
   <div id="print-section">
-    <div class="shipment-order">
-      <h2>Order Details</h2>
-      <div class="shipment-order-detail">
-        <strong>
-          <label>Order Id</label>
-        </strong>
-        <p>{{selectedOrderData.orderId}}</p>
-        <div class="clearfix"></div>
-      </div>
-      <div class="shipment-order-detail">
-        <strong>
-          <label>Order Pickup Type</label>
-        </strong>
-        <p>{{selectedOrderData.pickupType}}</p>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-    <div class="shipment-order">
-      <div class="shipment-order-detail">
-        <strong>
-          <label>Ship From City</label>
-        </strong>
-        <p>{{selectedOrderData.shipFromCity}}</p>
-      </div>
-      <div class="shipment-order-detail">
-        <strong>
-          <label>Ship To City</label>
-        </strong>
-        <p>{{selectedOrderData.shipToCity}}</p>
-      </div>
-    </div>
-    <div class="clearfix"></div>
-    <h2 class="mt-3 mb-1">Shipment Detail</h2>
     <table class="table table-resposive">
-      <thead>
-        <tr>
-          <th scope="col">Tracking #</th>
-          <th scope="col">Shipment Title</th>
-          <th scope="col">Content</th>
-          <th scope="col">Value</th>
-          <th scope="col">Payment Type</th>
-          <th scope="col">COD</th>
-          <th scope="col">Receiver Name</th>
-          <th scope="col">Receiver Contact</th>
-          <th scope="col">Delivery Type</th>
-          <th scope="col">Delivery Date </th>
-          <th scope="col">Status</th>
-        </tr>
-      </thead>
       <tbody>
-        <tr>
-        </tr>
-        <tr *ngFor="let column of selectedShipments">
-          <td>{{column.trackingNumber}}</td>
-          <td>{{column.shipmentTitle}}</td>
-          <td>John WSick</td>
-          <td>422345676544</td>
-          <td>dsfdsfsdf</td>
-          <td>Islamabad</td>
-          <td>422345676544</td>
-          <td>dsfdsfsdf</td>
-          <td>Islamabad</td>
-          <td>dsfdsfsdf</td>
-          <td>
-            Active
-          </td>
+        <tr *ngFor="let shipment of selectedShipments">
+          <h2>Order Details</h2>
+          <table class="table table-resposive">
+            <tbody>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Order Id</td>
+                <td style="width: 30%;">{{selectedOrderData.orderId}}</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Ship From City</td>
+                <td style="width: 30%;">{{selectedOrderData.shipFromCity}}</td>
+                <td style="font-weight: bold; width: 20%;">pikup Location</td>
+                <td style="width: 30%;">{{selectedOrderData.pickupLocation}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Ship To City</td>
+                <td style="width: 30%;">{{selectedOrderData.shipToCity}}</td>
+                <td style="font-weight: bold; width: 20%;">Delivery Location</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Assign To</td>
+                <td style="width: 30%;">{{selectedOrderData.assignToDetail}}</td>
+                <td style="font-weight: bold; width: 20%;">Order Date</td>
+                <td style="width: 30%;">{{selectedOrderData.createdDatetime}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="mt-3 mb-1">Receiver Detail</h2>
+          <table class="table table-resposive">
+            <tbody>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Receiver Name</td>
+                <td style="width: 30%;">{{shipment.receiverName}}</td>
+                <td style="font-weight: bold; width: 20%">Receiver Contact</td>
+                <td style="width: 30%;">{{shipment.contact}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Receiver Address</td>
+                <td style="width: 80%" colspan="3">{{shipment.address}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 class="mt-3 mb-1">Shipment Detail</h2>
+          <table class="table table-resposive">
+            <tbody>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Tracking No</td>
+                <td style="width: 30%;">{{shipment.trackingNumber}}</td>
+                <td style="font-weight: bold; width: 20%">Shipment Title</td>
+                <td style="width: 30%;">{{shipment.shipmentTitle}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Content</td>
+                <td style="width: 30%;">{{shipment.contact}}</td>
+                <td style="font-weight: bold; width: 20%;">Additonal Services</td>
+                <td style="width: 30%;">{{shipment.additionalServices}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Shipment Type</td>
+                <td style="width: 30%;">{{shipment.shipmentType}}</td>
+                <td style="font-weight: bold;">Weight</td>
+                <td style="width: 30%;">{{shipment.weight}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Receiver Confirmation</td>
+                <td>{{shipment.receiverConfirmation}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="mt-3 mb-1">Payment Detail</h2>
+          <table class="table table-resposive">
+            <tbody>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Payment Type</td>
+                <td style="width: 30%;">{{shipment.paymentType}}</td>
+                <td style="font-weight: bold; width: 20%;">Shipment Value</td>
+                <td style="width: 30%;">{{shipment.shipmentValue}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Delivery Charges</td>
+                <td style="width: 30%;">{{shipment.shipmentDeliveryCharges}}</td>
+                <td style="font-weight: bold; width: 20%;">COD Amount</td>
+                <td style="width: 30%;">{{shipment.codAmount}}</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; width: 20%;">Shipment Billed Amount</td>
+                <td style="width: 30%;">{{shipment.shipmentBilledAmount}}</td>
+                <td style="font-weight: bold; width: 20%;"></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </tr>
       </tbody>
     </table>
