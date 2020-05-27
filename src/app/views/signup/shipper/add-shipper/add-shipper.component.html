@@ -55,12 +55,6 @@
           <form class="margintop30" [formGroup]="businessDetailsForm">
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input name="indivi" type="checkbox" (change)="change($event)" />
-                <label style="margin-left: 6px;font-size: 16px;" for="indivi">Individual</label>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
                 <label for="businessName">Business Name</label>
                 <input type="text" class="form-control" id="businessName" placeholder="Business Name" formControlName="businessName" required>
               </div>
@@ -74,26 +68,8 @@
                 <label for="vatNumber">VAT Number</label>
                 <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number" formControlName="vatNumber" required>
               </div>
-              <div *ngIf="showFields" class="form-group col-md-6">
-                <label for="crNumber">CR No</label>
-                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
-              </div>
-            </div>
-            <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Iqama Copy Upload</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                  </div>
-                </div>
-              </div>
-              <div *ngIf="showFields" class="form-group col-md-6">
-                <label for="inputEmail4">CR Copy Upload</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>

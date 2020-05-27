@@ -4,11 +4,12 @@ import { ShipperService } from '../../../../services/shipper.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-shipper',
-  templateUrl: './add-shipper.component.html',
-  styleUrls: ['./add-shipper.component.css']
+  selector: 'app-add-business',
+  templateUrl: './add-business.component.html',
+  styleUrls: ['./add-business.component.css']
 })
-export class AddShipperComponent implements OnInit {
+export class AddBusinessComponent implements OnInit {
+
   showFields = true;
   basicInfoForm: FormGroup;
   businessDetailsForm: FormGroup;
@@ -68,6 +69,8 @@ export class AddShipperComponent implements OnInit {
       bankName: ['', [Validators.required]],
       businessLogo: ['', [Validators.required]],
       businessName: ['', [Validators.required]],
+      crFile: ['', [Validators.required]],
+      crNumber: ['', [Validators.required]],
       iban: ['', [Validators.required]],
       iqamaNumber: ['', [Validators.required]],
       vatFile: ['', [Validators.required]],

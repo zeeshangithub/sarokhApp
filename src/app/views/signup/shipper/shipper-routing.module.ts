@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddShipperComponent } from './add-shipper/add-shipper.component';
+import { AddBusinessComponent } from './add-business/add-business.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: AddShipperComponent
+    redirectTo: 'shipper',
+    pathMatch: 'full'
   },
   {
     path: 'shipper',
     component: AddShipperComponent
+  },
+  {
+    path: 'business',
+    component: AddBusinessComponent,
   }
 ];
 

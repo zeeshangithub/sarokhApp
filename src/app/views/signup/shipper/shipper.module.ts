@@ -6,10 +6,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { ShipperRoutingModule } from './shipper-routing.module';
 import { AddShipperComponent } from './add-shipper/add-shipper.component';
+import { AddBusinessComponent } from './add-business/add-business.component';
 
 
 @NgModule({
-  declarations: [AddShipperComponent],
+  declarations: [AddShipperComponent, AddBusinessComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
