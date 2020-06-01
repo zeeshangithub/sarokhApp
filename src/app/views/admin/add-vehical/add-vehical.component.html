@@ -12,7 +12,7 @@
                                 <option value="">--- Select Owner ---</option>
                                 <option value="sarokh">Sarokh</option>
                                 <option value="leasedoroperator">Leased Or Operator Owned</option>
-                              </select>
+                            </select>
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Current Milage" formControlName="currentMilage" />
@@ -28,26 +28,26 @@
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Created Date" formControlName="createdDate"
-                                [owlDateTime]="createdDate" [owlDateTimeTrigger]="createdDate"
-                                [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
+                            <input type="text" class="form-control" placeholder="Created Date" formControlName="createdDate" [owlDateTime]="createdDate"
+                                [owlDateTimeTrigger]="createdDate" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
                             <owl-date-time [pickerType]="'calendar'" #createdDate></owl-date-time>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Name" formControlName="name"/>
+                            <input type="text" class="form-control" placeholder="Name" formControlName="name" />
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Cargo Capacity" formControlName="cargoCapacity"/>
+                            <input type="text" class="form-control" placeholder="Cargo Capacity" formControlName="cargoCapacity" />
                         </div>
                         <div class="col">
-                            <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"  />
+                            <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"
+                            />
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                
+
                             <input type="text" class="form-control" placeholder="Registration Number" formControlName="registrationNumber" />
                         </div>
                         <div class="col">
@@ -56,22 +56,22 @@
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            
-                                <select class="form-control" id="status" formControlName="status">
-                                  <option value="">--- Select Status ---</option>
-                                  <option value="active">Active</option>
-                                  <option value="undermaintinence">Under Maintinence</option>
-                                  <option value="accidented">Accidented</option>
-                                  <option value="sold">Sold</option>
-                                  <option value="returned">Returned</option>
-                                </select>
+
+                            <select class="form-control" id="status" formControlName="status">
+                                <option value="">--- Select Status ---</option>
+                                <option value="active">Active</option>
+                                <option value="undermaintinence">Under Maintinence</option>
+                                <option value="accidented">Accidented</option>
+                                <option value="sold">Sold</option>
+                                <option value="returned">Returned</option>
+                            </select>
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Type" formControlName="type" />
                         </div>
                     </div>
                     <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
-                    <!-- <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button> -->
+                    <!-- <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button> -->
                     <!-- <button *ngIf="editUser" type="button" class="btn btn-warning"
                         (click)="updateUser()">Update</button> -->
                 </form>

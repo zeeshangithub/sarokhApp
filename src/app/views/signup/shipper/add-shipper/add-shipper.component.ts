@@ -107,7 +107,6 @@ export class AddShipperComponent implements OnInit {
   }
 
   finishFunction() {
-    debugger;
     this.fullFormsInfo.shipperBasicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.billingAddress = this.billingDetailsForm.value;
     this.fullFormsInfo.security = this.securityForm.value;

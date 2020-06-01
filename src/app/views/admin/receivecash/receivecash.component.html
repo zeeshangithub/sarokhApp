@@ -24,18 +24,17 @@
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="datetime" formControlName="datetime"
-                                [owlDateTime]="datetime" [owlDateTimeTrigger]="datetime"
+                            <input type="text" class="form-control" placeholder="datetime" formControlName="datetime" [owlDateTime]="datetime" [owlDateTimeTrigger]="datetime"
                                 [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
                             <owl-date-time [pickerType]="'calendar'" #datetime></owl-date-time>
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Payment Description" formControlName="paymentDescription"/>
+                            <input type="text" class="form-control" placeholder="Payment Description" formControlName="paymentDescription" />
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Payment Method" formControlName="paymentMethod"/>
+                            <input type="text" class="form-control" placeholder="Payment Method" formControlName="paymentMethod" />
                         </div>
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Transaction From" formControlName="transactionFrom" />
@@ -47,9 +46,8 @@
                         </div>
                     </div>
                     <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
-                    <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancle</button>
-                    <button *ngIf="editUser" type="button" class="btn btn-warning"
-                        (click)="updateUser()">Update</button>
+                    <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button>
+                    <button *ngIf="editUser" type="button" class="btn btn-warning" (click)="updateUser()">Update</button>
                 </form>
             </div>
         </div>
