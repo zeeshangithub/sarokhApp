@@ -1,132 +1,144 @@
 <div class="card margintop50 margin50">
-    <div class="card-header">
-        Business Signup
-    </div>
-    <div class="card-body">
-        <div class="wizard-container">
-            <aw-wizard>
-                <aw-wizard-step stepTitle="Basic Information" [canExit]="basicInfoForm.valid">
-                    <!-- <aw-wizard-step stepTitle="Basic Information"> -->
-                    <form class="margintop30" [formGroup]="basicInfoForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="First Name" formControlName="firstName" required>
-                                <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
-                                    <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="contact">Contact No</label>
-                                <input type="text" class="form-control" id="contact" placeholder="Contact No" formControlName="contact" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="dateOfBirth">Date Of Birth</label>
-                                <!-- <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
+  <div class="card-header">
+    Business Signup
+  </div>
+  <div class="card-body">
+    <div class="wizard-container">
+      <aw-wizard>
+        <aw-wizard-step stepTitle="Basic Information" [canExit]="basicInfoForm.valid">
+          <!-- <aw-wizard-step stepTitle="Basic Information"> -->
+          <form class="margintop30" [formGroup]="basicInfoForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                  formControlName="firstName" required>
+                <div *ngIf="basicInfoForm.controls['firstName'].touched" class="invalid-feedback">
+                  <div *ngIf="basicInfoForm.controls['firstName'].hasError('required')">First Name is required</div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Last Name" formControlName="lastName"
+                  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="contact">Contact No</label>
+                <input type="text" class="form-control" id="contact" placeholder="Contact No" formControlName="contact"
+                  required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email"
+                  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="dateOfBirth">Date Of Birth</label>
+                <!-- <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Date Time">
                   <owl-date-time #dt1></owl-date-time> -->
 
 
-                                <input type="text" class="form-control" placeholder="Date Of Birth" formControlName="dateOfBirth" [owlDateTime]="dateOfBirth"
-                                    [owlDateTimeTrigger]="dateOfBirth" [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }"
-                                    required>
-                                <owl-date-time [pickerType]="'calendar'" #dateOfBirth></owl-date-time>
+                <input type="text" class="form-control" placeholder="Date Of Birth" formControlName="dateOfBirth"
+                  [owlDateTime]="dateOfBirth" [owlDateTimeTrigger]="dateOfBirth"
+                  [ngClass]="{ 'is-invalid': submitted && f.dateOfBirth.errors }" required>
+                <owl-date-time [pickerType]="'calendar'" #dateOfBirth></owl-date-time>
 
-                            </div>
-                        </div>
-                        <div class="btn-container float-right">
-                            <button class="btn btn-success" type="button" awNextStep>Next Step</button>
-                        </div>
-                    </form>
+              </div>
+            </div>
 
-                </aw-wizard-step>
-                <!-- <aw-wizard-step stepTitle="Business Detail" [canExit]="businessDetailsForm.valid"> -->
-                <aw-wizard-step stepTitle="Business Detail">
-                    <form class="margintop30" [formGroup]="businessDetailsForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="businessName">Business Name</label>
-                                <input type="text" class="form-control" id="businessName" placeholder="Business Name" formControlName="businessName" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="iqamaNumber">Iqama No</label>
-                                <input type="text" class="form-control" id="iqamaNumber" placeholder="Iqama No" formControlName="iqamaNumber" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="vatNumber">VAT Number</label>
-                                <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number" formControlName="vatNumber" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="crNumber">CR No</label>
-                                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">Iqama Copy Upload</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="inputEmail4">CR Copy Upload</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="bankName">Bank Name</label>
-                                <select class="form-control" id="bankName" formControlName="bankName">
-                                    <option value="">Select Bank Name</option>
-                                    <option value="The National Commercial Bank">The National Commercial Bank </option>
-                                    <option value="The Saudi British Bank">The Saudi British Bank </option>
-                                    <option value="Saudi Investment Bank">Saudi Investment Bank </option>
-                                    <option value="Alinma Bank">Alinma Bank </option>
-                                    <option value="Banque Saudi Fransi"> Banque Saudi Fransi </option>
-                                    <option value="Riyad Bank"> Riyad Bank </option>
-                                    <option value="Samba Financial Group (Samba)"> Samba Financial Group (Samba) </option>
-                                    <option value="Alawwal Bank"> Alawwal Bank </option>
-                                    <option value="Al Rajhi Bank"> Al Rajhi Bank </option>
-                                    <option value="Arab National Bank"> Arab National Bank </option>
-                                    <option value="Bank AlBilad"> Bank AlBilad </option>
-                                    <option value="Bank AlJazira"> Bank AlJazira </option>
-                                    <option value="Gulf International Bank Saudi Aribia (GIB-SA)"> Gulf International Bank Saudi Aribia (GIB-SA) </option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="iban">IBAN</label>
-                                <input type="text" class="form-control" id="iban" placeholder="IBAN" formControlName="iban" required>
-                            </div>
-                        </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-success" type="button" awNextStep>Next Step</button>
+            </div>
+          </form>
 
-                        <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        </aw-wizard-step>
+        <!-- <aw-wizard-step stepTitle="Business Detail" [canExit]="businessDetailsForm.valid"> -->
+        <aw-wizard-step stepTitle="Business Detail">
+          <form class="margintop30" [formGroup]="businessDetailsForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="businessName">Business Name</label>
+                <input type="text" class="form-control" id="businessName" placeholder="Business Name"
+                  formControlName="businessName" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="iqamaNumber">Iqama No</label>
+                <input type="text" class="form-control" id="iqamaNumber" placeholder="Iqama No"
+                  formControlName="iqamaNumber" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="vatNumber">VAT Number</label>
+                <input type="text" class="form-control" id="vatNumber" placeholder="VAT Number"
+                  formControlName="vatNumber" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="crNumber">CR No</label>
+                <input type="text" class="form-control" id="crNumber" placeholder="CR No" formControlName="crNumber"
+                  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Iqama Copy Upload</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">CR Copy Upload</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                  </div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                      aria-describedby="inputGroupFileAddon01">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="bankName">Bank Name</label>
+                <select class="form-control" id="bankName" formControlName="bankName">
+                  <option value="">Select Bank Name</option>
+                  <option value="The National Commercial Bank">The National Commercial Bank </option>
+                  <option value="The Saudi British Bank">The Saudi British Bank </option>
+                  <option value="Saudi Investment Bank">Saudi Investment Bank </option>
+                  <option value="Alinma Bank">Alinma Bank </option>
+                  <option value="Banque Saudi Fransi"> Banque Saudi Fransi </option>
+                  <option value="Riyad Bank"> Riyad Bank </option>
+                  <option value="Samba Financial Group (Samba)"> Samba Financial Group (Samba) </option>
+                  <option value="Alawwal Bank"> Alawwal Bank </option>
+                  <option value="Al Rajhi Bank"> Al Rajhi Bank </option>
+                  <option value="Arab National Bank"> Arab National Bank </option>
+                  <option value="Bank AlBilad"> Bank AlBilad </option>
+                  <option value="Bank AlJazira"> Bank AlJazira </option>
+                  <option value="Gulf International Bank Saudi Aribia (GIB-SA)"> Gulf International Bank Saudi Aribia
+                    (GIB-SA) </option>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="iban">IBAN</label>
+                <input type="text" class="form-control" id="iban" placeholder="IBAN" formControlName="iban" required>
+              </div>
+            </div>
+
+            <!-- <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="billingAddress">Office/ Billing Adress</label>
@@ -149,47 +161,58 @@
                     </div>
                   </div>
                 </div> -->
-                        <div class="btn-container float-right margintop30">
-                            <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-                            <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
-                        </div>
-                    </form>
-                </aw-wizard-step>
-                <aw-wizard-step stepTitle="Billing Detail">
-                    <form class="margintop30" [formGroup]="billingDetailsForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="address">Office/Billing Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="Office/Billing Address" formControlName="address" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" placeholder="City" formControlName="city" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="country">Country</label>
-                                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="postCode">Post Code</label>
-                                <input type="text" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="concernedPerson">Concern Person</label>
-                                <input type="text" class="form-control" id="concernedPerson" placeholder="Concern Person" formControlName="concernedPerson"
-                                    required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="concernedPersonDesignation">Designation</label>
-                                <input type="text" class="form-control" id="concernedPersonDesignation" placeholder="Designation" formControlName="concernedPersonDesignation"
-                                    required>
-                            </div>
-                        </div>
-                        <!-- <div class="form-row">
+            <div class="btn-container float-right margintop30">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+            </div>
+          </form>
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="Billing Detail">
+          <form class="margintop30" [formGroup]="billingDetailsForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="address">Office/Billing Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Office/Billing Address"
+                  formControlName="address" required>
+              </div>
+    
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label>Select Country</label>
+                  <select id="selectid" class="form-control" formControlName="country" (change)="getCityData($event.target.value)">
+                      <option value="">---Select Country---</option>
+                      <option [value]="country.code" *ngFor="let country of allCountryList">{{country.name}}</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Select City</label>
+                <select id="selectid" class="form-control" formControlName="city" >
+                    <option value="">---Select City---</option>
+                    <option [value]="country.code" *ngFor="let city of allcities">{{city.name}}</option>
+                </select>
+            </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="postCode">Post Code</label>
+                <input type="text" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode"
+                  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="concernedPerson">Concern Person</label>
+                <input type="text" class="form-control" id="concernedPerson" placeholder="Concern Person"
+                  formControlName="concernedPerson" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="concernedPersonDesignation">Designation</label>
+                <input type="text" class="form-control" id="concernedPersonDesignation" placeholder="Designation"
+                  formControlName="concernedPersonDesignation" required>
+              </div>
+            </div>
+            <!-- <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Contact No</label>
                   <input type="text" class="form-control" id="inputEmail4" placeholder="Contact No" formControlName="businessName" required>
@@ -205,14 +228,14 @@
                   <input type="text" class="form-control" id="inputEmail4" placeholder="Operational Hours" formControlName="businessName" required>
                 </div>
               </div> -->
-                        <div class="btn-container float-right">
-                            <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-                            <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
-                        </div>
-                    </form>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" awNextStep>Go to next step</button>
+            </div>
+          </form>
 
-                </aw-wizard-step>
-                <!-- <aw-wizard-step stepTitle="Warehouse Detail">
+        </aw-wizard-step>
+        <!-- <aw-wizard-step stepTitle="Warehouse Detail">
             <form class="margintop30" [formGroup]="warehouseDetailsForm">
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -275,33 +298,35 @@
             </form>
   
           </aw-wizard-step> -->
-                <aw-wizard-step stepTitle="Security">
-                    <form class="margintop30" [formGroup]="securityForm">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="password">Passsword</label>
-                                <input type="password" class="form-control" id="password" placeholder="Passsword" formControlName="password" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="confirmPassword">Confirm Passsword</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Passsword" formControlName="confirmPassword"
-                                    required>
-                            </div>
-                        </div>
-                        <div class="btn-container float-right">
-                            <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
-                            <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
-                        </div>
-                    </form>
+        <aw-wizard-step stepTitle="Security">
+          <form class="margintop30" [formGroup]="securityForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username"
+                  required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="password">Passsword</label>
+                <input type="password" class="form-control" id="password" placeholder="Passsword"
+                  formControlName="password" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="confirmPassword">Confirm Passsword</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Passsword"
+                  formControlName="confirmPassword" required>
+              </div>
+            </div>
+            <div class="btn-container float-right">
+              <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
+              <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            </div>
+          </form>
 
-                </aw-wizard-step>
-                <!-- <aw-wizard-step stepTitle="Verification">
+        </aw-wizard-step>
+        <!-- <aw-wizard-step stepTitle="Verification">
             <form class="margintop30" [formGroup]="otpForm">
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -321,7 +346,7 @@
             </form>
   
           </aw-wizard-step> -->
-            </aw-wizard>
-        </div>
+      </aw-wizard>
     </div>
+  </div>
 </div>

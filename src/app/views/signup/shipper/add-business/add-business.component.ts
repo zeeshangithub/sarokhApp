@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShipperService } from '../../../../services/shipper.service'
 import { Router } from '@angular/router';
+import { CityCountryService } from '../../../../services/cityCountry.service'
 
 @Component({
   selector: 'app-add-business',
@@ -17,6 +18,8 @@ export class AddBusinessComponent implements OnInit {
   billingDetailsForm: FormGroup;
   securityForm: FormGroup;
   otpForm: FormGroup;
+  allCountryList;
+  allcities;
 
   fullFormsInfo = {
     billingAddress: {},
@@ -27,7 +30,10 @@ export class AddBusinessComponent implements OnInit {
     verification: {}
   }
 
-  constructor(private formbuilder: FormBuilder, private shipperService: ShipperService, private router: Router) { }
+  constructor(private formbuilder: FormBuilder, private shipperService: ShipperService,
+     private router: Router , 
+     private countryCityList:CityCountryService
+     ) { }
 
   ngOnInit(): void {
     this.initializeBasicInformationForm();
@@ -36,6 +42,7 @@ export class AddBusinessComponent implements OnInit {
     this.initializeBillingDetailsForm();
     this.initializeSecurityForm();
     this.initializeOTPForm();
+    this.getCountryList();
   }
 
   initializeBasicInformationForm() {
@@ -46,6 +53,8 @@ export class AddBusinessComponent implements OnInit {
       dateOfBirth: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       profilePicture: [''],
+      
+
     })
   }
 
@@ -99,16 +108,28 @@ export class AddBusinessComponent implements OnInit {
   initializeBillingDetailsForm() {
     this.billingDetailsForm = this.formbuilder.group({
       address: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      city: [''],
       concernedPerson: ['', [Validators.required]],
       concernedPersonDesignation: ['', [Validators.required]],
-      country: ['', [Validators.required]],
+   
       locationLatitude: ['', [Validators.required]],
       locationLongitude: ['', [Validators.required]],
       postCode: ['', [Validators.required]],
     })
   }
+  getCountryList(){
+    this.countryCityList.fetchCountryList().subscribe(res=>{
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
 
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities  = res.data
+   
+    })
+  }
   finishFunction() {
     this.fullFormsInfo.shipperBasicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.billingAddress = this.billingDetailsForm.value;
