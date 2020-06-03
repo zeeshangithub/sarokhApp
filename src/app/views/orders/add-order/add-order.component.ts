@@ -91,12 +91,12 @@ export class AddOrderComponent implements OnInit {
         console.log(this.oderDetail.pickupLocation)
         console.log(this.oderDetail.deliveryLocation)
         // this.pickupAndDelivery = this.formbuilder.group({
-          // dateTime: [oderDetail.dateTime],
-          // warehouseId: [oderDetail.warehouseId],
-          // contact: [oderDetail.contact],
-          // concernPersonId: [oderDetail.concernPersonId],
-          // zone: [oderDetail.zone],
-          // city: [oderDetail.city],
+        // dateTime: [oderDetail.dateTime],
+        // warehouseId: [oderDetail.warehouseId],
+        // contact: [oderDetail.contact],
+        // concernPersonId: [oderDetail.concernPersonId],
+        // zone: [oderDetail.zone],
+        // city: [oderDetail.city],
         //   pickupType :[this.oderDetail.pickupLocation],
         //   deliveryLocation: [this.oderDetail.deliveryLocation]
         // })
@@ -132,7 +132,7 @@ export class AddOrderComponent implements OnInit {
           locationLongitude: ['']
         })
         this.shipmentDetails = this.oderDetail.shipmentOrderItems;
-        console.log("this.shipmentDetails" , this.shipmentDetails)
+        console.log("this.shipmentDetails", this.shipmentDetails)
       })
     }
   }
@@ -241,7 +241,6 @@ export class AddOrderComponent implements OnInit {
   }
   AddandCreateNew(shi) {
     this.shipmentInformationArray = [];
-    debugger;
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
