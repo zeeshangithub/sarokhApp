@@ -192,6 +192,10 @@ export class AddOrderComponent implements OnInit {
       this.showsarokhpointdropdown = false;
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
+    }else if (warehouse === "DealerPoint") {
+      this.shipperWarehousesList = false;
+      this.sarokhWarehousesList = false;
+      this.dealerPointList = false;
     }
   }
   finishFunction(res) {
@@ -273,6 +277,7 @@ export class AddOrderComponent implements OnInit {
   }
   getCity() {
     this.orderService.getCityList().subscribe(res => {
+      console.log(res)
       this.citylist = res.data;
     })
   }

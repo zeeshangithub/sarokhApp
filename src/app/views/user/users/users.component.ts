@@ -39,11 +39,28 @@ export class UsersComponent implements OnInit {
 
   fetchUsers(): void {
     console.log("tst")
-    this.userService.fetchUsers().subscribe(res => {
-      console.log("this.users", res)
-      this.users = res;
-      console.log("this.users", res)
-    })
+    if(localStorage.getItem('role') === 'admin'){
+      this.userService.fetchAdminUsers().subscribe(res => {
+        console.log("this.users", res)
+        this.users = res;
+        console.log("this.users", res)
+      })
+    }else if(localStorage.getItem('role') === 'dealer'){
+      const id = localStorage.getItem('id');
+      this.userService.fetchDealerUsers(id).subscribe(res => {
+        console.log("this.users", res)
+        this.users = res;
+        console.log("this.users", res)
+      })
+    }else if(localStorage.getItem('role') === 'shipper'){
+      const id = localStorage.getItem('id');
+      this.userService.fetchShipperUsers(id).subscribe(res => {
+        console.log("this.users", res)
+        this.users = res;
+        console.log("this.users", res)
+      })
+    }
+ 
   }
 
   deleteUSer(id) {

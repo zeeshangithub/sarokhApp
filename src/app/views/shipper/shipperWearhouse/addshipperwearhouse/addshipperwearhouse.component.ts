@@ -10,6 +10,7 @@ import { ShipperWearhouseService } from '../../../../services/shipperwearhouse.s
 import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { ToastrService } from 'ngx-toastr';
+import { ShipperService } from '../../../../services/shipper.service';
 @Component({
   selector: 'app-addshipperwearhouse',
   templateUrl: './addshipperwearhouse.component.html',
@@ -33,6 +34,7 @@ export class AddshipperwearhouseComponent implements OnInit {
   longitude: number;
   zoom: number;
   address: string;
+  shipperdata;
   private geoCoder;
   @Output()
   showlisting = new EventEmitter<boolean>();
@@ -44,7 +46,8 @@ export class AddshipperwearhouseComponent implements OnInit {
     private dataService: DataService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private toaster: ToastrService
+    private toaster: ToastrService,
+    private shipperdetails: ShipperService
   ) { }
 
 
@@ -53,6 +56,16 @@ export class AddshipperwearhouseComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.shipperId = localStorage.getItem('_id')
+ 
+    this.shipperdetails.fetchshipperDetails(this.shipperId).subscribe(res => {
+      console.log("res", res)
+      this.shipperdata = res.user;
+       this.warehousemanager.patchValue({
+          mangerContact:this.shipperdata.contact,
+          mangerEmail: this.shipperdata.email
+        })
+  })
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -122,6 +135,9 @@ export class AddshipperwearhouseComponent implements OnInit {
       operationalTimefrom: ['', Validators.required],
       shipperId: this.shipperId,
     })
+
+
+
   }
   shipperWarehouseSelected(warehouse): void {
     this.template.users = [];

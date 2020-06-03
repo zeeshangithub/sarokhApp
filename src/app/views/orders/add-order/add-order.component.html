@@ -23,14 +23,14 @@
                 <label for="shipFromCity">Ship From </label>
                 <select class="form-control" id="shipFromCity" formControlName="shipFromCity">
                   <option value="">--- Ship From City ---</option>
-                  <option [value]="city.name" *ngFor="let city of citylist">{{city.name}}
+                  <option [value]="city" *ngFor="let city of citylist">{{city}}
                 </select>
               </div>
               <div class="form-group col-md-6">
                 <label for="shipToCity">Ship To</label>
                 <select class="form-control" id="shipToCity" formControlName="shipToCity">
                   <option value="">--- Ship To City ---</option>
-                  <option [value]="city.name" *ngFor="let city of citylist">{{city.name}}
+                  <option [value]="city" *ngFor="let city of citylist">{{city}}
                 </select>
               </div>
             </div>

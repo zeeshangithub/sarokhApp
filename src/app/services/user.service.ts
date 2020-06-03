@@ -19,10 +19,18 @@ export class UserService {
     return this.http.post<any>(`${environment.apiURL}user/add-shipper-user/`, formData);
   }
 
-  fetchUsers() {
-    console.log()
+  fetchAdminUsers() {
+
     return this.http.get<any>(`${environment.apiURL}user/get-list`);
   }
+  fetchShipperUsers(id) {
+    
+    return this.http.get<any>(`${environment.apiURL}user/get-shipper-users-list/${id}`);
+  }
+  fetchDealerUsers(id) {
+    return this.http.get<any>(`${environment.apiURL}user/get-dealer-users-list/${id}`);
+  }
+
 
   fetchUserRoles() {
     return this.http.get<any>(`${environment.apiURL}Role-role/get-list`);
