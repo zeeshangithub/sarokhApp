@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShipperService } from '../../../../services/shipper.service'
 import { Router } from '@angular/router';
 import { CityCountryService } from '../../../../services/cityCountry.service'
+import { AdminMisService } from '../../../../services/adminMis.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-business',
@@ -31,9 +33,9 @@ export class AddBusinessComponent implements OnInit {
   }
 
   constructor(private formbuilder: FormBuilder, private shipperService: ShipperService,
-     private router: Router , 
-     private countryCityList:CityCountryService
-     ) { }
+    private router: Router,
+    private countryCityList: CityCountryService, private toastr: ToastrService, private fileUpload: AdminMisService
+  ) { }
 
   ngOnInit(): void {
     this.initializeBasicInformationForm();
@@ -53,7 +55,7 @@ export class AddBusinessComponent implements OnInit {
       dateOfBirth: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       profilePicture: [''],
-      
+
 
     })
   }
@@ -84,6 +86,7 @@ export class AddBusinessComponent implements OnInit {
       iqamaNumber: ['', [Validators.required]],
       vatFile: ['', [Validators.required]],
       vatNumber: ['', [Validators.required]],
+      iqamaFile: ['', [Validators.required]],
     })
   }
 
@@ -111,14 +114,14 @@ export class AddBusinessComponent implements OnInit {
       city: [''],
       concernedPerson: ['', [Validators.required]],
       concernedPersonDesignation: ['', [Validators.required]],
-   
+
       locationLatitude: ['', [Validators.required]],
       locationLongitude: ['', [Validators.required]],
       postCode: ['', [Validators.required]],
     })
   }
-  getCountryList(){
-    this.countryCityList.fetchCountryList().subscribe(res=>{
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
       this.allCountryList = res.data;
     })
   }
@@ -126,8 +129,30 @@ export class AddBusinessComponent implements OnInit {
 
     this.countryCityList.fetchCityByCountry(id).subscribe(res => {
       console.log("res", res)
-      this.allcities  = res.data
-   
+      this.allcities = res.data
+
+    })
+  }
+  onUploadChange(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.fileUpload.upoadFileService(file).subscribe(res => {
+      this.toastr.success(res.message);
+      console.log(res.data);
+      this.businessDetailsForm.patchValue({
+        iqamaFile: res.data.toString()
+      })
+    })
+  }
+  onUploadChangeCrfile(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.fileUpload.upoadFileService(file).subscribe(res => {
+      this.toastr.success(res.message);
+      console.log(res.data);
+      this.businessDetailsForm.patchValue({
+        crFile: res.data.toString()
+      })
     })
   }
   finishFunction() {

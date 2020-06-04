@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShipperService } from '../../../../services/shipper.service'
 import { Router } from '@angular/router';
+import { CityCountryService } from '../../../../services/cityCountry.service'
+import { AdminMisService } from '../../../../services/adminMis.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-shipper',
@@ -16,6 +19,8 @@ export class AddShipperComponent implements OnInit {
   billingDetailsForm: FormGroup;
   securityForm: FormGroup;
   otpForm: FormGroup;
+  allCountryList;
+  allcities;
 
   fullFormsInfo = {
     billingAddress: {},
@@ -26,7 +31,8 @@ export class AddShipperComponent implements OnInit {
     verification: {}
   }
 
-  constructor(private formbuilder: FormBuilder, private shipperService: ShipperService, private router: Router) { }
+  constructor(private formbuilder: FormBuilder, private shipperService: ShipperService, private router: Router,
+    private countryCityList: CityCountryService, private toastr: ToastrService, private fileUpload: AdminMisService) { }
 
   ngOnInit(): void {
     this.initializeBasicInformationForm();
@@ -35,6 +41,7 @@ export class AddShipperComponent implements OnInit {
     this.initializeBillingDetailsForm();
     this.initializeSecurityForm();
     this.initializeOTPForm();
+    this.getCountryList();
   }
 
   initializeBasicInformationForm() {
@@ -70,8 +77,10 @@ export class AddShipperComponent implements OnInit {
       businessName: ['', [Validators.required]],
       iban: ['', [Validators.required]],
       iqamaNumber: ['', [Validators.required]],
+      iqamaFile: ['', [Validators.required]],
       vatFile: ['', [Validators.required]],
       vatNumber: ['', [Validators.required]],
+
     })
   }
 
@@ -105,8 +114,42 @@ export class AddShipperComponent implements OnInit {
       postCode: ['', [Validators.required]],
     })
   }
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
 
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities = res.data
+
+    })
+  }
+  onUploadChange(event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    console.log(file);
+    this.fileUpload.upoadFileService(file).subscribe(res => {
+      this.toastr.success(res.message);
+      console.log(res.data);
+      // this.modelvalue = res.data.toString().replace(/\+/gi, '%2B');
+
+      // console.log(this.modelvalue)
+
+      this.businessDetailsForm.patchValue({
+        iqamaFile: res.data.toString()
+      })
+    })
+    // File Preview
+    // const reader = new FileReader();
+    // reader.onload = () => {
+    //   this.preview = reader.result as string;
+    // }
+    // reader.readAsDataURL(file)
+  }
   finishFunction() {
+    this.businessDetailsForm.value;
     this.fullFormsInfo.shipperBasicInfo = this.basicInfoForm.value;
     this.fullFormsInfo.billingAddress = this.billingDetailsForm.value;
     this.fullFormsInfo.security = this.securityForm.value;

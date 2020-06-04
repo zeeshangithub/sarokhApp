@@ -6,13 +6,15 @@ import { DataService } from '../../../../services/data.service';
 import { FileUploader } from 'ng2-file-upload';
 import { ToastrService } from 'ngx-toastr';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { CityCountryService } from '../../../../services/cityCountry.service'
 @Component({
   selector: 'app-add-dealer',
   templateUrl: './add-dealer.component.html',
   styleUrls: ['./add-dealer.component.css']
 })
 export class AddDealerComponent implements OnInit {
-
+  allCountryList;
+  allcities;
   basicInfoForm: FormGroup;
   dealerDetailsForm: FormGroup;
   contractDetailsForm: FormGroup;
@@ -35,15 +37,15 @@ export class AddDealerComponent implements OnInit {
   }
 
   constructor(private router: Router, private formbuilder: FormBuilder, private dealerService: DealerService,
-    private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService ,
+    private shareData: DataService, private route: ActivatedRoute, private toaster: ToastrService,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone, ) {
+    private ngZone: NgZone, private countryCityList: CityCountryService) {
 
 
   }
   public uploader: FileUploader = new FileUploader({ itemAlias: 'file' });
   ngOnInit(): void {
-
+    this.getCountryList();
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -166,8 +168,8 @@ export class AddDealerComponent implements OnInit {
     })
   }
   finishFunction() {
-    
-    this.dealerDetailsForm.patchValue({ 'locationLongitude': this.longitude});
+
+    this.dealerDetailsForm.patchValue({ 'locationLongitude': this.longitude });
     this.dealerDetailsForm.patchValue({ 'locationLatitude': this.latitude });
     this.fullFormsInfo.dealerContract = this.contractDetailsForm.value;
     this.fullFormsInfo.credentials = this.securityForm.value;
@@ -187,6 +189,19 @@ export class AddDealerComponent implements OnInit {
         this.router.navigate(['/admin/alldealers']);
       }
     }, err => {
+
+    })
+  }
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
+
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities = res.data
 
     })
   }

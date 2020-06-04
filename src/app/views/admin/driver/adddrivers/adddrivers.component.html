@@ -78,18 +78,24 @@
                     <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address" required>
                   </div>
                   <div class="form-group col-md-6">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" id="city" placeholder="City" formControlName="city" required>
+                    <label>Select Country</label>
+                    <select id="selectid" class="form-control" formControlName="country" (change)="getCityData($event.target.value)">
+                      <option value="">---Select Country---</option>
+                      <option [value]="country.code" *ngFor="let country of allCountryList">{{country.name}}</option>
+                    </select>
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country" required>
+                    <label>Select City</label>
+                    <select id="selectid" class="form-control" formControlName="city">
+                      <option value="">---Select City---</option>
+                      <option [value]="city" *ngFor="let city of allcities">{{city}}</option>
+                    </select>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="postCode">Post Code</label>
-                    <input type="number" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode" required>
+                    <input type="text" class="form-control" id="postCode" placeholder="Post Code" formControlName="postCode" required>
                   </div>
                 </div>
                 <div class="form-row">
@@ -264,7 +270,7 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="compensation">Compensation</label>
-                <input type="number" class="form-control" id="compensation" placeholder="Compensation" formControlName="compensation" required>
+                <input type="text" class="form-control" id="compensation" placeholder="Compensation" formControlName="compensation" required>
               </div>
             </div>
             <div class="form-row">
@@ -292,8 +298,24 @@
                 </div>
               </div>
               <div class="form-group col-md-6">
-                <label for="bank">Bank</label>
-                <input type="text" class="form-control" id="bank" placeholder="Bank" formControlName="bank" required>
+                <label for="bankName">Bank Name</label>
+                <select class="form-control" id="bankName" formControlName="bankName">
+                  <option value="">Select Bank Name</option>
+                  <option value="The National Commercial Bank">The National Commercial Bank </option>
+                  <option value="The Saudi British Bank">The Saudi British Bank </option>
+                  <option value="Saudi Investment Bank">Saudi Investment Bank </option>
+                  <option value="Alinma Bank">Alinma Bank </option>
+                  <option value="Banque Saudi Fransi"> Banque Saudi Fransi </option>
+                  <option value="Riyad Bank"> Riyad Bank </option>
+                  <option value="Samba Financial Group (Samba)"> Samba Financial Group (Samba) </option>
+                  <option value="Alawwal Bank"> Alawwal Bank </option>
+                  <option value="Al Rajhi Bank"> Al Rajhi Bank </option>
+                  <option value="Arab National Bank"> Arab National Bank </option>
+                  <option value="Bank AlBilad"> Bank AlBilad </option>
+                  <option value="Bank AlJazira"> Bank AlJazira </option>
+                  <option value="Gulf International Bank Saudi Aribia (GIB-SA)"> Gulf International Bank Saudi Aribia (GIB-SA) </option>
+                </select>
+                <!-- <input type="text" class="form-control" id="bankName" placeholder="Bank Name" formControlName="bankName" required> -->
               </div>
             </div>
             <div class="form-row">

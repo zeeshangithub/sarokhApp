@@ -87,12 +87,11 @@
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Iqama Copy Upload</label>
                 <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                  </div>
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                  <div class="input-group">
+                    <div class="col">
+                      <input type="file" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg, .pdf" class="form-control" placeholder="RegistrationFile"
+                        formControlName="" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -141,14 +140,20 @@
                 <input type="text" class="form-control" id="address" placeholder="Office/Billing Address" formControlName="address" required>
               </div>
               <div class="form-group col-md-6">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City" formControlName="city" required>
+                <label>Select Country</label>
+                <select id="selectid" class="form-control" formControlName="country" (change)="getCityData($event.target.value)">
+                  <option value="">---Select Country---</option>
+                  <option [value]="country.code" *ngFor="let country of allCountryList">{{country.name}}</option>
+                </select>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country" required>
+                <label>Select City</label>
+                <select id="selectid" class="form-control" formControlName="city">
+                  <option value="">---Select City---</option>
+                  <option [value]="city" *ngFor="let city of allcities">{{city}}</option>
+                </select>
               </div>
               <div class="form-group col-md-6">
                 <label for="postCode">Post Code</label>
@@ -258,7 +263,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Passsword" formControlName="username" required>
+                <input type="text" class="form-control" id="username" placeholder="User Name" formControlName="username" required>
               </div>
             </div>
             <div class="form-row">

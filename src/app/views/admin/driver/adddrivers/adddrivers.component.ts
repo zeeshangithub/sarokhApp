@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { AdminMisService } from '../../../../services/adminMis.service';
+import { CityCountryService } from '../../../../services/cityCountry.service'
 
 @Component({
   selector: 'app-adddrivers',
@@ -12,6 +13,8 @@ import { AdminMisService } from '../../../../services/adminMis.service';
   styleUrls: ['./adddrivers.component.css']
 })
 export class AdddriversComponent implements OnInit {
+  allCountryList;
+  allcities;
   basicInfoForm: FormGroup;
   driverDetailsForm: FormGroup;
   employeeFreelancerDetailsForm: FormGroup;
@@ -35,13 +38,14 @@ export class AdddriversComponent implements OnInit {
     private driverService: DriverService,
     private router: Router,
     private shareData: DataService,
-    private toaster: ToastrService, private fileUpload: AdminMisService) { }
+    private toaster: ToastrService, private fileUpload: AdminMisService, private countryCityList: CityCountryService) { }
   ngOnInit(): void {
     this.initializeBasicInformationForm();
     this.initializeDriverDetailsForm();
     this.initializeVehicleDetailsForm();
     this.initializeEmployeeFreelancerDetailsForm();
     this.initializeSecurityForm();
+    this.getCountryList();
     const sharedId = this.shareData.getID();
     if (sharedId) {
       this.editMode = true;
@@ -123,7 +127,7 @@ export class AdddriversComponent implements OnInit {
       nicFile: [''],
       nicNumber: ['', [Validators.required]],
       bankAccountId: [''],
-      diverType : ['Employee']
+      diverType: ['Employee']
 
     })
   }
@@ -188,6 +192,19 @@ export class AdddriversComponent implements OnInit {
       }
 
     }, err => {
+    })
+  }
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
+
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities = res.data
+
     })
   }
   updateFunction() {
