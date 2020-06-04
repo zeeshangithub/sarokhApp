@@ -22,12 +22,18 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City" formControlName="city">
+                <label>Select Country</label>
+                <select id="selectid" class="form-control" formControlName="country" (change)="getCityData($event.target.value)">
+                  <option value="">---Select Country---</option>
+                  <option [value]="country.code" *ngFor="let country of allCountryList">{{country.name}}</option>
+                </select>
               </div>
               <div class="form-group col-md-6">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country">
+                <label>Select City</label>
+                <select id="selectid" class="form-control" formControlName="city">
+                  <option value="">---Select City---</option>
+                  <option [value]="city" *ngFor="let city of allcities">{{city}}</option>
+                </select>
               </div>
             </div>
             <div class="form-row">

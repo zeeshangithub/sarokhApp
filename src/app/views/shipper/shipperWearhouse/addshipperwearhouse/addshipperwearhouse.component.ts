@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../../services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { ShipperService } from '../../../../services/shipper.service';
+import { CityCountryService } from '../../../../services/cityCountry.service'
 @Component({
   selector: 'app-addshipperwearhouse',
   templateUrl: './addshipperwearhouse.component.html',
@@ -18,7 +19,8 @@ import { ShipperService } from '../../../../services/shipper.service';
 })
 export class AddshipperwearhouseComponent implements OnInit {
   @ViewChild('mapRef', { static: true }) mapElement: ElementRef;
-
+  allCountryList;
+  allcities;
   warehouseadress: FormGroup;
   warehousemanager: FormGroup;
   amenities: FormGroup;
@@ -47,7 +49,8 @@ export class AddshipperwearhouseComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private toaster: ToastrService,
-    private shipperdetails: ShipperService
+    private shipperdetails: ShipperService,
+    private countryCityList: CityCountryService
   ) { }
 
 
@@ -57,15 +60,15 @@ export class AddshipperwearhouseComponent implements OnInit {
 
   ngOnInit(): void {
     this.shipperId = localStorage.getItem('_id')
- 
+    this.getCountryList();
     this.shipperdetails.fetchshipperDetails(this.shipperId).subscribe(res => {
       console.log("res", res)
       this.shipperdata = res.user;
-       this.warehousemanager.patchValue({
-          mangerContact:this.shipperdata.contact,
-          mangerEmail: this.shipperdata.email
-        })
-  })
+      this.warehousemanager.patchValue({
+        mangerContact: this.shipperdata.contact,
+        mangerEmail: this.shipperdata.email
+      })
+    })
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -146,6 +149,19 @@ export class AddshipperwearhouseComponent implements OnInit {
         this.template.users = element.users;
       }
     });
+  }
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
+
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities = res.data
+
+    })
   }
   finishFunction() {
     this.warehouseadress.controls["locationLongitude"].setValue(this.longitude);
