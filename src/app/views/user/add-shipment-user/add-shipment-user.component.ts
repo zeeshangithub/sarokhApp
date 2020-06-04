@@ -32,6 +32,7 @@ export class AddShipmentUserComponent implements OnInit {
       roleId: ['', [Validators.required]],
       userName: ['', [Validators.required]],
       userPassword: ['', [Validators.required]],
+      
     })
   }
 

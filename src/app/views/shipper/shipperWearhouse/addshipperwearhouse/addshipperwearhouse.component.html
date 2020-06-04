@@ -38,8 +38,8 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="postcode">Post Code</label>
-                <input type="text" class="form-control" id="postcode" placeholder="Postcode" formControlName="postcode">
+                <label for="postalCode">Post Code</label>
+                <input type="text" class="form-control" id="postalCode" placeholder="postalCode" formControlName="postalCode">
               </div>
 
             </div>
@@ -133,11 +133,11 @@
                 <div class="float-right">
                   <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="True">
+                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" [value]="forkLifter">
                     <label class="custom-control-label green" for="forkliftertrue">Yes</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="False">
+                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter" [value]="forkLifter">
                     <label class="custom-control-label red" for="forklifterflase">No</label>
                   </div>
                 </div>
@@ -145,11 +145,11 @@
               <div class="form-group col-md-6 padddingleft110">
                 <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="True">
+                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" [value]="qrscanner" >
                   <label class="custom-control-label green" for="qrscannertrue">Yes</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
+                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" [value]="qrscanner" >
                   <label class="custom-control-label red" for="qrscannerfalse">No</label>
                 </div>
               </div>
@@ -157,13 +157,11 @@
                 <div class="float-right">
                   <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="True">
+                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" [value]="thermalPrinter">
                     <label class="custom-control-label green" for="thermalPrintertrue">Yes</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="False">
+                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" [value]="thermalPrinter">
                     <label class="custom-control-label red" for="thermalPrinterfasle">No</label>
                   </div>
                 </div>

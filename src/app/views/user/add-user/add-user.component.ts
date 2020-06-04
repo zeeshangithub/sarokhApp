@@ -20,6 +20,7 @@ export class AddUserComponent implements OnInit {
   message: string;
   singleUser;
   editUser = false;
+  userid;
   constructor(private formbuilder: FormBuilder, private userService: UserService,
     private router: Router,
     private data: DataService ,
@@ -35,6 +36,7 @@ export class AddUserComponent implements OnInit {
       this.editUser = true;
       this.userService.fetchSingleUser(text).subscribe(res => {
         this.singleUser  = res.data;
+        this.userid  = this.singleUser.id;
         console.log("this.singleUser" , this.singleUser)
         this.userForm = this.formbuilder.group({
           contact: [this.singleUser.contact],
@@ -46,7 +48,8 @@ export class AddUserComponent implements OnInit {
           roleId: [this.singleUser.roleId],
           userName: [this.singleUser.userName],
           userPassword: [this.singleUser.userPassword],
-          parentTypeId: ['']
+          parentTypeId: [''],
+          userId:[''],
         })
       })
     }
@@ -54,6 +57,7 @@ export class AddUserComponent implements OnInit {
 
   initializeUserForm() {
     this.userForm = this.formbuilder.group({
+      userId:[''],
       contact: ['', [Validators.required]],
       designation: ['', [Validators.required]],
       dob: ['', [Validators.required]],
@@ -63,7 +67,8 @@ export class AddUserComponent implements OnInit {
       roleId: ['', [Validators.required]],
       userName: ['', [Validators.required]],
       userPassword: ['', [Validators.required]],
-      parentTypeId: ['']
+      parentTypeId: [''],
+  
     })
   }
 
@@ -124,7 +129,10 @@ export class AddUserComponent implements OnInit {
     this.data.setID("")
   }
   updateUser(){
-  
+    console.log("user" , this.userid)
+    console.log("this.userForm.value" , this.userForm.value)
+    console.log(this.userForm.get["userId"]);
+    this.userForm.controls['userId'].setValue(this.userid)
     console.log("this.userForm.value" , this.userForm.value)
     this.userService.updateShipperUser(this.userForm.value).subscribe(res=>{
       console.log("res" , res)

@@ -38,6 +38,7 @@ export class AddOrderComponent implements OnInit {
   zoom: number;
   address: string;
   private geoCoder;
+  notPrepaid = false;
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
@@ -330,9 +331,11 @@ export class AddOrderComponent implements OnInit {
   fetchDetails(val) {
     console.log(val)
     if (val === 'Prepaid') {
+      this.notPrepaid = false;
       this.shipmentInformation.patchValue({ 'billedAmount': 30 })
       this.shipmentInformation.patchValue({ 'codAmount': 0 })
     } else if (val === 'COD') {
+      this.notPrepaid = true;
     }
   }
   checkSarokhPoint(value) {

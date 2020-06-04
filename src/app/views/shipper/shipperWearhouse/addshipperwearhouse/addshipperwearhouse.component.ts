@@ -94,10 +94,12 @@ export class AddshipperwearhouseComponent implements OnInit {
           address: [res.address],
           city: [res.city],
           country: [res.country],
-          postcode: [res.postcode],
+          postalCode: [res.postalCode],
           longitude: [res.longitude],
           latitude: [res.latitude],
         })
+        console.log(res.operationalTimefrom)
+        console.log(res.operationalTimeto)
         this.warehousemanager = this.formbuilder.group({
           managerName: [res.managerName],
           mangerContact: [res.mangerContact],
@@ -106,6 +108,12 @@ export class AddshipperwearhouseComponent implements OnInit {
           operationalTimefrom: [res.operationalTimefrom],
           shipperId: this.shipperId,
         })
+        this.amenities.patchValue({
+          forkLifter: [res.forkLifter],
+          thermalPrinter: [res.thermalPrinter],
+          qrscanner: [res.qrscanner],
+        })
+        console.log(this.amenities.value)
       })
     }
   }
@@ -115,7 +123,7 @@ export class AddshipperwearhouseComponent implements OnInit {
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      postcode: ['', [Validators.required]],
+      postalCode: ['', [Validators.required]],
       locationLatitude: ['',],
       locationLongitude: ['',]
     })
