@@ -96,9 +96,10 @@ export class SarokhwearhouselistComponent implements OnInit {
     })
   }
   addNew(e) {
-    this.showlisting = e
+    this.router.navigate(['/admin/addsarokhwearhouse']);
   }
   EditWarehouse(id, e: boolean) {
+    this.router.navigate(['/admin/addsarokhwearhouse']);
     this.showlisting = e;
     this.shareData.setID(id);
   } private setCurrentLocation() {

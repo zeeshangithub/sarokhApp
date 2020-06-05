@@ -76,7 +76,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
           address: [res.address],
           city: [res.city],
           country: [res.country],
-          postcode: [res.postcode],
+          postalCode: [res.postalCode],
           locationLongitude: [res.longitude],
           locationLatitude: [res.latitude],
         })
@@ -111,7 +111,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      postcode: ['', [Validators.required]],
+      postalCode: ['', [Validators.required]],
       locationLongitude: [''],
       locationLatitude: [''],
     })
