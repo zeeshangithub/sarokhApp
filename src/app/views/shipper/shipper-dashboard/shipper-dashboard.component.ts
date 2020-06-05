@@ -10,6 +10,7 @@ import { Shipperdetails } from '../../../interfaces/shipperdetails'
 })
 
 export class ShipperDashboardComponent implements OnInit {
+    shipperdashboard;
     shipperdata;
     showDetails = false;
     constructor(private shipperdetails: ShipperService) { }
@@ -25,6 +26,12 @@ export class ShipperDashboardComponent implements OnInit {
 
             this.showDetails = true;
             console.log(this.shipperdata)
+
+        })
+        this.shipperdetails.fetchshipperDashboard(shipperID).subscribe(res => {
+            console.log("res", res)
+            this.shipperdashboard = res.data;
+            console.log(this.shipperdashboard)
 
         })
     }
