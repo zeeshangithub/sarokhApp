@@ -46,6 +46,7 @@ import { CodLedgersComponent } from './dealer/cod-ledgers/cod-ledgers.component'
 import { DealersInventoryComponent } from './dealer/dealers-inventory/dealers-inventory.component';
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
+import { PrintLabelsComponent } from './warehouse/print-labels/print-labels.component';
 
 
 const routes: Routes = [
@@ -242,6 +243,10 @@ const routes: Routes = [
   {
     path: 'sarokhwearhouselist',
     component: SarokhwearhouselistComponent,
+  },
+  {
+    path: 'printlabels',
+    component: PrintLabelsComponent,
   }
 ]
 @NgModule({
