@@ -147,12 +147,13 @@ export const navItems: INavData[] = [
             },
             {
                 name: 'Oprators',
-                url: 'printlabels',
+                url: '/base/cards',
                 icon: 'icon-map'
             },
             {
                 name: 'Print Label',
-                url: '/base/cards',
+                url: '/admin/printlabels',
+
                 icon: 'fas fa-print'
             },
             {
