@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { ToastrService } from 'ngx-toastr';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { id } from '@swimlane/ngx-datatable';
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
@@ -39,6 +40,7 @@ export class AddOrderComponent implements OnInit {
   address: string;
   private geoCoder;
   notPrepaid = false;
+  sharedID
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
@@ -73,11 +75,13 @@ export class AddOrderComponent implements OnInit {
     this.initializeShipmentInformationForm();
     this.generateOrderID();
     this.dealers();
-    const sharedId = this.shareData.getID();
-    console.log(sharedId)
-    if (sharedId) {
+    // debugger
+    // this.sharedID = this.shareData.getID();
+    this.sharedID = localStorage.getItem('id');
+    console.log(this.sharedID)
+    if (this.sharedID) {
       this.editOrder = true;
-      this.orderService.getOrderDetails(sharedId).subscribe(res => {
+      this.orderService.getOrderDetails(this.sharedID).subscribe(res => {
         // console.log("res", res.data)
         this.oderDetail = res.data;
         console.log("oderDetail", this.oderDetail)
@@ -134,6 +138,7 @@ export class AddOrderComponent implements OnInit {
         })
         this.shipmentDetails = this.oderDetail.shipmentOrderItems;
         console.log("this.shipmentDetails", this.shipmentDetails)
+        this.shareData.setID('')
       })
     }
   }
@@ -227,6 +232,7 @@ export class AddOrderComponent implements OnInit {
     })
   }
   editShipment(shipment) {
+    console.log(shipment)
     this.shipmentInformation.patchValue({ 'receiverName': shipment.receiverName });
     this.shipmentInformation.patchValue({ 'receiverMobileNumber': shipment.receiverMobileNumber });
     this.shipmentInformation.patchValue({ 'receiverAddress': shipment.receiverAddress });
@@ -249,6 +255,7 @@ export class AddOrderComponent implements OnInit {
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
+
     this.shipmentInformationArray.push(shi.value);
     this.shipmentInformation.reset();
     this.shipmentInformation.reset();
@@ -279,6 +286,7 @@ export class AddOrderComponent implements OnInit {
   getCity() {
     this.orderService.getCityList().subscribe(res => {
       console.log(res)
+      var shan = "zeeshan";
       this.citylist = res.data;
     })
   }

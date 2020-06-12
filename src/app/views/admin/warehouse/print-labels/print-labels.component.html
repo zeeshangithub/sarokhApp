@@ -9,7 +9,7 @@
             <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
                 {{Tracking}}</option>
         </select>
-        <div *ngIf="show" id="print-section">
+        <div *ngIf="show" id="print-sectionn">
             <table class="margintop50" width="100%" border="1">
                 <tbody>
                     <tr style="border: none;">
@@ -130,6 +130,6 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-primary mt-4 float-right" [useExistingCss]="true" printSectionId="print-section" ngxPrint>print</button>
+        <button class="btn btn-primary mt-4 float-right"  printSectionId="print-sectionn" ngxPrint>print</button>
     </div>
 </div>

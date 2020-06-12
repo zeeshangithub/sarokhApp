@@ -82,7 +82,6 @@ export class AllOrdersComponent implements OnInit {
 
 
   deleteOrder(id){
-
     this.orderService.deleteOrder(id).subscribe(res => {
       console.log("res" , res.status)
       if(res.status === 200){
@@ -90,6 +89,5 @@ export class AllOrdersComponent implements OnInit {
         this.router.routeReuseStrategy.shouldReuseRoute = () => true;
       }
     })
-
   }
 }
