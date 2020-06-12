@@ -1,6 +1,9 @@
 <div class="card margintop50">
-  <div class="card-header">
+  <div *ngIf="!editOrder" class="card-header">
     Add Order
+  </div>
+  <div *ngIf="editOrder" class="card-header">
+    Edit Order
   </div>
   <div class="card-body">
 
@@ -251,7 +254,8 @@
               </div>
             </div>
           </form>
-          <button class="btn btn-primary mt-3" type="button" [routerLink]="['/shipper/pendingshipments']">Compley Way Bill List</button>
+          <button class="btn btn-primary mt-3" type="button" (click)="AddandCreateNew(shipmentInformation)" >Compley Way Bill List</button>
+          <!-- [routerLink]="['/shipper/shipments']" -->
           <div class="col-sm-12" style="margin: 25px 0 00 0;">
             <table #dataTable style="width:100%" class="dataTable table-responsive pb-3">
               <thead>
