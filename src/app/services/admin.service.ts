@@ -15,8 +15,8 @@ export class AdminService {
     return this.http.post<any>(`${environment.apiURL}web-dashboard/${userType}/${userId}`, {});
   }
 
-  fetchOrdersList() {
-    return this.http.get<any>(`${environment.apiURL}order/get-list`);
+  fetchOrdersList(id) {
+    return this.http.get<any>(`${environment.apiURL}order/get-list/${id}`);
   }
 
   fetchOrderByType(orderType: string) {

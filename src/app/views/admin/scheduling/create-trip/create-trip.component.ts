@@ -5,6 +5,7 @@ import { VeshicalService } from '../../../../services/vehical.service';
 import { DriverService } from '../../../../services/driver.service';
 import { TripService } from '../../../../services/trip.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-trip',
@@ -29,7 +30,7 @@ export class CreateTripComponent implements OnInit {
   selectedFormData;
   constructor(private formbuilder: FormBuilder, private warehouse: WarehouseService,
     private vehical: VeshicalService, private driverlist: DriverService,
-    private tripService: TripService, private toastr: ToastrService) { }
+    private tripService: TripService, private toastr: ToastrService , private router : Router) { }
 
   ngOnInit(): void {
     this.initializeCreateForm();
@@ -116,5 +117,7 @@ export class CreateTripComponent implements OnInit {
     this.tripService.createTrip(this.selectedFormData).subscribe(res => {
       this.toastr.success(res.message);
     })
+    this.router.navigate(['/admin/allTrips']);
+  
   }
 }

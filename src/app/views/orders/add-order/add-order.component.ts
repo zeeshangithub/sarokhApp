@@ -204,35 +204,36 @@ export class AddOrderComponent implements OnInit {
       this.dealerPointList = false;
     }
   }
-  finishFunction(res) {
-    // if (this.finalresponse.length <= 1) {
-    //   var fullFormData = {
-    //     orderBasicInfo: this.orderBasicInfoForm.value,
-    //     pickupAndDelivery: this.pickupAndDelivery.value,
-    //     shipmentItems: this.shipmentInformationArray,
-    //   }
-    //   console.log("full form data", fullFormData)
-    //   const fullRequest = {
-    //     ...fullFormData.orderBasicInfo,
-    //     ...fullFormData.pickupAndDelivery,
-    //   };
-    //   console.log("fullRequest", fullRequest)
-    //   fullRequest.shipmentItems = this.shipmentInformationArray;
-    //   console.log("fullRequest", fullRequest)
-    //   this.finalresponse.push(fullRequest);
-    // }
+  finishFunction() {
+   console.log(this.finalresponse)
+    if (this.finalresponse.length < 1) {
+      var fullFormData = {
+        orderBasicInfo: this.orderBasicInfoForm.value,
+        pickupAndDelivery: this.pickupAndDelivery.value,
+        shipmentItems: this.shipmentInformationArray,
+      }
+      console.log("full form data", fullFormData)
+      const fullRequest = {
+        ...fullFormData.orderBasicInfo,
+        ...fullFormData.pickupAndDelivery,
+      };
+      console.log("fullRequest", fullRequest)
+      fullRequest.shipmentItems = this.shipmentInformationArray;
+      console.log("fullRequest", fullRequest)
+      this.finalresponse.push(fullRequest);
+    }
 
-    console.table("fullRequest", res)
-    this.orderService.addOrder(res).subscribe(res => {
+    console.table("fullRequest",  this.finalresponse)
+    this.orderService.addOrder( this.finalresponse).subscribe(res => {
       console.log("res", res)
       if (res.status == 200) {
         this.toaster.success(res.message)
-        this.router.navigate(['orders/orders']);
+        this.router.navigate(['orders/allorders']);
       }
     })
   }
   editShipment(shipment) {
-    console.log(shipment)
+    // console.log(shipment)
     this.shipmentInformation.patchValue({ 'receiverName': shipment.receiverName });
     this.shipmentInformation.patchValue({ 'receiverMobileNumber': shipment.receiverMobileNumber });
     this.shipmentInformation.patchValue({ 'receiverAddress': shipment.receiverAddress });
@@ -257,6 +258,7 @@ export class AddOrderComponent implements OnInit {
     this.obj = this.shipmentInformation.value;
 
     this.shipmentInformationArray.push(shi.value);
+    console.log(this.shipmentInformationArray)
     this.shipmentInformation.reset();
     this.shipmentInformation.reset();
     var fullFormData = {
@@ -274,7 +276,7 @@ export class AddOrderComponent implements OnInit {
     console.log("fullRequest", fullRequest)
     this.finalresponse.push(fullRequest);
     console.log(this.finalresponse);
-    this.finishFunction(this.finalresponse);
+    // this.finishFunction(this.finalresponse);
   }
   closeAdd() {
     this.showlisting.emit(true);
@@ -285,7 +287,7 @@ export class AddOrderComponent implements OnInit {
   }
   getCity() {
     this.orderService.getCityList().subscribe(res => {
-      console.log(res)
+      // console.log(res)
       var shan = "zeeshan";
       this.citylist = res.data;
     })
@@ -303,7 +305,7 @@ export class AddOrderComponent implements OnInit {
     this.warehouseService.fetchSarokhWarehouses().subscribe(res => {
       if (res && res.data) {
         this.sarokhWarehouses = res.data.warehouseList;
-        console.log(this.sarokhWarehouses);
+        // console.log(this.sarokhWarehouses);
       }
     })
     this.warehouseService.fetchShipperWarehouses(localStorage.getItem('id')).subscribe(res => {
