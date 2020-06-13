@@ -23,7 +23,7 @@ const routes: Routes = [
     canActivate: [ShipperOnlyGuard]
   },
   {
-    path: 'orders',
+    path: 'allorders',
     component: AllOrdersComponent
   },
   {

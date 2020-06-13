@@ -27,6 +27,7 @@ export class AllOrdersComponent implements OnInit {
 
   orders: any;
   showlisting  : boolean = true;
+  idForOrders;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<AdminService>(this.orders);
@@ -34,7 +35,17 @@ export class AllOrdersComponent implements OnInit {
   expandedElement: Order | null;
   ngOnInit(): void {
     this.fetchOrders();
-    this.adminService.fetchOrdersList().subscribe(res => {
+     const id= localStorage.getItem('id');
+      console.log("id" , id)
+      if (id === null) {
+        this.idForOrders = -1;
+      }
+      else{
+        this.idForOrders = id;
+      }      
+
+      console.log("this.idForOrders" , this.idForOrders)
+    this.adminService.fetchOrdersList(this.idForOrders).subscribe(res => {
 
       console.log("res", res.data)
 
