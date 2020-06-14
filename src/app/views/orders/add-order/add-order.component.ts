@@ -252,11 +252,12 @@ export class AddOrderComponent implements OnInit {
     this.shipmentInformationArray = [];
   }
   AddandCreateNew(shi) {
-    this.shipmentInformationArray = [];
+    // this.shipmentInformationArray = [];
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
 
+    console.log("shi.value" , shi.value)
     this.shipmentInformationArray.push(shi.value);
     console.log(this.shipmentInformationArray)
     this.shipmentInformation.reset();
