@@ -251,7 +251,13 @@ export class AddOrderComponent implements OnInit {
   deleteShipment() {
     this.shipmentInformationArray = [];
   }
-  AddandCreateNew(shi) {
+  AddandCreateNew(shi , isClone) {
+
+  
+
+
+
+
     // this.shipmentInformationArray = [];
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
@@ -260,8 +266,12 @@ export class AddOrderComponent implements OnInit {
     console.log("shi.value" , shi.value)
     this.shipmentInformationArray.push(shi.value);
     console.log(this.shipmentInformationArray)
-    this.shipmentInformation.reset();
-    this.shipmentInformation.reset();
+    if (isClone === 0){
+      this.shipmentInformation.reset();
+    }
+    
+    // this.shipmentInformation.get['deliveryCharges'].setValue("30");
+    this.shipmentInformation.patchValue({ 'deliveryCharges': 30 });
     var fullFormData = {
       orderBasicInfo: this.orderBasicInfoForm.value,
       pickupAndDelivery: this.pickupAndDelivery.value,

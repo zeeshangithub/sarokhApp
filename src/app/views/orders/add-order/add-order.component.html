@@ -148,14 +148,16 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="receiverMobileNumber">Receiver Contact No</label>
-                <input type="number" class="form-control" id="receiverMobileNumber" formControlName="receiverMobileNumber" placeholder="Receiver Contact No">
+                <input type="text" class="form-control" id="receiverMobileNumber" formControlName="receiverMobileNumber" placeholder="Receiver Contact No">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="receiverAddress">Receiver Address</label>
                 <!-- <input type="text" class="form-control" id="receiverAddress" formControlName="receiverAddress" placeholder="Receiver Address"> -->
-                <input type="text" class="form-control" id="receiverAddress" formControlName="receiverAddress" placeholder="Receiver Address" (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+                <input type="text" class="form-control" id="receiverAddress" formControlName="receiverAddress" placeholder="Receiver Address"
+                  (keydown.enter)="$event.preventDefault()" autocorrect="off" autocapitalize="off" spellcheck="off" type="text"
+                  #search>
               </div>
             </div>
             <div class="form-row">
@@ -241,7 +243,9 @@
                   <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button>
                 </div>
                 <div class="btn-container float-right">
-                  <button [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation)">Add to Way Bill
+                  <button [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 0)">Add to Way Bill
+                  </button>
+                  <button [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 1)">Clone
                   </button>
                 </div>
                 <div class="btn-container float-right mr-2 mb-4">
@@ -255,7 +259,7 @@
               </div>
             </div>
           </form>
-          <button class="btn btn-primary mt-3" type="button" (click)="finishFunction()" >Complete Way Bill List</button>
+          <button class="btn btn-primary mt-3" type="button" (click)="finishFunction()">Complete Way Bill List</button>
           <!-- [routerLink]="['/shipper/shipments']" -->
           <div class="col-sm-12" style="margin: 25px 0 00 0;">
             <table #dataTable style="width:100%" class="dataTable table-responsive pb-3">

@@ -100,27 +100,25 @@
         <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid">
           <form [formGroup]="amenities">
             <div class="form-row margintop30">
-              <div class="form-group col-md-4">
-                <div class="float-right">
-                  <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="True">
-                    <label class="custom-control-label green" for="forkliftertrue">Yes</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="forklifterflase" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="False">
-                    <label class="custom-control-label red" for="forklifterflase">No</label>
-                  </div>
+              <div class="form-group col-md-6 padddingleft110">
+                <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="forkliftertrue" >
+                  <label class="custom-control-label green" for="forkliftertrue">Yes</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" id="forklifterfalse" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="forklifterfalse" >
+                  <label class="custom-control-label red" for="forklifterfalse">No</label>
                 </div>
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-6 padddingleft110">
                 <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="True">
+                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="qrscannertrue" >
                   <label class="custom-control-label green" for="qrscannertrue">Yes</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="False">
+                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="qrscannerfalse" >
                   <label class="custom-control-label red" for="qrscannerfalse">No</label>
                 </div>
               </div>
@@ -128,19 +126,16 @@
                 <div class="float-right">
                   <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="True">
+                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="thermalPrintertrue">
                     <label class="custom-control-label green" for="thermalPrintertrue">Yes</label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter"
-                      value="False">
+                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="thermalPrinterfasle">
                     <label class="custom-control-label red" for="thermalPrinterfasle">No</label>
                   </div>
                 </div>
               </div>
             </div>
-
           </form>
           <div class="btn-container float-left">
             <button class="btn btn-success" type="button" (click)="closeAdd()">Cancel</button>

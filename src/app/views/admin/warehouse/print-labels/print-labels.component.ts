@@ -19,7 +19,7 @@ export class PrintLabelsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getyids.getOrderIDs(localStorage.getItem('id')).subscribe(res => {
+    this.getyids.getOrderIDs(localStorage.getItem('_id')).subscribe(res => {
       console.log(res.data);
       this.trackingNos = res.data;
     })
