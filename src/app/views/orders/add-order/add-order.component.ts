@@ -40,7 +40,8 @@ export class AddOrderComponent implements OnInit {
   address: string;
   private geoCoder;
   notPrepaid = false;
-  sharedID
+  sharedID;
+  updateFlag = false;
   @Output()
   showlisting = new EventEmitter<boolean>();
   shipmentDetailsData = []
@@ -76,8 +77,17 @@ export class AddOrderComponent implements OnInit {
     this.generateOrderID();
     this.dealers();
     // debugger
-    // this.sharedID = this.shareData.getID();
-    this.sharedID = localStorage.getItem('id');
+   
+    
+
+    if(localStorage.getItem('id')){
+      this.sharedID = localStorage.getItem('id');
+    }
+    else{
+      this.sharedID = this.shareData.getID();
+      this.updateFlag = true;
+    }
+
     console.log(this.sharedID)
     if (this.sharedID) {
       this.editOrder = true;
@@ -91,7 +101,8 @@ export class AddOrderComponent implements OnInit {
           shipToCity: [this.oderDetail.shipToCity],
           // pickupType: [oderDetail.pickupType],
           // shipmentType: [oderDetail.shipmentType],
-          shipperId: [this.oderDetail.shipperId]
+          shipperId: [this.oderDetail.shipperId],
+          id : [this.oderDetail.id]
         })
         console.log(this.oderDetail.pickupLocation)
         console.log(this.oderDetail.deliveryLocation)
@@ -147,7 +158,8 @@ export class AddOrderComponent implements OnInit {
       orderId: ['', [Validators.required]],
       shipperId: ['', [Validators.required]],
       shipFromCity: ['', [Validators.required]],
-      shipToCity: ['', [Validators.required]]
+      shipToCity: ['', [Validators.required]],
+      id : ['' ]
     })
   }
   initializeDropoffDetailsForm() {
@@ -228,7 +240,7 @@ export class AddOrderComponent implements OnInit {
       console.log("res", res)
       if (res.status == 200) {
         this.toaster.success(res.message)
-        this.router.navigate(['orders/allorders']);
+        this.router.navigate(['shipment/allshipment']);
       }
     })
   }
@@ -252,12 +264,6 @@ export class AddOrderComponent implements OnInit {
     this.shipmentInformationArray = [];
   }
   AddandCreateNew(shi , isClone) {
-
-  
-
-
-
-
     // this.shipmentInformationArray = [];
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
@@ -296,6 +302,46 @@ export class AddOrderComponent implements OnInit {
     this.pickupAndDelivery.reset();
     this.shareData.setID('')
   }
+
+
+  Update(shi){
+
+    this.shipmentInformationArray.push(shi.value);
+    console.log(this.shipmentInformationArray)
+   
+    
+    // this.shipmentInformation.get['deliveryCharges'].setValue("30");
+
+    console.log("this.oderDetail.shipmentOrderItems[0].orderId" , this.oderDetail.orderId);
+    console.log("this.oderDetail.shipmentOrderItems[0].id" , this.oderDetail.id)
+    this.orderBasicInfoForm.controls['orderId'].setValue( this.oderDetail.orderId);
+    this.orderBasicInfoForm.patchValue({ 'id': this.oderDetail.id });
+    // this.orderBasicInfoForm.controls['id'].setValue( this.oderDetail.id);
+  
+    var fullFormData = {
+      orderBasicInfo: this.orderBasicInfoForm.value,
+      pickupAndDelivery: this.pickupAndDelivery.value,
+      shipmentItems: this.shipmentInformationArray,
+    }
+    console.log("full form data", fullFormData)
+    const fullRequest = {
+      ...fullFormData.orderBasicInfo,
+      ...fullFormData.pickupAndDelivery,
+    };
+    console.log("fullRequest", fullRequest)
+    fullRequest.shipmentItems = this.shipmentInformationArray;
+    console.log("fullRequest", fullRequest)
+    this.finalresponse.push(fullRequest);
+    console.log(this.finalresponse);
+    console.log("shi" , this.finalresponse)
+    this.orderService.updateOrder(this.finalresponse[0]).subscribe( res =>{
+      
+      console.log("res" , res);
+      
+    })
+  }
+
+
   getCity() {
     this.orderService.getCityList().subscribe(res => {
       // console.log(res)

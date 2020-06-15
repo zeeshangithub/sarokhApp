@@ -42,7 +42,11 @@ export class OrderService {
   } 
   searchShipment(Id) {
     return this.http.get<any>(`${environment.apiURL}order/find-shipment-trackingno/${Id}`);
+  }
+  updateOrder(formData) {
+    return this.http.put<any>(`${environment.apiURL}order/update/`, formData);
   } 
+
 
   
 }

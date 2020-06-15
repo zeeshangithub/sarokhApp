@@ -177,7 +177,7 @@ const routes: Routes = [
     component: AlldriversComponent,
   },
   {
-    path: 'allorders',
+    path: 'allshipment',
     component: AllordersComponent,
   },
   {

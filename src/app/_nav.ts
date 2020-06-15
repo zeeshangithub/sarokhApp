@@ -26,12 +26,12 @@ export const navItems: INavData[] = [
     },
     {
         name: 'Orders',
-        url: '/orders',
+        url: '/shipment',
         icon: 'fas fa-dolly-flatbed',
         children: [
             {
                 name: 'All Orders',
-                url: '/orders/allorders',
+                url: 'shipment/allshipment',
                 icon: 'fas fa-dolly-flatbed'
             },
             // {
@@ -372,12 +372,12 @@ export const ShipperNavItems: INavData[] = [
         children: [
             {
                 name: 'New Order',
-                url: '/orders/add',
+                url: '/shipment/add',
                 icon: 'fas fa-shopping-cart'
             },
             {
                 name: 'All Orders',
-                url: '/orders/allorders',
+                url: '/shipment/allshipment',
                 icon: 'fas fa-shopping-cart'
             },
             // {
