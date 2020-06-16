@@ -42,6 +42,7 @@ export class AddshipperwearhouseComponent implements OnInit {
   showlisting = new EventEmitter<boolean>();
   @Output() editDone = new EventEmitter<string>();
 
+  
   constructor(
     private formbuilder: FormBuilder,
     private shipperwarehouse: ShipperWearhouseService,
@@ -108,11 +109,17 @@ export class AddshipperwearhouseComponent implements OnInit {
           operationalTimefrom: [res.operationalTimefrom],
           shipperId: this.shipperId,
         })
-        this.amenities.patchValue({
+        this.amenities = this.formbuilder.group({
           forkLifter: [res.forkLifter],
           thermalPrinter: [res.thermalPrinter],
           qrscanner: [res.qrscanner],
         })
+        
+        // this.amenities.patchValue({
+        //   forkLifter: [res.forkLifter[0]],
+        //   thermalPrinter: [res.thermalPrinter[0]],
+        //   qrscanner: [res.qrscanner[0]],
+        // })
         console.log(this.amenities.value)
       })
     }
@@ -174,6 +181,7 @@ export class AddshipperwearhouseComponent implements OnInit {
   finishFunction() {
     this.warehouseadress.controls["locationLongitude"].setValue(this.longitude);
     this.warehouseadress.controls["locationLatitude"].setValue(this.latitude);
+
     var fullFormData = {
       basicInfo: this.warehouseadress.value,
       shipmentItems: this.warehousemanager.value,
