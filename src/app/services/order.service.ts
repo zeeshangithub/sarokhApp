@@ -29,24 +29,24 @@ export class OrderService {
     return this.http.get<any>(`${environment.apiURL}city/get-list`);
   }
   getshipmentByTrackingNo(trackingno) {
-    return this.http.post<any>(`${environment.apiURL}order/search-shipment-by-trackingno/${trackingno}` , trackingno);
+    return this.http.post<any>(`${environment.apiURL}order/search-shipment-by-trackingno/${trackingno}`, trackingno);
   }
   assignCardBy(formData) {
-    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-card-to-shipment` , formData);
+    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-card-to-shipment`, formData);
   }
   assignDriverBy(formData) {
-    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-driver-to-shipment` , formData);
+    return this.http.post<any>(`${environment.apiURL}sarokh-warehouse/assign-driver-to-shipment`, formData);
   }
   getOrderIDs(Id) {
-    return this.http.get<any>(`${environment.apiURL}order/get-all-shipments-trackingnumber/${Id}`);
-  } 
+    return this.http.get<any>(`${environment.apiURL}order/get-all-shipments-trackingnumber`);
+  }
   searchShipment(Id) {
     return this.http.get<any>(`${environment.apiURL}order/find-shipment-trackingno/${Id}`);
   }
   updateOrder(formData) {
     return this.http.put<any>(`${environment.apiURL}order/update/`, formData);
-  } 
+  }
 
 
-  
+
 }
