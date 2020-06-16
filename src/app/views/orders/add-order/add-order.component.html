@@ -243,11 +243,11 @@
                   <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button>
                 </div>
                 <div class="btn-container float-right">
-                  <button *ngIf="updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 0)">Add to Way Bill
+                  <button *ngIf="!updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 0)">Add to Way Bill
                   </button>
-                  <button *ngIf="updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 1)">Clone
+                  <button *ngIf="!updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="AddandCreateNew(shipmentInformation , 1)">Clone
                   </button>
-                  <button *ngIf="!updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="Update(shipmentInformation)">Update
+                  <button *ngIf="updateFlag" [disabled]="!shipmentInformation.valid" class="btn btn-success" type="button" (click)="Update(shipmentInformation)">Update
                   </button>
                 </div>
                 <div class="btn-container float-right mr-2 mb-4">
@@ -261,7 +261,7 @@
               </div>
             </div>
           </form>
-          <button *ngIf="updateFlag" class="btn btn-primary mt-3" type="button" (click)="finishFunction()">Complete Way Bill List</button>
+          <button *ngIf="!updateFlag" class="btn btn-primary mt-3" type="button" (click)="finishFunction()">Complete Way Bill List</button>
           <!-- [routerLink]="['/shipper/shipments']" -->
           <div class="col-sm-12" style="margin: 25px 0 00 0;">
             <table #dataTable style="width:100%" class="dataTable table-responsive pb-3">
