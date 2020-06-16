@@ -80,16 +80,12 @@ export class AddOrderComponent implements OnInit {
    
     
 
-    if(localStorage.getItem('id')){
-      this.sharedID = localStorage.getItem('id');
-    }
-    else{
       this.sharedID = this.shareData.getID();
-      this.updateFlag = true;
-    }
+ 
 
     console.log(this.sharedID)
     if (this.sharedID) {
+      this.updateFlag = true;
       this.editOrder = true;
       this.orderService.getOrderDetails(this.sharedID).subscribe(res => {
         // console.log("res", res.data)
@@ -152,6 +148,7 @@ export class AddOrderComponent implements OnInit {
         this.shareData.setID('')
       })
     }
+    localStorage.clear; 
   }
   initializeBasicInformationForm() {
     this.orderBasicInfoForm = this.formbuilder.group({
