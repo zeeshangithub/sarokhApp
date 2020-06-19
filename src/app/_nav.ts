@@ -375,11 +375,11 @@ export const ShipperNavItems: INavData[] = [
                 url: '/shipment/add',
                 icon: 'fas fa-shopping-cart'
             },
-            {
-                name: 'All Orders',
-                url: '/shipment/allshipment',
-                icon: 'fas fa-shopping-cart'
-            },
+            // {
+            //     name: 'All Orders',
+            //     url: '/shipment/allshipment',
+            //     icon: 'fas fa-shopping-cart'
+            // },
             // {
             //     name: 'Pending Orders',
             //     url: '/orders/pendingorders',
@@ -394,7 +394,7 @@ export const ShipperNavItems: INavData[] = [
         children: [
             {
                 name: 'All Shipments',
-                url: '/shipper/shipments',
+                url: '/shipment/allshipment',
                 icon: 'icon-map'
             },
             {

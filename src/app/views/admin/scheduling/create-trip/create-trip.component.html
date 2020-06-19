@@ -13,7 +13,7 @@
                                 <option [value]='warehouse.id' *ngFor="let warehouse of warehouselist">
                                     {{warehouse.name}}</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="col">
                             <select class="form-control" id="status" formControlName="vehical">
                                 <option value="">--- Select Vehical ---</option>
@@ -47,6 +47,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Action</th>
+                                <th>Tracking No</th>
                                 <th scope="col">From Location</th>
                                 <th scope="col">To Location</th>
                                 <th scope="col">Address</th>
@@ -60,6 +61,7 @@
                                 <td>
                                     <input #showTrip type="checkbox" (click)="addValue(trip, showTrip.checked)" />
                                 </td>
+                                <td>{{trip.shipmentId}}</td>
                                 <td>{{trip.fromLocation}}</td>
                                 <td>{{trip.toLocation}}</td>
                                 <td>{{trip.address}}</td>
