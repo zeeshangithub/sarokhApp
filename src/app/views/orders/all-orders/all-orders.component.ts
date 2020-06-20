@@ -26,25 +26,25 @@ declare var $;
 export class AllOrdersComponent implements OnInit {
 
   orders: any;
-  showlisting  : boolean = true;
+  showlisting: boolean = true;
   idForOrders;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<AdminService>(this.orders);
-  columnsToDisplay = ['orderId', 'pickupType', 'shipFromCity', 'shipToCity', 'deliveryLocation','status'];
+  columnsToDisplay = ['orderId', 'pickupType', 'shipFromCity', 'shipToCity', 'deliveryLocation', 'status'];
   expandedElement: Order | null;
   ngOnInit(): void {
     this.fetchOrders();
-     const id= localStorage.getItem('id');
-      console.log("id" , id)
-      if (id === null) {
-        this.idForOrders = -1;
-      }
-      else{
-        this.idForOrders = id;
-      }      
+    const id = localStorage.getItem('id');
+    console.log("id", id)
+    if (id === null) {
+      this.idForOrders = -1;
+    }
+    else {
+      this.idForOrders = id;
+    }
 
-      console.log("this.idForOrders" , this.idForOrders)
+    console.log("this.idForOrders", this.idForOrders)
     this.adminService.fetchOrdersList(this.idForOrders).subscribe(res => {
 
       console.log("res", res.data)
@@ -59,7 +59,7 @@ export class AllOrdersComponent implements OnInit {
   }
 
   constructor(private router: Router, private adminService: AdminService,
-    private shareData : DataService , private orderService: OrderService) { }
+    private shareData: DataService, private orderService: OrderService) { }
 
 
   fetchOrders() {
@@ -67,12 +67,12 @@ export class AllOrdersComponent implements OnInit {
   }
 
   viewOrder(id) {
-    this.router.navigate(['orders/vieworder',id]);
+    this.router.navigate(['shipment/vieworder', id]);
   }
-  addNew(e){
+  addNew(e) {
     this.showlisting = e
   }
-  editOrder(id , e : boolean){
+  editOrder(id, e: boolean) {
     this.showlisting = e;
     this.shareData.setID(id);
   }
@@ -92,10 +92,10 @@ export class AllOrdersComponent implements OnInit {
   // }
 
 
-  deleteOrder(id){
+  deleteOrder(id) {
     this.orderService.deleteOrder(id).subscribe(res => {
-      console.log("res" , res.status)
-      if(res.status === 200){
+      console.log("res", res.status)
+      if (res.status === 200) {
         this.fetchOrders();
         this.router.routeReuseStrategy.shouldReuseRoute = () => true;
       }

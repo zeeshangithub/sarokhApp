@@ -12,7 +12,8 @@
           </button>
         </tr> -->
         <tr>
-          <th scope="col">Order Id</th>
+          <th></th>
+          <th scope="col">Tracking No</th>
           <th scope="col">Receiver Name</th>
           <th scope="col">Payment Type</th>
           <th scope="col">COD Amount</th>
@@ -22,6 +23,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let pendingshipment of pendingshipments">
+          <td>
+            <i style="font-size: 20px; color: #337ab7;" (click)=viewOrder(pendingshipment.id) class="fa fa-info-circle float-right mr-2 mb-3"></i>
+          </td>
           <td>{{pendingshipment.orderId}}</td>
           <td>{{pendingshipment.receiverName}}</td>
           <td>{{pendingshipment.paymentType}}</td>

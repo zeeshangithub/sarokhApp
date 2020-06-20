@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShipperService } from '../../../services/shipper.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shipmentissue',
@@ -9,12 +10,14 @@ import { ShipperService } from '../../../services/shipper.service';
 export class ShipmentissueComponent implements OnInit {
 
   public shipmentIssues;
-  constructor(private shipmentIssue: ShipperService) { }
+  constructor(private shipmentIssue: ShipperService, private router: Router) { }
 
   ngOnInit(): void {
     this.getShipperIssues();
   }
-
+  viewOrder(id) {
+    this.router.navigate(['orders/vieworder', id]);
+  }
   getShipperIssues() {
     this.shipmentIssue.fetchShipmentIssues().subscribe(res => {
       this.shipmentIssues = res.data

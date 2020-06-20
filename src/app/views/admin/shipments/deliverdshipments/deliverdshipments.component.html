@@ -7,6 +7,7 @@
         <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
             <thead>
                 <tr>
+                    <th></th>
                     <th scope="col">Tracking Number</th>
                     <th scope="col">Date of Delivery</th>
                     <th scope="col">Payment Type</th>
@@ -17,6 +18,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let shipments of deliverdShipments">
+                    <td>
+                        <i style="font-size: 20px; color: #337ab7;" (click)=viewOrder(shipments.id) class="fa fa-info-circle float-right mr-2 mb-3"></i>
+                    </td>
                     <td>{{shipments.shipmentId}}</td>
                     <td>{{shipments.dateTime}}</td>
                     <td>{{shipments.shipmentType}}</td>
