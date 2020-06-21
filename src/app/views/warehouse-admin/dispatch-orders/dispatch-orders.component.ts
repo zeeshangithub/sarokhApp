@@ -17,12 +17,12 @@ export class DispatchOrdersComponent implements OnInit {
   formData;
   driverList;
   constructor(private getdatabyTrackingNo: OrderService, private toast: ToastrService,
-    private driverService : DriverService
-    ) { }
+    private driverService: DriverService
+  ) { }
 
   ngOnInit(): void {
 
-    this.driverService.GetDriverList().subscribe(res =>{
+    this.driverService.GetDriverList().subscribe(res => {
       this.driverList = res
       console.log(res)
     })
@@ -36,7 +36,7 @@ export class DispatchOrdersComponent implements OnInit {
         if (res) {
           this.showAssignCard = true;
         }
-        this.shipments.push(res.data)
+        // this.shipments.push(res.data)
       })
     }
   }
@@ -55,6 +55,7 @@ export class DispatchOrdersComponent implements OnInit {
           this.toast.success(res.message)
           this.cardId = '';
           this.inputTracking = '';
+          this.shipments.push(res.data)
         }
       })
     }
