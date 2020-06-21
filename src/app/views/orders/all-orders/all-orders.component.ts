@@ -31,7 +31,7 @@ export class AllOrdersComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   public dataSource = new MatTableDataSource<AdminService>(this.orders);
-  columnsToDisplay = ['orderId', 'pickupType', 'shipFromCity', 'shipToCity', 'deliveryLocation', 'status'];
+  columnsToDisplay = ['orderId', 'pickType', 'deliveryType', 'dateTime', 'receiverName', 'status'];
   expandedElement: Order | null;
   ngOnInit(): void {
     this.fetchOrders();
