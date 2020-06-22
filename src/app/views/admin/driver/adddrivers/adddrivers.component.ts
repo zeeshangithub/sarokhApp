@@ -150,7 +150,7 @@ export class AdddriversComponent implements OnInit {
   initializeEmployeeFreelancerDetailsForm() {
     this.employeeFreelancerDetailsForm = this.formbuilder.group({
       bank: ['', [Validators.required]],
-      compensation: [0, [Validators.required]],
+      compensation: ['', [Validators.required]],
       compensationCycle: ['', [Validators.required]],
       contactValidTill: ['', [Validators.required]],
       contractStartDate: ['', [Validators.required]],

@@ -76,6 +76,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('role', 'WarehouseUser');
           this.router.navigate(['/warehouseadmin/warehouse']);
         }
+        else if (res && role === "WarehouseManager") {
+          localStorage.setItem('id', res.data.id);
+          localStorage.setItem('role', 'WarehouseManager');
+          this.router.navigate(['/warehousemanager/warehouseManagerDashboard']);
+        }
       }
     }, err => {
 

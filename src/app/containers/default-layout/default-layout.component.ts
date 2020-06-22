@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
-import { navItems, ShipperNavItems , DealerNavItems, AdminWarehouseNavItems } from '../../_nav';
+import { navItems, ShipperNavItems , DealerNavItems, AdminWarehouseNavItems,
+  WarehouseManagerNavItems } from '../../_nav';
 import { Router } from '@angular/router';
 import {LocalStorageService} from 'ngx-webstorage';
 import { ShipperService } from '../../services/shipper.service';
@@ -39,7 +40,12 @@ export class DefaultLayoutComponent implements  OnInit{
     }else {
       if (localStorage.getItem('role') === 'WarehouseUser'){
         this.navItems = AdminWarehouseNavItems;
-      }
+      }else
+        if (localStorage.getItem('role') === 'WarehouseManager'){
+          this.navItems = WarehouseManagerNavItems;
+        }
+      
+      
     }
     this.showRole = localStorage.getItem('role');
     console.log("this.showRole" , this.showRole)

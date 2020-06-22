@@ -549,3 +549,17 @@ export const AdminWarehouseNavItems: INavData[] = [
     },
 
 ];
+
+export const WarehouseManagerNavItems: INavData[] = [
+    {
+        name: 'WM Dashboard',
+        url: '/warehousemanager/warehouseManagerDashboard',
+        icon: 'fas fa-rocket',
+    },
+    {
+        name: 'Create Trip',
+        url: '/warehousemanager/managertrip',
+        icon: 'fas fa-money-bill-wave'
+    },
+   
+];

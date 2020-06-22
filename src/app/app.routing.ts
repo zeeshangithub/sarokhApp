@@ -91,6 +91,11 @@ export const routes: Routes = [
         path: 'warehouseadmin',
         canActivate: [AuthGuard],
         loadChildren: () => import('./views/warehouse-admin/warehouse-admin.module').then(m => m.WarehouseAdminModule)
+      },
+      {
+        path: 'warehousemanager',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./views/warehouse-manager/warehouse-manager.module').then(m => m.WarehouseManagerModule)
       }
     ]
   },
