@@ -77,11 +77,11 @@ export class AddOrderComponent implements OnInit {
     this.generateOrderID();
     this.dealers();
     // debugger
-   
-    
 
-      this.sharedID = this.shareData.getID();
- 
+
+
+    this.sharedID = this.shareData.getID();
+
 
     console.log(this.sharedID)
     if (this.sharedID) {
@@ -98,7 +98,7 @@ export class AddOrderComponent implements OnInit {
           // pickupType: [oderDetail.pickupType],
           // shipmentType: [oderDetail.shipmentType],
           shipperId: [this.oderDetail.shipperId],
-          id : [this.oderDetail.id]
+          id: [this.oderDetail.id]
         })
         console.log(this.oderDetail.pickupLocation)
         console.log(this.oderDetail.deliveryLocation)
@@ -148,7 +148,7 @@ export class AddOrderComponent implements OnInit {
         this.shareData.setID('')
       })
     }
-    localStorage.clear; 
+    localStorage.clear;
   }
   initializeBasicInformationForm() {
     this.orderBasicInfoForm = this.formbuilder.group({
@@ -156,7 +156,7 @@ export class AddOrderComponent implements OnInit {
       shipperId: ['', [Validators.required]],
       shipFromCity: ['', [Validators.required]],
       shipToCity: ['', [Validators.required]],
-      id : ['' ]
+      id: ['']
     })
   }
   initializeDropoffDetailsForm() {
@@ -207,14 +207,14 @@ export class AddOrderComponent implements OnInit {
       this.showsarokhpointdropdown = false;
       this.pickupAndDelivery.patchValue({ 'shipperwarehosue': '' })
       this.pickupAndDelivery.patchValue({ 'sarokhPoint': '' })
-    }else if (warehouse === "DealerPoint") {
+    } else if (warehouse === "DealerPoint") {
       this.shipperWarehousesList = false;
       this.sarokhWarehousesList = false;
       this.dealerPointList = false;
     }
   }
   finishFunction() {
-   console.log(this.finalresponse)
+    console.log(this.finalresponse)
     if (this.finalresponse.length < 1) {
       var fullFormData = {
         orderBasicInfo: this.orderBasicInfoForm.value,
@@ -232,8 +232,8 @@ export class AddOrderComponent implements OnInit {
       this.finalresponse.push(fullRequest);
     }
 
-    console.table("fullRequest",  this.finalresponse)
-    this.orderService.addOrder( this.finalresponse).subscribe(res => {
+    console.table("fullRequest", this.finalresponse)
+    this.orderService.addOrder(this.finalresponse).subscribe(res => {
       console.log("res", res)
       if (res.status == 200) {
         this.toaster.success(res.message)
@@ -260,19 +260,19 @@ export class AddOrderComponent implements OnInit {
   deleteShipment() {
     this.shipmentInformationArray = [];
   }
-  AddandCreateNew(shi , isClone) {
+  AddandCreateNew(shi, isClone) {
     // this.shipmentInformationArray = [];
     this.shipmentInformation.controls["locationLongitude"].setValue(this.longitude);
     this.shipmentInformation.controls["locationLatitude"].setValue(this.latitude);
     this.obj = this.shipmentInformation.value;
 
-    console.log("shi.value" , shi.value)
+    console.log("shi.value", shi.value)
     this.shipmentInformationArray.push(shi.value);
     console.log(this.shipmentInformationArray)
-    if (isClone === 0){
+    if (isClone === 0) {
       this.shipmentInformation.reset();
     }
-    
+
     // this.shipmentInformation.get['deliveryCharges'].setValue("30");
     this.shipmentInformation.patchValue({ 'deliveryCharges': 30 });
     var fullFormData = {
@@ -297,24 +297,25 @@ export class AddOrderComponent implements OnInit {
     this.orderBasicInfoForm.reset();
     this.orderBasicInfoForm.reset();
     this.pickupAndDelivery.reset();
-    this.shareData.setID('')
+    this.shareData.setID('');
+    this.router.navigate(['/shipper/Dashboard/']);
   }
 
 
-  Update(shi){
+  Update(shi) {
 
     this.shipmentInformationArray.push(shi.value);
     console.log(this.shipmentInformationArray)
-   
-    
+
+
     // this.shipmentInformation.get['deliveryCharges'].setValue("30");
 
-    console.log("this.oderDetail.shipmentOrderItems[0].orderId" , this.oderDetail.orderId);
-    console.log("this.oderDetail.shipmentOrderItems[0].id" , this.oderDetail.id)
-    this.orderBasicInfoForm.controls['orderId'].setValue( this.oderDetail.orderId);
+    console.log("this.oderDetail.shipmentOrderItems[0].orderId", this.oderDetail.orderId);
+    console.log("this.oderDetail.shipmentOrderItems[0].id", this.oderDetail.id)
+    this.orderBasicInfoForm.controls['orderId'].setValue(this.oderDetail.orderId);
     this.orderBasicInfoForm.patchValue({ 'id': this.oderDetail.id });
     // this.orderBasicInfoForm.controls['id'].setValue( this.oderDetail.id);
-  
+
     var fullFormData = {
       orderBasicInfo: this.orderBasicInfoForm.value,
       pickupAndDelivery: this.pickupAndDelivery.value,
@@ -330,11 +331,11 @@ export class AddOrderComponent implements OnInit {
     console.log("fullRequest", fullRequest)
     this.finalresponse.push(fullRequest);
     console.log(this.finalresponse);
-    console.log("shi" , this.finalresponse)
-    this.orderService.updateOrder(this.finalresponse[0]).subscribe( res =>{
-      
-      console.log("res" , res);
-      
+    console.log("shi", this.finalresponse)
+    this.orderService.updateOrder(this.finalresponse[0]).subscribe(res => {
+
+      console.log("res", res);
+
     })
   }
 

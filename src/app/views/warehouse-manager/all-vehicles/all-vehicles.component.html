@@ -1,0 +1,47 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        All Vehicles
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Registration Number</th>
+                    <th scope="col">Registration File</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Make</th>
+                    <th scope="col">Registration Year</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Cargo Capacity</th>
+                    <th scope="col">Current Milage</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Created Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vehicles of allVehicles">
+                    <td>{{vehicles.id}}</td>
+                    <td>{{vehicles.name}}</td>
+                    <td>{{vehicles.owner}}</td>
+                    <td>{{vehicles.registrationNumber}}</td>
+                    <td>{{vehicles.registrationFile}}</td>
+                    <td>{{vehicles.model}}</td>
+                    <td>{{vehicles.make}}</td>
+                    <td>{{vehicles.registrationYear}}</td>
+                    <td>{{vehicles.type}}</td>
+                    <td>{{vehicles.cargoCapacity}}</td>
+                    <td>{{vehicles.currentMilage}}</td>
+                    <td>{{vehicles.status}}</td>
+                    <td>{{vehicles.createdDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

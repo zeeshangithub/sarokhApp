@@ -558,9 +558,40 @@ export const WarehouseManagerNavItems: INavData[] = [
     },
     {
         name: 'Create Trip',
-        // url: '/warehousemanager/managertrip',
         url: '/admin/createTrip',
         icon: 'fas fa-money-bill-wave'
     },
+    {
+        name: 'Trips',
+        url: '/admin/allTrips',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Drivers',
+        url: '/warehousemanager/allDrivers',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Dealers',
+        url: '/warehousemanager/allDealers',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Shippers',
+        url: '/warehousemanager/allShippers',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Vehicles',
+        url: '/warehousemanager/allVehicles',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Shipments',
+        url: '/warehousemanager/allShipments',
+        icon: 'fas fa-money-bill-wave'
+    },
+
+
 
 ];

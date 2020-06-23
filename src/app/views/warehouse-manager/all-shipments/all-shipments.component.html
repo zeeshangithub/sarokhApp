@@ -1,0 +1,37 @@
+<div class="card card-accent-primary mt-4 users-listing">
+    <div class="card-header">
+        All Shipments
+        <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th scope="col">Tracking No</th>
+                    <th scope="col">Date/Time</th>
+                    <th scope="col">Shipment Type</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Shipper</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let shipments of allShipments">
+                    <td>
+                        <i style="font-size: 20px; color: #337ab7;" (click)=viewOrder(shipments.id) class="fa fa-info-circle mr-2 mb-3"></i>
+                    </td>
+                    <td>{{shipments.shipmentId}}</td>
+                    <td>{{shipments.dateTime}}</td>
+                    <td>{{shipments.shipmentType}}</td>
+                    <td>{{shipments.amount}}</td>
+                    <td>{{shipments.shipper}}</td>
+                    <td>{{shipments.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div>
+</div>

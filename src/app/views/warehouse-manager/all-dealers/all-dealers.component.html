@@ -1,0 +1,37 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                All Dealer
+            </div>
+            <div class="card-body">
+                <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
+                    <thead>
+                        <!-- <tr>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailsModal">
+                    Details
+                  </button>
+                </tr> -->
+                        <tr>
+                            <th scope="col">Company Name</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dealer of dealerlist">
+
+                            <td>{{dealer.companyName}}</td>
+                            <td>{{dealer.lastName}}</td>
+                            <td>{{dealer.city}}</td>
+                            <td>{{dealer.contact}}</td>
+                            <td>{{dealer.address}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

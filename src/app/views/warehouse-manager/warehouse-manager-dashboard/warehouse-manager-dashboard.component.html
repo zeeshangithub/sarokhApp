@@ -1,1 +1,83 @@
-<p>warehouse-manager-dashboard works!</p>
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                Warehouse Dashboard
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Select warehouse</label>
+                        <select id="selectid" class="form-control" (change)="getWarehouseData($event.target.value)">
+                            <option value="">---Select Warehouse---</option>
+                            <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">{{warehouse.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- 
+                <ul *ngIf="warehouseData" class="list-group list-group-horizontal mt-4 mb-4">
+                    <li class="list-group-item">Total Shipments : {{warehouseData.totalShipments}}</li>
+                    <li class="list-group-item">Shipment about to recieve : {{warehouseData.shipmentsAboutToReceive}}</li>
+                    <li class="list-group-item">Deliveries Dew : {{warehouseData.deliveriesDue}}</li>
+                </ul> -->
+
+                <div *ngIf="warehouseData" class="row mt-4 mb-4">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-info">
+                            <div class="card-body pb-4">
+                                <div class="text-value">{{warehouseData.totalShipments}}</div>
+                                <div>Total Shipments</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-primary">
+                            <div class="card-body pb-4">
+                                <div class="text-value">{{warehouseData.shipmentsAboutToReceive}}</div>
+                                <div>Shipment about to recieve</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="card text-white bg-warning">
+                            <div class="card-body pb-4">
+                                <div class="text-value">{{warehouseData.deliveriesDue}}</div>
+                                <div>Deliveries Dew</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <table *ngIf="warehouseData" style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tracking Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Row Column</th>
+                            <th scope="col">Due Date</th>
+                            <th scope="col">Reciver Name</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Zone</th>
+                            <th scope="col">Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let shipments of shipmentList">
+                            <td>{{shipments.trackingNumber}}</td>
+                            <td>{{shipments.shipmentTitle}}</td>
+                            <td>{{shipments.rowColumnRack}}</td>
+                            <td>{{shipments.deliveryDueDate}}</td>
+                            <td>{{shipments.receiverName}}</td>
+                            <td>{{shipments.receiverContact}}</td>
+                            <td>{{shipments.receiverEmail}}</td>
+                            <td>{{shipments.deliveryZone}}</td>
+                            <td>{{shipments.deliveryType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
