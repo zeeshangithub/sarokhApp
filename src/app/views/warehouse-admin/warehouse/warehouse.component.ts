@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef , NgZone} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { WarehouseService } from '../../../services/warehouse.service';
 import { SarokhwearhouseService } from '../../../services/sarokhwearhouse.service';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
@@ -21,7 +21,7 @@ export class WarehouseComponent implements OnInit {
 
 
   constructor(private getWarehouseService: WarehouseService, private getwarehouseDashoboardData: SarokhwearhouseService
-    ,private mapsAPILoader: MapsAPILoader,
+    , private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone) { }
 
   locations = [
@@ -32,7 +32,8 @@ export class WarehouseComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-    
+    const warehouseid = 1
+    this.getWarehouseData(warehouseid)
     this.getWarehouseService.fetchSarokhWarehouses().subscribe(res => {
       this.warehouses = res.data.warehouseList
     })
@@ -47,23 +48,23 @@ export class WarehouseComponent implements OnInit {
       this.latitude = parseInt(res.data.locationLatitude);
       this.longitude = parseInt(res.data.locationLongitude);
       this.showMap = true;
-      this.initializeMap(this.latitude , this.longitude);
+      this.initializeMap(this.latitude, this.longitude);
       console.log()
     })
   }
-  initializeMap(lat , long){
+  initializeMap(lat, long) {
     this.mapsAPILoader.load().then(() => {
-      this.setCurrentLocation(lat , long);
+      this.setCurrentLocation(lat, long);
       this.geoCoder = new google.maps.Geocoder;
 
 
     });
   }
-  private setCurrentLocation(lat , long) {
+  private setCurrentLocation(lat, long) {
     if ('geolocation' in navigator) {
       this.latitude = lat;
       this.longitude = long;
-      
+
       this.zoom = 7;
       // navigator.geolocation.getCurrentPosition((position) => {
       //   this.latitude = position.coords.latitude;
@@ -72,7 +73,7 @@ export class WarehouseComponent implements OnInit {
       // });
     }
   }
- 
+
 
 
 }

@@ -9,16 +9,15 @@
                     <div class="col-sm-6">
                         <label>Select warehouse</label>
                         <select id="selectid" class="form-control" (change)="getWarehouseData($event.target.value)">
-                            <option value="">---Select Warehouse---</option>
                             <option [value]="warehouse.id" *ngFor="let warehouse of warehouses">{{warehouse.name}}</option>
                         </select>
                     </div>
                     <div class="col-sm-6" *ngIf="showMap">
                         <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-                            <agm-marker  [latitude]="latitude" [longitude]="longitude">
+                            <agm-marker [latitude]="latitude" [longitude]="longitude">
                             </agm-marker>
-                          </agm-map>
-              
+                        </agm-map>
+
                     </div>
                 </div>
                 <!-- 

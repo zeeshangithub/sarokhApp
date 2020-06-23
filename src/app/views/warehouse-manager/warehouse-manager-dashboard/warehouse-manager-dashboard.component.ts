@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { WarehouseService } from '../../../services/warehouse.service';
 import { SarokhwearhouseService } from '../../../services/sarokhwearhouse.service';
+import { constants } from 'http2';
 
 @Component({
   selector: 'app-warehouse-manager-dashboard',
@@ -30,7 +31,8 @@ export class WarehouseManagerDashboardComponent implements OnInit {
   ]
 
   ngOnInit(): void {
-
+    const warehouseid = 1
+    this.getWarehouseData(warehouseid)
     this.getWarehouseService.fetchSarokhWarehouses().subscribe(res => {
       this.warehouses = res.data.warehouseList
     })
@@ -45,6 +47,7 @@ export class WarehouseManagerDashboardComponent implements OnInit {
       console.log()
     })
   }
+
   private setCurrentLocation(lat, long) {
     if ('geolocation' in navigator) {
       this.latitude = lat;
