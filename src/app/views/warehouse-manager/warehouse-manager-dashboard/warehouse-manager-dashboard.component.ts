@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { WarehouseService } from '../../../services/warehouse.service';
 import { SarokhwearhouseService } from '../../../services/sarokhwearhouse.service';
-import { constants } from 'http2';
 
 @Component({
   selector: 'app-warehouse-manager-dashboard',
