@@ -401,6 +401,7 @@ export class AddOrderComponent implements OnInit {
       this.shipmentInformation.patchValue({ 'codAmount': 0 })
     } else if (val === 'COD') {
       this.notPrepaid = true;
+      this.shipmentInformation.patchValue({ 'codAmount': this.shipmentInformation.get("shipmentValue").value})
     }
   }
   checkSarokhPoint(value) {
