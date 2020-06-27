@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private storage: LocalStorageService,
     private auth: AuthService,
-    private toast : ToastrService
+    private toast: ToastrService
   ) { }
 
   ngOnInit() {
@@ -41,16 +41,16 @@ export class LoginComponent implements OnInit {
   login() {
     this.auth.login(this.loginForm.controls['username'].value, this.loginForm.controls['password'].value).subscribe(res => {
       console.log("res", res)
-      if(res.status === 401){
+      if (res.status === 401) {
         this.toast.error(res.message)
-      }else{
+      } else {
         this.toast.success(res.message)
       }
       let role = '';
       if (res.status === 200) {
-       
-        
-        if (res.data.user && res.data.user.role ) {
+
+
+        if (res.data.user && res.data.user.role) {
           role = res.data.user.role.name;
         }
         else {
@@ -80,6 +80,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('id', res.data.id);
           localStorage.setItem('role', 'WarehouseManager');
           this.router.navigate(['/warehousemanager/warehouseManagerDashboard']);
+        }
+        else if (res && role === "FinanceManager") {
+          localStorage.setItem('id', res.data.id);
+          localStorage.setItem('role', 'FinanceManager');
+          this.router.navigate(['/admin/financeDashboard']);
         }
       }
     }, err => {

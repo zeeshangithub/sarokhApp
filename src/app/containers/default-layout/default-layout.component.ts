@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  navItems, ShipperNavItems, DealerNavItems, AdminWarehouseNavItems,
+  navItems, ShipperNavItems, DealerNavItems, AdminWarehouseNavItems, FinanceManagerNavItems,
   WarehouseManagerNavItems
 } from '../../_nav';
 import { Router } from '@angular/router';
@@ -49,7 +49,10 @@ export class DefaultLayoutComponent implements OnInit {
       } else
         if (localStorage.getItem('role') === 'WarehouseManager') {
           this.navItems = WarehouseManagerNavItems;
-        }
+        } else
+          if (localStorage.getItem('role') === 'FinanceManager') {
+            this.navItems = FinanceManagerNavItems;
+          }
 
 
     }

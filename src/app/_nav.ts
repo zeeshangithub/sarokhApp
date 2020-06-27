@@ -613,3 +613,28 @@ export const WarehouseManagerNavItems: INavData[] = [
     },
 
 ];
+
+
+export const FinanceManagerNavItems: INavData[] = [
+    {
+        name: 'Finance Dashboard',
+        url: '/admin/financeDashboard',
+        icon: 'fas fa-rocket',
+    },
+    {
+        name: 'All ledgers',
+        url: '/admin/allLedgers',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Receive Cash',
+        url: '/admin/receivecash',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Dispense Cash',
+        url: '/admin/dispensecash',
+        icon: 'fas fa-money-bill-wave'
+    },
+
+];
