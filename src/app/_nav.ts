@@ -365,55 +365,49 @@ export const ShipperNavItems: INavData[] = [
         url: '/shipper/shipperwearhouse',
         icon: 'fas fa-warehouse',
     },
+    // {
+    //     name: 'Orders',
+    //     url: '/dashboard',
+    //     icon: 'fas fa-dolly-flatbed',
+    //     children: [
+    //         {
+    //             name: 'New Order',
+    //             url: '/shipment/add',
+    //             icon: 'fas fa-shopping-cart'
+    //         },
+    //         {
+    //             name: 'All Orders',
+    //             url: '/shipment/allshipment',
+    //             icon: 'fas fa-shopping-cart'
+    //         },
+    //         {
+    //             name: 'Pending Orders',
+    //             url: '/orders/pendingorders',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //     ]
+    // },
+
+
     {
-        name: 'Orders',
-        url: '/dashboard',
-        icon: 'fas fa-dolly-flatbed',
-        children: [
-            {
-                name: 'New Order',
-                url: '/shipment/add',
-                icon: 'fas fa-shopping-cart'
-            },
-            // {
-            //     name: 'All Orders',
-            //     url: '/shipment/allshipment',
-            //     icon: 'fas fa-shopping-cart'
-            // },
-            // {
-            //     name: 'Pending Orders',
-            //     url: '/orders/pendingorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-        ]
+        name: 'All Shipments',
+        url: '/shipment/allshipment',
+        icon: 'icon-map'
     },
     {
-        name: 'Shipments',
-        url: '/dashboard',
-        icon: 'fas fa-box',
-        children: [
-            {
-                name: 'All Shipments',
-                url: '/shipment/allshipment',
-                icon: 'icon-map'
-            },
-            {
-                name: 'COD Shipments',
-                url: '/shipper/codshipments',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Pending Shipments',
-                url: '/shipper/pendingshipments',
-                icon: 'icon-map'
-            }
-            ,
-            {
-                name: 'Shipments Issue',
-                url: '/shipper/shipmentissue',
-                icon: 'icon-map'
-            }
-        ]
+        name: 'COD Shipments',
+        url: '/shipper/codshipments',
+        icon: 'icon-map'
+    },
+    {
+        name: 'Pending Shipments',
+        url: '/shipper/pendingshipments',
+        icon: 'icon-map'
+    },
+    {
+        name: 'Shipments Issue',
+        url: '/shipper/shipmentissue',
+        icon: 'icon-map'
     },
     {
         name: 'Print Labels',
@@ -438,7 +432,7 @@ export const ShipperNavItems: INavData[] = [
         ]
     },
     {
-        name: 'Legder',
+        name: 'Ledger',
         url: '/dashboard',
         icon: 'fas fa-money-bill-wave',
         children: [
@@ -532,21 +526,21 @@ export const AdminWarehouseNavItems: INavData[] = [
         url: '/warehouseadmin/warehouse',
         icon: 'fas fa-rocket',
     },
-    {
-        name: 'Recive Orders',
-        url: '/warehouseadmin/reciveOrder',
-        icon: 'fas fa-dolly-flatbed',
-    },
-    {
-        name: 'Dispatch Orders',
-        url: '/warehouseadmin/dispatchOrder',
-        icon: 'icon-ban',
-    },
-    {
-        name: 'Receiver Drop Off',
-        url: '/warehouseadmin/receiverDropOff',
-        icon: 'icon-ban',
-    },
+    // {
+    //     name: 'Recive Orders',
+    //     url: '/warehouseadmin/reciveOrder',
+    //     icon: 'fas fa-dolly-flatbed',
+    // },
+    // {
+    //     name: 'Dispatch Orders',
+    //     url: '/warehouseadmin/dispatchOrder',
+    //     icon: 'icon-ban',
+    // },
+    // {
+    //     name: 'Receiver Drop Off',
+    //     url: '/warehouseadmin/receiverDropOff',
+    //     icon: 'icon-ban',
+    // },
 
 ];
 
@@ -587,11 +581,35 @@ export const WarehouseManagerNavItems: INavData[] = [
         icon: 'fas fa-money-bill-wave'
     },
     {
-        name: 'Shipments',
+        name: 'All Shipments',
         url: '/warehousemanager/allShipments',
         icon: 'fas fa-money-bill-wave'
     },
 
-
+    {
+        name: 'Pending Shipments',
+        url: '/admin/pendingshipments',
+        icon: 'fas fa-box',
+    },
+    {
+        name: 'COD Shipments',
+        url: '/admin/codshipments',
+        icon: 'fas fa-box',
+    },
+    {
+        name: 'Prepaid Shipments',
+        url: '/admin/prepaidshipments',
+        icon: 'fas fa-box',
+    },
+    {
+        name: 'Pickup Shipments',
+        url: '/admin/pickupshipments',
+        icon: 'fas fa-box',
+    },
+    {
+        name: 'Delivery Shipments',
+        url: '/admin/deliveryshipments',
+        icon: 'fas fa-box',
+    },
 
 ];

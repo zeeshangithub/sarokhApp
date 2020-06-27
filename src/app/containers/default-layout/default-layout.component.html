@@ -4,7 +4,13 @@
   <div class="top-nav-links" *ngIf="hidetoplink">
     <a style="color: #000;" class="pull-left mr-4 ml-5" [routerLink]="['/shipper/printlabel']">Print Labels</a>
     <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/shipment/add']">New Order</a>
+    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['#']">New Order Upload</a>
     <a style="color: #000;" class="pull-left" [routerLink]="routerlink404">COD Reconciliation</a>
+  </div>
+  <div class="top-nav-links" *ngIf="hidetoplinkwhuser">
+    <a style="color: #000;" class="pull-left mr-4 ml-5" [routerLink]="['/warehouseadmin/warehouse']">Dashboard</a>
+    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/reciveOrder']">Recive Orders</a>
+    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/dispatchOrder']">Dispatch Orders</a>
   </div>
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
