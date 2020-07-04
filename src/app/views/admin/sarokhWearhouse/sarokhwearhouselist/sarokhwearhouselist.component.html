@@ -9,7 +9,7 @@
         Add Sarokh Warehouse
 
       </div>
-      <button class="btn btn-success float-right custom-position" (click)="addNew(false)">Add New</button>
+      <button class="btn btn-primary float-right custom-position" (click)="addNew(false)">Add New</button>
       <div class="card-body">
         <div class="map-img" *ngIf="showmap">
           <div class="container">
@@ -49,8 +49,8 @@
               <td>{{sarokhwhlist.address}}</td>
               <td>{{sarokhwhlist.city}}</td>
               <td>
+                <button class="btn btn-primary" (click)="EditWarehouse(sarokhwhlist.id)">Edit</button>
                 <button class="btn btn-danger" (click)="DeleteWearhouse(sarokhwhlist.id)">Delete</button>
-                <button class="btn btn-danger" (click)="EditWarehouse(sarokhwhlist.id)">Edit</button>
               </td>
             </tr>
           </tbody>

@@ -355,13 +355,13 @@ export const navItems: INavData[] = [
 ];
 export const ShipperNavItems: INavData[] = [
     {
-        name: 'Shipper Dashboard',
+        name: 'Dashboard',
         url: '/shipper/Dashboard',
         icon: 'fas fa-rocket',
 
     },
     {
-        name: 'Warehouse',
+        name: 'Our Locations',
         url: '/shipper/shipperwearhouse',
         icon: 'fas fa-warehouse',
     },
@@ -409,11 +409,11 @@ export const ShipperNavItems: INavData[] = [
         url: '/shipper/shipmentissue',
         icon: 'icon-map'
     },
-    {
-        name: 'Print Labels',
-        url: '/shipper/printlabel',
-        icon: 'fas fa-print',
-    },
+    // {
+    //     name: 'Print Labels',
+    //     url: '/shipper/printlabel',
+    //     icon: 'fas fa-print',
+    // },
     {
         name: 'User',
         url: '/dashboard',

@@ -1,6 +1,6 @@
 <div class="card margintop50">
   <div *ngIf="!editOrder" class="card-header">
-    Add Shipment
+    Create New Shipment
   </div>
   <div *ngIf="editOrder" class="card-header">
     Edit Shipment
@@ -9,8 +9,9 @@
 
     <div class="wizard-container">
       <aw-wizard>
-        <aw-wizard-step stepTitle="Basic Information" [canExit]="orderBasicInfoForm.valid">
+        <aw-wizard-step stepTitle="  Step 1" [canExit]="orderBasicInfoForm.valid">
           <form class="margintop30" [formGroup]="orderBasicInfoForm">
+            <p>Please select the city that you are shipping from and where you would like for it to be received.</p>
             <div class="form-row" style="display: none;">
               <div class="form-group col-md-6">
                 <label for="orderId">Order Id</label>
@@ -50,7 +51,7 @@
             </div>
           </form>
         </aw-wizard-step>
-        <aw-wizard-step stepTitle="Pick Up & Delivery Information" [canExit]="pickupAndDelivery.valid">
+        <aw-wizard-step stepTitle="Step 2" [canExit]="pickupAndDelivery.valid">
           <form class="margintop30" [formGroup]="pickupAndDelivery">
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -126,7 +127,7 @@
             </div>
           </form>
         </aw-wizard-step>
-        <aw-wizard-step stepTitle=" Shipment Information" [canExit]="shipmentInformation.valid">
+        <aw-wizard-step stepTitle="Step 3" [canExit]="shipmentInformation.valid">
           <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
             <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
           </agm-map>

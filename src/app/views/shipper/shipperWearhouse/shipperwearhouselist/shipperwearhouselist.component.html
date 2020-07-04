@@ -3,16 +3,16 @@
 
     <div class="card card-accent-primary">
       <div class="card-header" *ngIf="showlisting">
-        Shipper Warehouse
+        Our Locations
 
       </div>
       <div class="card-header" *ngIf="!showlisting">
         Add Shipper Warehouse
 
       </div>
-      <button class="btn btn-success float-right custom-position" (click)="addNew(false)">Add New</button>
+      <button class="btn btn-primary float-right custom-position" (click)="addNew(false)">Add New</button>
       <div class="card-body">
-        <div class="map-img" *ngIf="showmap">
+        <div class="map-img" *ngIf="showmap" style=" margin-bottom:20px;">
           <div class="container">
 
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
@@ -22,11 +22,11 @@
 
           </div>
         </div>
-        <table #dataTable style="width:100%" class="display nowrap dataTable dtr-inline collapsed">
+        <table #dataTable style="width:100%;" class="display nowrap dataTable dtr-inline collapsed">
           <thead>
             <tr>
               <th scope="col">Actions</th>
-              <th scope="col">Warehouse ID</th>
+              <th scope="col">Location ID</th>
               <th scope="col">Name</th>
               <th scope="col">Manager Name</th>
               <th scope="col">Manager Contact</th>

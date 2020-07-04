@@ -2,15 +2,15 @@
   [navbarBrandMinimized]="{src: 'assets/img/brand/sarokh-logo.jpg', width: 30, height: 30, alt: 'CoreUI Logo'}" [sidebarToggler]="'lg'"
   [asideMenuToggler]=false>
   <div class="top-nav-links" *ngIf="hidetoplink">
-    <a style="color: #000;" class="pull-left mr-4 ml-5" [routerLink]="['/shipper/printlabel']">Print Labels</a>
-    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/shipment/add']">New Order</a>
-    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['#']">New Order Upload</a>
-    <a style="color: #000;" class="pull-left" [routerLink]="routerlink404">COD Reconciliation</a>
+    <a style="color: #ec1c24; border-right:#fcdcb6 dotted 1px;" class="pull-left ml-5" [routerLink]="['/shipper/printlabel']">Print Way Bill</a>
+    <a style="color: #ec1c24;border-right:#fcdcb6 dotted 1px;" class="pull-left" [routerLink]="['/shipment/add']">New Shipment</a>
+    <a style="color: #ec1c24;" class="pull-left mr-4" [routerLink]="['#']">Bulk Shipment Upload</a>
+    <!-- <a style="color: #ec1c24;" class="pull-left" [routerLink]="routerlink404">COD Reconciliation</a> -->
   </div>
   <div class="top-nav-links" *ngIf="hidetoplinkwhuser">
-    <a style="color: #000;" class="pull-left mr-4 ml-5" [routerLink]="['/warehouseadmin/warehouse']">Dashboard</a>
-    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/reciveOrder']">Recive Orders</a>
-    <a style="color: #000;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/dispatchOrder']">Dispatch Orders</a>
+    <a style="color: #ec1c24;" class="pull-left mr-4 ml-5" [routerLink]="['/warehouseadmin/warehouse']">Dashboard</a>
+    <a style="color: #ec1c24;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/reciveOrder']">Recive Orders</a>
+    <a style="color: #ec1c24;" class="pull-left mr-4" [routerLink]="['/warehouseadmin/dispatchOrder']">Dispatch Orders</a>
   </div>
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item dropdown" dropdown placement="bottom right">
