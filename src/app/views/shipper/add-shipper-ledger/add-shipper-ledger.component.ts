@@ -15,6 +15,7 @@ export class AddShipperLedgerComponent implements OnInit {
   // myGroup
   ledgerForm: FormGroup;
   shipperId;
+  shipperId2;
   shipperShipments;
   sum = 0;
   newobj;
@@ -31,7 +32,6 @@ export class AddShipperLedgerComponent implements OnInit {
     private router: Router, private _Activatedroute: ActivatedRoute, ) { }
   ngOnInit(): void {
     this.initializeLedgerForm();
-
     this._Activatedroute.paramMap.subscribe(params => {
       this.legderid = params.get('id');
       console.log("this.id", this.legderid)
@@ -45,7 +45,7 @@ export class AddShipperLedgerComponent implements OnInit {
         // this.ledgerForm.patchValue({ 'endDate': selectedLedger.endDate })
         // this.ledgerForm.patchValue({ 'dueDate': selectedLedger.dueDate })
         const startDate = new Date(this.selectedLedger.startDate).toISOString()
-        console.log("startDate" , startDate)
+        console.log("startDate", startDate)
         this.ledgerForm.get('startDate').setValue(startDate)
         const endDate = new Date(this.selectedLedger.startDate).toISOString()
         this.ledgerForm.get('endDate').setValue(endDate)
@@ -89,7 +89,8 @@ export class AddShipperLedgerComponent implements OnInit {
     const calculatedDate = new Date(this.date); // The 0 there is the key, which sets the date to the epoch
     this.ledgerForm.get('dueDate').setValue(calculatedDate)
     console.log("date", this.date)
-    this.ledgerForm.get('shipperId').setValue(this.shipperId);
+    const shipperId2 = localStorage.getItem("id");
+    this.ledgerForm.get('shipperId').setValue(shipperId2);
     console.log("shan", this.ledgerForm.value)
     this.shipperservice.searchShipperShipment(this.ledgerForm.value).subscribe(res => {
       this.shipperShipments = res.data;
