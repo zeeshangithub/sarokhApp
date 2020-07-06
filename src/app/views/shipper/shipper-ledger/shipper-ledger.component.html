@@ -8,12 +8,12 @@
             <thead>
                 <tr>
                     <th>Actions</th>
-                    <th scope="col">Status</th>
                     <th scope="col">Ledger Name</th>
+                    <th scope="col">Total Amount</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">End Date</th>
-                    <th scope="col">Due Date</th>
-                    <th scope="col">Total Amount</th>
+                    <!-- <th scope="col">Due Date</th> -->
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,12 +26,12 @@
                         <button [routerLink]="['/shipper/addledgers',ledger.id]">Edit</button>
                         <button (click)="deleteLedger(ledger.id)">Delete</button>
                     </td> -->
-                    <td>{{ledger.paymentStatus}}</td>
                     <td>{{ledger.ledgerName}}</td>
+                    <td>{{ledger.totalAmount}}</td>
                     <td>{{ledger.startDate | date}}</td>
                     <td>{{ledger.endDate | date}} </td>
-                    <td>{{ledger.dueDate | date}}</td>
-                    <td>{{ledger.totalAmount}}</td>
+                    <!-- <td>{{ledger.dueDate | date}}</td> -->
+                    <td>{{ledger.paymentStatus}}</td>
                 </tr>
 
             </tbody>

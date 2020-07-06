@@ -7,28 +7,24 @@
         <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
             <thead>
                 <tr>
-                    <th scope="col">Ledger ID</th>
+                    <th scope="col">Shipper ID</th>
+                    <th scope="col">Shipper Name</th>
                     <th scope="col">Ledger Name</th>
-                    <th scope="col">Current Balance</th>
-                    <th scope="col">Receivable</th>
-                    <th scope="col">Payable</th>
-                    <th scope="col">Bill View</th>
-                    <th scope="col">Ledger Holder</th>
-                    <th scope="col">Holder Type</th>
-                    <th scope="col">Notes</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Payment Status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let Cod of codCollection">
-                    <td>{{Cod.ledgerId}}</td>
+                    <td>{{Cod.shipperId}}</td>
+                    <td>{{Cod.payeeDetail}}</td>
                     <td>{{Cod.ledgerName}}</td>
-                    <td>{{Cod.currentBalance}}</td>
-                    <td>{{Cod.receivable}}</td>
-                    <td>{{Cod.payable}}</td>
-                    <td>{{Cod.billView}}</td>
-                    <td>{{Cod.ledgerHolder}}</td>
-                    <td>{{Cod.holderType}}</td>
-                    <td>{{Cod.notes}}</td>
+                    <td>{{Cod.startDate}}</td>
+                    <td>{{Cod.endDate}}</td>
+                    <td>{{Cod.totalAmount}}</td>
+                    <td>{{Cod.paymentStatus}}</td>
                 </tr>
             </tbody>
         </table>

@@ -9,22 +9,24 @@
                 <tr>
                     <th scope="col">Shipper ID</th>
                     <th scope="col">Shipper Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Period</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Ledger</th>
+                    <th scope="col">Ledger Name</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Total Amount</th>
+                    <th scope="col">Payment Status</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let Billing of shipperBilling">
                     <td>{{Billing.shipperId}}</td>
-                    <td>{{Billing.shipperName}}</td>
-                    <td>{{Billing.date}}</td>
-                    <td>{{Billing.period}}</td>
-                    <td>{{Billing.amount}}</td>
-                    <td>{{Billing.status}}</td>
-                    <td>{{Billing.ledger}}</td>
+                    <td>{{Billing.payeeDetail}}</td>
+                    <td>{{Billing.ledgerName}}</td>
+                    <td>{{Billing.startDate}}</td>
+                    <td>{{Billing.endDate}}</td>
+                    <td>{{Billing.totalAmount}}</td>
+                    <td>{{Billing.paymentStatus}}</td>
+
                 </tr>
             </tbody>
         </table>

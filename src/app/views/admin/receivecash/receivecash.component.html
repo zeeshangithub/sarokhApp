@@ -19,12 +19,19 @@
                             <input type="text" class="form-control" placeholder="Details" formControlName="details" />
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Ledger Name" formControlName="ledgerName" />
+                            <!-- <input type="text" class="form-control" placeholder="Ledger Name" formControlName="ledgerName" /> -->
+                            <select class="form-control" id="ledgerName" formControlName="ledgerName">
+                                <option value="">--- Ledger Name ---</option>
+                                <option value="shipperCod">Shipper COD</option>
+                                <option value="shipperDelivery">Shipper Delivery Charges</option>
+                                <option value="driverPayout">Driver Payout</option>
+                                <option value="dealerPayout">Dealer Payout</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-row mb-3">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="datetime" formControlName="datetime" [owlDateTime]="datetime" [owlDateTimeTrigger]="datetime"
+                            <input type="text" class="form-control" placeholder="Date/Time" formControlName="datetime" [owlDateTime]="datetime" [owlDateTimeTrigger]="datetime"
                                 [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
                             <owl-date-time [pickerType]="'calendar'" #datetime></owl-date-time>
                         </div>
@@ -40,11 +47,11 @@
                             <input type="text" class="form-control" placeholder="Transaction From" formControlName="transactionFrom" />
                         </div>
                     </div>
-                    <div class="form-row mb-3">
+                    <!-- <div class="form-row mb-3">
                         <div class="col">
                             <input type="text" class="form-control" placeholder="Transaction Type" formControlName="transactionType" />
                         </div>
-                    </div>
+                    </div> -->
                     <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
                     <button type="button" class="btn btn-danger" (click)="closeAdd()">Cancel</button>
                     <button *ngIf="editUser" type="button" class="btn btn-warning" (click)="updateUser()">Update</button>
