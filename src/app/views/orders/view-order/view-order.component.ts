@@ -9,23 +9,35 @@ import { PrintService } from '../../../services/print.service';
   styleUrls: ['./view-order.component.css']
 })
 export class ViewOrderComponent implements OnInit {
-  selectedId : any;
-  selectedOrderData : any;
+  pickuplocation: any;
+  deliverylocation: any;
+  selectedId: any;
+  selectedOrderData: any;
   selectedShipments: any;
   showrec = false;
-  constructor(public printService: PrintService , private router: Router, private route: ActivatedRoute , private getorderdetail : OrderService) {}
+  constructor(public printService: PrintService, private router: Router, private route: ActivatedRoute, private getorderdetail: OrderService) { }
 
   ngOnInit(): void {
-  this.selectedId = this.route.snapshot.params.id;
+    this.selectedId = this.route.snapshot.params.id;
 
-  this.getorderdetail.getOrderDetails(this.selectedId).subscribe(res => {
-    console.log("res" , res)
-    if (res){
-      this.showrec = true;
-    }
-    this.selectedOrderData= res.data;
-    this.selectedShipments = res.data.shipmentOrderItems
-  })
+    this.getorderdetail.getOrderDetails(this.selectedId).subscribe(res => {
+      console.log("res", res)
+      if (res) {
+        this.showrec = true;
+      }
+      this.selectedOrderData = res.data;
+      if (this.selectedOrderData.deliveryLocationDetail == null) {
+        this.deliverylocation = this.selectedOrderData.deliveryLocation
+      } else {
+        this.deliverylocation = this.selectedOrderData.deliveryLocationDetail
+      }
+      if (this.selectedOrderData.pickupLocationDetail == null) {
+        this.pickuplocation = this.selectedOrderData.pickupyLocation
+      } else {
+        this.pickuplocation = this.selectedOrderData.pickupLocationDetail
+      }
+      this.selectedShipments = res.data.shipmentOrderItems
+    })
 
   }
 
