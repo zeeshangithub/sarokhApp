@@ -80,7 +80,7 @@ export class AddDealerComponent implements OnInit {
 
         if (this.selectedDealer) {
           this.basicInfoForm = this.formbuilder.group({
-            firstName: [this.selectedDealer.firstName],
+            firstName: [this.selectedDealer.companyName],
             lastName: [this.selectedDealer.lastName],
             email: [this.selectedDealer.user.email],
             dateOfBirth: [this.selectedDealer.user.dob],
