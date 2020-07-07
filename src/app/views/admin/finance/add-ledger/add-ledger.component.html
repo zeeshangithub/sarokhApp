@@ -1,0 +1,86 @@
+<div class="card mt-4">
+    <div class="card-header">
+        Add Ledger
+    </div>
+    <div class="card-body">
+        <!-- <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Ledger ID Will Be Auto Generated" readonly [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                    required>
+            </div>
+        </div> -->
+
+        <form [formGroup]="ledgerForm" (ngSubmit)="fetchDetails()">
+            <div class="form-row mb-3">
+                <div class="col-6">
+                    <select class="form-control" id="ledgerfor" formControlName="ledgerfor">
+                        <option value="">--- Ledger For ---</option>
+                        <option value="Shipper">Shipper</option>
+                        <option value="Driver">Driver</option>
+                        <option value="Dealer">Dealer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <div class="col-6">
+                    <select class="form-control" id="ledgerfordetail" formControlName="ledgerfordetail">
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Start Date" formControlName="startDate" [owlDateTime]="startDate" [owlDateTimeTrigger]="startDate"
+                        [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" required>
+                    <owl-date-time [pickerType]="'calendar'" #startDate></owl-date-time>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="End Date" formControlName="endDate" [owlDateTime]="endDate" [owlDateTimeTrigger]="endDate"
+                        [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" required>
+                    <owl-date-time [pickerType]="'calendar'" #endDate></owl-date-time>
+                </div>
+            </div>
+            <div class="form-row mb-3">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Due Date" formControlName="dueDate" [owlDateTime]="dueDate" [owlDateTimeTrigger]="dueDate"
+                        [ngClass]="{ 'is-invalid': submitted && f.dueDate.errors }" required>
+                    <owl-date-time [pickerType]="'calendar'" #dueDate></owl-date-time>
+                </div>
+            </div>
+            <button [disabled]="disablebutton" type="submit" class="btn btn-success">Fetch Details</button>
+        </form>
+        <div class="total-amount">
+            <label class="float-left">Total Amount : </label>
+            <p class="float-left">{{sum}}</p>
+        </div>
+        <div class="clearfix"></div>
+
+        <table style="width:100%" class="display nowrap dataTable dtr-inline collapsed table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">Action</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Shipment ID/ Tracking No</th>
+                    <th scope="col">Shipment Title</th>
+                    <th scope="col">Delivery Status</th>
+                    <th scope="col">COD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let shipperShipment of shipperShipments">
+                    <td>
+                        <input #rolInput type="checkbox" (click)="addValue(shipperShipment, rolInput.checked)" />
+                    </td>
+                    <td>{{shipperShipment.id}}</td>
+                    <td>{{shipperShipment.shipmentOrderId}}</td>
+                    <td>{{shipperShipment.shipmentTitle}}</td>
+                    <td>{{shipperShipment.paymentStatus}}</td>
+                    <td>{{shipperShipment.paymentType}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" *ngIf="!disablebutton" class="btn btn-danger float-right mt-3" (click)="createBill()">Create Ledger</button>
+        <button type="button" *ngIf="disablebutton" class="btn btn-danger float-right mt-3" (click)="updateBill()">Update Bill</button>
+        <div class="clearfix"></div>
+    </div>
+</div>

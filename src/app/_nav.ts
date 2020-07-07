@@ -206,6 +206,11 @@ export const navItems: INavData[] = [
                 icon: 'fas fa-rocket',
             },
             {
+                name: 'Add ledgers',
+                url: '/admin/addledger',
+                icon: 'fas fa-money-bill-wave'
+            },
+            {
                 name: 'All ledgers',
                 url: '/admin/allLedgers',
                 icon: 'fas fa-money-bill-wave'

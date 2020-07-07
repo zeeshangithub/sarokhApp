@@ -23,6 +23,10 @@ export class AdminService {
     return this.http.post<any>(`${environment.apiURL}order/get-order-type/${orderType}`, {});
   }
 
+  fetchAddLedgers(ledgerfor: string) {
+    return this.http.get<any>(`${environment.apiURL}/ledger/get-ledger-for-details/${ledgerfor}`, {});
+  }
+
   fetchAllLedgers() {
     return this.http.get<any>(`${environment.apiURL}finance/all-ledgers`);
   }

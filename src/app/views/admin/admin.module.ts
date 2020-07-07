@@ -58,6 +58,7 @@ import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhousel
 import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhouse/addsarokhwearhouse.component';
 import { AgmCoreModule } from '@agm/core';
 import { PrintLabelsComponent } from './warehouse/print-labels/print-labels.component';
+import { AddLedgerComponent } from './finance/add-ledger/add-ledger.component';
 // import { AgGridModule } from 'ag-grid-angular';
 
 
@@ -84,7 +85,7 @@ import { PrintLabelsComponent } from './warehouse/print-labels/print-labels.comp
     ShippersbillingComponent, CodCollectionComponent,
     ShipperBillingComponent, DriverPayoutComponent,
     LedgerDetailComponent, AddDealerComponent, AlldealersComponent, DealerPayoutComponent, FinanceDashboardComponent,
-    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent, CodLedgersComponent, DealersInventoryComponent, PrintLabelsComponent,],
+    AlldriversComponent, AdddriversComponent, PickupShipmentsComponent, DeliveryShipmentsComponent, AddVehicalComponent, AllTripsComponent, ActiveTripsComponent, CreateTripComponent, PendingTripsComponent, CompletedTripsComponent, AllVehiclesComponent, MaintenanceRecordsComponent, InventoryManagementComponent, CodLedgersComponent, DealersInventoryComponent, PrintLabelsComponent, AddLedgerComponent,],
   imports: [
     // AgGridModule.withComponents([]),
     CommonModule,
