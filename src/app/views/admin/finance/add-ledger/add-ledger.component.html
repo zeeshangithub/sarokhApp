@@ -52,7 +52,7 @@
                 <tr>
                     <th scope="col">Action</th>
                     <th scope="col">Order ID</th>
-                    <th scope="col">Shipment ID/ Tracking No</th>
+                    <th scope="col">Tracking No</th>
                     <th scope="col">Shipment Title</th>
                     <th scope="col">Delivery Status</th>
                     <th scope="col">COD</th>
@@ -64,9 +64,9 @@
                         <input #rolInput type="checkbox" (click)="addValue(shipperShipment, rolInput.checked)" />
                     </td>
                     <td>{{shipperShipment.id}}</td>
-                    <td>{{shipperShipment.shipmentOrderId}}</td>
+                    <td>{{shipperShipment.trackingNumber}}</td>
                     <td>{{shipperShipment.shipmentTitle}}</td>
-                    <td>{{shipperShipment.paymentStatus}}</td>
+                    <td>{{shipperShipment.deliveryStatus}}</td>
                     <td>{{shipperShipment.paymentType}}</td>
                 </tr>
             </tbody>
