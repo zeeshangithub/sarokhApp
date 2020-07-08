@@ -1,4 +1,4 @@
-<!-- <div class="card mt-4">
+<div class="card mt-4">
     <div class="card-header">
         Add Ledger
     </div>
@@ -7,35 +7,33 @@
         <form [formGroup]="ledgerForm" (ngSubmit)="fetchDetails()">
             <div class="form-row mb-3">
                 <div class="col-6">
-                    <select class="form-control" id="ledgerfor" formControlName="ledgerfor">
+                    <select class="form-control" id="ledgerFor" formControlName="ledgerFor" (change)="getAddLedgerFor($event.target.value)">
                         <option value="">--- Ledger For ---</option>
                         <option value="Shipper">Shipper</option>
                         <option value="Driver">Driver</option>
                         <option value="Dealer">Dealer</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-row mb-3">
                 <div class="col-6">
-                    <select class="form-control" id="ledgerfordetail" formControlName="ledgerfordetail">
-                        <option value="Female">Female</option>
+                    <select class="form-control" id="ledgerForDetail" formControlName="ledgerForDetail">
+                        <option *ngFor="let ledgers of addLedgerFor" [value]="ledgers.id">{{ledgers.name}}</option>
                     </select>
                 </div>
             </div>
             <div class="form-row mb-3">
-                <div class="col">
+                <div class="col-6">
                     <input type="text" class="form-control" placeholder="Start Date" formControlName="startDate" [owlDateTime]="startDate" [owlDateTimeTrigger]="startDate"
                         [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }" required>
                     <owl-date-time [pickerType]="'calendar'" #startDate></owl-date-time>
                 </div>
-                <div class="col">
+                <div class="col-6">
                     <input type="text" class="form-control" placeholder="End Date" formControlName="endDate" [owlDateTime]="endDate" [owlDateTimeTrigger]="endDate"
                         [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }" required>
                     <owl-date-time [pickerType]="'calendar'" #endDate></owl-date-time>
                 </div>
             </div>
             <div class="form-row mb-3">
-                <div class="col">
+                <div class="col-6">
                     <input type="text" class="form-control" placeholder="Due Date" formControlName="dueDate" [owlDateTime]="dueDate" [owlDateTimeTrigger]="dueDate"
                         [ngClass]="{ 'is-invalid': submitted && f.dueDate.errors }" required>
                     <owl-date-time [pickerType]="'calendar'" #dueDate></owl-date-time>
@@ -77,4 +75,4 @@
         <button type="button" *ngIf="disablebutton" class="btn btn-danger float-right mt-3" (click)="updateBill()">Update Bill</button>
         <div class="clearfix"></div>
     </div>
-</div> -->
+</div>

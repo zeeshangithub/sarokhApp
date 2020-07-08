@@ -64,7 +64,7 @@ export class AdddriversComponent implements OnInit {
           address: [res.address],
           city: [res.city],
           country: [res.country],
-          postCode: [res.postCode],
+          postCode: [res.postalCode],
           licenceFile: [''],
           licenceNumber: [res.licenceNumber],
           locationLatitude: [''],

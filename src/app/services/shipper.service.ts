@@ -33,6 +33,9 @@ export class ShipperService {
   deleteLedger(id) {
     return this.http.delete<any>(`${environment.apiURL}ledger/delete/${id}`)
   }
+  fetchAddLedgerFor(ledgerForName: string) {
+    return this.http.get<any>(`${environment.apiURL}/ledger/get-ledger-for-details/${ledgerForName}`);
+  }
   getLedgerDetails(id) {
     return this.http.get<any>(`${environment.apiURL}ledger/get-details/${id}`)
   }
