@@ -11,14 +11,15 @@ import { EditOrderComponent } from './edit-order/edit-order.component';
 import { AddOrderComponent } from './add-order/add-order.component';
 import { ShipperOnlyGuard } from '../../guards/shipper-only.guard';
 import { PendingOrderComponent } from './pending-order/pending-order.component';
+import { BulkshipmentComponent } from './bulkshipment/bulkshipment.component';
 
 const routes: Routes = [
   {
-		path: '',
-		component: AllOrdersComponent,
+    path: '',
+    component: AllOrdersComponent,
   },
   {
-		path: 'add',
+    path: 'add',
     component: AddOrderComponent,
     canActivate: [ShipperOnlyGuard]
   },
@@ -57,6 +58,14 @@ const routes: Routes = [
   {
     path: 'editorder/:orderId',
     component: EditOrderComponent
+  },
+  {
+    path: 'editorder/:orderId',
+    component: EditOrderComponent
+  },
+  {
+    path: 'bulkshipment',
+    component: BulkshipmentComponent
   },
   { path: 'print/:invoiceIds', component: ViewOrderComponent }
 ];

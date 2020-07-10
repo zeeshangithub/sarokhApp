@@ -64,6 +64,7 @@ import { ReturnShipmentsComponent } from './return-shipments/return-shipments.co
 import { PendingOrderComponent } from './pending-order/pending-order.component';
 import { NgxPrintModule } from 'ngx-print';
 import { AgmCoreModule } from '@agm/core';
+import { BulkshipmentComponent } from './bulkshipment/bulkshipment.component';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { AgmCoreModule } from '@agm/core';
     AddOrderComponent,
 
     ReturnShipmentsComponent,
-    PendingOrderComponent
+    PendingOrderComponent,
+    BulkshipmentComponent
   ],
   imports: [
     // BrowserAnimationsModule,
