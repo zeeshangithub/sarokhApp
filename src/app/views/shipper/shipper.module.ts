@@ -23,8 +23,9 @@ import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component'
 import { NgxPrintModule } from 'ngx-print';
 import { PrintlablesComponent } from './printlables/printlables.component';
 import { AgmCoreModule } from '@agm/core';
+import { PrintbulkshipmentComponent } from './printbulkshipment/printbulkshipment.component';
 @NgModule({
-  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent, PrintlablesComponent],
+  declarations: [AddShipperComponent, ShippersComponent, AddshipperwearhouseComponent, ShipperwearhouselistComponent, ShipperDashboardComponent, ShipmentsComponent, ReturnshipmentsComponent, ShipperLedgerComponent, AddShipperLedgerComponent , CodshipmentsComponent, ShipmentissueComponent, PrintlablesComponent, PrintbulkshipmentComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

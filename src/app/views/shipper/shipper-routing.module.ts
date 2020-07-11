@@ -14,6 +14,7 @@ import { AddShipperLedgerComponent } from './add-shipper-ledger/add-shipper-ledg
 import { CodshipmentsComponent } from './codshipments/codshipments.component';
 import { ShipmentissueComponent } from './shipmentissue/shipmentissue.component';
 import { PrintlablesComponent } from './printlables/printlables.component';
+import { PrintbulkshipmentComponent } from './printbulkshipment/printbulkshipment.component';
 
 const routes: Routes = [
   {
@@ -71,6 +72,10 @@ const routes: Routes = [
   , {
     path: 'printlabel',
     component: PrintlablesComponent,
+  },
+  {
+    path: 'printbulkshipment',
+    component: PrintbulkshipmentComponent,
   }
 ];
 

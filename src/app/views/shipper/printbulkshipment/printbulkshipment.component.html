@@ -1,0 +1,36 @@
+<div class="card margintop50">
+    <div class="card-header">
+        Print Order
+    </div>
+    <div class="card-body">
+        <form [formGroup]="createbulkshipmentform" (ngSubmit)="printBulkShipments()">
+            <div class="form-row">
+                <div class="col-sm-6">
+                    <label>Start Tracking Numbers</label>
+                    <select class="form-control" formControlName="startTrackingNumber">
+                        <option [value]="">===Select Tracking No===</option>
+                        <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
+                            {{Tracking}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label>End Tracking Numbers</label>
+                    <select class="form-control" formControlName="endTrackingNumber">
+                        <option [value]="">===Select Tracking No===</option>
+                        <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
+                            {{Tracking}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row"></div>
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-success mb-3 float-right">Print Shipment</button>
+            </div>
+            <div class="clearfix"></div>
+        </form>
+        <br>
+        <div *ngIf="show" style="text-align: center;">
+            <a style="font-weight: bold; font-size: 18px;" href="{{pdfurl}}">Download Print File</a>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,10 @@ export class OrderService {
     return this.http.post<any>(`${environment.apiURL}order/create-bulk-order`, formData);
   }
 
+  printBulkShipment(formData: any) {
+    return this.http.post<any>(`${environment.apiURL}order/print-bulk-shipments/`, formData);
+  }
+
   getOrderId(shipperId) {
     return this.http.post<any>(`${environment.apiURL}order/create-order-id/${shipperId}`, {});
   }
