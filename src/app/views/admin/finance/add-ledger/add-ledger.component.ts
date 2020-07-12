@@ -90,8 +90,8 @@ export class AddLedgerComponent implements OnInit {
         const calculatedDate = new Date(this.date); // The 0 there is the key, which sets the date to the epoch
         this.ledgerForm.get('dueDate').setValue(calculatedDate)
         console.log("date", this.date)
-        const shipperId2 = localStorage.getItem("id");
-        this.ledgerForm.get('shipperId').setValue(shipperId2);
+        // const shipperId2 = localStorage.getItem("id");
+        // this.ledgerForm.get('shipperId').setValue(shipperId2);
         console.log("shan", this.ledgerForm.value)
         this.shipperservice.searchShipperShipment(this.ledgerForm.value).subscribe(res => {
             this.shipperShipments = res.data;

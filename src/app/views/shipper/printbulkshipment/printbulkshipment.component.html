@@ -1,6 +1,6 @@
 <div class="card margintop50">
     <div class="card-header">
-        Print Order
+        Print Bulk Shipment
     </div>
     <div class="card-body">
         <form [formGroup]="createbulkshipmentform" (ngSubmit)="printBulkShipments()">
@@ -8,7 +8,6 @@
                 <div class="col-sm-6">
                     <label>Start Tracking Numbers</label>
                     <select class="form-control" formControlName="startTrackingNumber">
-                        <option [value]="">===Select Tracking No===</option>
                         <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
                             {{Tracking}}</option>
                     </select>
@@ -16,7 +15,6 @@
                 <div class="col-sm-6">
                     <label>End Tracking Numbers</label>
                     <select class="form-control" formControlName="endTrackingNumber">
-                        <option [value]="">===Select Tracking No===</option>
                         <option [value]="Tracking" *ngFor="let Tracking of trackingNos">
                             {{Tracking}}</option>
                     </select>

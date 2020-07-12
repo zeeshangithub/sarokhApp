@@ -627,6 +627,11 @@ export const FinanceManagerNavItems: INavData[] = [
         icon: 'fas fa-rocket',
     },
     {
+        name: 'Add ledgers',
+        url: '/admin/addledger',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
         name: 'All ledgers',
         url: '/admin/allLedgers',
         icon: 'fas fa-money-bill-wave'
@@ -639,6 +644,16 @@ export const FinanceManagerNavItems: INavData[] = [
     {
         name: 'Dispense Cash',
         url: '/admin/dispensecash',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'COD Collection',
+        url: '/admin/codCollection',
+        icon: 'fas fa-money-bill-wave'
+    },
+    {
+        name: 'Shipper Billing',
+        url: '/admin/shipperBilling',
         icon: 'fas fa-money-bill-wave'
     },
 

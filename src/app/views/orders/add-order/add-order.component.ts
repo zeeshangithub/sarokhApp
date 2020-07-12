@@ -257,8 +257,9 @@ export class AddOrderComponent implements OnInit {
     this.shipmentInformation.patchValue({ 'additionalServices': shipment.additionalServices });
     this.shipmentInformation.patchValue({ 'deliveryCharges': shipment.deliveryCharges });
   }
-  deleteShipment() {
-    this.shipmentInformationArray = [];
+  deleteShipment(index) {
+    // this.shipmentInformationArray = [];
+    this.shipmentInformationArray.splice(index, 1);
   }
   AddandCreateNew(shi, isClone) {
     // this.shipmentInformationArray = [];
@@ -401,7 +402,7 @@ export class AddOrderComponent implements OnInit {
       this.shipmentInformation.patchValue({ 'codAmount': 0 })
     } else if (val === 'COD') {
       this.notPrepaid = true;
-      this.shipmentInformation.patchValue({ 'codAmount': this.shipmentInformation.get("shipmentValue").value})
+      this.shipmentInformation.patchValue({ 'codAmount': this.shipmentInformation.get("shipmentValue").value })
     }
   }
   checkSarokhPoint(value) {
