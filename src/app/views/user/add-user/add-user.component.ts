@@ -48,7 +48,7 @@ export class AddUserComponent implements OnInit {
           roleId: [this.singleUser.roleId],
           userName: [this.singleUser.userName],
           userPassword: [this.singleUser.userPassword],
-          parentTypeId: [''],
+          parentTypeId: [this.singleUser.role.id],
           userId:[''],
         })
       })

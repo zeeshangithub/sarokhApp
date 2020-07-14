@@ -72,20 +72,25 @@ export class AdddriversComponent implements OnInit {
           nicFile: [''],
           nicNumber: [res.nicNumber]
         })
-        this.vehicleDetailsForm = this.formbuilder.group({
-          cargoCapacity: [res.vehicle.cargoCapacity],
-          make: [res.vehicle.make],
-          model: [res.vehicle.model],
-          name: [res.vehicle.name],
-          productionYear: [res.vehicle.productionYear],
-          registrationFile: [''],
-          registrationNumber: [res.vehicle.registrationNumber],
-          registrationYear: [res.vehicle.registrationYear],
-          type: [res.vehicle.type],
-          vehicleId: [res.vehicleId]
-        })
+        if (res.vehicle! == []) {
+          this.vehicleDetailsForm = this.formbuilder.group({
+            cargoCapacity: [res.vehicle.cargoCapacity],
+            make: [res.vehicle.make],
+            model: [res.vehicle.model],
+            name: [res.vehicle.name],
+            productionYear: [res.vehicle.productionYear],
+            registrationFile: [''],
+            registrationNumber: [res.vehicle.registrationNumber],
+            registrationYear: [res.vehicle.registrationYear],
+            type: [res.vehicle.type],
+            vehicleId: [res.vehicleId]
+          })
+        }
+
+        console.log("res", res)
         this.employeeFreelancerDetailsForm = this.formbuilder.group({
-          bank: [res.bankAccount.bank],
+
+
           compensation: [res.compensation],
           compensationCycle: [res.compensationCycle],
           contactValidTill: [res.contactValidTill],
@@ -93,6 +98,7 @@ export class AdddriversComponent implements OnInit {
           contactFile: [''],
           iban: [res.bankAccount.iban],
           bankAccountId: [res.bankAccount.id],
+          bank: [res.bankAccount.bank],
         })
         this.securityForm = this.formbuilder.group({
           username: [res.user.userName],

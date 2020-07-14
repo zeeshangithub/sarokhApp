@@ -20,6 +20,9 @@
                 <tr *ngFor="let shipments of allShipments">
                     <td>
                         <i style="font-size: 20px; color: #337ab7;" (click)=viewOrder(shipments.id) class="fa fa-info-circle float-right mr-2 mb-3"></i>
+                        
+                  
+                
                     </td>
                     <td>{{shipments.shipmentId}}</td>
                     <td>{{shipments.dateTime}}</td>
