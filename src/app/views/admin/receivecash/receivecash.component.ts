@@ -8,17 +8,19 @@ import { AdminMisService } from '../../../services/adminMis.service';
   styleUrls: ['./receivecash.component.css']
 })
 export class ReceivecashComponent implements OnInit {
+  allLedgers;
 
 
   reciveCashForm: FormGroup;
-  constructor(private formbuilder: FormBuilder, private receiveCash : AdminMisService) { }
+  constructor(private formbuilder: FormBuilder, private receiveCash: AdminMisService) { }
 
   ngOnInit(): void {
     this.initializeReciveCashForm();
+    this.getLedgerList();
   }
 
 
-  initializeReciveCashForm(){
+  initializeReciveCashForm() {
     this.reciveCashForm = this.formbuilder.group({
       amount: ['', [Validators.required]],
       bill: ['', [Validators.required]],
@@ -31,17 +33,25 @@ export class ReceivecashComponent implements OnInit {
       transactionFrom: ['', [Validators.required]],
       transactionId: ['', [Validators.required]],
       transactionTo: [],
-      transactionType: ['', [Validators.required]],
+      transactionType: ['Credit', [Validators.required]],
       userId: []
     })
   }
-  addReceiveCash(){
+  getLedgerList() {
 
-    console.log("this.reciveCashForm.value" , this.reciveCashForm.value )
+    this.receiveCash.getLedgerList().subscribe(res => {
+      console.log("res", res)
+      this.allLedgers = res.data
+
+    })
+  }
+  addReceiveCash() {
+
+    console.log("this.reciveCashForm.value", this.reciveCashForm.value)
     this.reciveCashForm.get('transactionTo').setValue("Sarokh")
-    this.receiveCash.receiveCashService(this.reciveCashForm.value).subscribe(res=>{
-      console.log("res" , res)
-      if(res.status === 200){
+    this.receiveCash.receiveCashService(this.reciveCashForm.value).subscribe(res => {
+      console.log("res", res)
+      if (res.status === 200) {
         this.reciveCashForm.reset();
       }
     })

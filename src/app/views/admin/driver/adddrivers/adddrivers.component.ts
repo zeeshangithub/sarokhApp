@@ -51,6 +51,7 @@ export class AdddriversComponent implements OnInit {
       this.editMode = true;
       this.driverService.GetSingleDriver(sharedId).subscribe(res => {
         console.log(res)
+        this.getCityData(res.country);
         this.basicInfoForm = this.formbuilder.group({
           firstName: [res.firstName],
           lastName: [res.lastName],
@@ -93,7 +94,7 @@ export class AdddriversComponent implements OnInit {
 
           compensation: [res.compensation],
           compensationCycle: [res.compensationCycle],
-          contactValidTill: [res.contactValidTill],
+          contactValidTill: [res.contractValidTill],
           contractStartDate: [res.contractStartDate],
           contactFile: [''],
           iban: [res.bankAccount.iban],

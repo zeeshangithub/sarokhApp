@@ -11,17 +11,19 @@ export class AdminMisService {
 
   constructor(private http: HttpClient) { }
 
-  receiveCashService(FormData){
+  receiveCashService(FormData) {
     return this.http.post<any>(`${environment.apiURL}finance/receive-cash-by-cashier`, FormData);
   }
 
+  getLedgerList() {
+    return this.http.get<any>(`${environment.apiURL}ledger/get-list`);
+  }
 
-  
-  dispenseCashService(FormData , parentRole){
+  dispenseCashService(FormData, parentRole) {
     return this.http.post<any>(`${environment.apiURL}/finance/dispensing-cash/${parentRole}`, FormData);
   }
-  
-  upoadFileService(file ){
+
+  upoadFileService(file) {
     const formData = new FormData();
     formData.append('file', file);
     return this.http.post<any>(`${environment.apiURL}upload-file`, formData);

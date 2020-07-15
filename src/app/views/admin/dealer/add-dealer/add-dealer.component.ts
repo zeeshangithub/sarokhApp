@@ -73,6 +73,7 @@ export class AddDealerComponent implements OnInit {
     if (this.sharedID) {
       this.ifEditMode = true;
       this.dealerService.getSingleDealer(this.sharedID).subscribe(res => {
+        this.getCityData(res.country);
         console.log("selectedDealer", res)
         this.selectedDealer = res;
         console.log("this.selectedDealer", this.selectedDealer)

@@ -8,28 +8,37 @@
                 <form [formGroup]="dispenseCashForm" (ngSubmit)="adddispenseCash()">
                     <div class="form-row mb-3">
                         <div class="col">
+                            <!-- <input type="text" class="form-control" placeholder="Ledger Name" formControlName="ledgerName" /> -->
+                            <select class="form-control" id="ledgerNo" formControlName="ledgerNo">
+                                <option value="">--- Ledger No ---</option>
+                                <option *ngFor="let ledger of allLedgers" value="ledger.id">{{ledger.id}}</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <!-- <input type="text" class="form-control" placeholder="Ledger Name" formControlName="ledgerName" /> -->
+                            <select class="form-control" id="ledgerName" formControlName="ledgerName">
+                                <option value="">--- Ledger Name ---</option>
+                                <option value="shipperCod">Shipper COD</option>
+                                <option value="shipperDelivery">Shipper Delivery Charges</option>
+                                <option value="driverPayout">Driver Payout</option>
+                                <option value="dealerPayout">Dealer Payout</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
+                            <input type="text" disabled class="form-control" placeholder="Transaction Type" formControlName="transactionType" />
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Transaction To" formControlName="transactionTo" />
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class="col">
                             <input type="text" class="form-control" placeholder="Amount" formControlName="amount" />
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Bill" formControlName="bill" />
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
                             <input type="text" class="form-control" placeholder="Details" formControlName="details" />
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Ledger Name" formControlName="ledgerName" />
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Date time" formControlName="datetime" [owlDateTime]="datetime" [owlDateTimeTrigger]="datetime"
-                                [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" required>
-                            <owl-date-time [pickerType]="'calendar'" #datetime></owl-date-time>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Payment Description" formControlName="paymentDescription" />
                         </div>
                     </div>
                     <div class="form-row mb-3">
@@ -37,12 +46,7 @@
                             <input type="text" class="form-control" placeholder="Payment Method" formControlName="paymentMethod" />
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Transaction From" formControlName="transactionFrom" />
-                        </div>
-                    </div>
-                    <div class="form-row mb-3">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Transaction Type" formControlName="transactionType" />
+                            <input type="text" class="form-control" placeholder="Payment Description" formControlName="paymentDescription" />
                         </div>
                     </div>
                     <button *ngIf="!editUser" type="submit" class="btn btn-success">Submit</button>
