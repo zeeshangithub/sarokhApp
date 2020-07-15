@@ -107,7 +107,7 @@ export class AddDealerComponent implements OnInit {
             bankName: [this.selectedDealer.bankAccount.bank],
             compensationClearanceDuration: [this.selectedDealer.compensationClearanceDuration],
             contractStartDate: [this.selectedDealer.contractStartDate],
-            contractValidToDate: [this.selectedDealer.contractValidToDate],
+            contractValidToDate: [this.selectedDealer.contractEndDate],
             contractFile: [''],
             iban: [this.selectedDealer.bankAccount.iban],
             preShipmentCompensation: [this.selectedDealer.preShipmentsCompensation],
