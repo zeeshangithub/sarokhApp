@@ -19,12 +19,18 @@
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="City" formControlName="city">
+                <label>Select Country</label>
+                <select id="selectid" class="form-control" formControlName="country" (change)="getCityData($event.target.value)">
+                  <option value="">---Select Country---</option>
+                  <option [value]="country.code" *ngFor="let country of allCountryList">{{country.name}}</option>
+                </select>
               </div>
               <div class="form-group col-md-6">
-                <label for="country">Country</label>
-                <input type="text" class="form-control" id="country" placeholder="Country" formControlName="country">
+                <label>Select City</label>
+                <select id="selectid" class="form-control" formControlName="city">
+                  <option value="">---Select City---</option>
+                  <option [value]="city" *ngFor="let city of allcities">{{city}}</option>
+                </select>
               </div>
             </div>
             <div class="form-row">
@@ -99,39 +105,31 @@
 
         <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid">
           <form [formGroup]="amenities">
-            <div class="form-row margintop30">
-              <div class="form-group col-md-6 padddingleft110">
-                <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="forkliftertrue" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="1" >
-                  <label class="custom-control-label green" for="forkliftertrue">Yes</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="forklifterfalse" name="forkLifter" class="custom-control-input" formControlName="forkLifter" value="0" >
-                  <label class="custom-control-label red" for="forklifterfalse">No</label>
-                </div>
-              </div>
-              <div class="form-group col-md-6 padddingleft110">
-                <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannertrue" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="1" >
-                  <label class="custom-control-label green" for="qrscannertrue">Yes</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" id="qrscannerfalse" name="qrscanner" class="custom-control-input" formControlName="qrscanner" value="0" >
-                  <label class="custom-control-label red" for="qrscannerfalse">No</label>
-                </div>
-              </div>
-              <div class="form-group col-md-4">
-                <div class="float-right">
-                  <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrintertrue" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="1">
-                    <label class="custom-control-label green" for="thermalPrintertrue">Yes</label>
+            <div class="margintop30">
+              <div class="margintop30">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label style="margin-right: 10px; font-weight: bold;">Fork Lifter</label>
+                    <select class="form-control" formControlName="forkLifter">
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
                   </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="thermalPrinterfasle" name="thermalPrinter" class="custom-control-input" formControlName="thermalPrinter" value="0">
-                    <label class="custom-control-label red" for="thermalPrinterfasle">No</label>
+                  <div class="form-group col-md-6">
+                    <label style="margin-right: 10px; font-weight: bold;">QR Scanner</label>
+                    <select class="form-control" formControlName="qrscanner">
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label style="margin-right: 10px; font-weight: bold;">Thermal Printer</label>
+                    <select class="form-control" formControlName="thermalPrinter">
+                      <option value="true">Yes</option>
+                      <option value="false">No</option>
+                    </select>
                   </div>
                 </div>
               </div>

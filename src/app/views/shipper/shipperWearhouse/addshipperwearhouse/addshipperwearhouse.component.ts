@@ -42,7 +42,7 @@ export class AddshipperwearhouseComponent implements OnInit {
   showlisting = new EventEmitter<boolean>();
   @Output() editDone = new EventEmitter<string>();
 
-  
+
   constructor(
     private formbuilder: FormBuilder,
     private shipperwarehouse: ShipperWearhouseService,
@@ -90,6 +90,7 @@ export class AddshipperwearhouseComponent implements OnInit {
       console.log("sharedId", sharedId);
       this.shipperwarehouse.fetchSingleWarehouse(sharedId).subscribe(res => {
         console.log("res", res)
+        this.getCityData(res.country);
         this.warehouseadress = this.formbuilder.group({
           name: [res.name],
           address: [res.address],
@@ -114,7 +115,7 @@ export class AddshipperwearhouseComponent implements OnInit {
           thermalPrinter: [res.thermalPrinter],
           qrscanner: [res.qrscanner],
         })
-        
+
         // this.amenities.patchValue({
         //   forkLifter: [res.forkLifter[0]],
         //   thermalPrinter: [res.thermalPrinter[0]],

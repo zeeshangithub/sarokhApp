@@ -10,13 +10,15 @@ import { SarokhwearhouseService } from '../../../../services/sarokhwearhouse.ser
 import { ToastrService } from 'ngx-toastr';
 import { MAT_DRAWER_DEFAULT_AUTOSIZE_FACTORY } from '@angular/material';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+import { CityCountryService } from '../../../../services/cityCountry.service'
 @Component({
   selector: 'app-addsarokhwearhouse',
   templateUrl: './addsarokhwearhouse.component.html',
   styleUrls: ['./addsarokhwearhouse.component.css']
 })
 export class AddsarokhwearhouseComponent implements OnInit {
-
+  allcities;
+  allCountryList;
 
   ngAfterViewInit() {
     // this.renderMap();
@@ -50,6 +52,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
     private toaster: ToastrService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
+    private countryCityList: CityCountryService,
   ) { }
 
   ngOnInit(): void {
@@ -60,6 +63,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
     // this.shipmentDetails = [];
 
     // this.addShipmentDetail();
+    this.getCountryList();
     this.initializeWarehouseAdress();
     this.initializeWarehouseManager();
     this.initializeamenities();
@@ -71,6 +75,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
       this.editwarehouse = true;
       this.sarokhwarehouse.fetchSingleWarehouse(sharedId).subscribe(res => {
         console.log("single", res)
+        this.getCityData(res.country);
         this.warehouseadress = this.formbuilder.group({
           name: [res.name],
           address: [res.address],
@@ -151,6 +156,19 @@ export class AddsarokhwearhouseComponent implements OnInit {
       }
     });
   }
+  getCountryList() {
+    this.countryCityList.fetchCountryList().subscribe(res => {
+      this.allCountryList = res.data;
+    })
+  }
+  getCityData(id) {
+
+    this.countryCityList.fetchCityByCountry(id).subscribe(res => {
+      console.log("res", res)
+      this.allcities = res.data
+
+    })
+  }
   closeAdd() {
     this.showlisting.emit(true);
     this.storagecapacity.reset();
@@ -166,7 +184,7 @@ export class AddsarokhwearhouseComponent implements OnInit {
   finishFunction() {
 
 
-    this.warehouseadress.patchValue({ 'locationLongitude': this.longitude});
+    this.warehouseadress.patchValue({ 'locationLongitude': this.longitude });
     this.warehouseadress.patchValue({ 'locationLatitude': this.latitude });
     console.log(this.warehouseadress.value);
 
@@ -247,4 +265,3 @@ export class AddsarokhwearhouseComponent implements OnInit {
   }
 
 }
-  
