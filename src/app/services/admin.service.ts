@@ -127,4 +127,9 @@ export class AdminService {
     return this.http.get<any>(`${environment.apiURL}admin/get-shipper-billing`);
   }
 
+  addDeliveryCharges(formData: any) {
+    console.log(formData);
+    return this.http.post<any>(`${environment.apiURL}shipper/add-delivery-charges`, formData);
+  }
+
 }

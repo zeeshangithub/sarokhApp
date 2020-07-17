@@ -1,0 +1,79 @@
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card card-accent-primary">
+            <div class="card-header">
+                Delivery Charges
+            </div>
+            <div class="card-body">
+
+                <form [formGroup]="chargesForm" (ngSubmit)="submit()">
+                    <div class="form-row mb-3">
+                        <div class="col-sm-6 form-group">
+                            <div class="form-group col-md-12">
+                                <label style="margin-right: 10px; font-weight: bold;">Select Shipper</label>
+                                <select class="form-control" id="shipper" formControlName="shipper">
+                                    <option [value]="shipper.id" *ngFor="let shipper of shipperList">{{shipper.firstName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-3">
+                        <div class=" col-sm-6">
+                            <div class="col-sm-12 form-group">
+                                <h3 style="font-size:15px; font-weight: bold;">Delivery To Point</h3>
+                                <label>Up To 5kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 5kg" formControlName="weightUptoFiveKgPoint">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>Up To 10kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 10kg" formControlName="weightFiveToTenPoint">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>More Than 15kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 15kg" formControlName="weightTenToFifteenPoint">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>Return Charges</label>
+                                <input type="text" class="form-control" placeholder="Return Charges" formControlName="returnChargesPoint">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>COD</label>
+                                <input type="text" class="form-control" placeholder="COD" formControlName="codchargesPoint">
+                            </div>
+                        </div>
+                        <div class=" col-sm-6">
+                            <div class="col-sm-12 form-group">
+                                <h3 style="font-size:15px; font-weight: bold;">Last Mile Delivery</h3>
+                                <label>Up To 5kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 5kg" formControlName="weightUptoFiveKg">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>Up To 10kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 10kg" formControlName="weightFiveToTen">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>More Than 15kg</label>
+                                <input type="text" class="form-control" placeholder="Up To 15kg" formControlName="weightTenToFifteen">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>Return Charges</label>
+                                <input type="text" class="form-control" placeholder="Return Charges" formControlName="returnCharges">
+                            </div>
+                            <div class="col-sm-12 form-group">
+                                <label>COD</label>
+                                <input type="text" class="form-control" placeholder="COD" formControlName="codcharges">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="float-right pr-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

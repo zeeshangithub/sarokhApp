@@ -48,6 +48,7 @@ import { AddsarokhwearhouseComponent } from './sarokhWearhouse/addsarokhwearhous
 import { SarokhwearhouselistComponent } from './sarokhWearhouse/sarokhwearhouselist/sarokhwearhouselist.component';
 import { PrintLabelsComponent } from './warehouse/print-labels/print-labels.component';
 import { AddLedgerComponent } from './finance/add-ledger/add-ledger.component';
+import { DeliverychargesComponent } from './shippers/deliverycharges/deliverycharges.component';
 
 
 const routes: Routes = [
@@ -252,6 +253,10 @@ const routes: Routes = [
   {
     path: 'addledger',
     component: AddLedgerComponent,
+  },
+  {
+    path: 'deliverycharges',
+    component: DeliverychargesComponent,
   }
 ]
 @NgModule({

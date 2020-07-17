@@ -118,6 +118,11 @@ export const navItems: INavData[] = [
                 url: '/admin/shippersbilling',
                 icon: 'fas fa-shipping-fast'
             },
+            {
+                name: 'Deliver Charges',
+                url: '/admin/deliverycharges',
+                icon: 'fas fa-shipping-fast'
+            },
         ]
     },
     {

@@ -86,22 +86,22 @@
                   <option value="">Delivery Location </option>
                   <!-- <option [value]="user.id" *ngFor="let user of template.users">{{user.fullName}}</option> -->
                   <option value="To Sarokh Point">Select Delivery Location Now</option>
-                  <option value="To Predefined Location">Reciever Define</option>
+                  <option value="To Predefined Location">Let the Receive Choose</option>
                 </select>
                 <div class="mt-3" *ngIf="dealerPointList">
-                  <label name="sarokhPointRadio">Sarokh Point</label>
+                  <label name="sarokhPointRadio">Choose the type of delivery location</label>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="sarokhPointRadio" (change)="checkSarokhPoint($event)" formControlName="sarokhPointRadio"
                       id="indeliverycase" value="indeliverycase" checked>
                     <label class="form-check-label" for="indeliverycase">
-                      Last Mile
+                      Customer's Address
                     </label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="sarokhPointRadio" (change)="checkSarokhPoint($event)" formControlName="sarokhPointRadio"
                       id="selectNow" value="selectNow">
                     <label class="form-check-label" for="selectNow">
-                      Select Sarokh Point
+                      Sarokh Point
                     </label>
                   </div>
                 </div>
