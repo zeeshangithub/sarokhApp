@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminService } from '../../../../services/admin.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-deliverycharges',
@@ -10,15 +11,15 @@ import { AdminService } from '../../../../services/admin.service';
 export class DeliverychargesComponent implements OnInit {
   finalresponse: any = [];
   public shipperList;
-  shipperId;
   chargesForm: FormGroup;
-  constructor(private formbuilder: FormBuilder, private shipperDetailList: AdminService, ) { }
+  constructor(private formbuilder: FormBuilder, private shipperDetailList: AdminService, private toaster: ToastrService) { }
   ngOnInit(): void {
     this.getShipperList();
     this.initializeDeliveryChargesForm();
   }
   initializeDeliveryChargesForm() {
     this.chargesForm = this.formbuilder.group({
+      shipperId: [''],
       shipperDetail: [''],
       chargesTypePoint: ['PUDO'],
       codchargesPoint: ['', [Validators.required]],
@@ -44,33 +45,35 @@ export class DeliverychargesComponent implements OnInit {
     })
   }
   submit() {
-    debugger;
     let fullFormData = {
       "lastMileDelivery": {
-        "chargesType": this.chargesForm.controls['chargesType'],
-        "codcharges": this.chargesForm.controls['codcharges'],
-        "id": this.chargesForm.controls['id'],
-        "returnCharges": this.chargesForm.controls['returnCharges'],
-        "shipperId": this.chargesForm.controls['shipperId'],
-        "weightFiveToTen": this.chargesForm.controls['weightFiveToTen'],
-        "weightTenToFifteen": this.chargesForm.controls['weightTenToFifteen'],
-        "weightUptoFiveKg": this.chargesForm.controls['weightUptoFiveKg']
+        "chargesType": this.chargesForm.controls['chargesType'].value,
+        "codcharges": this.chargesForm.controls['codcharges'].value,
+        "id": this.chargesForm.controls['id'].value,
+        "returnCharges": this.chargesForm.controls['returnCharges'].value,
+        "shipperId": this.chargesForm.controls['shipperId'].value,
+        "weightFiveToTen": this.chargesForm.controls['weightFiveToTen'].value,
+        "weightTenToFifteen": this.chargesForm.controls['weightTenToFifteen'].value,
+        "weightUptoFiveKg": this.chargesForm.controls['weightUptoFiveKg'].value
       },
       "pointDelivery": {
-        "chargesType": this.chargesForm.controls['chargesTypePoint'],
-        "codcharges": this.chargesForm.controls['codchargesPoint'],
-        "id": this.chargesForm.controls['idPoint'],
-        "returnCharges": this.chargesForm.controls['returnChargesPoint'],
-        "shipperId": this.chargesForm.controls['shipperIdPoint'],
-        "weightFiveToTen": this.chargesForm.controls['weightFiveToTenPoint'],
-        "weightTenToFifteen": this.chargesForm.controls['weightTenToFifteenPoint'],
-        "weightUptoFiveKg": this.chargesForm.controls['weightUptoFiveKg']
+        "chargesType": this.chargesForm.controls['chargesTypePoint'].value,
+        "codcharges": this.chargesForm.controls['codchargesPoint'].value,
+        "id": this.chargesForm.controls['idPoint'].value,
+        "returnCharges": this.chargesForm.controls['returnChargesPoint'].value,
+        "shipperId": this.chargesForm.controls['shipperId'].value,
+        "weightFiveToTen": this.chargesForm.controls['weightFiveToTenPoint'].value,
+        "weightTenToFifteen": this.chargesForm.controls['weightTenToFifteenPoint'].value,
+        "weightUptoFiveKg": this.chargesForm.controls['weightUptoFiveKg'].value
       },
-      "shipperId": this.chargesForm.controls['shipper'],
+      "shipperId": this.chargesForm.controls['shipperId'].value
     }
-    this.finalresponse.push(fullFormData);
     this.shipperDetailList.addDeliveryCharges(fullFormData).subscribe(res => {
-      console.log(res);
+      if (res.status == 200) {
+        this.toaster.success(res.message);
+      } else {
+        this.toaster.error(res.message);
+      }
     }, err => {
 
     })

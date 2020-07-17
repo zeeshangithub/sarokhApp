@@ -1,6 +1,6 @@
 <div class="card margintop50">
   <div class="card-header">
-    Add Sarokh Warehouse
+    {{pageHeading}}
   </div>
   <div class="card-body">
     <div class="wizard-container">
@@ -43,21 +43,22 @@
                 <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
                   <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
                 </agm-map>
-                <div class="form-row">
+                <div class="form-row mt-2">
                   <div class="form-group col-md-6">
-                    <!-- <h5>Address: {{address}}</h5> -->
-                    <div>Latitude: {{latitude}}</div>
+                    <div>Latitude:
+                      <!-- {{latitude}} -->
+                      <input class="form-control" type="text" value={{latitude}} />
+                    </div>
 
                   </div>
                   <div class="form-group col-md-6">
-                    <div>Longitude: {{longitude}}</div>
+                    <div>Longitude:
+                      <input class="form-control" type="text" value={{longitude}} />
+                    </div>
                   </div>
                 </div>
 
               </div>
-            </div>
-            <div class="btn-container float-left">
-              <button class="btn btn-success" type="button" (click)="closeAdd()">Cancel</button>
             </div>
             <div class="btn-container float-right">
               <button class="btn btn-success" type="button" (click)="showErrorWareHouseAddress()" awNextStep>Next Step</button>
@@ -92,9 +93,6 @@
                     formControlName="operationalTime"> -->
               </div>
             </div>
-            <div class="btn-container float-left">
-              <button class="btn btn-success" type="button" (click)="closeAdd()">Cancel</button>
-            </div>
             <div class="btn-container float-right">
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
               <button class="btn btn-success" type="button" (click)="showErrorWareHouseManager()" awNextStep>Next step</button>
@@ -102,7 +100,6 @@
           </form>
 
         </aw-wizard-step>
-
         <aw-wizard-step stepTitle="Amenities" [canExit]="amenities.valid">
           <form [formGroup]="amenities">
             <div class="margintop30">
@@ -135,9 +132,6 @@
               </div>
             </div>
           </form>
-          <div class="btn-container float-left">
-            <button class="btn btn-success" type="button" (click)="closeAdd()">Cancel</button>
-          </div>
           <div class="btn-container float-right">
             <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
             <button class="btn btn-success" type="button" (click)="showErrorAmenities()" awNextStep>Next step</button>
@@ -166,11 +160,7 @@
                     formControlName="operationalTime">
                 </div> -->
             </div>
-            <div class="btn-container float-left">
-              <button class="btn btn-success" type="button" (click)="updateWarehouse()">Update</button>
-            </div>
             <div class="btn-container float-right">
-
               <button class="btn btn-secondary dark-grey" type="button" awPreviousStep>Go to previous step</button>
               <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
             </div>

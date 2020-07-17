@@ -24,28 +24,28 @@ export const navItems: INavData[] = [
             }
         ]
     },
-    {
-        name: 'Orders',
-        url: '/shipment',
-        icon: 'fas fa-dolly-flatbed',
-        children: [
-            {
-                name: 'All Orders',
-                url: 'shipment/allshipment',
-                icon: 'fas fa-dolly-flatbed'
-            },
-            // {
-            //     name: 'Pickup Orders',
-            //     url: '/admin/pickuporders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-            // {
-            //     name: 'Delivery Orders',
-            //     url: '/admin/deliveryorders',
-            //     icon: 'fas fa-dolly-flatbed'
-            // },
-        ]
-    },
+    // {
+    //     name: 'Orders',
+    //     url: '/shipment',
+    //     icon: 'fas fa-dolly-flatbed',
+    //     children: [
+    //         {
+    //             name: 'All Orders',
+    //             url: 'shipment/allshipment',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //         {
+    //             name: 'Pickup Orders',
+    //             url: '/admin/pickuporders',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //         {
+    //             name: 'Delivery Orders',
+    //             url: '/admin/deliveryorders',
+    //             icon: 'fas fa-dolly-flatbed'
+    //         },
+    //     ]
+    // },
     {
         name: 'Shipments',
         url: '/dashboard',
@@ -140,32 +140,31 @@ export const navItems: INavData[] = [
                 url: '/admin/sarokhwearhouselist',
                 icon: 'fas fa-warehouse',
             },
-            {
-                name: 'Inventory Management',
-                url: '/admin/inventoryManagement',
-                icon: 'fas fa-warehouse',
-            },
-            {
-                name: 'Driver Allocation',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
-            {
-                name: 'Oprators',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
+            // {
+            //     name: 'Inventory Management',
+            //     url: '/admin/inventoryManagement',
+            //     icon: 'fas fa-warehouse',
+            // },
+            // {
+            //     name: 'Driver Allocation',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // },
+            // {
+            //     name: 'Oprators',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // },
             {
                 name: 'Print Label',
                 url: '/admin/printlabels',
-
                 icon: 'fas fa-print'
             },
-            {
-                name: 'Inventory Reconcilation',
-                url: '/base/cards',
-                icon: 'icon-map'
-            },
+            // {
+            //     name: 'Inventory Reconcilation',
+            //     url: '/base/cards',
+            //     icon: 'icon-map'
+            // },
         ]
     },
     {
@@ -343,11 +342,11 @@ export const navItems: INavData[] = [
                 url: '/user',
                 icon: 'fas fa-users'
             },
-            {
-                name: 'Rolls & Permission Management',
-                url: '/base/carousels',
-                icon: 'icon-map'
-            }
+            // {
+            //     name: 'Rolls & Permission Management',
+            //     url: '/base/carousels',
+            //     icon: 'icon-map'
+            // }
         ]
     },
     {

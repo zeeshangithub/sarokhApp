@@ -19,7 +19,7 @@ import { CityCountryService } from '../../../../services/cityCountry.service'
 export class AddsarokhwearhouseComponent implements OnInit {
   allcities;
   allCountryList;
-
+  pageHeading = "Add Sarokh Warehouse";
   ngAfterViewInit() {
     // this.renderMap();
   }
@@ -76,7 +76,9 @@ export class AddsarokhwearhouseComponent implements OnInit {
       this.sarokhwarehouse.fetchSingleWarehouse(sharedId).subscribe(res => {
         console.log("single", res)
         this.getCityData(res.country);
+        this.pageHeading = "Edit Sarokh Warehouse";
         this.warehouseadress = this.formbuilder.group({
+          id: [res.id],
           name: [res.name],
           address: [res.address],
           city: [res.city],
@@ -206,15 +208,28 @@ export class AddsarokhwearhouseComponent implements OnInit {
     };
 
     console.log("fullFormData", fullRequest)
-    this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
-      console.log("res", res)
-      if (res.managerName) {
-        this.toaster.success("Sarokh Warehouse Added Successfully");
-        this.router.navigate(['/admin/sarokhwearhouselist']);
-      }
-      localStorage.setItem("latitude", '');
-      localStorage.setItem("logitude", '');
-    })
+    if (this.editwarehouse == false) {
+      this.sarokhwarehouse.AddSarokhWarehouse(fullRequest).subscribe(res => {
+        console.log("res", res)
+        if (res.managerName) {
+          this.toaster.success("Sarokh Warehouse Added Successfully");
+          this.router.navigate(['/admin/sarokhwearhouselist']);
+        }
+        localStorage.setItem("latitude", '');
+        localStorage.setItem("logitude", '');
+      })
+    } else {
+      this.sarokhwarehouse.updateSarokhWearhouse(fullRequest).subscribe(res => {
+        console.log("res", res)
+        if (res.managerName) {
+          this.toaster.success("Sarokh Warehouse Added Successfully");
+          this.router.navigate(['/admin/sarokhwearhouselist']);
+        }
+        localStorage.setItem("latitude", '');
+        localStorage.setItem("logitude", '');
+      })
+    }
+
   }
   showErrorWareHouseAddress() {
     console.log(this.warehouseadress.valid);
