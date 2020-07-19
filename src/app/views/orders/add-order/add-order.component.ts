@@ -95,13 +95,13 @@ export class AddOrderComponent implements OnInit {
           orderId: [this.oderDetail.oderId],
           shipFromCity: [this.oderDetail.shipFromCity],
           shipToCity: [this.oderDetail.shipToCity],
-          // pickupType: [oderDetail.pickupType],
-          // shipmentType: [oderDetail.shipmentType],
+          pickupType: [this.oderDetail.pickupType],
+          deliveryLocation: [this.oderDetail.deliveryLocation],
           shipperId: [this.oderDetail.shipperId],
           id: [this.oderDetail.id]
         })
-        console.log(this.oderDetail.pickupLocation)
-        console.log(this.oderDetail.deliveryLocation)
+        // console.log(this.oderDetail.pickupLocation)
+        // console.log(this.oderDetail.deliveryLocation)
         // this.pickupAndDelivery = this.formbuilder.group({
         // dateTime: [oderDetail.dateTime],
         // warehouseId: [oderDetail.warehouseId],
@@ -112,6 +112,7 @@ export class AddOrderComponent implements OnInit {
         //   pickupType :[this.oderDetail.pickupLocation],
         //   deliveryLocation: [this.oderDetail.deliveryLocation]
         // })
+        this.orderBasicInfoForm.patchValue({ 'pickupType': this.oderDetail.pickupType });
         console.log(this.oderDetail)
         this.shipmentInformation.patchValue({ 'receiverName': this.oderDetail.shipmentOrderItems[0].receiverName });
         this.shipmentInformation.patchValue({ 'receiverMobileNumber': this.oderDetail.shipmentOrderItems[0].contact });
@@ -340,7 +341,7 @@ export class AddOrderComponent implements OnInit {
       if (res.status == 200) {
         this.toaster.success(res.message)
         this.showlisting.emit(true);
-  
+
       }
 
 
@@ -426,6 +427,7 @@ export class AddOrderComponent implements OnInit {
       this.dealerPointList = true;
     } else {
       this.dealerPointList = false;
+      this.showsarokhpointdropdown = false;
     }
   }
   private setCurrentLocation() {

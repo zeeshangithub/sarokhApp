@@ -112,13 +112,18 @@ export class AddLedgerComponent implements OnInit {
             this.newobj = this.shipperShipments.filter(
                 book => book.id === this.selectedShippment.id);
             console.log(this.newobj[0].shipmentBilledAmount)
-            this.sum = this.sum + this.newobj[0].shipmentBilledAmount;
+            if (this.newobj[0].shipmentBilledAmount) {
+                this.sum = this.sum + this.newobj[0].shipmentBilledAmount;
+            }
             this.selectedShipmentsIds.push(this.newobj[0].id);
             console.log("this.selectedShipmentsIds", this.selectedShipmentsIds)
             console.log(this.sum)
         } else if (event === false) {
             const index = this.selectedShipmentsIds.indexOf(this.selectedShippment.id)
             this.sum = this.sum - this.newobj[0].shipmentBilledAmount;
+            if (this.sum < 0) {
+                this.sum = 0;
+            }
             this.selectedShipmentsIds.splice(index, 1)
         }
         console.log("this.selectedShipmentsIds", this.selectedShipmentsIds)

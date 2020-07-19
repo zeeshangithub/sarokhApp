@@ -15,6 +15,7 @@ export class AddUserComponent implements OnInit {
   @Output()
   showlisting = new EventEmitter<boolean>();
   roles: any;
+  showRoleDropDown = true;
   userForm: FormGroup;
   submitted = false;
   message: string;
@@ -23,21 +24,24 @@ export class AddUserComponent implements OnInit {
   userid;
   constructor(private formbuilder: FormBuilder, private userService: UserService,
     private router: Router,
-    private data: DataService ,
+    private data: DataService,
     private toaster: ToastrService
-    ) { }
+  ) { }
   get f() { return this.userForm.controls; }
   ngOnInit(): void {
     this.initializeUserForm();
     this.fetchUserRoles();
     const text = this.data.getID();
     console.log("text", text)
-    if(text){
+    if (text) {
       this.editUser = true;
       this.userService.fetchSingleUser(text).subscribe(res => {
-        this.singleUser  = res.data;
-        this.userid  = this.singleUser.id;
-        console.log("this.singleUser" , this.singleUser)
+        this.singleUser = res.data;
+        this.userid = this.singleUser.id;
+        console.log("this.singleUser", this.singleUser)
+        if (this.singleUser.role.id === 2 || this.singleUser.role.id === 3) {
+          this.showRoleDropDown = false;
+        }
         this.userForm = this.formbuilder.group({
           contact: [this.singleUser.contact],
           designation: [this.singleUser.designation],
@@ -45,11 +49,11 @@ export class AddUserComponent implements OnInit {
           email: [this.singleUser.email],
           fullName: [this.singleUser.fullName],
           gender: [this.singleUser.gender],
-          roleId: [this.singleUser.roleId],
+          roleId: [this.singleUser.role.id],
           userName: [this.singleUser.userName],
           userPassword: [this.singleUser.userPassword],
           parentTypeId: [this.singleUser.role.id],
-          userId:[''],
+          userId: [''],
         })
       })
     }
@@ -57,7 +61,7 @@ export class AddUserComponent implements OnInit {
 
   initializeUserForm() {
     this.userForm = this.formbuilder.group({
-      userId:[''],
+      userId: [''],
       contact: ['', [Validators.required]],
       designation: ['', [Validators.required]],
       dob: ['', [Validators.required]],
@@ -68,13 +72,13 @@ export class AddUserComponent implements OnInit {
       userName: ['', [Validators.required]],
       userPassword: ['', [Validators.required]],
       parentTypeId: [''],
-  
+
     })
   }
 
   fetchUserRoles(): void {
-      const selectedRoel =  localStorage.getItem('role');
-      this.userService.fetchUserRoleByParentRole(selectedRoel).subscribe(res => {
+    const selectedRoel = localStorage.getItem('role');
+    this.userService.fetchUserRoleByParentRole(selectedRoel).subscribe(res => {
       console.log("res", res)
       this.roles = res.data;
 
@@ -98,10 +102,10 @@ export class AddUserComponent implements OnInit {
       // this.userForm.patchValue({'parentTypeId' :parentTypeId  })
       console.log("this.userForm", this.userForm)
       this.userService.addShipperUser(this.userForm.value).subscribe(res => {
-        console.log("res" , res)
-        if(res.status == 200){
+        console.log("res", res)
+        if (res.status == 200) {
           this.toaster.success(res.message);
-           this.router.navigate(['user']);
+          this.router.navigate(['user']);
         }
         // this.toaster.success(res.)
         // this.router.navigate(['user']);
@@ -118,7 +122,7 @@ export class AddUserComponent implements OnInit {
       this.userForm.get('parentTypeId').setValue(parentTypeId);
       this.userService.addUser(this.userForm.value).subscribe(res => {
         // alert('Order created successfully')
-        console.log("res" , res);
+        console.log("res", res);
         this.router.navigate(['user']);
       })
     }
@@ -128,14 +132,15 @@ export class AddUserComponent implements OnInit {
     this.userForm.reset();
     this.data.setID("")
   }
-  updateUser(){
-    console.log("user" , this.userid)
-    console.log("this.userForm.value" , this.userForm.value)
+  updateUser() {
+    console.log("user", this.userid)
+    console.log("this.userForm.value", this.userForm.value)
     console.log(this.userForm.get["userId"]);
     this.userForm.controls['userId'].setValue(this.userid)
-    console.log("this.userForm.value" , this.userForm.value)
-    this.userService.updateShipperUser(this.userForm.value).subscribe(res=>{
-      console.log("res" , res)
+    console.log("this.userForm.value", this.userForm.value)
+    this.userService.updateShipperUser(this.userForm.value).subscribe(res => {
+      console.log("res", res)
+      this.router.navigate(['user']);
     })
 
   }
