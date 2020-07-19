@@ -237,6 +237,7 @@ export class AddOrderComponent implements OnInit {
       console.log("res", res)
       if (res.status == 200) {
         this.toaster.success(res.message)
+        this.showlisting.emit(true);
         this.router.navigate(['shipment/allshipment']);
       }
     })
@@ -336,6 +337,12 @@ export class AddOrderComponent implements OnInit {
     this.orderService.updateOrder(this.finalresponse[0]).subscribe(res => {
 
       console.log("res", res);
+      if (res.status == 200) {
+        this.toaster.success(res.message)
+        this.showlisting.emit(true);
+  
+      }
+
 
     })
   }
