@@ -78,7 +78,9 @@ export class AddDealerComponent implements OnInit {
         this.selectedDealer = res;
         console.log("this.selectedDealer", this.selectedDealer)
         // const dateOfBirth = new Date(this.selectedDealer.dateOfBirth).toISOString()
-
+        this.latitude = this.selectedDealer.locationLatitude;
+        this.longitude = this.selectedDealer.locationLongitude;
+        this.zoom = 7;
         if (this.selectedDealer) {
           this.basicInfoForm = this.formbuilder.group({
             firstName: [this.selectedDealer.companyName],
@@ -95,11 +97,11 @@ export class AddDealerComponent implements OnInit {
             address: [this.selectedDealer.address],
             city: [this.selectedDealer.city],
             country: [this.selectedDealer.country],
-            zipCode: [this.selectedDealer.zipCode],
+            postCode: [this.selectedDealer.zipCode],
             crFile: [''],
             crNumber: [this.selectedDealer.crNumber],
-            locationLatitude: [''],
-            locationLongitude: [''],
+            locationLatitude: [this.selectedDealer.locationLatitude],
+            locationLongitude: [this.selectedDealer.locationLongitude],
             nicFile: [''],
             nicNumber: [this.selectedDealer.nicNumber]
           })
@@ -139,7 +141,7 @@ export class AddDealerComponent implements OnInit {
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      zipCode: ['', [Validators.required]],
+      postCode: ['', [Validators.required]],
       crFile: [''],
       crNumber: ['', [Validators.required]],
       locationLatitude: [''],
@@ -211,6 +213,8 @@ export class AddDealerComponent implements OnInit {
     console.log(this.securityForm.value);
     console.log(this.selectedDealer.id)
     this.basicInfoForm.get('profilePicture').setValue(this.filepath)
+    this.dealerDetailsForm.get('locationLatitude').setValue(this.latitude);
+    this.dealerDetailsForm.get('locationLongitude').setValue(this.longitude);
     // this.basicInfoForm.controls['id'].setValue(this.selectedDealer.id);
     // // this.basicInfoForm.controls['id'].setValue
     console.log(this.basicInfoForm.value);
